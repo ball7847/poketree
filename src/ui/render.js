@@ -99,13 +99,14 @@ export function renderGame(state, root) {
             <h2>성장</h2>
             <p>성장할수록 자연 획득량이 +0.1/s 증가한다.</p>
           </div>
-          <button id="grow-button" ${canGrow(state) ? "" : "disabled"}>성장하기</button>
+          <button id="grow-button" ${canGrow(state) ? "" : "disabled"} title="${canGrow(state) ? "성장 가능" : "필요한 풀·불꽃·물 에너지가 부족합니다."}">성장하기</button>
         </div>
         <div class="cost-row">
-          <span>풀 ${formatNumber(growthCost.grass)}</span>
-          <span>불꽃 ${formatNumber(growthCost.fire)}</span>
-          <span>물 ${formatNumber(growthCost.water)}</span>
+          <span class="${state.resources.energy.grass >= growthCost.grass ? "met" : "unmet"}">풀 ${formatNumber(state.resources.energy.grass)} / ${formatNumber(growthCost.grass)}</span>
+          <span class="${state.resources.energy.fire >= growthCost.fire ? "met" : "unmet"}">불꽃 ${formatNumber(state.resources.energy.fire)} / ${formatNumber(growthCost.fire)}</span>
+          <span class="${state.resources.energy.water >= growthCost.water ? "met" : "unmet"}">물 ${formatNumber(state.resources.energy.water)} / ${formatNumber(growthCost.water)}</span>
         </div>
+        ${!canGrow(state) ? `<p class="requirement-hint">성장 조건을 충족하면 버튼이 활성화됩니다. 물 자연 에너지는 기본적으로 밤에 획득합니다.</p>` : ""}
       </section>
 
       ${showPokemon ? `
