@@ -3,38 +3,76 @@ import { loadGame, saveGame, exportSave, importSave, resetSave } from "./persist
 import { performGrowth } from "./systems/growthSystem.js";
 import { simulate } from "./systems/gameLoop.js";
 import { renderGame } from "./ui/render.js";
+import {
+  snapshotOfflineState,
+  renderOfflineCalculating,
+  renderOfflineResult,
+} from "./ui/offlineModal.js";
 import { buyEcosystemExpansion } from "./systems/upgradeSystem.js";
 import { buyTreeDevelopment } from "./systems/treeDevelopmentSystem.js";
 
 const root = document.querySelector("#app");
 let state = loadGame();
 
-const now = Date.now();
-const offlineSeconds = Math.max(0, (now - state.time.lastUpdateAt) / 1000);
-simulate(state, offlineSeconds);
-state.time.lastUpdateAt = now;
-
 const LOGIC_TICK_SECONDS = 0.1;
+const OFFLINE_MODAL_THRESHOLD_SECONDS = 2;
 let previousFrameAt = performance.now();
 let logicAccumulator = 0;
 let renderAccumulator = 0;
 let pointerInteractionActive = false;
+let offlineModalOpen = false;
+let gameLoopStarted = false;
+
+function nextPaint() {
+  return new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+}
+
+async function processOfflineProgress() {
+  const now = Date.now();
+  const offlineSeconds = Math.max(0, (now - state.time.lastUpdateAt) / 1000);
+
+  if (offlineSeconds < OFFLINE_MODAL_THRESHOLD_SECONDS) {
+    simulate(state, offlineSeconds);
+    state.time.lastUpdateAt = now;
+    renderGame(state, root);
+    return;
+  }
+
+  const before = snapshotOfflineState(state);
+  offlineModalOpen = true;
+  renderOfflineCalculating(root, offlineSeconds);
+  await nextPaint();
+
+  simulate(state, offlineSeconds);
+  state.time.lastUpdateAt = now;
+  saveGame(state);
+  renderOfflineResult(root, before, state, offlineSeconds);
+}
+
+function startGameLoop() {
+  if (gameLoopStarted) return;
+  gameLoopStarted = true;
+  previousFrameAt = performance.now();
+  requestAnimationFrame(tick);
+}
 
 function tick(frameAt) {
   const deltaSeconds = Math.min((frameAt - previousFrameAt) / 1000, 1);
   previousFrameAt = frameAt;
 
-  logicAccumulator += deltaSeconds;
-  while (logicAccumulator >= LOGIC_TICK_SECONDS) {
-    simulate(state, LOGIC_TICK_SECONDS);
-    logicAccumulator -= LOGIC_TICK_SECONDS;
-  }
-  state.time.lastUpdateAt = Date.now();
+  if (!offlineModalOpen) {
+    logicAccumulator += deltaSeconds;
+    while (logicAccumulator >= LOGIC_TICK_SECONDS) {
+      simulate(state, LOGIC_TICK_SECONDS);
+      logicAccumulator -= LOGIC_TICK_SECONDS;
+    }
+    state.time.lastUpdateAt = Date.now();
 
-  renderAccumulator += deltaSeconds;
-  if (renderAccumulator >= 0.1 && !pointerInteractionActive) {
-    renderGame(state, root);
-    renderAccumulator = 0;
+    renderAccumulator += deltaSeconds;
+    if (renderAccumulator >= 0.1 && !pointerInteractionActive) {
+      renderGame(state, root);
+      renderAccumulator = 0;
+    }
   }
 
   requestAnimationFrame(tick);
@@ -55,6 +93,14 @@ window.addEventListener("pointercancel", () => {
 root.addEventListener("click", (event) => {
   const button = event.target.closest("button");
   if (!button || !root.contains(button)) return;
+
+  if (button.id === "offline-close-button") {
+    offlineModalOpen = false;
+    renderGame(state, root);
+    return;
+  }
+
+  if (offlineModalOpen) return;
 
   if (button.id === "grow-button") {
     if (performGrowth(state)) renderGame(state, root);
@@ -94,7 +140,9 @@ root.addEventListener("click", (event) => {
 });
 
 window.addEventListener("beforeunload", () => saveGame(state));
-setInterval(() => saveGame(state), SAVE_CONFIG.AUTOSAVE_INTERVAL_MS);
+setInterval(() => {
+  if (!offlineModalOpen) saveGame(state);
+}, SAVE_CONFIG.AUTOSAVE_INTERVAL_MS);
 
-renderGame(state, root);
-requestAnimationFrame(tick);
+await processOfflineProgress();
+startGameLoop();
