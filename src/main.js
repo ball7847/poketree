@@ -4,6 +4,7 @@ import { performGrowth } from "./systems/growthSystem.js";
 import { simulate } from "./systems/gameLoop.js";
 import { renderGame } from "./ui/render.js";
 import { buyEcosystemExpansion } from "./systems/upgradeSystem.js";
+import { buyTreeDevelopment } from "./systems/treeDevelopmentSystem.js";
 
 const root = document.querySelector("#app");
 const state = loadGame();
@@ -39,6 +40,10 @@ root.addEventListener("click", (event) => {
 
   if (event.target.id === "ecosystem-button") {
     if (buyEcosystemExpansion(state)) renderGame(state, root);
+  }
+
+  if (event.target.dataset.treeDevelopment) {
+    if (buyTreeDevelopment(state, event.target.dataset.treeDevelopment)) renderGame(state, root);
   }
 
   if (event.target.id === "save-button") {
