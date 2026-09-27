@@ -203,3 +203,13 @@ button.secondary {
   color: #66746a;
   font-size: 13px;
 }
+
+.save-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+button.danger {
+  color: #8b3a3a;
+}
