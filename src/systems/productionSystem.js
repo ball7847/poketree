@@ -1,4 +1,5 @@
 import { GROWTH_CONFIG } from "../data/gameData.js";
+import { D } from "../core/numberSystem.js";
 import { POKEMON_BY_ID } from "../data/pokemonData.js";
 import { ECOSYSTEM_EXPANSION } from "../data/upgradeData.js";
 import { TREE_DEVELOPMENTS } from "../data/treeDevelopmentData.js";
@@ -8,8 +9,8 @@ import { applyModifiers, createModifierBucket } from "./modifierSystem.js";
 import { getCurrentWeather } from "./weatherSystem.js";
 
 export function getBaseNaturalProduction(state) {
-  return GROWTH_CONFIG.NATURAL_PRODUCTION_BASE +
-    GROWTH_CONFIG.NATURAL_PRODUCTION_PER_GROWTH * state.progression.growth;
+  return D(GROWTH_CONFIG.NATURAL_PRODUCTION_BASE)
+    .plus(D(GROWTH_CONFIG.NATURAL_PRODUCTION_PER_GROWTH).times(state.progression.growth));
 }
 
 function isNaturalTypeActive(state, type, cycleState) {
@@ -73,14 +74,14 @@ export function calculateNaturalProductionPerSecond(state) {
 
   for (const type of state.resources.unlockedEnergyTypes) {
     if (!isNaturalTypeActive(state, type, cycleState)) {
-      result[type] = 0;
+      result[type] = D(0);
       continue;
     }
 
     const modifiers = collectProductionModifiers(state, {
       source: "natural", type, phase: cycleState.phase,
     });
-    result[type] = applyModifiers(base, modifiers) * getTypeFinalMultiplier(state, type);
+    result[type] = applyModifiers(base, modifiers).times(getTypeFinalMultiplier(state, type));
   }
   return result;
 }
@@ -94,7 +95,7 @@ export function calculatePokemonProductionPerSecond(state) {
     if (!pokemon) continue;
     for (const effect of pokemon.effects) {
       if (effect.kind !== "produce") continue;
-      baseByType[effect.type] = (baseByType[effect.type] ?? 0) + effect.amount;
+      baseByType[effect.type] = D(baseByType[effect.type]).plus(effect.amount);
     }
   }
 
@@ -103,7 +104,7 @@ export function calculatePokemonProductionPerSecond(state) {
     const modifiers = collectProductionModifiers(state, {
       source: "pokemon", type, phase: cycleState.phase,
     });
-    result[type] = applyModifiers(base, modifiers) * getTypeFinalMultiplier(state, type);
+    result[type] = applyModifiers(base, modifiers).times(getTypeFinalMultiplier(state, type));
   }
   return result;
 }
@@ -115,9 +116,9 @@ export function produceForInterval(state, deltaSeconds) {
   const pokemon = calculatePokemonProductionPerSecond(state);
 
   for (const [type, rate] of Object.entries(natural)) {
-    addEnergy(state, type, rate * deltaSeconds, "natural", cycleState.phase);
+    addEnergy(state, type, D(rate).times(deltaSeconds), "natural", cycleState.phase);
   }
   for (const [type, rate] of Object.entries(pokemon)) {
-    addEnergy(state, type, rate * deltaSeconds, "pokemon", cycleState.phase);
+    addEnergy(state, type, D(rate).times(deltaSeconds), "pokemon", cycleState.phase);
   }
 }
