@@ -22,14 +22,16 @@ let renderAccumulator = 0;
 let pointerInteractionActive = false;
 let offlineModalOpen = false;
 let gameLoopStarted = false;
+let hiddenAt = null;
+let resumeInProgress = false;
 
 function nextPaint() {
   return new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
 }
 
-async function processOfflineProgress() {
+async function processOfflineProgress(offlineSecondsOverride = null) {
   const now = Date.now();
-  const offlineSeconds = Math.max(0, (now - state.time.lastUpdateAt) / 1000);
+  const offlineSeconds = offlineSecondsOverride ?? Math.max(0, (now - state.time.lastUpdateAt) / 1000);
 
   if (offlineSeconds < OFFLINE_MODAL_THRESHOLD_SECONDS) {
     simulate(state, offlineSeconds);
@@ -57,8 +59,15 @@ function startGameLoop() {
 }
 
 function tick(frameAt) {
-  const deltaSeconds = Math.min((frameAt - previousFrameAt) / 1000, 1);
+  const rawDeltaSeconds = Math.max(0, (frameAt - previousFrameAt) / 1000);
   previousFrameAt = frameAt;
+
+  if (document.hidden || resumeInProgress) {
+    requestAnimationFrame(tick);
+    return;
+  }
+
+  const deltaSeconds = Math.min(rawDeltaSeconds, 1);
 
   if (!offlineModalOpen) {
     logicAccumulator += deltaSeconds;
@@ -137,6 +146,48 @@ root.addEventListener("click", (event) => {
     resetSave();
     location.reload();
   }
+});
+
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    if (!offlineModalOpen) {
+      hiddenAt = Date.now();
+      state.time.lastUpdateAt = hiddenAt;
+      saveGame(state);
+    }
+    return;
+  }
+
+  previousFrameAt = performance.now();
+  logicAccumulator = 0;
+  renderAccumulator = 0;
+
+  if (hiddenAt === null || offlineModalOpen || resumeInProgress) return;
+
+  const resumedAt = Date.now();
+  const hiddenSeconds = Math.max(0, (resumedAt - hiddenAt) / 1000);
+  hiddenAt = null;
+
+  if (hiddenSeconds < OFFLINE_MODAL_THRESHOLD_SECONDS) {
+    simulate(state, hiddenSeconds);
+    state.time.lastUpdateAt = resumedAt;
+    renderGame(state, root);
+    return;
+  }
+
+  resumeInProgress = true;
+  processOfflineProgress(hiddenSeconds)
+    .catch((error) => {
+      console.error("백그라운드 진행 계산 실패:", error);
+      offlineModalOpen = false;
+      state.time.lastUpdateAt = Date.now();
+      renderGame(state, root);
+    })
+    .finally(() => {
+      resumeInProgress = false;
+      previousFrameAt = performance.now();
+    });
 });
 
 window.addEventListener("beforeunload", () => saveGame(state));
