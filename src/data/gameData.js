@@ -35,7 +35,7 @@ export const GROWTH_CONFIG = {
 };
 
 export const SAVE_CONFIG = {
-  SAVE_VERSION: 1,
+  SAVE_VERSION: 2,
   STORAGE_KEY: "poketree-save",
   AUTOSAVE_INTERVAL_MS: 10_000,
 };
