@@ -5,6 +5,10 @@ export const ENERGY_TYPES = {
   normal: { id: "normal", name: "노말", initiallyUnlocked: false },
   bug: { id: "bug", name: "벌레", initiallyUnlocked: false },
   flying: { id: "flying", name: "비행", initiallyUnlocked: false },
+  ice: { id: "ice", name: "얼음", initiallyUnlocked: false },
+  ground: { id: "ground", name: "땅", initiallyUnlocked: false },
+  rock: { id: "rock", name: "바위", initiallyUnlocked: false },
+  steel: { id: "steel", name: "강철", initiallyUnlocked: false },
 };
 
 export const TREE_STAGES = [
