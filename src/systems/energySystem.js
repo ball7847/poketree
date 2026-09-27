@@ -2,7 +2,7 @@ import { D } from "../core/numberSystem.js";
 
 export function addEnergy(state, type, amount, source, phase) {
   const gain = D(amount);
-  if (!gain.isFinite() || gain.lte(0)) return;
+  if (!Number.isFinite(gain.mantissa) || !Number.isFinite(gain.exponent) || gain.lte(0)) return;
 
   state.resources.energy[type] = D(state.resources.energy[type]).plus(gain);
   state.stats.totalEnergy[type] = D(state.stats.totalEnergy[type]).plus(gain);
