@@ -12,7 +12,9 @@ export function serializeDecimal(value) {
 
 export function formatDecimal(value, places = 2) {
   const decimal = D(value);
-  if (!decimal.isFinite()) return decimal.sign < 0 ? "-Infinity" : "Infinity";
+  if (!Number.isFinite(decimal.mantissa) || !Number.isFinite(decimal.exponent)) {
+    return decimal.mantissa < 0 ? "-Infinity" : "Infinity";
+  }
   if (decimal.eq(0)) return "0";
 
   const abs = decimal.abs();
