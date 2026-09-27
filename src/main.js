@@ -14,7 +14,9 @@ const offlineSeconds = Math.max(0, (now - state.time.lastUpdateAt) / 1000);
 simulate(state, offlineSeconds);
 state.time.lastUpdateAt = now;
 
+const LOGIC_TICK_SECONDS = 0.1;
 let previousFrameAt = performance.now();
+let logicAccumulator = 0;
 let renderAccumulator = 0;
 let pointerInteractionActive = false;
 
@@ -22,7 +24,11 @@ function tick(frameAt) {
   const deltaSeconds = Math.min((frameAt - previousFrameAt) / 1000, 1);
   previousFrameAt = frameAt;
 
-  simulate(state, deltaSeconds);
+  logicAccumulator += deltaSeconds;
+  while (logicAccumulator >= LOGIC_TICK_SECONDS) {
+    simulate(state, LOGIC_TICK_SECONDS);
+    logicAccumulator -= LOGIC_TICK_SECONDS;
+  }
   state.time.lastUpdateAt = Date.now();
 
   renderAccumulator += deltaSeconds;
