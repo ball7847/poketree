@@ -8,6 +8,8 @@ import {
 } from "../systems/productionSystem.js";
 import { getSettlementProgress } from "../systems/pokemonSystem.js";
 import { getCycleState } from "../systems/timeSystem.js";
+import { WEATHER } from "../data/weatherData.js";
+import { getEcosystemExpansionCost, canBuyEcosystemExpansion } from "../systems/upgradeSystem.js";
 
 function formatNumber(value) {
   if (!Number.isFinite(value)) return "0";
@@ -52,6 +54,8 @@ export function renderGame(state, root) {
   const naturalRates = calculateNaturalProductionPerSecond(state);
   const pokemonRates = calculatePokemonProductionPerSecond(state);
   const showPokemon = state.progression.growth >= 15;
+  const ecosystemCost = getEcosystemExpansionCost(state.upgrades.ecosystemExpansion);
+  const weather = state.weather.current ? WEATHER[state.weather.current] : null;
 
   root.innerHTML = `
     <section class="game-shell">
@@ -64,7 +68,7 @@ export function renderGame(state, root) {
         <div class="phase-card">
           <strong>${cycle.isDay ? "낮" : "밤"}</strong>
           <span>다음 전환까지 ${formatNumber(cycle.secondsUntilPhaseChange)}초</span>
-          <span>날씨: ${state.weather.current ?? "기본"}</span>
+          <span>날씨: ${weather?.name ?? "기본"}${weather ? ` · ${formatNumber(state.weather.remainingSeconds)}초` : ""}</span>
         </div>
       </header>
 
@@ -124,6 +128,23 @@ export function renderGame(state, root) {
                 </article>
               `;
             }).join("")}
+          </div>
+        </section>
+      ` : ""}
+
+      ${showPokemon ? `
+        <section class="panel">
+          <div class="panel-title-row">
+            <div>
+              <h2>생태계 확장 Lv.${state.upgrades.ecosystemExpansion}</h2>
+              <p>레벨당 모든 포켓몬 에너지 생산 +50%</p>
+            </div>
+            <button id="ecosystem-button" ${canBuyEcosystemExpansion(state) ? "" : "disabled"}>확장하기</button>
+          </div>
+          <div class="cost-row">
+            <span>노말 ${formatNumber(ecosystemCost.normal)}</span>
+            <span>벌레 ${formatNumber(ecosystemCost.bug)}</span>
+            <span>비행 ${formatNumber(ecosystemCost.flying)}</span>
           </div>
         </section>
       ` : ""}
