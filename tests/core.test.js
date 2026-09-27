@@ -7,6 +7,8 @@ import { getEcosystemExpansionCost } from "../src/systems/upgradeSystem.js";
 import { getTreeDevelopmentCost } from "../src/systems/treeDevelopmentSystem.js";
 import { rollWeatherAtNewDay } from "../src/systems/weatherSystem.js";
 import { migrateSave } from "../src/persistence/saveSystem.js";
+import { simulate } from "../src/systems/gameLoop.js";
+import { getSecondsUntilNextSettlement } from "../src/systems/eventSystem.js";
 
 function close(actual, expected, epsilon = 1e-9) {
   const difference = D(actual).minus(expected).abs();
@@ -119,5 +121,19 @@ const decimalSave = migrateSave({
   },
 });
 assert(decimalSave.resources.energy.grass.eq("1e1000"), "Decimal 문자열 세이브 복원 실패");
+
+const boundary = createInitialState(0);
+boundary.resources.energy.grass = D(99);
+close(getSecondsUntilNextSettlement(boundary), 5);
+simulate(boundary, 10, () => 1);
+assert(boundary.pokemon.settled.includes("bulbasaur"), "이벤트 경계 정착 실패");
+close(boundary.resources.energy.grass, 105);
+
+const longOffline = createInitialState(0);
+simulate(longOffline, 86400, () => 1);
+close(longOffline.time.totalElapsedSeconds, 86400);
+close(longOffline.resources.energy.grass, 17280);
+close(longOffline.resources.energy.fire, 8640);
+close(longOffline.resources.energy.water, 8640);
 
 console.log("PokeTree core tests passed");
