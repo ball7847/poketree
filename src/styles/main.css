@@ -178,3 +178,28 @@ button.secondary {
   background: rgba(255, 255, 255, 0.9);
   border-color: rgba(53, 95, 64, 0.18);
 }
+
+.development-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.development-card {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 14px;
+  background: #f3f7f1;
+}
+
+.development-card > div:first-child {
+  display: grid;
+  gap: 4px;
+}
+
+.development-card small {
+  color: #66746a;
+  font-size: 13px;
+}
