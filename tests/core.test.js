@@ -100,7 +100,7 @@ const oldSave = {
   resources: { energy: { grass: 9, fire: 8, water: 7 }, unlockedEnergyTypes: ["grass", "fire", "water"] },
 };
 const migrated = migrateSave(oldSave);
-assert(migrated.saveVersion === 2, "세이브 버전 마이그레이션 실패");
+assert(migrated.saveVersion === 3, "세이브 버전 마이그레이션 실패");
 assert(migrated.progression.growth === 12, "기존 성장 진행도 보존 실패");
 assert(Array.isArray(migrated.weather.unlocked), "신규 날씨 필드 보충 실패");
 assert(D(migrated.stats.totalEnergy.ice).eq(0), "신규 에너지 통계 필드 보충 실패");
