@@ -43,6 +43,15 @@ export function migrateSave(rawSave) {
   return migrated;
 }
 
+export function exportSave(state) {
+  return btoa(unescape(encodeURIComponent(JSON.stringify({ ...state, saveVersion: SAVE_CONFIG.SAVE_VERSION }))));
+}
+
+export function importSave(encodedSave) {
+  const decoded = decodeURIComponent(escape(atob(encodedSave.trim())));
+  return migrateSave(JSON.parse(decoded));
+}
+
 export function loadGame() {
   const raw = localStorage.getItem(SAVE_CONFIG.STORAGE_KEY);
   if (!raw) return createInitialState();
