@@ -1,6 +1,7 @@
 import { GROWTH_CONFIG } from "../data/gameData.js";
 import { POKEMON_BY_ID } from "../data/pokemonData.js";
 import { ECOSYSTEM_EXPANSION } from "../data/upgradeData.js";
+import { TREE_DEVELOPMENTS } from "../data/treeDevelopmentData.js";
 import { addEnergy } from "./energySystem.js";
 import { getCycleState } from "./timeSystem.js";
 import { applyModifiers, createModifierBucket } from "./modifierSystem.js";
@@ -29,6 +30,14 @@ function effectMatchesContext(effect, context) {
 
 export function collectProductionModifiers(state, context) {
   const bucket = createModifierBucket();
+
+  if (context.source === "natural") {
+    for (const development of Object.values(TREE_DEVELOPMENTS)) {
+      if (!development.types.includes(context.type)) continue;
+      const level = state.upgrades.treeDevelopment[development.id] ?? 0;
+      bucket.additive += level * development.naturalIncreasePerLevel;
+    }
+  }
 
   if (context.source === "pokemon") {
     bucket.additive +=
