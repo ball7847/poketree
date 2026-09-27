@@ -184,7 +184,12 @@ export function renderGame(state, root) {
       ` : ""}
 
       <footer class="footer-actions">
-        <button id="save-button" class="secondary">수동 저장</button>
+        <div class="save-actions">
+          <button id="save-button" class="secondary">저장</button>
+          <button id="export-button" class="secondary">내보내기</button>
+          <button id="import-button" class="secondary">불러오기</button>
+          <button id="reset-button" class="secondary danger">초기화</button>
+        </div>
         <span>세이브 v${state.saveVersion}</span>
       </footer>
     </section>
