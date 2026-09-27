@@ -1,5 +1,5 @@
 import { SAVE_CONFIG } from "./data/gameData.js";
-import { loadGame, saveGame } from "./persistence/saveSystem.js";
+import { loadGame, saveGame, exportSave, importSave, resetSave } from "./persistence/saveSystem.js";
 import { performGrowth } from "./systems/growthSystem.js";
 import { simulate } from "./systems/gameLoop.js";
 import { renderGame } from "./ui/render.js";
@@ -7,7 +7,7 @@ import { buyEcosystemExpansion } from "./systems/upgradeSystem.js";
 import { buyTreeDevelopment } from "./systems/treeDevelopmentSystem.js";
 
 const root = document.querySelector("#app");
-const state = loadGame();
+let state = loadGame();
 
 const now = Date.now();
 const offlineSeconds = Math.max(0, (now - state.time.lastUpdateAt) / 1000);
@@ -46,8 +46,28 @@ root.addEventListener("click", (event) => {
     if (buyTreeDevelopment(state, event.target.dataset.treeDevelopment)) renderGame(state, root);
   }
 
-  if (event.target.id === "save-button") {
-    saveGame(state);
+  if (event.target.id === "save-button") saveGame(state);
+
+  if (event.target.id === "export-button") {
+    navigator.clipboard?.writeText(exportSave(state));
+  }
+
+  if (event.target.id === "import-button") {
+    const encoded = prompt("세이브 문자열을 붙여넣으세요.");
+    if (!encoded) return;
+    try {
+      state = importSave(encoded);
+      saveGame(state);
+      renderGame(state, root);
+    } catch {
+      alert("올바른 세이브 데이터가 아닙니다.");
+    }
+  }
+
+  if (event.target.id === "reset-button") {
+    if (!confirm("현재 진행도를 초기화하시겠습니까?")) return;
+    resetSave();
+    location.reload();
   }
 });
 
