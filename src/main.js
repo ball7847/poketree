@@ -16,6 +16,7 @@ state.time.lastUpdateAt = now;
 
 let previousFrameAt = performance.now();
 let renderAccumulator = 0;
+let pointerInteractionActive = false;
 
 function tick(frameAt) {
   const deltaSeconds = Math.min((frameAt - previousFrameAt) / 1000, 1);
@@ -25,13 +26,25 @@ function tick(frameAt) {
   state.time.lastUpdateAt = Date.now();
 
   renderAccumulator += deltaSeconds;
-  if (renderAccumulator >= 0.1) {
+  if (renderAccumulator >= 0.1 && !pointerInteractionActive) {
     renderGame(state, root);
     renderAccumulator = 0;
   }
 
   requestAnimationFrame(tick);
 }
+
+root.addEventListener("pointerdown", (event) => {
+  if (event.target.closest("button")) pointerInteractionActive = true;
+});
+
+window.addEventListener("pointerup", () => {
+  pointerInteractionActive = false;
+});
+
+window.addEventListener("pointercancel", () => {
+  pointerInteractionActive = false;
+});
 
 root.addEventListener("click", (event) => {
   const button = event.target.closest("button");
