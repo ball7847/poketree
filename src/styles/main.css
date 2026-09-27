@@ -145,3 +145,36 @@ button.secondary {
     width: 100%;
   }
 }
+
+.pokemon-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.pokemon-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #f3f7f1;
+  border: 1px solid transparent;
+}
+
+.pokemon-card > div {
+  display: grid;
+  gap: 4px;
+}
+
+.pokemon-card small,
+.pokemon-card > span {
+  color: #66746a;
+  font-size: 13px;
+}
+
+.pokemon-card.settled {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(53, 95, 64, 0.18);
+}
