@@ -1,4 +1,5 @@
 import { ENERGY_TYPES } from "../data/gameData.js";
+import { D, formatDecimal } from "../core/numberSystem.js";
 import { POKEMON } from "../data/pokemonData.js";
 import { getGrowthCost, getTreeStage, canGrow } from "../systems/growthSystem.js";
 import {
@@ -14,9 +15,7 @@ import { TREE_DEVELOPMENTS } from "../data/treeDevelopmentData.js";
 import { getTreeDevelopmentCost, canBuyTreeDevelopment } from "../systems/treeDevelopmentSystem.js";
 
 function formatNumber(value) {
-  if (!Number.isFinite(value)) return "0";
-  if (Math.abs(value) < 1000) return value.toFixed(2).replace(/\.00$/, "");
-  return value.toLocaleString("ko-KR", { maximumFractionDigits: 2 });
+  return formatDecimal(value);
 }
 
 function describeCondition(condition) {
@@ -86,7 +85,7 @@ export function renderGame(state, root) {
               <article class="energy-card">
                 <span>${data.name}</span>
                 <strong>${formatNumber(state.resources.energy[type])}</strong>
-                <small>자연 +${formatNumber(naturalRates[type] ?? 0)}/s${(pokemonRates[type] ?? 0) > 0 ? ` · 포켓몬 +${formatNumber(pokemonRates[type])}/s` : ""}</small>
+                <small>자연 +${formatNumber(naturalRates[type] ?? 0)}/s${D(pokemonRates[type]).gt(0) ? ` · 포켓몬 +${formatNumber(pokemonRates[type])}/s` : ""}</small>
               </article>
             `;
           }).join("")}
@@ -102,9 +101,9 @@ export function renderGame(state, root) {
           <button id="grow-button" ${canGrow(state) ? "" : "disabled"} title="${canGrow(state) ? "성장 가능" : "필요한 풀·불꽃·물 에너지가 부족합니다."}">성장하기</button>
         </div>
         <div class="cost-row">
-          <span class="${state.resources.energy.grass >= growthCost.grass ? "met" : "unmet"}">풀 ${formatNumber(state.resources.energy.grass)} / ${formatNumber(growthCost.grass)}</span>
-          <span class="${state.resources.energy.fire >= growthCost.fire ? "met" : "unmet"}">불꽃 ${formatNumber(state.resources.energy.fire)} / ${formatNumber(growthCost.fire)}</span>
-          <span class="${state.resources.energy.water >= growthCost.water ? "met" : "unmet"}">물 ${formatNumber(state.resources.energy.water)} / ${formatNumber(growthCost.water)}</span>
+          <span class="${D(state.resources.energy.grass).gte(growthCost.grass) ? "met" : "unmet"}">풀 ${formatNumber(state.resources.energy.grass)} / ${formatNumber(growthCost.grass)}</span>
+          <span class="${D(state.resources.energy.fire).gte(growthCost.fire) ? "met" : "unmet"}">불꽃 ${formatNumber(state.resources.energy.fire)} / ${formatNumber(growthCost.fire)}</span>
+          <span class="${D(state.resources.energy.water).gte(growthCost.water) ? "met" : "unmet"}">물 ${formatNumber(state.resources.energy.water)} / ${formatNumber(growthCost.water)}</span>
         </div>
         ${!canGrow(state) ? `<p class="requirement-hint">성장 조건을 충족하면 버튼이 활성화됩니다. 물 자연 에너지는 기본적으로 밤에 획득합니다.</p>` : ""}
       </section>
@@ -127,7 +126,7 @@ export function renderGame(state, root) {
                     <strong>${pokemon.name}</strong>
                     <small>${settled ? describeEffects(pokemon.effects) : describeCondition(pokemon.condition)}</small>
                   </div>
-                  <span>${settled ? "정착" : `${formatNumber(Math.min(progress, pokemon.condition.amount))} / ${formatNumber(pokemon.condition.amount)}`}</span>
+                  <span>${settled ? "정착" : `${formatNumber(D(progress).min(pokemon.condition.amount))} / ${formatNumber(pokemon.condition.amount)}`}</span>
                 </article>
               `;
             }).join("")}
