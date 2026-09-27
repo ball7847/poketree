@@ -144,5 +144,15 @@ setInterval(() => {
   if (!offlineModalOpen) saveGame(state);
 }, SAVE_CONFIG.AUTOSAVE_INTERVAL_MS);
 
-await processOfflineProgress();
-startGameLoop();
+renderGame(state, root);
+
+processOfflineProgress()
+  .catch((error) => {
+    console.error("오프라인 진행 계산 실패:", error);
+    offlineModalOpen = false;
+    state.time.lastUpdateAt = Date.now();
+    renderGame(state, root);
+  })
+  .finally(() => {
+    startGameLoop();
+  });
