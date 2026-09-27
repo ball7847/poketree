@@ -213,3 +213,15 @@ button.secondary {
 button.danger {
   color: #8b3a3a;
 }
+
+.cost-row span.met {
+  border: 1px solid rgba(53, 95, 64, 0.18);
+}
+
+.cost-row span.unmet {
+  opacity: 0.58;
+}
+
+.requirement-hint {
+  margin: 10px 0 0;
+}
