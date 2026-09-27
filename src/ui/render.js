@@ -10,6 +10,8 @@ import { getSettlementProgress } from "../systems/pokemonSystem.js";
 import { getCycleState } from "../systems/timeSystem.js";
 import { WEATHER } from "../data/weatherData.js";
 import { getEcosystemExpansionCost, canBuyEcosystemExpansion } from "../systems/upgradeSystem.js";
+import { TREE_DEVELOPMENTS } from "../data/treeDevelopmentData.js";
+import { getTreeDevelopmentCost, canBuyTreeDevelopment } from "../systems/treeDevelopmentSystem.js";
 
 function formatNumber(value) {
   if (!Number.isFinite(value)) return "0";
@@ -145,6 +147,38 @@ export function renderGame(state, root) {
             <span>노말 ${formatNumber(ecosystemCost.normal)}</span>
             <span>벌레 ${formatNumber(ecosystemCost.bug)}</span>
             <span>비행 ${formatNumber(ecosystemCost.flying)}</span>
+          </div>
+        </section>
+      ` : ""}
+
+      ${state.progression.growth >= 30 ? `
+        <section class="panel">
+          <div class="panel-title-row">
+            <div>
+              <h2>나무 발달</h2>
+              <p>자연 에너지 생산 구조를 강화한다.</p>
+            </div>
+          </div>
+          <div class="development-grid">
+            ${Object.values(TREE_DEVELOPMENTS).map((development) => {
+              const level = state.upgrades.treeDevelopment[development.id] ?? 0;
+              const cost = getTreeDevelopmentCost(development.id, level);
+              const typeNames = development.types.map((type) => ENERGY_TYPES[type].name).join("/");
+              return `
+                <article class="development-card">
+                  <div>
+                    <strong>${development.name} Lv.${level}</strong>
+                    <small>자연 ${typeNames} 획득 +${formatNumber(development.naturalIncreasePerLevel * 100)}% / Lv.</small>
+                  </div>
+                  <div class="cost-row">
+                    <span>풀 ${formatNumber(cost.grass)}</span>
+                    <span>불꽃 ${formatNumber(cost.fire)}</span>
+                    <span>물 ${formatNumber(cost.water)}</span>
+                  </div>
+                  <button data-tree-development="${development.id}" ${canBuyTreeDevelopment(state, development.id) ? "" : "disabled"}>발달하기</button>
+                </article>
+              `;
+            }).join("")}
           </div>
         </section>
       ` : ""}
