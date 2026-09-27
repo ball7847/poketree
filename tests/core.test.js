@@ -1,4 +1,5 @@
 import { createInitialState } from "../src/state/createInitialState.js";
+import { D } from "../src/core/numberSystem.js";
 import { getGrowthCost, canGrow, performGrowth } from "../src/systems/growthSystem.js";
 import { calculateNaturalProductionPerSecond, calculatePokemonProductionPerSecond } from "../src/systems/productionSystem.js";
 import { settleEligiblePokemon } from "../src/systems/pokemonSystem.js";
@@ -8,8 +9,9 @@ import { rollWeatherAtNewDay } from "../src/systems/weatherSystem.js";
 import { migrateSave } from "../src/persistence/saveSystem.js";
 
 function close(actual, expected, epsilon = 1e-9) {
-  if (Math.abs(actual - expected) > epsilon) {
-    throw new Error(`Expected ${expected}, got ${actual}`);
+  const difference = D(actual).minus(expected).abs();
+  if (difference.gt(epsilon)) {
+    throw new Error(`Expected ${expected}, got ${D(actual).toString()}`);
   }
 }
 
@@ -101,6 +103,21 @@ const migrated = migrateSave(oldSave);
 assert(migrated.saveVersion === 2, "세이브 버전 마이그레이션 실패");
 assert(migrated.progression.growth === 12, "기존 성장 진행도 보존 실패");
 assert(Array.isArray(migrated.weather.unlocked), "신규 날씨 필드 보충 실패");
-assert(migrated.stats.totalEnergy.ice === 0, "신규 에너지 통계 필드 보충 실패");
+assert(D(migrated.stats.totalEnergy.ice).eq(0), "신규 에너지 통계 필드 보충 실패");
+
+const huge = createInitialState(0);
+huge.resources.energy.grass = D("1e310");
+assert(huge.resources.energy.grass.gt("1e309"), "1e310 초과 Decimal 표현 실패");
+huge.resources.energy.grass = huge.resources.energy.grass.plus("1e310");
+assert(huge.resources.energy.grass.eq("2e310"), "초거대 수 덧셈 실패");
+
+const decimalSave = migrateSave({
+  saveVersion: 3,
+  resources: {
+    energy: { grass: "1e1000", fire: "2", water: "3" },
+    unlockedEnergyTypes: ["grass", "fire", "water"],
+  },
+});
+assert(decimalSave.resources.energy.grass.eq("1e1000"), "Decimal 문자열 세이브 복원 실패");
 
 console.log("PokeTree core tests passed");
