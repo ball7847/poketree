@@ -25,6 +25,13 @@ export function settleEligiblePokemon(state) {
     if (!isSettlementConditionMet(state, pokemon.condition)) continue;
 
     state.pokemon.settled.push(pokemon.id);
+
+    for (const effect of pokemon.effects) {
+      if (effect.kind === "produce" && !state.resources.unlockedEnergyTypes.includes(effect.type)) {
+        state.resources.unlockedEnergyTypes.push(effect.type);
+      }
+    }
+
     newlySettled.push(pokemon.id);
   }
 
