@@ -1,8 +1,9 @@
 import { ENERGY_TYPES, SAVE_CONFIG } from "../data/gameData.js";
+import { D } from "../core/numberSystem.js";
 
 function createEnergyMap(defaultValue = 0) {
   return Object.fromEntries(
-    Object.keys(ENERGY_TYPES).map((type) => [type, defaultValue]),
+    Object.keys(ENERGY_TYPES).map((type) => [type, D(defaultValue)]),
   );
 }
 
@@ -13,40 +14,23 @@ export function createInitialState(now = Date.now()) {
 
   return {
     saveVersion: SAVE_CONFIG.SAVE_VERSION,
-    resources: {
-      energy: createEnergyMap(0),
-      unlockedEnergyTypes,
-    },
-    progression: {
-      growth: 0,
-    },
-    time: {
-      totalElapsedSeconds: 0,
-      lastUpdateAt: now,
-    },
-    pokemon: {
-      settled: [],
-    },
+    resources: { energy: createEnergyMap(), unlockedEnergyTypes },
+    progression: { growth: 0 },
+    time: { totalElapsedSeconds: 0, lastUpdateAt: now },
+    pokemon: { settled: [] },
     upgrades: {
       ecosystemExpansion: 0,
-      treeDevelopment: {
-        broadLeaves: 0,
-        deepRoots: 0,
-      },
+      treeDevelopment: { broadLeaves: 0, deepRoots: 0 },
     },
-    weather: {
-      current: null,
-      remainingSeconds: 0,
-      unlocked: ["sunny", "rain"],
-    },
+    weather: { current: null, remainingSeconds: 0, unlocked: ["sunny", "rain"] },
     stats: {
-      totalEnergy: createEnergyMap(0),
-      naturalEnergy: createEnergyMap(0),
-      pokemonEnergy: createEnergyMap(0),
-      daytimeNaturalEnergy: createEnergyMap(0),
-      nighttimeNaturalEnergy: createEnergyMap(0),
-      daytimePokemonEnergy: createEnergyMap(0),
-      nighttimePokemonEnergy: createEnergyMap(0),
+      totalEnergy: createEnergyMap(),
+      naturalEnergy: createEnergyMap(),
+      pokemonEnergy: createEnergyMap(),
+      daytimeNaturalEnergy: createEnergyMap(),
+      nighttimeNaturalEnergy: createEnergyMap(),
+      daytimePokemonEnergy: createEnergyMap(),
+      nighttimePokemonEnergy: createEnergyMap(),
       totalPlayTimeSeconds: 0,
       growthCount: 0,
     },
