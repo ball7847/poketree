@@ -1,22 +1,25 @@
 import { advanceTime, getCycleState } from "./timeSystem.js";
 import { produceForInterval } from "./productionSystem.js";
+import { settleEligiblePokemon } from "./pokemonSystem.js";
 
 /**
- * 낮/밤 경계에서 생산 규칙이 달라지므로 긴 delta를 경계 단위로 분할한다.
- * DOM 렌더링 횟수와는 무관하며, 에너지 획득을 개별 이벤트로 반복하지 않는다.
+ * 낮/밤 경계와 포켓몬 정착 조건을 보존하면서 긴 delta를 처리한다.
+ * 현재는 최대 1초 단위로 조건을 검사한다. 에너지 획득 자체는 묶어서 계산한다.
  */
 export function simulate(state, deltaSeconds) {
   let remaining = Math.max(0, deltaSeconds);
 
+  settleEligiblePokemon(state);
+
   while (remaining > 0) {
     const cycle = getCycleState(state.time.totalElapsedSeconds);
-    const step = Math.min(remaining, cycle.secondsUntilPhaseChange);
+    const step = Math.min(remaining, cycle.secondsUntilPhaseChange, 1);
 
     produceForInterval(state, step);
     advanceTime(state, step);
+    settleEligiblePokemon(state);
 
     remaining -= step;
-
     if (step <= 0) break;
   }
 }
