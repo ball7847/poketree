@@ -34,25 +34,28 @@ function tick(frameAt) {
 }
 
 root.addEventListener("click", (event) => {
-  if (event.target.id === "grow-button") {
+  const button = event.target.closest("button");
+  if (!button || !root.contains(button)) return;
+
+  if (button.id === "grow-button") {
     if (performGrowth(state)) renderGame(state, root);
   }
 
-  if (event.target.id === "ecosystem-button") {
+  if (button.id === "ecosystem-button") {
     if (buyEcosystemExpansion(state)) renderGame(state, root);
   }
 
-  if (event.target.dataset.treeDevelopment) {
-    if (buyTreeDevelopment(state, event.target.dataset.treeDevelopment)) renderGame(state, root);
+  if (button.dataset.treeDevelopment) {
+    if (buyTreeDevelopment(state, button.dataset.treeDevelopment)) renderGame(state, root);
   }
 
-  if (event.target.id === "save-button") saveGame(state);
+  if (button.id === "save-button") saveGame(state);
 
-  if (event.target.id === "export-button") {
+  if (button.id === "export-button") {
     navigator.clipboard?.writeText(exportSave(state));
   }
 
-  if (event.target.id === "import-button") {
+  if (button.id === "import-button") {
     const encoded = prompt("세이브 문자열을 붙여넣으세요.");
     if (!encoded) return;
     try {
@@ -64,7 +67,7 @@ root.addEventListener("click", (event) => {
     }
   }
 
-  if (event.target.id === "reset-button") {
+  if (button.id === "reset-button") {
     if (!confirm("현재 진행도를 초기화하시겠습니까?")) return;
     resetSave();
     location.reload();
