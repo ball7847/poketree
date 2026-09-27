@@ -4,8 +4,5 @@
   "type": "module",
   "scripts": {
     "test": "node tests/core.test.js"
-  },
-  "dependencies": {
-    "break_infinity.js": "2.2.0"
   }
 }
