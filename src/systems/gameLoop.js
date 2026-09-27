@@ -6,51 +6,46 @@ import { getSecondsUntilNextSettlement } from "./eventSystem.js";
 
 const MIN_STEP_SECONDS = 1e-7;
 
+function advanceSegment(state, seconds, random) {
+  const before = getCycleState(state.time.totalElapsedSeconds);
+  produceForInterval(state, seconds);
+  updateWeatherDuration(state, seconds);
+  advanceTime(state, seconds);
+
+  const after = getCycleState(state.time.totalElapsedSeconds);
+  if (before.phase === "night" && after.phase === "day") {
+    rollWeatherAtNewDay(state, random);
+  }
+}
+
 export function simulate(state, deltaSeconds, random = Math.random) {
   let remaining = Math.max(0, deltaSeconds);
   settleEligiblePokemon(state);
 
   while (remaining > MIN_STEP_SECONDS) {
-    const before = getCycleState(state.time.totalElapsedSeconds);
+    const cycle = getCycleState(state.time.totalElapsedSeconds);
     const settlementBoundary = getSecondsUntilNextSettlement(state);
     const weatherBoundary = state.weather.current
       ? Math.max(MIN_STEP_SECONDS, state.weather.remainingSeconds)
       : Infinity;
 
-    const step = Math.min(
+    let step = Math.min(
       remaining,
-      before.secondsUntilPhaseChange,
+      cycle.secondsUntilPhaseChange,
       settlementBoundary,
       weatherBoundary,
     );
 
     if (!Number.isFinite(step) || step <= MIN_STEP_SECONDS) {
       settleEligiblePokemon(state);
-      const fallback = Math.min(remaining, before.secondsUntilPhaseChange);
-      if (fallback <= MIN_STEP_SECONDS) break;
-      produceForInterval(state, fallback);
-      updateWeatherDuration(state, fallback);
-      advanceTime(state, fallback);
-      remaining -= fallback;
-      continue;
+      step = Math.min(remaining, cycle.secondsUntilPhaseChange);
+      if (step <= MIN_STEP_SECONDS) break;
     }
 
-    produceForInterval(state, step);
-    updateWeatherDuration(state, step);
-    advanceTime(state, step);
+    advanceSegment(state, step, random);
     remaining -= step;
-
-    const after = getCycleState(state.time.totalElapsedSeconds);
-    if (before.phase === "night" && after.phase === "day") {
-      rollWeatherAtNewDay(state, random);
-    }
-
     settleEligiblePokemon(state);
   }
 
-  if (remaining > 0) {
-    produceForInterval(state, remaining);
-    updateWeatherDuration(state, remaining);
-    advanceTime(state, remaining);
-  }
+  if (remaining > 0) advanceSegment(state, remaining, random);
 }
