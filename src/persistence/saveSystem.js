@@ -1,50 +1,60 @@
 import { SAVE_CONFIG } from "../data/gameData.js";
 import { createInitialState } from "../state/createInitialState.js";
+import { D, Decimal } from "../core/numberSystem.js";
 
 function isPlainObject(value) {
-  return value !== null && typeof value === "object" && !Array.isArray(value);
+  if (value === null || typeof value !== "object" || Array.isArray(value)) return false;
+  const prototype = Object.getPrototypeOf(value);
+  return prototype === Object.prototype || prototype === null;
 }
 
 function mergeSaveShape(defaultValue, savedValue) {
-  if (Array.isArray(defaultValue)) {
-    return Array.isArray(savedValue) ? savedValue : [...defaultValue];
-  }
+  if (defaultValue instanceof Decimal) return D(savedValue ?? 0);
+  if (Array.isArray(defaultValue)) return Array.isArray(savedValue) ? savedValue : [...defaultValue];
 
   if (isPlainObject(defaultValue)) {
     const savedObject = isPlainObject(savedValue) ? savedValue : {};
     return Object.fromEntries(
       Object.entries(defaultValue).map(([key, value]) => [
-        key,
-        mergeSaveShape(value, savedObject[key]),
+        key, mergeSaveShape(value, savedObject[key]),
       ]),
     );
   }
-
   return savedValue === undefined ? defaultValue : savedValue;
 }
 
+function serializeState(value) {
+  if (value instanceof Decimal) return value.toString();
+  if (Array.isArray(value)) return value.map(serializeState);
+  if (isPlainObject(value)) {
+    return Object.fromEntries(Object.entries(value).map(([key, child]) => [key, serializeState(child)]));
+  }
+  return value;
+}
+
+function createPayload(state) {
+  const payload = serializeState(state);
+  payload.saveVersion = SAVE_CONFIG.SAVE_VERSION;
+  payload.time.lastUpdateAt = Date.now();
+  return payload;
+}
+
 export function saveGame(state) {
-  const payload = {
-    ...state,
-    saveVersion: SAVE_CONFIG.SAVE_VERSION,
-    time: { ...state.time, lastUpdateAt: Date.now() },
-  };
-  localStorage.setItem(SAVE_CONFIG.STORAGE_KEY, JSON.stringify(payload));
+  localStorage.setItem(SAVE_CONFIG.STORAGE_KEY, JSON.stringify(createPayload(state)));
 }
 
 export function migrateSave(rawSave) {
   const defaults = createInitialState();
-
   if (!rawSave || typeof rawSave !== "object") return defaults;
 
-  // v1 -> v2: 새 필드가 추가되어도 기존 진행도를 보존하며 기본 상태로 보충한다.
+  // v1/v2의 Number 값과 v3 이후 문자열 Decimal을 동일한 런타임 Decimal로 복원한다.
   const migrated = mergeSaveShape(defaults, rawSave);
   migrated.saveVersion = SAVE_CONFIG.SAVE_VERSION;
   return migrated;
 }
 
 export function exportSave(state) {
-  return btoa(unescape(encodeURIComponent(JSON.stringify({ ...state, saveVersion: SAVE_CONFIG.SAVE_VERSION }))));
+  return btoa(unescape(encodeURIComponent(JSON.stringify(createPayload(state)))));
 }
 
 export function importSave(encodedSave) {
@@ -55,7 +65,6 @@ export function importSave(encodedSave) {
 export function loadGame() {
   const raw = localStorage.getItem(SAVE_CONFIG.STORAGE_KEY);
   if (!raw) return createInitialState();
-
   try {
     return migrateSave(JSON.parse(raw));
   } catch (error) {
