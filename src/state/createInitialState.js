@@ -37,6 +37,7 @@ export function createInitialState(now = Date.now()) {
     weather: {
       current: null,
       remainingSeconds: 0,
+      unlocked: ["sunny", "rain"],
     },
     stats: {
       totalEnergy: createEnergyMap(0),
