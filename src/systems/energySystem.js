@@ -1,24 +1,25 @@
-export function addEnergy(state, type, amount, source, phase) {
-  if (!Number.isFinite(amount) || amount <= 0) return;
+import { D } from "../core/numberSystem.js";
 
-  state.resources.energy[type] = (state.resources.energy[type] ?? 0) + amount;
-  state.stats.totalEnergy[type] = (state.stats.totalEnergy[type] ?? 0) + amount;
+export function addEnergy(state, type, amount, source, phase) {
+  const gain = D(amount);
+  if (!gain.isFinite() || gain.lte(0)) return;
+
+  state.resources.energy[type] = D(state.resources.energy[type]).plus(gain);
+  state.stats.totalEnergy[type] = D(state.stats.totalEnergy[type]).plus(gain);
 
   if (source === "natural") {
-    state.stats.naturalEnergy[type] = (state.stats.naturalEnergy[type] ?? 0) + amount;
-    const phaseStats =
-      phase === "day"
-        ? state.stats.daytimeNaturalEnergy
-        : state.stats.nighttimeNaturalEnergy;
-    phaseStats[type] = (phaseStats[type] ?? 0) + amount;
+    state.stats.naturalEnergy[type] = D(state.stats.naturalEnergy[type]).plus(gain);
+    const phaseStats = phase === "day"
+      ? state.stats.daytimeNaturalEnergy
+      : state.stats.nighttimeNaturalEnergy;
+    phaseStats[type] = D(phaseStats[type]).plus(gain);
   }
 
   if (source === "pokemon") {
-    state.stats.pokemonEnergy[type] = (state.stats.pokemonEnergy[type] ?? 0) + amount;
-    const phaseStats =
-      phase === "day"
-        ? state.stats.daytimePokemonEnergy
-        : state.stats.nighttimePokemonEnergy;
-    phaseStats[type] = (phaseStats[type] ?? 0) + amount;
+    state.stats.pokemonEnergy[type] = D(state.stats.pokemonEnergy[type]).plus(gain);
+    const phaseStats = phase === "day"
+      ? state.stats.daytimePokemonEnergy
+      : state.stats.nighttimePokemonEnergy;
+    phaseStats[type] = D(phaseStats[type]).plus(gain);
   }
 }
