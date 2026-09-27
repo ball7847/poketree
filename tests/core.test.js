@@ -1,5 +1,5 @@
 import { createInitialState } from "../src/state/createInitialState.js";
-import { getGrowthCost } from "../src/systems/growthSystem.js";
+import { getGrowthCost, canGrow, performGrowth } from "../src/systems/growthSystem.js";
 import { calculateNaturalProductionPerSecond, calculatePokemonProductionPerSecond } from "../src/systems/productionSystem.js";
 import { settleEligiblePokemon } from "../src/systems/pokemonSystem.js";
 import { getEcosystemExpansionCost } from "../src/systems/upgradeSystem.js";
@@ -22,6 +22,17 @@ close(growth0.grass, 2);
 close(growth0.fire, 1);
 close(growth0.water, 1);
 close(getGrowthCost(1).grass, 2.6);
+
+const growthReady = createInitialState(0);
+growthReady.resources.energy.grass = 2;
+growthReady.resources.energy.fire = 1;
+growthReady.resources.energy.water = 1;
+assert(canGrow(growthReady), "성장 가능 판정 실패");
+assert(performGrowth(growthReady), "성장 실행 실패");
+assert(growthReady.progression.growth === 1, "성장 수치 증가 실패");
+close(growthReady.resources.energy.grass, 0);
+close(growthReady.resources.energy.fire, 0);
+close(growthReady.resources.energy.water, 0);
 
 const day = createInitialState(0);
 day.time.totalElapsedSeconds = 0;
