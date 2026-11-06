@@ -1,8 +1,0 @@
-{
-  "name": "poketree",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "test": "node tests/core.test.js"
-  }
-}
