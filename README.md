@@ -9,6 +9,7 @@
 - [게임 시스템·포켓몬 성장·숙소 배치](docs/GAME_DESIGN.md)
 - [전투 시스템](docs/COMBAT.md)
 - [알·부화기·자동화·보관함](docs/EGGS_AND_STORAGE.md)
+- [원작 Guild Master - Idle Dungeons 분석](docs/GUILD_MASTER_IDLE_DUNGEONS_ANALYSIS.md)
 - [미확정 사항](docs/OPEN_QUESTIONS.md)
 
 ## 문서 관리 원칙
