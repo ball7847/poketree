@@ -1,19 +1,20 @@
-# PokeTree — 방치형 RPG
+# PokeTree — 전투·탐험 중심 방치형 RPG
 
-인간이 존재하지 않는 포켓몬 세계를 배경으로, 오염된 세계수 **아르세우드(Arcewood)**를 향해 진행하는 포켓몬 수집·육성, 전투·탐험, 생활·경영 기반 방치형 RPG.
+인간 없이 포켓몬만 존재하는 세계에서 오염된 세계수 **아르세우드**를 향해 진행하는 게임. **전투·탐험이 핵심**, 알 부화·포켓몬 육성·생활 생산은 탐험을 지원한다.
 
-현재 **게임 디자인 문서 단계**다. 실행 가능한 게임 코드는 없으며, 이전 PokeTree 프로토타입 코드는 Git 기록에 보존되어 있다.
+현재 **기획 문서 단계**이며 실행 가능한 게임 코드는 없다. 이전 PokeTree 프로토타입의 코드는 Git 기록에만 보존되어 있다.
 
 ## 기획 문서
-- [세계관 및 스토리](docs/STORY.md)
-- [게임 시스템·포켓몬 성장·숙소 배치](docs/GAME_DESIGN.md)
-- [전투 시스템](docs/COMBAT.md)
-- [알·부화기·자동화·보관함](docs/EGGS_AND_STORAGE.md)
-- [원작 Guild Master - Idle Dungeons 분석](docs/GUILD_MASTER_IDLE_DUNGEONS_ANALYSIS.md)
+- [세계관·스토리](docs/STORY.md)
+- [게임 콘셉트·성장·생활 배치](docs/GAME_DESIGN.md)
+- [지역 탐험·귀환·HP 회복·전리품](docs/EXPLORATION.md)
+- [전투·기술·경험치·부활](docs/COMBAT.md)
+- [알·부화기·자동화·포켓몬 보관함](docs/EGGS_AND_STORAGE.md)
+- [원작 Guild Master - Idle Dungeons 참고 분석](docs/GUILD_MASTER_IDLE_DUNGEONS_ANALYSIS.md)
 - [미확정 사항](docs/OPEN_QUESTIONS.md)
 
 ## 문서 관리 원칙
-- 사용자와 명시적으로 확정한 내용만 확정으로 기록한다.
-- 수치가 없는 부분은 임의로 채우지 않는다.
-- 예시나 추천, 구현 제안은 확정 사항과 구분한다.
-- 기존 명칭 PokeTree는 게임 제목, 아르세우드는 세계수의 정식 명칭이다.
+- 명시적으로 확정된 규칙만 확정 사항으로 기록한다.
+- 예시 수치는 실제 설정값이 아니다. 수치/공식이 미정이면 미정으로 남긴다.
+- **전투숙소·생활숙소 분리 여부는 미확정**이며, 확정된 탐험에는 별도 저장 파티 시스템이 없다.
+- 원작 분석은 외부 참고 자료이며 PokeTree에 자동 도입하지 않는다.
