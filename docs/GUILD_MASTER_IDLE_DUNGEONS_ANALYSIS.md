@@ -156,3 +156,30 @@ Google Play에서 확인되는 개별 리뷰에는
    - 성장 속도·반복성 관련 의견. 표본 편향 주의.
 
 최종 확인 범위: 공개 설명/위키/일부 사용자 후기. 직접 게임 플레이, APK 역공학, 전체 최신 패치 대조는 하지 않았다.
+
+
+## 11. APK/XAPK 정적 분석 시도 기록 — 2026-11-10
+
+### 조사 대상 및 확인된 배포 정보
+- 공식 Google Play: https://play.google.com/store/apps/details?id=it.paranoidsquirrels.idleguildmaster — 개발사 Paranoid Squirrels; 패키지 ID `it.paranoidsquirrels.idleguildmaster`, 2026-09-06 업데이트 표시.
+- APKPure 배포 정보: https://apkpure.net/guild-master-idle-dungeons/it.paranoidsquirrels.idleguildmaster/download/ — 검색된 색인에는 2.148 (2026-08-21, XAPK 21.4 MB), 웹 열람 시에는 과거 캐시 2.147 (2026-06-19, XAPK 21.5 MB)가 표시됨.
+- APKPure 다운로드 링크: https://d.apkpure.net/b/XAPK/it.paranoidsquirrels.idleguildmaster?version=latest — 2026-11-10 링크 확인 시 다운로드 서버 리다이렉트 결과 파일명이 `Guild Master - Idle Dungeons_2.150_APKPure.xapk` (36,269,512 bytes)로 나타남. **리다이렉트가 나타난 사실만 확인했으며 해당 버전의 정상 파일·서명·무결성은 확인하지 못함**.
+- Uptodown 배포 정보: https://idle-guild-master.en.uptodown.com/android — 2.147 XAPK (15.91 MB), 페이지에 SHA-256 `b4cb23bf04e6a60ebe6808eef34712f1f59a54a9572b211ddd233c0dd4ab8360` 표기. 이 값은 **배포 사이트 주장**이며 다운로드 실물의 해시를 직접 계산한 결과가 아님.
+- APKPure 웹 페이지의 2.147에 대한 SHA-256 `4292286f71c2c30ca2603b6b5a38aeb564c82208f057be4a7a95ac148dac713e`은 별도 배포본/패키징 방식일 수 있어, 동일 파일이라고 전제하지 않음.
+
+### 파일 다운로드 및 분석 결과
+1. APKPure 공개 다운로드 페이지 및 직접 XAPK 링크를 확인.
+2. 다운로드 링크 호출이 외부 파일 서버 `data.winudf.com`으로 리다이렉트되는 것을 확인했으나 파일 가져오기 도구가 원격 다운로드에 실패.
+3. 별도 실행 환경에서 외부 도메인 접속 시 DNS 해석이 실패하여 파일을 내려받지 못함.
+4. **APK/XAPK 원본 바이너리를 확보하지 못했다. 압축 해제, DEX/IL2CPP 분석, 게임 데이터 추출, 전투·경제 공식 역분석, 동적 실행 분석 모두 미수행.**
+5. 따라서 현재까지의 1~10절 분석은 **공식 소개·외부 위키·후기 기반**, 이 절의 결과는 **다운로드 가능성 조사 및 제한 기록**으로만 취급해야 함.
+
+### 실제 APK 파일 확보 시 확인할 순서 (아직 미수행)
+- 파일 해시 SHA-256 계산, APK/XAPK 파일 종류와 내부 분할 APK 목록 확인.
+- AndroidManifest, 패키지명, 버전코드, 서명 인증서 및 패키징 구조 확인.
+- 포함된 게임 엔진/리소스 포맷과 데이터 테이블(JSON, SQLite, Unity assets 등) 여부 확인.
+- 구현 코드와 기획서의 전투 타깃, 자동행동, 탐험/웨이브, 파티, 제작/판매, 시간 경과, 오프라인 처리의 일치 여부 비교.
+- 분석 근거별로 **바이너리 직접 확인 / 공식 설명 / 커뮤니티 기술 / 추론 / 미확인** 표시.
+- 원본 저작권·라이선스는 개발사에 있으므로 **APK/상용 게임 리소스 및 복제 코드를 PokeTree GitHub에 게시하지 않고**, 원작 규칙에 관한 자체 작성 분석만 기록.
+
+**현시점 판단:** APK 확보와 내부 분석은 성공하지 못했으며, 구체적인 원작 전투/방치 공식의 '코드 검증' 결과는 없다.
