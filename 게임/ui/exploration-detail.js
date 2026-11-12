@@ -62,7 +62,6 @@
     $("detailScene").className="detail-scene theme-"+(region.theme||"default");
     const idle=exp.mode==="idle";
     $("detailSetup").hidden=!idle;
-    $("detailActive").hidden=idle;
     $("detailStart").hidden=!idle;
     $("detailRetreat").hidden=idle;
     if(idle){
@@ -121,6 +120,7 @@
       // Don't reconstruct checkboxes on unrelated background updates.
       if(state.regions[openRegion].mode!=="idle")render();
     }
+    if(type==="roster"&&state.regions[openRegion].mode==="idle")renderPartySelection();
     if(type==="speed")progress();
   });
   G.uiDetail={open,render};
