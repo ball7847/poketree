@@ -405,6 +405,65 @@
     $("progressFill").style.width = (fraction * 100) + "%";
     $("countdown").textContent = (Math.max(0, state.countdownMs) / 1000).toFixed(1) + "초";
   }
+  // Persist each menu's DOM tree and independent scroll position.
+  // Hidden panels keep their state; switching never reloads/rebuilds the page.
+  const tabs = ["village", "pokemon", "exploration", "records"];
+  let currentTab = "village";
+  const tabScroll = Object.fromEntries(tabs.map(id => [id, 0]));
+  function switchTab(next) {
+    if (!tabs.includes(next)) return;
+    if (next === currentTab) {
+      const active = $("tab-" + currentTab);
+      active.scrollTop = 0;
+      tabScroll[currentTab] = 0;
+      return;
+    }
+    const previous = $("tab-" + currentTab);
+    tabScroll[currentTab] = previous.scrollTop;
+    previous.hidden = true;
+    $("nav-" + currentTab).classList.remove("active");
+    $("nav-" + currentTab).removeAttribute("aria-current");
+    const page = $("tab-" + next);
+    page.hidden = false;
+    $("nav-" + next).classList.add("active");
+    $("nav-" + next).setAttribute("aria-current", "page");
+    currentTab = next;
+    page.scrollTop = tabScroll[next] || 0;
+  }
+  document.querySelectorAll(".nav-button[data-tab]").forEach(button => {
+    button.addEventListener("click", () => switchTab(button.dataset.tab));
+  });
+  // Popup presentation style is provisional; final popup type still undecided.
+  let lastPopupTrigger = null;
+  function openPopup(dialogId, trigger) {
+    const dialog = $(dialogId);
+    if (!dialog || dialog.open) return;
+    lastPopupTrigger = trigger;
+    if (typeof dialog.showModal === "function") dialog.showModal();
+    else dialog.setAttribute("open", "");
+  }
+  function closePopup(dialogId) {
+    const dialog = $(dialogId);
+    if (!dialog || !dialog.open) return;
+    if (typeof dialog.close === "function") dialog.close();
+    else dialog.removeAttribute("open");
+    lastPopupTrigger?.focus();
+    lastPopupTrigger = null;
+  }
+  $("openNotifications").addEventListener("click", (e) => openPopup("notificationsDialog", e.currentTarget));
+  $("openSettings").addEventListener("click", (e) => openPopup("settingsDialog", e.currentTarget));
+  document.querySelectorAll("[data-close-dialog]").forEach(button => {
+    button.addEventListener("click", () => closePopup(button.dataset.closeDialog));
+  });
+  ["notificationsDialog", "settingsDialog"].forEach(id => {
+    const dialog = $(id);
+    dialog.addEventListener("cancel", () => {
+      // Native dialog cancel already closes with Escape.
+      lastPopupTrigger?.focus();
+      lastPopupTrigger = null;
+    });
+  });
+  // No fabricated money/energy balances: placeholder until resource system is designed.
   populateRegions();
   renderRoster(); render(); clearNotifications();
   $("start").addEventListener("click", start);
