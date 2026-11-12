@@ -35,7 +35,10 @@
     const form=config.form||"normal";template(config.species,form);
     const nature=config.nature||"hardy";if(!natures[nature])throw Error("성격 정보 없음");
     const gender=config.gender??(species.genderRate===-1?"genderless":species.genderRate===0?"male":species.genderRate===8?"female":Math.random()*8<species.genderRate?"female":"male");
-    if(!["male","female","genderless"].includes(gender)||species.genderRate===-1&&gender!=="genderless")throw Error("성별 정보 오류");
+    if(!["male","female","genderless"].includes(gender)||
+       (species.genderRate===-1)!==(gender==="genderless")||
+       (species.genderRate===0&&gender!=="male")||
+       (species.genderRate===8&&gender!=="female"))throw Error("성별 정보 오류");
     const iv=Object.fromEntries(keys.map(k=>[k,config.iv?.[k]??Math.floor(Math.random()*32)]));
     const ev=Object.fromEntries(keys.map(k=>[k,config.ev?.[k]??0]));
     const unit={

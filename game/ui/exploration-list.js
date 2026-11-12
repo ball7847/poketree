@@ -41,7 +41,7 @@
     const bagCount=exp.party.reduce((a,u)=>a+u.bag.length,0);
     const text="전리품 "+bagCount;
     if(card.box.textContent!==text)card.box.textContent=text;
-    const keys=exp.party.map(u=>u.id).join(",");
+    const keys=exp.party.map(u=>u.id+":"+u.name).join(",");
     if(card.sprites.dataset.keys!==keys) {
       card.sprites.dataset.keys=keys;card.sprites.replaceChildren();
       for(const unit of exp.party) {
@@ -63,6 +63,7 @@
     if(type==="progress"){if(state.activeTab==="exploration"&&id)updateProgress(id);return;}
     if(["expedition","bags","log"].includes(type)&&id)update(id);
     if(type==="speed")for(const key of cards.keys())updateProgress(key);
+    if(type==="nickname")for(const key of cards.keys())update(key);
   });
   for(const id of cards.keys())update(id);
 })();

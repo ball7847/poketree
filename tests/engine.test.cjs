@@ -110,3 +110,18 @@ test("type advantages, immunity and dual-type attack rotation",()=>{
   assert.equal(result.type,"flying");
   assert.equal(result.random,85);
 });
+
+test("game combat uses stats and real damage, no demo 12/9 constants",()=>{
+  const {G}=boot();
+  assert.equal(G.exploration.start("windy",["partner1"]),null);
+  const exp=G.state.regions.windy;
+  G.combat.start(exp);
+  assert.equal(exp.mode,"combat");
+  assert.ok(exp.enemies.length>=1);
+  const enemy=exp.enemies[0];
+  const result=G.Damage.compute(exp.party[0],enemy,{random:100});
+  assert.ok(result.damage>=0);
+  assert.ok(Number.isInteger(enemy.defense));
+  G.combat.step(exp);
+  assert.ok(exp.logs.some(l=>l.message.includes("피해")));
+});

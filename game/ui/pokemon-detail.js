@@ -6,7 +6,7 @@
   let selected=null;
   const typeKo={normal:"노말",fire:"불꽃",water:"물",electric:"전기",grass:"풀",ice:"얼음",fighting:"격투",poison:"독",ground:"땅",flying:"비행",psychic:"에스퍼",bug:"벌레",rock:"바위",ghost:"고스트",dragon:"드래곤",dark:"악",steel:"강철",fairy:"페어리"};
   const find=()=>G.state.roster.find(u=>u.id===selected);
-  function render(){
+  function render(syncNickname=false){
     const u=find();if(!u)return;
     const spec=db.species[u.species],form=spec.forms[u.form];
     G.text("pokemonInfoName",u.name);
@@ -30,15 +30,15 @@
     if(img.getAttribute("src")!==src){img.hidden=false;img.src=src;}
     img.alt=spec.name;
     img.onerror=()=>{img.hidden=true;};
-    $("pokemonNickname").value=u.nickname||"";
+    if(syncNickname)$("pokemonNickname").value=u.nickname||"";
     G.text("pokemonNicknameMessage","");
   }
-  function open(id,trigger){selected=id;render();G.uiNav.open("pokemonDetailDialog",trigger);}
+  function open(id,trigger){selected=id;render(true);G.uiNav.open("pokemonDetailDialog",trigger);}
   $("savePokemonNickname").addEventListener("click",()=>{
     const u=find();if(!u)return;
     try{
       P.setNickname(u,$("pokemonNickname").value);
-      G.change("nickname");G.change("roster");render();
+      G.change("nickname");G.change("roster");render(true);
       G.text("pokemonNicknameMessage","별명을 저장했습니다.");
     }catch(e){G.text("pokemonNicknameMessage",e.message);}
   });
