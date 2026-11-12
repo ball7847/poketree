@@ -30,7 +30,7 @@ jobs:
         with:
           node-version: '22'
       - name: Run engine tests
-        run: node --test tests/*.test.cjs
+        run: node --test tests/engine.test.cjs
       - name: Assemble Pages artifact
         run: bash scripts/prepare-pages.sh
       - name: Validate deployed file tree and links

@@ -5,6 +5,9 @@ on:
     paths:
       - 'game/**'
       - 'tests/**'
+      - 'scripts/**'
+      - 'legacy/**'
+      - 'index.html'
       - '.github/workflows/test.yml'
   pull_request:
     paths:
@@ -21,4 +24,5 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - run: bash scripts/prepare-pages.sh
       - run: node --test tests/*.test.cjs
