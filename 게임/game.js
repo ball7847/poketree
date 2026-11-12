@@ -106,17 +106,30 @@
     root.textContent = "아직 알림이 없습니다.";
   }
   function renderRoster() {
-    const container = $("partySelect"); container.replaceChildren();
-    for (const unit of demoRoster) {
-      const label = document.createElement("label"); label.className = "select-unit";
-      const check = document.createElement("input"); check.type = "checkbox"; check.value = unit.id;
-      check.name = "party"; check.disabled = state.mode !== "idle" || unit.hp < unit.maxHp;
-      const text = document.createElement("span");
-      const title = document.createElement("strong"); title.textContent = unit.name;
-      const details = document.createElement("small");
-      details.textContent = "HP " + unit.hp + "/" + unit.maxHp + " · 속도 " + unit.speed +
+    const root = $("partySelect");
+    for (let i = 0; i < demoRoster.length; i++) {
+      const unit = demoRoster[i];
+      let label = [...root.children].find(node => node.dataset.unitId === unit.id);
+      if (!label) {
+        label = document.createElement("label"); label.className = "select-unit";
+        label.dataset.unitId = unit.id;
+        const check = document.createElement("input");
+        check.type = "checkbox"; check.value = unit.id; check.name = "party";
+        const text = document.createElement("span");
+        const title = document.createElement("strong");
+        const details = document.createElement("small");
+        text.append(title, details); label.append(check, text);
+      }
+      if (root.children[i] !== label) root.insertBefore(label, root.children[i] || null);
+      const check = label.firstElementChild;
+      const disabled = state.mode !== "idle" || unit.hp < unit.maxHp;
+      if (check.disabled !== disabled) check.disabled = disabled;
+      const title = label.children[1].children[0];
+      if (title.textContent !== unit.name) title.textContent = unit.name;
+      const details = label.children[1].children[1];
+      const detailsText = "HP " + unit.hp + "/" + unit.maxHp + " · 속도 " + unit.speed +
         (unit.hp < unit.maxHp ? " · 회복 대기" : "");
-      text.append(title, details); label.append(check, text); container.appendChild(label);
+      if (details.textContent !== detailsText) details.textContent = detailsText;
     }
   }
   function createUnitCard(unit) {
