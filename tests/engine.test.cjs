@@ -125,3 +125,55 @@ test("game combat uses stats and real damage, no demo 12/9 constants",()=>{
   G.combat.step(exp);
   assert.ok(exp.logs.some(l=>l.message.includes("피해")));
 });
+
+test("canonical growth XP samples and boundaries",()=>{
+  const {G}=boot(),E=G.Experience;
+  const groups=["erratic","fast","medium-fast","medium-slow","slow","fluctuating"];
+  const expected={
+    2:[15,6,8,9,10,4],3:[52,21,27,57,33,13],10:[1800,800,1000,560,1250,540],
+    15:[5737,2700,3375,2035,4218,1957],
+    100:[600000,800000,1000000,1059860,1250000,1640000]
+  };
+  for(const [n,values] of Object.entries(expected))
+    groups.forEach((group,i)=>assert.equal(E.total(Number(n),group),values[i],group+" Lv."+n));
+  for(const group of groups)for(let level=1;level<100;level++)
+    assert.ok(E.next(level,group)>0,group+" Lv."+level);
+});
+test("damage modifiers use crit -> random -> STAB -> type and floor per step",()=>{
+  const {G}=boot(),P=G.Pokemon,D=G.Damage;
+  const iv={hp:31,attack:31,defense:31,spAttack:31,spDefense:31,speed:31};
+  const a=P.create({id:"a",species:"pikachu",level:50,nature:"hardy",iv});
+  const b=P.create({id:"b",species:"pidgey",level:50,nature:"hardy",iv});
+  assert.equal(P.attackCategory(a),"physical");
+  const result=D.compute(a,b,{random:85,critical:true});
+  const base=Math.floor(Math.floor((Math.floor(2*a.level/5)+2)*10*a.attack/b.defense)/50)+2;
+  let expected=Math.floor(base*1.5);
+  expected=Math.floor(expected*85/100);
+  expected=Math.floor(expected*1.5);
+  expected=Math.floor(expected*1);
+  expected=Math.floor(expected*2);
+  assert.equal(result.damage,Math.max(1,expected));
+  assert.equal(result.effectiveness,2);
+  assert.throws(()=>D.compute(a,b,{rankAttack:7}),/랭크/);
+});
+test("granting XP emits change events and retains damage",()=>{
+  const {G}=boot(),u=G.state.roster[0],changes=[];
+  G.onChange((type)=>changes.push(type));
+  u.hp-=3;const dmg=u.maxHp-u.hp, xp=G.Experience.remaining(u);
+  G.Pokemon.grantExperience(u,1);
+  assert.ok(changes.includes("roster"));
+  changes.length=0;
+  G.Pokemon.grantExperience(u,xp-1);
+  assert.equal(u.maxHp-u.hp,dmg);
+  assert.ok(changes.includes("level"));
+  assert.ok(changes.includes("roster"));
+});
+test("invalid individual data fails validation",()=>{
+  const {G}=boot(),P=G.Pokemon;
+  assert.throws(()=>P.create({id:"x",species:"pikachu",gender:"genderless"}),/성별/);
+  assert.throws(()=>P.create({id:"x",species:"pikachu",form:"missing"}),/폼/);
+  assert.throws(()=>P.create({id:"x",species:"pikachu",nature:"unknown"}),/성격/);
+  assert.throws(()=>P.create({id:"x",species:"pikachu",nickname:23}),/별명/);
+  assert.throws(()=>P.create({id:"x",species:"pikachu",iv:{hp:32}}),/개체값/);
+  assert.throws(()=>P.create({id:"x",species:"pikachu",ev:{hp:-1}}),/개체값/);
+});

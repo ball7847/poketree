@@ -3,13 +3,13 @@
   "use strict";
   const keys=["hp","attack","defense","spAttack","spDefense","speed"];
   const normalTypes=window.POKE_SPECIES,natures=window.POKE_NATURES,experience=window.PokeExperience;
-  const natureKeys=Object.keys(natures);
   const named=(unit)=>unit.nickname||normalTypes[unit.species]?.name||unit.name||"포켓몬";
   function template(species,form="normal"){
     const s=normalTypes[species];if(!s||!s.forms[form])throw Error("알 수 없는 종족 또는 폼: "+species+"/"+form);
     return {species:s,form:s.forms[form]};
   }
   function stats(unit){
+    if(!Number.isSafeInteger(unit.level)||unit.level<1)throw Error("레벨 범위 오류");
     const {form}=template(unit.species,unit.form);
     const n=natures[unit.nature];if(!n)throw Error("알 수 없는 성격");
     const out={};
@@ -41,16 +41,18 @@
        (species.genderRate===8&&gender!=="female"))throw Error("성별 정보 오류");
     const iv=Object.fromEntries(keys.map(k=>[k,config.iv?.[k]??Math.floor(Math.random()*32)]));
     const ev=Object.fromEntries(keys.map(k=>[k,config.ev?.[k]??0]));
+    if(config.nickname!=null&&typeof config.nickname!=="string")throw Error("별명 형식 오류");
     const unit={
-      id:config.id,species:config.species,form,nickname:config.nickname??null,name:species.name,
+      id:config.id,species:config.species,form,nickname:config.nickname?.trim()||null,name:species.name,
       nature,gender,growth:species.growth,level:config.level??1,experience:config.experience??0,
       iv,ev,pp:0,bag:[],expedition:null,side:config.side||"ally",normalAttackCount:0
     };
-    if(!unit.id||!Number.isSafeInteger(unit.level)||unit.level<1)throw Error("포켓몬 ID 또는 레벨 오류");
+    if(typeof unit.id!=="string"||!unit.id.trim()||!Number.isSafeInteger(unit.level)||unit.level<1)throw Error("포켓몬 ID 또는 레벨 오류");
     if(!Number.isSafeInteger(unit.experience)||unit.experience<0)throw Error("경험치 오류");
     const cost=experience.next(unit.level,unit.growth);
     if(cost!==null&&unit.experience>=cost)throw Error("레벨별 경험치 범위 오류");
     Object.assign(unit,stats(unit));
+    unit.name=named(unit);
     unit.maxHp=unit.hp; // current HP initialized at max
     return unit;
   }
@@ -65,6 +67,9 @@
       unit.maxHp=updated.hp;
       unit.hp=Math.min(unit.maxHp,beforeHP+(updated.hp-beforeMax));
     }
+    // Model loads before core.js; read the event bus at call time.
+    if(result.levels)window.PokeTree?.change("level");
+    if(amount!==result.unapplied)window.PokeTree?.change("roster");
     return result;
   }
   function setNickname(unit,nickname){
@@ -84,6 +89,7 @@
     for(const [id,s] of Object.entries(normalTypes)){
       if(!Number.isInteger(s.genderRate)||s.genderRate < -1 || s.genderRate>8)errors.push(id+" 성비");
       if(!experience.groups.has(s.growth))errors.push(id+" 경험치 그룹");
+      if(!s.forms||!Object.keys(s.forms).length)errors.push(id+" 폼 누락");
       for(const [form,shape] of Object.entries(s.forms||{})){
         if(!Array.isArray(shape.types)||shape.types.length<1||shape.types.length>2||shape.types.some(t=>!window.POKE_TYPE_CHART[t]))errors.push(id+"/"+form+" 타입");
         if(keys.some(k=>!Number.isSafeInteger(shape.base[k])||shape.base[k]<=0))errors.push(id+"/"+form+" 종족값");

@@ -16,10 +16,17 @@
       case "medium-slow":value=6*n**3/5-15*n**2+100*n-140;break;
       case "slow":value=5*n**3/4;break;
       case "erratic":
-        value=n<=50?n**3*(100-n)/50:n<=68?n**3*(150-n)/100:n<=98?n**3*Math.floor((1911-10*n)/3)/500:n**3*(160-n)/100;
+        // Gen III+ piecewise XP table boundaries: 50 / 68 / 98.
+        if(n<50)value=n**3*(100-n)/50;
+        else if(n<68)value=n**3*(150-n)/100;
+        else if(n<98)value=n**3*Math.floor((1911-10*n)/3)/500;
+        else value=n**3*(160-n)/100;
         break;
       case "fluctuating":
-        value=n<=15?n**3*(Math.floor((n+1)/3)+24)/50:n<=36?n**3*(n+14)/50:n**3*(Math.floor(n/2)+32)/50;
+        // Gen III+ piecewise XP table boundaries: 15 / 36.
+        if(n<15)value=n**3*(Math.floor((n+1)/3)+24)/50;
+        else if(n<36)value=n**3*(n+14)/50;
+        else value=n**3*(Math.floor(n/2)+32)/50;
         break;
     }
     const result=Math.max(0,Math.floor(value));
@@ -37,11 +44,14 @@
   }
   function gain(unit,amount,onLevel){
     if(!Number.isSafeInteger(amount)||amount<0)throw Error("경험치는 0 이상의 안전한 정수여야 합니다");
+    if(!Number.isSafeInteger(unit.experience)||unit.experience<0||!Number.isSafeInteger(unit.level)||unit.level<1)throw Error("기존 경험치 또는 레벨 오류");
     let pending=amount,levels=0;
     while(pending>0){
       const cost=next(unit.level,unit.growth);
       if(cost===null)break; // require explicit policy for 100+ erratic/fluctuating
-      if(unit.experience+pending<cost){unit.experience+=pending;pending=0;break;}
+      if(!Number.isSafeInteger(cost)||cost<=0)throw Error("레벨별 필요 경험치 오류");
+      // Compare by subtraction to avoid overflow in unit.experience + pending.
+      if(pending<cost-unit.experience){unit.experience+=pending;pending=0;break;}
       pending-=cost-unit.experience;
       unit.experience=0;
       unit.level++;levels++;

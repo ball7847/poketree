@@ -31,7 +31,7 @@
     img.alt=spec.name;
     img.onerror=()=>{img.hidden=true;};
     if(syncNickname)$("pokemonNickname").value=u.nickname||"";
-    G.text("pokemonNicknameMessage","");
+    if(syncNickname)G.text("pokemonNicknameMessage","");
   }
   function open(id,trigger){selected=id;render(true);G.uiNav.open("pokemonDetailDialog",trigger);}
   $("savePokemonNickname").addEventListener("click",()=>{

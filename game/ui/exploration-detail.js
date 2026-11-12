@@ -186,7 +186,7 @@
     return row;
   }
   function reconcileRoster(root,units){
-    const signature=units.map(u=>u.id).join("|");
+    const signature=units.map(u=>u.id+":"+u.name).join("|");
     if(root.dataset.signature!==signature){
       root.dataset.signature=signature;
       root.replaceChildren(...units.map(makeUnit));
@@ -291,7 +291,10 @@
     if((type==="expedition"||type==="log"||type==="bags")&&id===regionId){
       if(state.regions[regionId].mode!=="idle")queueRender();
     }
-    if(type==="roster"&&state.regions[regionId].mode==="idle"&&picker.open)renderPicker();
+    if(["roster","level","nickname"].includes(type)){
+      if(state.regions[regionId].mode==="idle"&&picker.open)renderPicker();
+      if($("explorationDialog").open)queueRender();
+    }
     if(type==="speed")progress();
   });
   G.uiDetail={open,render};
