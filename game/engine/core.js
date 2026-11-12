@@ -13,13 +13,46 @@
     regions: Object.fromEntries(Object.keys(db.regions).map(id => [id, {
       id, mode: "idle", locationId: null, party: [], enemies: [],
       round: 0, order: [], turnIndex: 0, actions: 0,
-      remainingMs: 3000, lastEvent: "탐험 대기", logs: [], wins: 0
+      remainingMs: 3000, lastEvent: "탐험 대기", logs: [], wins: 0, error: null
     }])),
     roster, speedMs: 3000, lastTime: performance.now(),
-    activeTab: "village", currentDetail: null,
+    activeTab: "village",
     log: [], notifications: [], collected: [],
-    selectedParty: new Set(), pendingRegion: null
+    // Popup preparation state stays inside its UI module.
   };
+  function validateData(data=db) {
+    const errors=[];
+    if(!data || !data.species || !data.regions || !Array.isArray(data.demoParty)) return ["기본 게임 데이터 누락"];
+    const ids=new Set();
+    for(const unit of data.demoParty){
+      if(!unit.id || ids.has(unit.id))errors.push("중복 또는 누락된 보유 개체 ID: "+unit.id);
+      ids.add(unit.id);
+      if(!data.species[unit.species])errors.push("알 수 없는 보유 포켓몬 종족: "+unit.species);
+    }
+    for(const [sid,s] of Object.entries(data.species)){
+      if(!Number.isFinite(s.weight)||s.weight<=0)errors.push("종족 가중치 오류: "+sid);
+      if(!Number.isFinite(s.speed)||s.speed<0||!Number.isFinite(s.maxHp)||s.maxHp<=0)errors.push("종족 능력치 오류: "+sid);
+    }
+    for(const [rid,region] of Object.entries(data.regions)){
+      if(!region.locations?.[region.start])errors.push("지역 시작 지점 누락: "+rid);
+      for(const [lid,loc] of Object.entries(region.locations||{})){
+        const context=rid+"/"+lid;
+        if(!Array.isArray(loc.actions)||Math.abs(loc.actions.reduce((sum,a)=>sum+Number(a.weight||0),0)-100)>1e-9)errors.push("행동 확률 합계 오류: "+context);
+        for(const a of loc.actions||[]){
+          if(!Number.isFinite(a.weight)||a.weight<0)errors.push("행동 가중치 오류: "+context);
+          if(a.type==="move"&&!region.locations[a.to])errors.push("없는 이동 목적지: "+context+" → "+a.to);
+          if(!["walk","move","encounter","find","egg"].includes(a.type))errors.push("알 수 없는 행동: "+context+"/"+a.type);
+        }
+        if(!Array.isArray(loc.enemyCount)||Math.abs(loc.enemyCount.reduce((sum,a)=>sum+Number(a.weight||0),0)-100)>1e-9)errors.push("적 마릿수 확률 합계 오류: "+context);
+        for(const a of loc.enemyCount||[])if(!Number.isInteger(a.value)||a.value<=0||!Number.isFinite(a.weight)||a.weight<0)errors.push("적 마릿수 가중치 오류: "+context);
+        if(!Array.isArray(loc.species)||!loc.species.length)errors.push("등장 종족 없음: "+context);
+        for(const id of loc.species||[])if(!data.species[id])errors.push("없는 등장 종족: "+context+"/"+id);
+      }
+    }
+    return errors;
+  }
+  const validationErrors=validateData();
+  if(validationErrors.length)throw Error("PokeTree 데이터 오류: "+validationErrors.join("; "));
   function choose(items, weight) {
     const available = items.filter(x => Number(weight(x)) > 0);
     const total = available.reduce((a, x) => a + Number(weight(x)), 0);
@@ -58,5 +91,5 @@
     change("notification");
   }
   window.PokeTree = { db, $, state, choose, region, place, alive, text, change, onChange, record, notification,
-    DEMO: {allyDamage:12, enemyDamage:9, recovery:8, bagCapacity:100} };
+    validateData, DEMO: {allyDamage:12, enemyDamage:9, recovery:8, bagCapacity:100} };
 })();

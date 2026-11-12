@@ -109,6 +109,7 @@
       return (picker.ascending?1:-1)*compare;
     }).map(item=>item.unit);
   }
+  const pickerButtons=new Map();
   function renderPicker(){
     if(!picker.open)return;
     const root=$("pickerPokemonList");
@@ -119,40 +120,46 @@
     const direction=$("pickerDirection");
     direction.textContent=picker.ascending?"↑":"↓";
     direction.setAttribute("aria-label",picker.ascending?"오름차순 (누르면 내림차순)":"내림차순 (누르면 오름차순)");
-    root.replaceChildren();
-    for(const unit of sortedRoster()){
+    const sorted=sortedRoster();
+    const present=new Set(sorted.map(u=>u.id));
+    for(const [id,btn] of pickerButtons){
+      if(!present.has(id)){btn.remove();pickerButtons.delete(id);}
+    }
+    sorted.forEach((unit,i)=>{
+      let btn=pickerButtons.get(unit.id);
+      if(!btn){
+        btn=create("button","picker-pokemon");
+        btn.type="button";
+        btn.appendChild(pokemonPicture(unit));
+        const info=create("span","picker-row-info");
+        info.append(create("strong"),create("small"));
+        btn.appendChild(info);
+        btn.addEventListener("click",()=>{
+          const reason=disabledReason(unit);
+          if(reason){$set("pickerMessage",reason);return;}
+          if(picker.slot===null)return;
+          slots[picker.slot]=unit.id;
+          closePicker();renderSlots();$set("detailError","");
+        });
+        pickerButtons.set(unit.id,btn);
+      }
       const reason=disabledReason(unit);
-      const btn=create("button","picker-pokemon"+(reason?" unavailable":""));
-      btn.type="button";
-      btn.title=reason ? unit.name+" · "+reason : unit.name;
+      btn.classList.toggle("unavailable",!!reason);
+      const title=reason?unit.name+" · "+reason:unit.name;
+      if(btn.title!==title)btn.title=title;
       btn.setAttribute("aria-label",unit.name+(reason?" · 선택 불가: "+reason:" · 선택"));
       btn.setAttribute("aria-disabled",reason?"true":"false");
-      btn.appendChild(pokemonPicture(unit));
+      const info=btn.children[1];
+      info.hidden=picker.view!=="list";
       if(picker.view==="list"){
-        const info=create("span","picker-row-info");
-        info.append(create("strong","",unit.name));
         const dex=db.species[unit.species]?.dex;
         const level=Number.isFinite(unit.level)?"Lv."+unit.level:"레벨 미구현";
         const sub=reason||"HP "+unit.hp+"/"+unit.maxHp+" · "+level+(dex?" · No."+dex:"");
-        info.append(create("small","",sub));
-        btn.appendChild(info);
+        if(info.children[0].textContent!==unit.name)info.children[0].textContent=unit.name;
+        if(info.children[1].textContent!==sub)info.children[1].textContent=sub;
       }
-      btn.addEventListener("click",()=>{
-        if(reason){
-          $set("pickerMessage",reason);
-          return;
-        }
-        if(picker.slot===null)return;
-        // Revalidate at the moment of selection, since game state updates continuously.
-        const latest=disabledReason(unit);
-        if(latest){$set("pickerMessage",latest);renderPicker();return;}
-        slots[picker.slot]=unit.id;
-        closePicker();
-        renderSlots();
-        $set("detailError","");
-      });
-      root.appendChild(btn);
-    }
+      if(root.children[i]!==btn)root.insertBefore(btn,root.children[i]||null);
+    });
   }
   $("pickerBack").addEventListener("click",closePicker);
   $("pickerSort").addEventListener("change",e=>{
@@ -225,8 +232,8 @@
       renderSlots();
     }else{
       $set("detailLocation",G.place(exp).name);
-      $set("detailMessage",exp.lastEvent);
-      const modes={exploration:"탐험 중",combat:"전투 중",recovery:"전원 기절 · 회복 중"};
+      $set("detailMessage",exp.mode==="error"?"오류로 이 지역의 탐험이 중지됐습니다. 포켓몬과 전리품은 유지됩니다. 후퇴할 수 있습니다.":exp.lastEvent);
+      const modes={exploration:"탐험 중",combat:"전투 중",recovery:"전원 기절 · 회복 중",error:"오류 · 탐험 일시 중지"};
       $set("detailMode",modes[exp.mode]||"");
       reconcileRoster($("detailAllies"),exp.party);
       reconcileRoster($("detailEnemies"),exp.enemies);
@@ -238,15 +245,14 @@
   }
   function resetPreparation(){
     slots.fill(null);
-    state.selectedParty.clear();
-    picker.open=false;
+     picker.open=false;
     picker.slot=null;
     $("pokemonPicker").hidden=true;
     $set("pickerMessage","");
     $set("detailError","");
   }
   function open(id,source){
-    regionId=id;state.pendingRegion=id;
+    regionId=id;
     resetPreparation();render();
     G.uiNav.open("explorationDialog",source);
   }
@@ -268,11 +274,11 @@
     if(picker.open){event.preventDefault();closePicker();}
   });
   $("explorationDialog").addEventListener("close",()=>{
-    resetPreparation();regionId=null;state.pendingRegion=null;
+    resetPreparation();regionId=null;
   });
   G.onChange((type,id)=>{
     if(!regionId)return;
-    if(type==="progress"&&id===regionId)progress();
+    if(type==="progress"&&id===regionId&&$("explorationDialog").open)progress();
     if((type==="expedition"||type==="log"||type==="bags")&&id===regionId){
       if(state.regions[regionId].mode!=="idle")render();
     }

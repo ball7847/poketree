@@ -13,12 +13,17 @@
   G.addLoot=addLoot;
   function start(id, pokemonIds) {
     const exp=state.regions[id];
-    if(!exp||exp.mode!=="idle") return "이미 탐험 중입니다.";
-    const party=state.roster.filter(u=>pokemonIds.includes(u.id));
-    if(party.length<1||party.length>3||party.length!==new Set(pokemonIds).size) return "포켓몬 1~3마리를 선택하세요.";
+    if(!exp) return "존재하지 않는 지역입니다.";
+    if(exp.mode!=="idle") return "이미 탐험 중입니다.";
+    if(!Array.isArray(pokemonIds)||pokemonIds.length<1||pokemonIds.length>3||
+       new Set(pokemonIds).size!==pokemonIds.length||
+       pokemonIds.some(x=>typeof x!=="string"))return "중복 없이 포켓몬 1~3마리를 선택하세요.";
+    const byId=new Map(state.roster.map(u=>[u.id,u]));
+    if(pokemonIds.some(id=>!byId.has(id)))return "보유하지 않은 포켓몬이 포함되어 있습니다.";
+    const party=pokemonIds.map(id=>byId.get(id));
     if(party.some(u=>u.expedition!==null)) return "다른 지역에 파견된 포켓몬은 선택할 수 없습니다.";
     if(party.some(u=>u.hp!==u.maxHp)) return "모든 포켓몬의 HP가 100%여야 출발할 수 있습니다.";
-    exp.mode="exploration";exp.locationId=G.region(exp).start;exp.party=party;exp.enemies=[];
+    exp.mode="exploration";exp.error=null;exp.locationId=G.region(exp).start;exp.party=party;exp.enemies=[];
     exp.round=0;exp.order=[];exp.turnIndex=0;exp.actions=0;exp.remainingMs=state.speedMs;
     party.forEach(u=>{u.expedition=id;u.bag=[];});
     record(exp,G.region(exp).name+" 탐험 출발 · "+G.place(exp).name);
@@ -30,7 +35,7 @@
     const count=exp.party.reduce((n,u)=>n+u.bag.length,0);
     exp.party.forEach(u=>{state.collected.push(...u.bag);u.bag=[];u.expedition=null;});
     record(exp,"후퇴 완료 · 아이템 "+count+"개 귀환 수령");
-    exp.mode="idle";exp.party=[];exp.enemies=[];exp.locationId=null;
+    exp.mode="idle";exp.error=null;exp.party=[];exp.enemies=[];exp.locationId=null;
     exp.round=0;exp.order=[];exp.turnIndex=0;exp.remainingMs=state.speedMs;
     G.change("expedition",id);G.change("roster");G.change("bags",id);
   }
@@ -73,20 +78,28 @@
   // Each active region has its own elapsed counter, but all use the same
   // globally upgraded interval. Exploration and battle share the counter
   // *within* that region; no region's clock can interrupt another.
-  let idleHealMs=0;
+  let idleHealMs=0,lastProgressSignal=0;
   function frame(now) {
     const dt=Math.min(1000,Math.max(0,now-state.lastTime));state.lastTime=now;
     idleHealMs+=dt;
     for(const exp of Object.values(state.regions)) {
-      if(exp.mode==="idle")continue;
+      if(exp.mode==="idle"||exp.mode==="error")continue;
       exp.remainingMs-=dt;
       if(exp.remainingMs<=0) {
         exp.remainingMs+=state.speedMs;
         if(exp.remainingMs<=0)exp.remainingMs=state.speedMs;
-        try{tick(exp);}catch(e){record(exp,"개발용 오류: "+e.message);recall(exp.id);}
+        try{tick(exp);}catch(e){
+          // Preserve party HP, loot and location. Only this region is paused.
+          exp.mode="error";
+          exp.error=String(e?.message||e);
+          record(exp,"탐험 일시 중지 · 오류: "+exp.error);
+          G.change("expedition",exp.id);
+        }
       }
-      G.change("progress",exp.id);
+      // Progress is visual only; engine ticks retain the 100 ms clock.
+      if(now-lastProgressSignal>=200)G.change("progress",exp.id);
     }
+    if(now-lastProgressSignal>=200)lastProgressSignal=now;
     if(idleHealMs>=state.speedMs){idleHealMs=0;healIdle();}
   }
   function setIntervalMs(ms) {

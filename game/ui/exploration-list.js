@@ -32,7 +32,7 @@
   }
   function update(id) {
     const card=cards.get(id),exp=state.regions[id];if(!card)return;
-    const modeNames={idle:"탐험 대기",exploration:"탐험 중",combat:"전투 중",recovery:"전원 기절 · 회복 중"};
+    const modeNames={idle:"탐험 대기",exploration:"탐험 중",combat:"전투 중",recovery:"전원 기절 · 회복 중",error:"오류 · 탐험 일시 중지"};
     const status=exp.mode==="exploration"?exp.lastEvent:modeNames[exp.mode];
     if(card.status.textContent!==status)card.status.textContent=status;
     const sub=exp.mode==="idle"?"지역을 눌러 탐험 시작":
@@ -60,7 +60,7 @@
   }
   for(const id of Object.keys(db.regions))makeCard(id);
   G.onChange((type,id)=>{
-    if(type==="progress"){updateProgress(id);return;}
+    if(type==="progress"){if(state.activeTab==="exploration"&&id)updateProgress(id);return;}
     if(["expedition","bags","log"].includes(type)&&id)update(id);
     if(type==="speed")for(const key of cards.keys())updateProgress(key);
   });

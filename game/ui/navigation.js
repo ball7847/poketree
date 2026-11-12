@@ -20,14 +20,17 @@
     $("nav-"+id).setAttribute("aria-current","page");
     G.state.activeTab=id;
     target.scrollTop=scroll[id];
+    if(id==="exploration"){
+      for(const regionId of Object.keys(G.state.regions))G.change("progress",regionId);
+    }
   }
   document.querySelectorAll(".nav-button[data-tab]").forEach(button=>{
     button.addEventListener("click",()=>switchTab(button.dataset.tab));
   });
-  let focusedBefore=null;
+  const focusByDialog=new Map();
   function open(id,trigger) {
     const d=$(id); if(!d || d.open)return;
-    focusedBefore=trigger||document.activeElement;
+    focusByDialog.set(id,trigger||document.activeElement);
     if(d.showModal)d.showModal();else d.setAttribute("open","");
   }
   function close(id) {
@@ -38,7 +41,11 @@
     btn.addEventListener("click",()=>close(btn.dataset.closeDialog)));
   ["notificationsDialog","settingsDialog","explorationDialog"].forEach(id=>{
     const d=$(id);
-    d.addEventListener("close",()=>{focusedBefore?.focus();focusedBefore=null;});
+    d.addEventListener("close",()=>{
+      const previous=focusByDialog.get(id);
+      focusByDialog.delete(id);
+      if(previous?.isConnected)previous.focus();
+    });
     d.addEventListener("click",event=>{
       if(event.target===d)close(id);
     });

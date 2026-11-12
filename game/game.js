@@ -18,34 +18,6 @@
   function notificationRow(item) {
     return make("div","notification-row",item.time+"  "+item.message);
   }
-  let logDisplayed=0,notificationDisplayed=0;
-  function refreshLog() {
-    const el=$("eventLog");
-    // A new entry is a prefix; previous rows are retained.
-    while(logDisplayed<state.log.length) {
-      const count=state.log.length-logDisplayed;
-      const item=state.log[count-1];
-      el.prepend(logRow(item));
-      logDisplayed++;
-    }
-    while(el.children.length>MAX_LOG)el.lastElementChild.remove();
-    logDisplayed=state.log.length;
-  }
-  function refreshNotifications() {
-    const el=$("notifications");
-    if(!state.notifications.length){
-      if(el.textContent!=="아직 알림이 없습니다.")el.textContent="아직 알림이 없습니다.";
-      notificationDisplayed=0;return;
-    }
-    if(!notificationDisplayed)el.replaceChildren();
-    while(notificationDisplayed<state.notifications.length) {
-      const index=state.notifications.length-notificationDisplayed-1;
-      el.prepend(notificationRow(state.notifications[index]));
-      notificationDisplayed++;
-    }
-    while(el.children.length>30)el.lastElementChild.remove();
-    notificationDisplayed=state.notifications.length;
-  }
   // Above incremental counters can saturate. Exactly one new entry at capacity
   // still needs a prepend and removal, not a full log redraw.
   function addLog() {
@@ -65,9 +37,10 @@
   }
   function renderOwnedPokemon() {
     const root=$("partySelect");
+    const existing=new Map([...root.children].map(el=>[el.dataset.id,el]));
     for(let i=0;i<state.roster.length;i++){
       const u=state.roster[i];
-      let row=[...root.children].find(c=>c.dataset.id===u.id);
+      let row=existing.get(u.id);
       if(!row){
         row=make("div","select-unit");
         row.dataset.id=u.id;
@@ -102,10 +75,10 @@
     if(type==="speed")updateSpeedButtons();
   });
   $("clearLog").addEventListener("click",()=>{
-    state.log.length=0;logDisplayed=0;$("eventLog").replaceChildren();
+    state.log.length=0; $("eventLog").replaceChildren();
   });
   $("clearNotifications").addEventListener("click",()=>{
-    state.notifications.length=0;notificationDisplayed=0;
+    state.notifications.length=0; 
     $("notifications").textContent="아직 알림이 없습니다.";
   });
   document.querySelectorAll(".speed").forEach(button=>{
