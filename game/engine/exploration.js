@@ -25,7 +25,7 @@
     if(party.some(u=>u.hp!==u.maxHp)) return "모든 포켓몬의 HP가 100%여야 출발할 수 있습니다.";
     exp.mode="exploration";exp.error=null;exp.locationId=G.region(exp).start;exp.party=party;exp.enemies=[];
     exp.round=0;exp.order=[];exp.turnIndex=0;exp.actions=0;exp.remainingMs=state.speedMs;
-    party.forEach(u=>{u.expedition=id;u.bag=[];});
+    party.forEach(u=>{u.expedition=id;u.bag=[];u.pp=0;u.normalAttackCount=0;});
     record(exp,G.region(exp).name+" 탐험 출발 · "+G.place(exp).name);
     G.change("expedition",id);G.change("roster");
     return null;
@@ -33,7 +33,7 @@
   function recall(id) {
     const exp=state.regions[id];if(!exp||exp.mode==="idle")return;
     const count=exp.party.reduce((n,u)=>n+u.bag.length,0);
-    exp.party.forEach(u=>{state.collected.push(...u.bag);u.bag=[];u.expedition=null;});
+    exp.party.forEach(u=>{state.collected.push(...u.bag);u.bag=[];u.expedition=null;u.pp=0;u.normalAttackCount=0;});
     record(exp,"후퇴 완료 · 아이템 "+count+"개 귀환 수령");
     exp.mode="idle";exp.error=null;exp.party=[];exp.enemies=[];exp.locationId=null;
     exp.round=0;exp.order=[];exp.turnIndex=0;exp.remainingMs=state.speedMs;

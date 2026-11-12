@@ -6,11 +6,19 @@
   <meta name="theme-color" content="#101b26">
   <title>PokeTree · 웹게임</title>
   <link rel="stylesheet" href="./style.css">
+  <script src="./data/species.js" defer></script>
+  <script src="./data/natures.js" defer></script>
+  <script src="./data/type-chart.js" defer></script>
   <script src="./data.js" defer></script>
+  <script src="./engine/experience.js" defer></script>
+  <script src="./engine/pokemon.js" defer></script>
+  <script src="./engine/damage.js" defer></script>
   <script src="./engine/core.js" defer></script>
   <script src="./engine/combat.js" defer></script>
   <script src="./engine/exploration.js" defer></script>
   <script src="./ui/navigation.js" defer></script>
+  <script src="./ui/pokemon-list.js" defer></script>
+  <script src="./ui/pokemon-detail.js" defer></script>
   <script src="./ui/exploration-list.js" defer></script>
   <script src="./ui/exploration-detail.js" defer></script>
   <script src="./game.js" defer></script>
@@ -38,7 +46,7 @@
         <div class="panel">
           <h2>보유 포켓몬</h2>
           <p class="hint">보유 포켓몬 정보입니다. 탐험할 포켓몬은 탐험 지역 상세창에서 선택합니다.</p>
-          <div id="partySelect" class="selection"></div>
+          <div id="partySelect" class="selection" aria-label="보유 포켓몬 목록"></div>
         </div>
       </section>
       <section id="tab-exploration" class="tab-page" role="tabpanel" aria-labelledby="nav-exploration" hidden>
@@ -62,6 +70,39 @@
     </nav>
   </div>
   <!-- Popup layout is provisional; final modal/bottom-sheet/full-screen design is undecided. -->
+  <dialog id="pokemonDetailDialog" class="popup pokemon-info-dialog" aria-labelledby="pokemonInfoName">
+    <div class="section-title">
+      <h2 id="pokemonInfoName">포켓몬 정보</h2>
+      <button type="button" class="popup-close" data-close-dialog="pokemonDetailDialog" aria-label="포켓몬 정보창 닫기">×</button>
+    </div>
+    <div class="pokemon-info-hero">
+      <img id="pokemonInfoImage" alt="" loading="lazy">
+      <div>
+        <p id="pokemonInfoSpecies" class="hint"></p>
+        <p id="pokemonInfoIdentity"></p>
+        <p id="pokemonInfoTypes"></p>
+      </div>
+    </div>
+    <div class="pokemon-nickname-controls">
+      <label for="pokemonNickname">별명</label>
+      <div class="nickname-line"><input id="pokemonNickname" type="text" maxlength="128" autocomplete="off" placeholder="비워 두면 종족명 표시"><button id="savePokemonNickname" class="primary" type="button">저장</button></div>
+      <p id="pokemonNicknameMessage" role="status"></p>
+    </div>
+    <div class="pokemon-info-stats">
+      <div><span>레벨</span><strong id="pokemonInfoLevel"></strong></div>
+      <div><span>현재 경험치</span><strong id="pokemonInfoExp"></strong></div>
+      <div><span>레벨업까지</span><strong id="pokemonInfoRemaining"></strong></div>
+      <div><span>HP</span><strong id="pokemonInfoHP"></strong></div>
+      <div><span>PP 획득량</span><strong id="pokemonInfoPP"></strong></div>
+      <div><span>공격</span><strong id="pokemonInfoAttack"></strong></div>
+      <div><span>방어</span><strong id="pokemonInfoDefense"></strong></div>
+      <div><span>특수공격</span><strong id="pokemonInfoSpAttack"></strong></div>
+      <div><span>특수방어</span><strong id="pokemonInfoSpDefense"></strong></div>
+      <div><span>스피드</span><strong id="pokemonInfoSpeed"></strong></div>
+      <div><span>일반공격 유형</span><strong id="pokemonInfoCategory"></strong></div>
+    </div>
+    <p class="hint">PP 획득량은 현재 기본 계산값입니다. 특성별 보정은 추후 적용됩니다.</p>
+  </dialog>
   <dialog id="notificationsDialog" class="popup" aria-labelledby="notificationsTitle">
     <div class="section-title"><h2 id="notificationsTitle">알림 기록</h2><button type="button" class="popup-close" data-close-dialog="notificationsDialog" aria-label="알림창 닫기">×</button></div>
     <p class="hint">최근 주요 이벤트 30개 · 게임 종료 시 초기화</p>

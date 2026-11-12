@@ -5,11 +5,13 @@
   const $ = id => document.getElementById(id);
   const validationErrors=validateData();
   if(validationErrors.length)throw Error("PokeTree 데이터 오류: "+validationErrors.join("; "));
-  const roster = db.demoParty.map(item => ({
-    ...item, hp: db.species[item.species].maxHp,
-    maxHp: db.species[item.species].maxHp,
-    speed: db.species[item.species].speed,
-    bag: [], side: "ally", expedition: null
+  const Pokemon=window.PokePokemon;
+  const errors=Pokemon.validateSpecies();
+  if(errors.length)throw Error("포켓몬 데이터 오류: "+errors.join(", "));
+  const roster = db.demoParty.map((item,index)=>Pokemon.create({
+    ...item,level:5,
+    nature:["hardy","adamant","timid"][index]||"hardy",
+    side:"ally"
   }));
   const state = {
     regions: Object.fromEntries(Object.keys(db.regions).map(id => [id, {
@@ -33,7 +35,7 @@
     }
     for(const [sid,s] of Object.entries(data.species)){
       if(!Number.isFinite(s.weight)||s.weight<=0)errors.push("종족 가중치 오류: "+sid);
-      if(!Number.isFinite(s.speed)||s.speed<0||!Number.isFinite(s.maxHp)||s.maxHp<=0)errors.push("종족 능력치 오류: "+sid);
+      if(!s.forms?.normal || !s.growth)errors.push("종족 데이터 오류: "+sid);
     }
     for(const [rid,region] of Object.entries(data.regions)){
       if(!region.locations?.[region.start])errors.push("지역 시작 지점 누락: "+rid);
@@ -91,5 +93,5 @@
     change("notification");
   }
   window.PokeTree = { db, $, state, choose, region, place, alive, text, change, onChange, record, notification,
-    validateData, DEMO: {allyDamage:12, enemyDamage:9, recovery:8, bagCapacity:100} };
+    validateData,Pokemon,Experience:window.PokeExperience,Damage:window.PokeDamage, DEMO: {recovery:8, bagCapacity:100} };
 })();

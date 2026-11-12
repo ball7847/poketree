@@ -34,29 +34,6 @@
       while(el.children.length>30)el.lastElementChild.remove();
     }
   }
-  function renderOwnedPokemon() {
-    const root=$("partySelect");
-    const existing=new Map([...root.children].map(el=>[el.dataset.id,el]));
-    for(let i=0;i<state.roster.length;i++){
-      const u=state.roster[i];
-      let row=existing.get(u.id);
-      if(!row){
-        row=make("div","select-unit");
-        row.dataset.id=u.id;
-        const name=make("strong");
-        const details=make("small");
-        const label=make("span");label.append(name,details);
-        row.append(label);
-      }
-      if(root.children[i]!==row)root.insertBefore(row,root.children[i]||null);
-      const name=row.querySelector("strong"),details=row.querySelector("small");
-      if(name.textContent!==u.name)name.textContent=u.name;
-      const status=u.expedition ? G.db.regions[u.expedition].name+" 탐험 중" :
-        u.hp<u.maxHp?"HP 회복 중":"대기";
-      const desc="HP "+u.hp+"/"+u.maxHp+" · 속도 "+u.speed+" · "+status;
-      if(details.textContent!==desc)details.textContent=desc;
-    }
-  }
   function updateActiveCount() {
     const active=Object.values(state.regions).filter(e=>e.mode!=="idle").length;
     G.text("activity","탐험 "+active+"곳");
@@ -69,7 +46,6 @@
   G.onChange((type,id)=>{
     if(type==="log")addLog();
     if(type==="notification")addNotification();
-    if(type==="roster"||type==="expedition")renderOwnedPokemon();
     if(type==="expedition")updateActiveCount();
     if(type==="speed")updateSpeedButtons();
   });
@@ -85,7 +61,7 @@
       G.exploration.setIntervalMs(Number(button.dataset.speed));
     });
   });
-  renderOwnedPokemon();updateActiveCount();updateSpeedButtons();
+  updateActiveCount();updateSpeedButtons();
   G.record(null,"PokeTree 탐험 프로토타입 시작 · 지역 카드를 눌러 탐험하세요.");
   // Ignore inactive period rather than fast-forwarding huge action bursts.
   // Timers keep running while another tab or dialog is shown.

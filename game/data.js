@@ -5,12 +5,12 @@
 window.POKE_DATA = Object.freeze({
   demo: true,
   species: {
-    rattata: { name: "꼬렛", dex: 19, weight: 1000, speed: 72, maxHp: 35 },
-    pidgey: { name: "구구", dex: 16, weight: 1000, speed: 56, maxHp: 38 },
-    caterpie: { name: "캐터피", dex: 10, weight: 800, speed: 45, maxHp: 40 },
-    weedle: { name: "뿔충이", dex: 13, weight: 800, speed: 50, maxHp: 40 },
-    pikachu: { name: "피카츄", dex: 25, weight: 10, speed: 90, maxHp: 40 },
-    eevee: { name: "이브이", dex: 133, weight: 10, speed: 55, maxHp: 46 }
+    rattata: { ...window.POKE_SPECIES.rattata, weight: 1000 },
+    pidgey: { ...window.POKE_SPECIES.pidgey, weight: 1000 },
+    caterpie: { ...window.POKE_SPECIES.caterpie, weight: 800 },
+    weedle: { ...window.POKE_SPECIES.weedle, weight: 800 },
+    pikachu: { ...window.POKE_SPECIES.pikachu, weight: 10 },
+    eevee: { ...window.POKE_SPECIES.eevee, weight: 10 },
   },
   regions: {
     windy: {

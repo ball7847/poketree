@@ -51,19 +51,8 @@
     unit.maxHp=unit.hp; // current HP initialized at max
     return unit;
   }
-  function gainExp(unit,amount){
-    const result=experience.gain(unit,amount,(u)=>{
-      const wasMax=u.maxHp;
-      Object.assign(u,stats(u));
-      u.maxHp=u.hp;
-      u.hp=Math.min(u.maxHp,wasMaxDamage(u,wasMax));
-    });
-    return result;
-  }
-  function wasMaxDamage(u,oldMax){
-    // u.hp was just recalculated in stats(); preserve previous HP via wrapper below.
-    return u.maxHp; // overwritten by wrapped gainExp below
-  }
+  // No experience reward is invented here: game systems call this only with
+  // an explicitly supplied amount, once their reward rules are established.
   function grantExperience(unit,amount){
     const beforeHP=unit.hp,beforeMax=unit.maxHp;
     const result=experience.gain(unit,amount);

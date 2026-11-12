@@ -58,7 +58,7 @@
       const btn=root.children[i];
       const u=id&&getUnit(id);
       const label=(i+1)+"번 슬롯";
-      const signature=u ? "unit:"+u.id : "empty";
+      const signature=u ? "unit:"+u.id+":"+u.name+":"+u.hp+":"+u.maxHp : "empty";
       if(btn.dataset.signature===signature)return;
       btn.dataset.signature=signature;
       btn.classList.toggle("filled",!!u);

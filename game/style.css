@@ -91,3 +91,20 @@
 .picker-row-info strong{font-size:14px}
 .picker-row-info small{font-size:11px;color:#c5d2d9}
 @media(max-width:390px){.slot-index{width:52px}.party-slot{gap:8px}.slot-description{padding-left:48px}.picker-pokemon-list.icon-view{gap:5px}.picker-pokemon{padding:3px}.pokemon-picker{padding:10px}.picker-toolbar{gap:5px}}
+
+
+/* Pokemon information: details are scrollable inside their own dialog. */
+.pokemon-info-dialog{width:min(580px,calc(100vw - 20px));max-height:calc(100dvh - 28px);overflow-y:auto}
+.pokemon-owned{width:100%;text-align:left;display:flex;flex-direction:column;align-items:stretch;gap:3px}
+.pokemon-owned strong{font-size:15px}.pokemon-owned small{font-size:12px;color:#a8bdc7}
+.pokemon-info-hero{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid #34505f}
+.pokemon-info-hero img{width:90px;height:90px;object-fit:contain;flex:none;image-rendering:pixelated}
+.pokemon-info-hero p{margin:4px 0}
+.pokemon-nickname-controls{margin-top:10px}
+.nickname-line{display:flex;gap:8px}.nickname-line input{min-width:0;flex:1;background:#142733;border:1px solid #496575;border-radius:8px;color:#e9f1f3;padding:9px}
+.nickname-line button{flex:none}
+#pokemonNicknameMessage{min-height:1em;font-size:12px;color:#a8d7b9}
+.pokemon-info-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.pokemon-info-stats>div{background:#1f3543;border-radius:8px;padding:9px;min-width:0}
+.pokemon-info-stats span{display:block;color:#9eb7c1;font-size:12px}
+.pokemon-info-stats strong{display:block;overflow-wrap:anywhere;font-size:16px}

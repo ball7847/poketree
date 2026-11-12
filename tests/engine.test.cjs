@@ -8,7 +8,7 @@ function boot(){
   const ctx={window:{},performance:{now:()=>0},Date,console,Set,Map,Math};
   ctx.window.POKE_DATA=undefined;
   const context=vm.createContext(ctx);
-  for(const name of ["data.js","engine/core.js","engine/combat.js","engine/exploration.js"]){
+  for(const name of ["data/species.js","data/natures.js","data/type-chart.js","data.js","engine/experience.js","engine/pokemon.js","engine/damage.js","engine/core.js","engine/combat.js","engine/exploration.js"]){
     vm.runInContext(fs.readFileSync(path.join(__dirname,"../game",name),"utf8"),context,{filename:name});
   }
   return {G:ctx.window.PokeTree,ctx};
