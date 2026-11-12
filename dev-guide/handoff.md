@@ -138,3 +138,12 @@ game/
 - `game/engine/combat.js`: 적이 쓰러질 때마다 즉시 생존 아군에게 경험치 지급·레벨업·개별 로그. 적에게 경험치 지급 없음. 기존 스피드 라운드 정렬 유지.
 - 전투 승리 경험치를 중복 지급하지 않는다. 패배하더라도 이미 받은 경험치는 유지하되, 아군 기절 시 현재 레벨 경험치 초기화는 계속 적용.
 - 기존 `engine/pokemon.js`의 다중 레벨업 및 HP 증가분 보존 재사용. 임의의 특성·기술·노력치 획득·저장 규칙 추가하지 않음.
+
+
+## 2026-11-12 포켓몬 데이터 출처 우선순위 (승인)
+- 공식 데이터 탐색 순서: **Pokémon Champions → Gen IX → VIII → VII → VI → V → IV → III → II → I**.
+- **종족/폼/항목별로** 적용 가능 여부를 확인한다. 챔피언스에 포켓몬이 있더라도 해당 게임에 없는 필드(예: 경험치 성장)는 후순위 출처를 확인한다.
+- 코드 `game/data/species.js`에 전투 수치를 보관하고, `game/data/provenance.js`에서 필드별 검증 여부·출처·기준 버전을 관리한다. `game/data.js`에서 `provenance`를 노출한다.
+- **검증된 출처만** `checked:true`로 적는다. 이번에는 현재 종족값 대조만 확인했으며, 나머지 필드들의 우선순위별 출처는 `checked:false`로 남겨 두었다. 최신판 적용 완료로 오인하지 않는다.
+- 현행 시연용 6종의 수치는 그대로 유지한다. 별도 사용자 승인 없이 원작 수치를 임의 변경하지 않는다.
+- 확인 참고: https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_stats_(present) ; https://bulbapedia.bulbagarden.net/wiki/Experience

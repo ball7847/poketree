@@ -8,7 +8,7 @@ function boot(){
   const ctx={window:{},performance:{now:()=>0},Date,console,Set,Map,Math};
   ctx.window.POKE_DATA=undefined;
   const context=vm.createContext(ctx);
-  for(const name of ["data/species.js","data/natures.js","data/type-chart.js","data.js","engine/experience.js","engine/pokemon.js","engine/damage.js","engine/core.js","engine/battle-experience.js","engine/combat.js","engine/exploration.js"]){
+  for(const name of ["data/species.js","data/provenance.js","data/natures.js","data/type-chart.js","data.js","engine/experience.js","engine/pokemon.js","engine/damage.js","engine/core.js","engine/battle-experience.js","engine/combat.js","engine/exploration.js"]){
     vm.runInContext(fs.readFileSync(path.join(__dirname,"../game",name),"utf8"),context,{filename:name});
   }
   return {G:ctx.window.PokeTree,ctx};
@@ -249,4 +249,26 @@ test("level-up from awarded experience keeps this round's order and no bonus act
   assert.equal(exp.mode,"exploration");
   assert.equal(exp.party[0].hp<=exp.party[0].maxHp,true);
   assert.ok(exp.logs.some(l=>l.message.includes("Lv.")));
+});
+
+test("pokemon data source policy ranks Champions and then newest generation",()=>{
+  const {G}=boot(),p=G.db.provenance;
+  assert.equal(p.priority[0],"champions");
+  assert.deepEqual(Array.from(p.priority.slice(1)),[9,8,7,6,5,4,3,2,1]);
+  for(const species of Object.keys(G.db.species)){
+    const info=p.species[species];
+    assert.ok(info, "missing provenance for "+species);
+    for(const field of p.fields){
+      const key=field==="base"||field==="types"?"normal."+field:field;
+      const ref=info[key];
+      assert.ok(ref,"missing source field "+species+"/"+key);
+      if(ref.checked){
+        assert.ok(p.sources[ref.source], "checked fields must carry source URLs");
+        assert.ok(ref.version);
+      }else assert.equal(ref.source,null, "unverified sources cannot be fabricated");
+    }
+  }
+  // Source metadata must not change gameplay numbers.
+  assert.equal(G.db.species.pikachu.forms.normal.base.speed,90);
+  assert.equal(G.db.species.eevee.baseExp,65);
 });

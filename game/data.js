@@ -4,6 +4,7 @@
  */
 window.POKE_DATA = Object.freeze({
   demo: true,
+  provenance: window.POKE_DATA_PROVENANCE,
   species: {
     rattata: { ...window.POKE_SPECIES.rattata, weight: 1000 },
     pidgey: { ...window.POKE_SPECIES.pidgey, weight: 1000 },

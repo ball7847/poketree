@@ -1,6 +1,7 @@
-/* Canonical Generation I base stats, types, ratios and growth groups for six demo species.
- * genderRate = female eighths; -1 means genderless. The encounter WEIGHTS remain demo only.
- * Sources: PokeAPI species/pokemon database and original game data.
+/* Species data for six demo Pokémon, NOT necessarily Generation I values.
+ * Resolve each attribute by Champions > Gen IX > Gen VIII > ... > Gen I.
+ * Per-field provenance and unverified status are kept in data/provenance.js.
+ * genderRate = female eighths; -1 means genderless. Encounter weights are demo-only.
  */
 window.POKE_SPECIES = Object.freeze({
   rattata:{name:"꼬렛",dex:19,baseExp:51,genderRate:4,growth:"medium-fast",forms:{normal:{name:"기본형",types:["normal"],base:{hp:30,attack:56,defense:35,spAttack:25,spDefense:35,speed:72}}}},

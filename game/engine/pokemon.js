@@ -1,4 +1,6 @@
-/* Individual Pokemon model and stat calculation: data is independent of UI. */
+/* Individual Pokemon model and stat calculation: data is independent of UI.
+ * Provenance is read separately from engine stats; data values stay unchanged.
+ */
 (() => {
   "use strict";
   const keys=["hp","attack","defense","spAttack","spDefense","speed"];
