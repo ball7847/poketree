@@ -54,31 +54,56 @@
   function location() { return region().locations[state.locationId]; }
   function isAlive(unit) { return unit.hp > 0; }
   function now() { return new Date().toLocaleTimeString("ko-KR", { hour12: false }); }
+  // UI reads/writes are strictly scoped: only changed text, events and cards mutate.
+  function setText(id, value) {
+    const el = $(id);
+    const next = String(value);
+    if (el.textContent !== next) el.textContent = next;
+  }
+  function setDisabled(id, disabled) {
+    const el = $(id);
+    if (el.disabled !== disabled) el.disabled = disabled;
+  }
+  function prependEntry(root, className, item) {
+    const el = document.createElement("div"); el.className = className;
+    const clock = document.createElement("em"); clock.textContent = item.time;
+    el.append(clock, document.createTextNode(item.message));
+    root.prepend(el);
+    return el;
+  }
   function log(message) {
-    state.logs.unshift({ time: now(), message });
-    state.logs.length = Math.min(state.logs.length, MAX_LOG);
-    renderLog();
+    const item = { time: now(), message };
+    state.logs.unshift(item);
+    const root = $("eventLog");
+    prependEntry(root, "logentry", item);
+    if (state.logs.length > MAX_LOG) {
+      state.logs.pop();
+      root.lastElementChild?.remove();
+    }
   }
   function notify(message) {
-    state.notifications.unshift({ time: now(), message });
-    state.notifications.length = Math.min(state.notifications.length, 30);
-    renderNotifications();
-  }
-  function renderLog() {
-    const root = $("eventLog"); root.replaceChildren();
-    for (const item of state.logs) {
-      const el = document.createElement("div"); el.className = "logentry";
-      const time = document.createElement("em"); time.textContent = item.time;
-      el.append(time, document.createTextNode(item.message)); root.appendChild(el);
+    const item = { time: now(), message };
+    const root = $("notifications");
+    if (!state.notifications.length) root.replaceChildren();
+    state.notifications.unshift(item);
+    const el = document.createElement("div");
+    el.className = "notification-row";
+    el.textContent = item.time + "  " + item.message;
+    root.prepend(el);
+    if (state.notifications.length > 30) {
+      state.notifications.pop();
+      root.lastElementChild?.remove();
     }
   }
-  function renderNotifications() {
-    const root = $("notifications"); root.replaceChildren();
-    if (!state.notifications.length) { root.textContent = "아직 알림이 없습니다."; return; }
-    for (const item of state.notifications) {
-      const el = document.createElement("div"); el.className = "notification-row";
-      el.textContent = item.time + "  " + item.message; root.appendChild(el);
-    }
+  function clearLog() {
+    state.logs.length = 0;
+    $("eventLog").replaceChildren();
+  }
+  function clearNotifications() {
+    state.notifications.length = 0;
+    const root = $("notifications");
+    root.replaceChildren();
+    root.textContent = "아직 알림이 없습니다.";
   }
   function renderRoster() {
     const container = $("partySelect"); container.replaceChildren();
@@ -94,73 +119,125 @@
       text.append(title, details); label.append(check, text); container.appendChild(label);
     }
   }
-  function unitCard(unit) {
-    const box = document.createElement("div"); box.className = "unit" + (unit.hp <= 0 ? " fainted" : "");
-    const name = document.createElement("div"); name.className = "name"; name.textContent = unit.name;
-    const info = document.createElement("div"); info.className = "unit-info";
-    info.textContent = "속도 " + unit.speed + " · HP " + unit.hp + "/" + unit.maxHp;
+  function createUnitCard(unit) {
+    const box = document.createElement("div");
+    box.className = "unit"; box.dataset.unitId = unit.id;
+    const name = document.createElement("div"); name.className = "name";
     const health = document.createElement("div"); health.className = "health";
-    const bar = document.createElement("div"); bar.style.width = (100 * unit.hp / unit.maxHp) + "%";
-    if (unit.hp / unit.maxHp <= .3) bar.className = "low";
-    health.append(bar); box.append(name, health, info); return box;
+    const bar = document.createElement("div"); health.appendChild(bar);
+    const info = document.createElement("div"); info.className = "unit-info";
+    box.append(name, health, info);
+    return box;
+  }
+  function updateUnitCard(card, unit) {
+    const className = "unit" + (unit.hp <= 0 ? " fainted" : "");
+    if (card.className !== className) card.className = className;
+    const title = card.children[0], bar = card.children[1].firstElementChild, info = card.children[2];
+    if (title.textContent !== unit.name) title.textContent = unit.name;
+    const width = 100 * unit.hp / unit.maxHp + "%";
+    if (bar.style.width !== width) bar.style.width = width;
+    const lowClass = unit.hp / unit.maxHp <= .3 ? "low" : "";
+    if (bar.className !== lowClass) bar.className = lowClass;
+    const details = "속도 " + unit.speed + " · HP " + unit.hp + "/" + unit.maxHp;
+    if (info.textContent !== details) info.textContent = details;
+  }
+  function reconcileUnits(id, units, emptyMessage) {
+    const root = $(id);
+    if (!units.length) {
+      if (root.dataset.empty !== "true") {
+        root.replaceChildren();
+        const empty = document.createElement("span");
+        empty.className = "empty"; empty.textContent = emptyMessage;
+        root.appendChild(empty);
+        root.dataset.empty = "true";
+      }
+      return;
+    }
+    if (root.dataset.empty === "true") {
+      root.replaceChildren(); root.dataset.empty = "false";
+    }
+    const ids = new Set(units.map(unit => unit.id));
+    for (const child of [...root.children]) {
+      if (!ids.has(child.dataset.unitId)) child.remove();
+    }
+    for (let i = 0; i < units.length; i++) {
+      const unit = units[i];
+      let card = [...root.children].find(child => child.dataset.unitId === unit.id);
+      if (!card) card = createUnitCard(unit);
+      if (root.children[i] !== card) root.insertBefore(card, root.children[i] || null);
+      updateUnitCard(card, unit);
+    }
   }
   function renderUnits() {
-    for (const [rootId, units] of [["allies", state.active], ["enemies", state.enemies]]) {
-      const root = $(rootId); root.replaceChildren();
-      if (!units.length) {
-        const el = document.createElement("span"); el.className = "empty";
-        el.textContent = rootId === "allies" ? "아직 파견하지 않았습니다." : "전투 중이 아닙니다.";
-        root.appendChild(el); continue;
-      }
-      for (const unit of units) root.appendChild(unitCard(unit));
-    }
-    const count = state.active.reduce((sum, unit) => sum + unit.bag.length, 0);
-    $("bagCount").textContent = count + "개";
-    const root = $("bags"); root.replaceChildren();
-    if (!state.active.length) {
-      root.textContent = state.collected.length ? "귀환한 아이템 누적 " + state.collected.length + "개" : "탐험 중 포켓몬별로 보관됩니다.";
-    } else {
-      for (const unit of state.active) {
-        const el = document.createElement("div"); el.className = "bag-row";
-        el.textContent = unit.name + " · " + unit.bag.length + "/" + BAG_CAPACITY + "칸";
-        root.appendChild(el);
-      }
-    }
+    reconcileUnits("allies", state.active, "아직 파견하지 않았습니다.");
+    reconcileUnits("enemies", state.enemies, "전투 중이 아닙니다.");
   }
-  function render() {
-    $("activity").textContent = ({ idle:"대기", exploration:"탐험 중", combat:"전투 중", recovery:"전멸 회복 중" })[state.mode];
-    $("modeLabel").textContent = $("activity").textContent;
-    $("regionLabel").textContent = region().name;
-    $("locationLabel").textContent = state.locationId ? location().name : "출발 준비 중";
-    $("sceneIcon").textContent = state.mode === "combat" ? "⚔" : state.mode === "recovery" ? "✚" : state.locationId === "grass" ? "♧" : "◇";
-    $("sceneDesc").textContent =
+  function renderBags() {
+    const count = state.active.reduce((sum, unit) => sum + unit.bag.length, 0);
+    setText("bagCount", count + "개");
+    const root = $("bags");
+    if (!state.active.length) {
+      const description = state.collected.length ? "귀환한 아이템 누적 " + state.collected.length + "개" : "탐험 중 포켓몬별로 보관됩니다.";
+      if (root.textContent !== description || root.children.length) root.textContent = description;
+      return;
+    }
+    if (root.dataset.mode !== "units") { root.replaceChildren(); root.dataset.mode = "units"; }
+    const ids = new Set(state.active.map(u => u.id));
+    for (const child of [...root.children]) if (!ids.has(child.dataset.unitId)) child.remove();
+    state.active.forEach((unit, i) => {
+      let el = [...root.children].find(child => child.dataset.unitId === unit.id);
+      if (!el) {
+        el = document.createElement("div");
+        el.className = "bag-row"; el.dataset.unitId = unit.id;
+      }
+      if (root.children[i] !== el) root.insertBefore(el, root.children[i] || null);
+      const text = unit.name + " · " + unit.bag.length + "/" + BAG_CAPACITY + "칸";
+      if (el.textContent !== text) el.textContent = text;
+    });
+  }
+  function renderStatus() {
+    const activity = ({ idle:"대기", exploration:"탐험 중", combat:"전투 중", recovery:"전멸 회복 중" })[state.mode];
+    setText("activity", activity);
+    setText("modeLabel", activity);
+    setText("regionLabel", region().name);
+    setText("locationLabel", state.locationId ? location().name : "출발 준비 중");
+    setText("sceneIcon", state.mode === "combat" ? "⚔" : state.mode === "recovery" ? "✚" : state.locationId === "grass" ? "♧" : "◇");
+    setText("sceneDesc",
       state.mode === "combat" ? "스피드 내림차순으로 한 마리씩 행동합니다." :
       state.mode === "recovery" ? "모든 포켓몬이 완전히 회복되면 탐험이 다시 시작됩니다." :
       state.mode === "exploration" ? "현재 세부 지역의 확률에 따라 다음 행동이 결정됩니다." :
-      "포켓몬을 선택해 탐험을 시작하세요.";
-    $("actionsCount").textContent = state.actions;
-    $("roundCount").textContent = state.mode === "combat" ? state.round : "–";
-    $("intervalLabel").textContent = (state.speedMs / 1000) + "초";
-    $("recall").disabled = state.mode === "idle";
-    $("start").disabled = state.mode !== "idle";
-    $("region").disabled = state.mode !== "idle";
-    $("combatInfo").textContent = state.mode === "combat" ?
+      "포켓몬을 선택해 탐험을 시작하세요.");
+    setText("actionsCount", state.actions);
+    setText("roundCount", state.mode === "combat" ? state.round : "–");
+    setText("intervalLabel", (state.speedMs / 1000) + "초");
+    setDisabled("recall", state.mode === "idle");
+    setDisabled("start", state.mode !== "idle");
+    setDisabled("region", state.mode !== "idle");
+    setText("combatInfo", state.mode === "combat" ?
       "라운드 " + state.round + " · 다음 행동: " +
-        (state.order[state.turnIndex] ? state.order[state.turnIndex].name : "라운드 갱신") +
-        " · 생존 " + state.active.filter(isAlive).length + " vs " + state.enemies.filter(isAlive).length :
-      "전투가 발생하면 라운드·행동 순서가 표시됩니다.";
+      (state.order[state.turnIndex] ? state.order[state.turnIndex].name : "라운드 갱신") +
+      " · 생존 " + state.active.filter(isAlive).length + " vs " + state.enemies.filter(isAlive).length :
+      "전투가 발생하면 라운드·행동 순서가 표시됩니다.");
+  }
+  // All these functions are idempotent; neither static page content nor unchanged
+  // unit cards/log rows are recreated when a game action occurs.
+  function render() {
+    renderStatus();
     renderUnits();
+    renderBags();
   }
   function addLoot(item) {
     const candidates = state.active.filter((unit) => unit.bag.length < BAG_CAPACITY);
     if (!candidates.length) { log("보관함이 가득 차서 " + item + "을(를) 획득하지 못했습니다."); return; }
     const target = candidates[rand(candidates.length)];
     target.bag.push(item);
+    renderBags();
     log(target.name + "의 보관함에 " + item + "을(를) 넣었습니다.");
   }
   function loseLoot(unit) {
     const losses = Math.floor(unit.bag.length / 2);
     for (let i = 0; i < losses; i++) unit.bag.splice(rand(unit.bag.length), 1);
+    renderBags();
     log(unit.name + " 기절! 전리품 " + losses + "개 손실 (임시 전투 피해).");
   }
   function faint(unit) {
@@ -314,11 +391,11 @@
     $("countdown").textContent = (Math.max(0, state.countdownMs) / 1000).toFixed(1) + "초";
   }
   populateRegions();
-  renderRoster(); render(); renderLog(); renderNotifications();
+  renderRoster(); render(); clearNotifications();
   $("start").addEventListener("click", start);
   $("recall").addEventListener("click", recall);
-  $("clearLog").addEventListener("click", () => { state.logs.length = 0; renderLog(); });
-  $("clearNotifications").addEventListener("click", () => { state.notifications.length = 0; renderNotifications(); });
+  $("clearLog").addEventListener("click", clearLog);
+  $("clearNotifications").addEventListener("click", clearNotifications);
   $("region").addEventListener("change", (event) => {
     state.regionId = event.target.value; render();
   });
