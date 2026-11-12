@@ -114,3 +114,11 @@
 - `tests/engine.test.cjs`: `node --test tests/*.test.cjs`로 엔진 회귀 테스트.
 - `.github/workflows/test.yml`: main 및 PR 코드 변경 시 자동 테스트.
 - 오류 중지 후 자동 재개 기능은 추가하지 않았으며 현재 수동 후퇴만 가능. UI 실기기 회귀 테스트는 별도.
+
+## Pages 404 재발 방지 (2026-11-12)
+- **실제 GitHub 설정에서** `Settings → Pages → Build and deployment → Source`를 `GitHub Actions`로 선택해야 한다. 저장소 파일 수정만으로 이 웹 UI 설정을 바꿀 수 없다.
+- 배포는 `.github/workflows/deploy-pages.yml` 한 경로를 표준으로 사용한다. GitHub의 `pages build and deployment`가 별도로 실행되면 Settings의 Source를 확인한다. 별도 실행 로그만으로 충돌 원인을 확정하지 않는다.
+- `scripts/prepare-pages.sh`는 `_site/index.html`, `_site/game/`, 이전 주소 호환용 `_site/게임/index.html`, `deploy-revision.txt`를 생성한다.
+- `tests/pages.test.cjs`에서 배포 아티팩트 진입 파일과 HTML 내부 JS/CSS 경로를 검사하고, 엔진 테스트가 통과해야만 배포한다.
+- 배포 후 `scripts/check-live-pages.sh`가 대표 URL·게임 HTML·리소스·기존 경로의 HTTP 200과 배포 커밋 SHA를 제한된 재시도로 확인한다. 이 검사 통과만으로 실제 UI 동작을 보장하지 않는다.
+- **주의:** 이미 저장된 과거 `/게임/` 링크는 호환되도록 배포 아티팩트에 리다이렉트를 생성한다. `main`의 게임 코드 폴더는 계속 영문 `game/`을 사용한다.

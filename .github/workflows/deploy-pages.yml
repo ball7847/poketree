@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - 'game/**'
+      - 'legacy/**'
+      - 'tests/**'
       - 'index.html'
       - '.nojekyll'
       - '.github/workflows/deploy-pages.yml'
@@ -17,30 +19,47 @@ permissions:
 
 concurrency:
   group: github-pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run engine tests
+        run: node --test tests/*.test.cjs
+      - name: Assemble Pages artifact
+        run: bash scripts/prepare-pages.sh
+      - name: Validate deployed file tree and links
+        run: node --test tests/pages.test.cjs
+
   deploy:
+    needs: verify
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-      - name: Prepare static site
-        run: |
-          mkdir -p _site
-          # Preserve the repository's public /game/ path and root redirect.
-          cp index.html _site/index.html
-          cp -R "game" _site/
-          touch _site/.nojekyll
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/configure-pages@v5
+      - name: Assemble Pages artifact
+        run: bash scripts/prepare-pages.sh
+      - name: Validate Pages artifact before upload
+        run: node --test tests/pages.test.cjs
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Verify public URLs and deployed revision
+        env:
+          PAGES_BASE_URL: ${{ steps.deployment.outputs.page_url }}
+          EXPECTED_SHA: ${{ github.sha }}
+        run: bash scripts/check-live-pages.sh
