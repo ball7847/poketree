@@ -33,7 +33,10 @@ jobs:
       - name: Prepare static site
         run: |
           mkdir -p _site
-          cp -R "게임/." _site/
+          # Preserve the repository's public /게임/ path and root redirect.
+          cp index.html _site/index.html
+          cp -R "게임" _site/
+          touch _site/.nojekyll
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
