@@ -67,7 +67,6 @@
   function setNickname(unit,nickname){
     if(typeof nickname!=="string")throw Error("별명 형식 오류");
     const trimmed=nickname.trim();
-    if(trimmed.length>128)throw Error("별명이 너무 깁니다 (최대 128자)");
     unit.nickname=trimmed||null;
     unit.name=named(unit);
   }

@@ -27,10 +27,9 @@
     G.text("pokemonInfoCategory",P.attackCategory(u)==="physical"?"물리":"특수");
     const img=$("pokemonInfoImage");
     const src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+spec.dex+".png";
-    if(img.src!==src)img.src=src;
+    if(img.getAttribute("src")!==src){img.hidden=false;img.src=src;}
     img.alt=spec.name;
     img.onerror=()=>{img.hidden=true;};
-    img.hidden=false;
     $("pokemonNickname").value=u.nickname||"";
     G.text("pokemonNicknameMessage","");
   }

@@ -39,7 +39,7 @@
   }
   document.querySelectorAll("[data-close-dialog]").forEach(btn=>
     btn.addEventListener("click",()=>close(btn.dataset.closeDialog)));
-  ["notificationsDialog","settingsDialog","explorationDialog"].forEach(id=>{
+  ["notificationsDialog","settingsDialog","explorationDialog","pokemonDetailDialog"].forEach(id=>{
     const d=$(id);
     d.addEventListener("close",()=>{
       const previous=focusByDialog.get(id);

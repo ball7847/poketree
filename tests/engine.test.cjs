@@ -53,3 +53,60 @@ test("game source parses in node VM without a browser (syntax)",()=>{
     }
   }
 });
+
+
+test("25 natures: 5 neutral and +10%/-10% applied to final stats",()=>{
+  const {G}=boot(),natures=G.Pokemon.natures;
+  assert.equal(Object.keys(natures).length,25);
+  assert.equal(Object.values(natures).filter(n=>n.up===null&&n.down===null).length,5);
+  const opts={id:"stats-test",species:"pikachu",level:50,gender:"male",iv:{hp:31,attack:31,defense:31,spAttack:31,spDefense:31,speed:31},ev:{hp:0,attack:0,defense:0,spAttack:0,spDefense:0,speed:0}};
+  const hardy=G.Pokemon.create({...opts,nature:"hardy"});
+  const adamant=G.Pokemon.create({...opts,nature:"adamant"});
+  assert.equal(hardy.maxHp,110);
+  assert.equal(hardy.attack,75);
+  assert.equal(adamant.attack,Math.floor(75*1.1));
+  assert.equal(adamant.spAttack,Math.floor(hardy.spAttack*.9));
+  assert.equal(adamant.maxHp,hardy.maxHp);
+});
+test("experience curves and over-100 behavior do not fake undefined growth rules",()=>{
+  const {G}=boot();
+  const E=G.Experience;
+  assert.equal(E.total(100,"fast"),800000);
+  assert.equal(E.total(100,"medium-fast"),1000000);
+  assert.equal(E.total(100,"medium-slow"),1059860);
+  assert.equal(E.total(100,"slow"),1250000);
+  assert.equal(E.total(100,"erratic"),600000);
+  assert.equal(E.total(100,"fluctuating"),1640000);
+  assert.ok(E.next(100,"medium-fast")>0);
+  assert.equal(E.next(100,"erratic"),null);
+  assert.equal(E.next(100,"fluctuating"),null);
+});
+test("level up retains damage and nickname is individual",()=>{
+  const {G}=boot(),u=G.state.roster[0],other=G.state.roster[1];
+  u.hp=Math.max(1,u.hp-6);
+  const before=u.maxHp-u.hp;
+  const remaining=G.Experience.remaining(u);
+  const result=G.Pokemon.grantExperience(u,remaining);
+  assert.equal(result.levels,1);
+  assert.equal(u.level,6);
+  assert.equal(u.maxHp-u.hp,before);
+  G.Pokemon.setNickname(u,"번개");
+  assert.equal(u.name,"번개");
+  assert.equal(other.name,"이브이");
+  G.Pokemon.setNickname(u,"");
+  assert.equal(u.name,"피카츄");
+});
+test("type advantages, immunity and dual-type attack rotation",()=>{
+  const {G}=boot(),P=G.Pokemon,D=G.Damage;
+  const p=P.create({id:"p",species:"pidgey",level:10,iv:{hp:0,attack:0,defense:0,spAttack:0,spDefense:0,speed:0}});
+  const r=P.create({id:"r",species:"rattata",level:10,iv:{hp:0,attack:0,defense:0,spAttack:0,spDefense:0,speed:0}});
+  assert.equal(P.normalAttackType(p),"normal");
+  P.usedNormalAttack(p);
+  assert.equal(P.normalAttackType(p),"flying");
+  assert.equal(D.effectiveness("normal",r),1);
+  assert.equal(D.effectiveness("ground",p),0);
+  const result=D.compute(p,r,{random:85});
+  assert.ok(Number.isInteger(result.damage));
+  assert.equal(result.type,"flying");
+  assert.equal(result.random,85);
+});
