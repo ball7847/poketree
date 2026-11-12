@@ -106,3 +106,11 @@
 
 ## 상태
 **초기 플레이 가능한 프로토타입**이다. 실제 포켓몬 데이터·지역·시간 이외의 경제/밸런스·전투 피해 공식은 완성된 게임 규칙이 아니다.
+
+## 안정성 및 자동 테스트 (2026-11-12)
+- `game/engine/core.js`: 데이터 정합성 검사 및 미확정 시연 데이터 구분.
+- `game/engine/exploration.js`: 잘못된 파티 입력 검증; 엔진 예외 시 해당 지역만 오류 모드로 중단, 자산·위치 유지.
+- `game/ui/exploration-detail.js`: 포켓몬 선택 DOM 재사용 및 상세창 렌더 통합.
+- `tests/engine.test.cjs`: `node --test tests/*.test.cjs`로 엔진 회귀 테스트.
+- `.github/workflows/test.yml`: main 및 PR 코드 변경 시 자동 테스트.
+- 오류 중지 후 자동 재개 기능은 추가하지 않았으며 현재 수동 후퇴만 가능. UI 실기기 회귀 테스트는 별도.
