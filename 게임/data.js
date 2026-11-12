@@ -15,6 +15,7 @@ window.POKE_DATA = Object.freeze({
   regions: {
     windy: {
       name: "바람의 들판",
+      theme: "windy",
       start: "road",
       locations: {
         road: {
@@ -36,6 +37,36 @@ window.POKE_DATA = Object.freeze({
             { type: "walk", weight: 30 },
             { type: "encounter", weight: 40 },
             { type: "move", to: "road", weight: 20 },
+            { type: "find", weight: 9 },
+            { type: "egg", weight: 1 }
+          ]
+        }
+      }
+    },
+    meadow: {
+      name: "시연용 초원",
+      start: "trail",
+      theme: "meadow",
+      locations: {
+        trail: {
+          name: "오솔길",
+          species: ["pidgey", "rattata", "eevee"],
+          enemyCount: [{ value: 1, weight: 65 }, { value: 2, weight: 35 }],
+          actions: [
+            { type: "walk", weight: 30 },
+            { type: "encounter", weight: 30 },
+            { type: "move", to: "grove", weight: 30 },
+            { type: "find", weight: 10 }
+          ]
+        },
+        grove: {
+          name: "나무그늘",
+          species: ["caterpie", "weedle", "pikachu"],
+          enemyCount: [{ value: 1, weight: 70 }, { value: 2, weight: 25 }, { value: 3, weight: 5 }],
+          actions: [
+            { type: "walk", weight: 35 },
+            { type: "encounter", weight: 35 },
+            { type: "move", to: "trail", weight: 20 },
             { type: "find", weight: 9 },
             { type: "egg", weight: 1 }
           ]
