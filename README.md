@@ -4,6 +4,13 @@
 
 현재 **초기 실행형 웹게임 프로토타입 개발 단계**다. 탐험·전투의 기본 루프는 `게임/`에 구현했지만, 실제 피해량/회복/지역 데이터 등 일부 수치는 **시연용 임시값**이다. 이전 PokeTree 프로토타입의 코드는 Git 기록에도 보존되어 있다.
 
+## 브라우저에서 바로 실행 (GitHub Pages)
+- 공개 주소: **https://ball7847.github.io/poketree/** (GitHub Pages 최초 설정 및 배포가 성공해야 접속 가능)
+- GitHub 저장소 → **Settings → Pages → Build and deployment → Source: GitHub Actions**로 설정한다.
+- 이후 `main` 브랜치에 `게임/` 파일을 수정하면 `.github/workflows/deploy-pages.yml`이 자동으로 웹게임을 배포한다.
+- GitHub → **Actions → Deploy PokeTree to GitHub Pages**에서 배포 성공 여부를 확인한다.
+- GitHub 파일 뷰어가 아닌 **Pages 공개 주소**에서 실제 웹게임을 플레이한다.
+
 ## 개발 및 실행
 - [브라우저 웹게임 실행 파일](게임/index.html) — 저장소를 내려받아 `게임/index.html`을 브라우저에서 열면 실행. (GitHub 파일 보기 페이지는 게임 실행 페이지가 아님)
 - [개발가이드 및 구현 원칙](개발가이드/README.md)
