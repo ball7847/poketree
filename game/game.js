@@ -18,8 +18,7 @@
   function notificationRow(item) {
     return make("div","notification-row",item.time+"  "+item.message);
   }
-  // Above incremental counters can saturate. Exactly one new entry at capacity
-  // still needs a prepend and removal, not a full log redraw.
+  // Append only new entries, even when the bounded log is full.
   function addLog() {
     const el=$("eventLog");
     if(state.log.length) {

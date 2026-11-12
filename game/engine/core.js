@@ -3,6 +3,8 @@
   "use strict";
   const db = window.POKE_DATA;
   const $ = id => document.getElementById(id);
+  const validationErrors=validateData();
+  if(validationErrors.length)throw Error("PokeTree 데이터 오류: "+validationErrors.join("; "));
   const roster = db.demoParty.map(item => ({
     ...item, hp: db.species[item.species].maxHp,
     maxHp: db.species[item.species].maxHp,
@@ -51,8 +53,6 @@
     }
     return errors;
   }
-  const validationErrors=validateData();
-  if(validationErrors.length)throw Error("PokeTree 데이터 오류: "+validationErrors.join("; "));
   function choose(items, weight) {
     const available = items.filter(x => Number(weight(x)) > 0);
     const total = available.reduce((a, x) => a + Number(weight(x)), 0);

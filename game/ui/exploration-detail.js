@@ -205,7 +205,7 @@
     const value=exp.mode==="idle"?0:100*(1-exp.remainingMs/state.speedMs);
     const width=Math.max(0,Math.min(100,value)).toFixed(1)+"%";
     if($("detailProgressFill").style.width!==width)$("detailProgressFill").style.width=width;
-    $set("detailCountdown",exp.mode==="idle"?"–":(Math.max(0,exp.remainingMs)/1000).toFixed(1)+"초");
+    $set("detailCountdown",exp.mode==="error"?"일시 중지":exp.mode==="idle"?"–":(Math.max(0,exp.remainingMs)/1000).toFixed(1)+"초");
   }
   function render(){
     if(!regionId)return;
@@ -276,11 +276,20 @@
   $("explorationDialog").addEventListener("close",()=>{
     resetPreparation();regionId=null;
   });
+  let renderQueued=false;
+  function queueRender(){
+    if(renderQueued)return;
+    renderQueued=true;
+    requestAnimationFrame(()=>{
+      renderQueued=false;
+      if(regionId&&$("explorationDialog").open)render();
+    });
+  }
   G.onChange((type,id)=>{
     if(!regionId)return;
     if(type==="progress"&&id===regionId&&$("explorationDialog").open)progress();
     if((type==="expedition"||type==="log"||type==="bags")&&id===regionId){
-      if(state.regions[regionId].mode!=="idle")render();
+      if(state.regions[regionId].mode!=="idle")queueRender();
     }
     if(type==="roster"&&state.regions[regionId].mode==="idle"&&picker.open)renderPicker();
     if(type==="speed")progress();
