@@ -179,6 +179,7 @@
     if (!state.active.length) {
       const description = state.collected.length ? "귀환한 아이템 누적 " + state.collected.length + "개" : "탐험 중 포켓몬별로 보관됩니다.";
       if (root.textContent !== description || root.children.length) root.textContent = description;
+      root.dataset.mode = "text";
       return;
     }
     if (root.dataset.mode !== "units") { root.replaceChildren(); root.dataset.mode = "units"; }
@@ -332,7 +333,8 @@
     if (state.mode === "exploration") explorationAction();
     else if (state.mode === "combat") combatAction();
     else if (state.mode === "recovery") recoverStep();
-    render();
+    renderStatus();
+    renderUnits(); // Bags update only when inventory changes (loot/faint/recall/start).
   }
   function start() {
     const selected = Array.from(document.querySelectorAll('input[name="party"]:checked')).map((el) => demoRoster.find((unit) => unit.id === el.value));
