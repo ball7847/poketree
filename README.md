@@ -11,6 +11,7 @@
 - [전투·기술·경험치·부활](docs/COMBAT.md)
 - [알·부화기·자동화·포켓몬 보관함](docs/EGGS_AND_STORAGE.md)
 - [원작 Guild Master - Idle Dungeons 참고 분석](docs/GUILD_MASTER_IDLE_DUNGEONS_ANALYSIS.md)
+- [주요 이벤트 알림·최근 30개 기록](docs/NOTIFICATIONS.md)
 - [미확정 사항](docs/OPEN_QUESTIONS.md)
 
 ## 문서 관리 원칙
