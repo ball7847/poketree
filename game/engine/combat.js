@@ -34,7 +34,7 @@
   }
   function finish(exp) {
     exp.wins++;
-    record(exp,"전투 승리 (정식 경험치/드롭 미구현)");
+    record(exp,"전투 승리");
     G.addLoot(exp,"시연용 전리품");
     exp.enemies=[];exp.order=[];exp.mode="exploration";exp.round=0;exp.turnIndex=0;
   }
@@ -54,7 +54,10 @@
     // PP gain requires at least one equipped skill; skills themselves await design.
     if(unit.moves?.length&&actual>0)unit.pp+=Pokemon.ppGain(unit);
     record(exp,unit.name+" → "+victim.name+" · "+actual+" 피해"+(result.critical?" · 급소":"")+" ("+result.type+")");
-    if(victim.hp===0) faint(exp,victim);
+    if(victim.hp===0){
+      faint(exp,victim);
+      if(victim.side==="enemy")G.battleExperience.award(exp,victim);
+    }
     if(!exp.enemies.some(alive)) finish(exp);
     else if(!exp.party.some(alive)) {
       exp.enemies=[];exp.order=[];exp.round=0;exp.turnIndex=0;exp.mode="recovery";

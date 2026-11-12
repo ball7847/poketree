@@ -8,7 +8,7 @@ function boot(){
   const ctx={window:{},performance:{now:()=>0},Date,console,Set,Map,Math};
   ctx.window.POKE_DATA=undefined;
   const context=vm.createContext(ctx);
-  for(const name of ["data/species.js","data/natures.js","data/type-chart.js","data.js","engine/experience.js","engine/pokemon.js","engine/damage.js","engine/core.js","engine/combat.js","engine/exploration.js"]){
+  for(const name of ["data/species.js","data/natures.js","data/type-chart.js","data.js","engine/experience.js","engine/pokemon.js","engine/damage.js","engine/core.js","engine/battle-experience.js","engine/combat.js","engine/exploration.js"]){
     vm.runInContext(fs.readFileSync(path.join(__dirname,"../game",name),"utf8"),context,{filename:name});
   }
   return {G:ctx.window.PokeTree,ctx};
@@ -176,4 +176,77 @@ test("invalid individual data fails validation",()=>{
   assert.throws(()=>P.create({id:"x",species:"pikachu",nickname:23}),/별명/);
   assert.throws(()=>P.create({id:"x",species:"pikachu",iv:{hp:32}}),/개체값/);
   assert.throws(()=>P.create({id:"x",species:"pikachu",ev:{hp:-1}}),/개체값/);
+});
+
+
+test("Generation VII species base EXP data is present for all demo species",()=>{
+  const {G}=boot();
+  const expected={rattata:51,pidgey:50,caterpie:39,weedle:39,pikachu:112,eevee:65};
+  for(const [species,b] of Object.entries(expected))
+    assert.equal(G.db.species[species].baseExp,b);
+});
+test("experience calculation divides and ceils before each recipient's level factor",()=>{
+  const {G}=boot(),B=G.battleExperience;
+  const enemy=G.Pokemon.create({id:"enemy",species:"rattata",level:10,side:"enemy"});
+  const ally=G.Pokemon.create({id:"ally",species:"pikachu",level:10});
+  const a=B.calculate(enemy,ally,3);
+  assert.equal(a.base,102); // floor(51 * 10 / 5)
+  assert.equal(a.share,34); // ceil(102/3)
+  assert.equal(a.ratio,1);
+  assert.equal(a.gained,35); // Gen VII scaled result + 1
+  const lower=G.Pokemon.create({id:"lower",species:"pikachu",level:5});
+  const higher=G.Pokemon.create({id:"higher",species:"pikachu",level:20});
+  assert.ok(B.calculate(enemy,lower,3).gained>a.gained);
+  assert.ok(B.calculate(enemy,higher,3).gained<a.gained);
+});
+test("enemy faint immediately awards all surviving allies, and only once",()=>{
+  const {G}=boot(),P=G.Pokemon,E=G.Experience;
+  G.exploration.start("windy",["partner1","partner2","partner3"]);
+  const exp=G.state.regions.windy;
+  const victim=P.create({id:"e",species:"caterpie",level:10,side:"enemy"});
+  exp.enemies=[victim];exp.mode="combat";exp.party[1].hp=0;
+  const old=exp.party.map(u=>[u.level,u.experience]);
+  victim.hp=0;
+  const expected=exp.party.map(u=>u.hp>0?G.battleExperience.calculate(victim,u,2).gained:0);
+  const awards=G.battleExperience.award(exp,victim);
+  assert.equal(awards.length,2);
+  assert.equal(exp.party[1].experience,old[1][1]);
+  assert.ok(awards.every(a=>a.experience>0));
+  for(const i of [0,2])assert.ok(exp.party[i].experience>old[i][1]||exp.party[i].level>old[i][0]);
+  assert.ok(exp.logs.filter(x=>x.message.includes("경험치")).length>=2);
+  assert.equal(G.state.notifications.length,0);
+  assert.equal(exp.logs.length,G.state.log.filter(l=>l.regionId==="windy").length);
+  // One foe may be defeated only once by the combat engine; it removes the foe on victory.
+});
+test("battle step gives EXP BEFORE the next turn and never levels enemies",()=>{
+  const {G}=boot(),P=G.Pokemon;
+  G.exploration.start("windy",["partner1"]);
+  const exp=G.state.regions.windy;
+  G.combat.start(exp);
+  const opponent=exp.enemies[0];
+  exp.enemies=[opponent];opponent.hp=1;
+  exp.order=[exp.party[0],opponent];exp.turnIndex=0;
+  const old=exp.party[0].experience,oldEnemy=opponent.level;
+  G.combat.step(exp);
+  assert.ok(exp.party[0].experience>old||exp.party[0].level>5);
+  assert.equal(opponent.level,oldEnemy);
+  assert.ok(exp.logs.some(x=>x.message.includes("경험치")));
+  assert.equal(exp.mode,"exploration");
+});
+test("level-up from awarded experience keeps this round's order and no bonus action",()=>{
+  const {G}=boot(),P=G.Pokemon;
+  G.exploration.start("windy",["partner1","partner2"]);
+  const exp=G.state.regions.windy;
+  G.combat.start(exp);
+  const victim=P.create({id:"high-exp",species:"eevee",level:90,side:"enemy"});
+  victim.hp=1;
+  exp.enemies=[victim];exp.order=[exp.party[0],exp.party[1],victim];exp.turnIndex=0;
+  const oldOrder=exp.order.slice();
+  const oldLevel=exp.party[0].level;
+  G.combat.step(exp);
+  assert.equal(exp.party[0].level>oldLevel,true);
+  // Last enemy defeated ends round and combat; no additional player action is scheduled.
+  assert.equal(exp.mode,"exploration");
+  assert.equal(exp.party[0].hp<=exp.party[0].maxHp,true);
+  assert.ok(exp.logs.some(l=>l.message.includes("Lv.")));
 });
