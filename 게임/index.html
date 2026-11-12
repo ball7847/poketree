@@ -7,6 +7,12 @@
   <title>PokeTree · 웹게임</title>
   <link rel="stylesheet" href="./style.css">
   <script src="./data.js" defer></script>
+  <script src="./engine/core.js" defer></script>
+  <script src="./engine/combat.js" defer></script>
+  <script src="./engine/exploration.js" defer></script>
+  <script src="./ui/navigation.js" defer></script>
+  <script src="./ui/exploration-list.js" defer></script>
+  <script src="./ui/exploration-detail.js" defer></script>
   <script src="./game.js" defer></script>
 </head>
 <body>
@@ -31,42 +37,14 @@
         <div class="page-heading"><h1>포켓몬</h1><span class="tag">시연용 포켓몬</span></div>
         <div class="panel">
           <h2>보유 포켓몬</h2>
-          <p class="hint">HP 100%인 포켓몬 1~3마리를 선택한 뒤 탐험 메뉴에서 출발할 수 있습니다.</p>
+          <p class="hint">보유 포켓몬 정보입니다. 탐험할 포켓몬은 탐험 지역 상세창에서 선택합니다.</p>
           <div id="partySelect" class="selection"></div>
         </div>
       </section>
       <section id="tab-exploration" class="tab-page" role="tabpanel" aria-labelledby="nav-exploration" hidden>
-        <div class="page-heading"><h1>탐험</h1><span id="activity" class="state">대기</span></div>
-        <p class="notice compact"><strong>프로토타입</strong> · 종족 비중, 피해량, HP 회복, 지역 수치는 시연용 임시값</p>
-        <section class="panel controls">
-          <div class="section-title"><h2>지역 선택</h2></div>
-          <label for="region">탐험할 지역</label><select id="region" aria-label="탐험 지역"></select>
-          <p class="hint">출발할 포켓몬은 포켓몬 메뉴에서 선택합니다. HP 100%인 1~3마리만 출발할 수 있습니다.</p>
-          <div class="buttons"><button id="start" class="primary">탐험 시작</button><button id="recall" class="secondary" disabled>즉시 귀환</button></div>
-        </section>
-        <section class="panel field">
-          <div class="section-title"><h2>현장</h2><span id="modeLabel" class="state">탐험 대기</span></div>
-          <div class="scene">
-            <div class="scene-icon" id="sceneIcon">◇</div>
-            <p class="eyebrow" id="regionLabel">바람의 들판</p>
-            <h3 id="locationLabel">출발 준비 중</h3>
-            <p id="sceneDesc">포켓몬을 선택해 탐험을 시작하세요.</p>
-          </div>
-          <div class="timerbox">
-            <div class="section-title"><span>다음 행동</span><strong id="countdown">–</strong></div>
-            <div class="progress"><div id="progressFill"></div></div>
-            <p class="hint">행동 간격 <span id="intervalLabel">3초</span></p>
-          </div>
-          <div class="stats"><div><span>탐험 행동</span><strong id="actionsCount">0</strong></div><div><span>진행 라운드</span><strong id="roundCount">–</strong></div></div>
-          <h3 class="subheading">아군</h3><div id="allies" class="units"><span class="empty">아직 파견하지 않았습니다.</span></div>
-          <h3 class="subheading">적군</h3><div id="enemies" class="units"><span class="empty">전투 중이 아닙니다.</span></div>
-          <div id="combatInfo" class="combat-info">전투가 발생하면 라운드·행동 순서가 표시됩니다.</div>
-        </section>
-        <section class="panel">
-          <div class="section-title"><h2>전리품</h2><span id="bagCount" class="state">0개</span></div>
-          <div id="bags" class="bags"><span class="empty">탐험 중 포켓몬별로 보관됩니다.</span></div>
-          <p class="hint">개별 보관함 100칸 · 아이템마다 1칸 · 귀환 시 수령</p>
-        </section>
+        <div class="page-heading"><h1>탐험</h1><span id="activity" class="state">탐험 0곳</span></div>
+        <p class="notice compact">현재 지역·포켓몬·피해량·전리품은 <strong>개발용 시연 데이터</strong>입니다.</p>
+        <div id="regionCards" class="region-list" aria-label="탐험 지역 목록"></div>
       </section>
       <section id="tab-records" class="tab-page" role="tabpanel" aria-labelledby="nav-records" hidden>
         <div class="page-heading"><h1>기록</h1><span class="tag">탐험 로그</span></div>
@@ -95,6 +73,40 @@
     <p class="minor-title">행동 간격 (개발용 테스트)</p>
     <div class="three"><button class="speed selected" data-speed="3000" type="button">기본 3초</button><button class="speed" data-speed="2000" type="button">1단계 2초</button><button class="speed" data-speed="1000" type="button">2단계 1초</button></div>
     <p class="hint">강화 비용 및 해금 조건은 아직 미정입니다. 이 기능은 개발용입니다.</p>
+  </dialog>
+  <!-- Detail presentation is temporary. Layout mode and illustration assets are unconfirmed. -->
+  <dialog id="explorationDialog" class="exploration-dialog" aria-labelledby="detailTitle">
+    <div class="detail-layout">
+      <header class="detail-heading">
+        <h2 id="detailTitle">지역 탐험</h2>
+        <button class="popup-close detail-x" type="button" data-close-dialog="explorationDialog" aria-label="닫기">×</button>
+      </header>
+      <div id="detailScene" class="detail-scene">
+        <div class="detail-scene-label"><span id="detailLocation">출발 준비</span><small id="detailMode"></small></div>
+        <div class="detail-scene-figures">
+          <div id="detailAllies" class="detail-units"></div>
+          <div id="detailEnemiesWrap" class="detail-enemies-wrap" hidden>
+            <span class="detail-versus">상대 포켓몬</span>
+            <div id="detailEnemies" class="detail-units"></div>
+          </div>
+        </div>
+      </div>
+      <div class="detail-progress"><div id="detailProgressFill"></div></div>
+      <div class="detail-info">
+        <p id="detailMessage">현재 탐험 상태</p>
+        <div class="detail-tiny"><span id="detailCountdown">–</span><span id="detailRound"></span><span>전리품 <strong id="detailBagCount">0개</strong></span></div>
+      </div>
+      <div id="detailSetup" class="detail-setup">
+        <p class="minor-title">탐험할 포켓몬 선택 (1~3마리, HP 100% 필요)</p>
+        <div id="detailParty" class="selection"></div>
+      </div>
+      <p id="detailError" class="detail-error" role="alert"></p>
+      <footer class="detail-actions">
+        <button id="detailStart" class="primary" type="button">탐험 시작</button>
+        <button id="detailRetreat" class="secondary" type="button" hidden>후퇴하기</button>
+        <button class="secondary" type="button" data-close-dialog="explorationDialog">닫기</button>
+      </footer>
+    </div>
   </dialog>
 </body>
 </html>
