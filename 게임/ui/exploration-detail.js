@@ -66,7 +66,13 @@
     $("detailRetreat").hidden=idle;
     if(idle){
       set("detailLocation","출발 준비");
+      set("detailMode","");
       set("detailMessage","포켓몬을 선택하여 탐험을 시작하세요.");
+      set("detailRound","");
+      set("detailBagCount","0개");
+      reconcileRoster($("detailAllies"),[]);
+      reconcileRoster($("detailEnemies"),[]);
+      $("detailEnemiesWrap").hidden=true;
       renderPartySelection();
     }else{
       set("detailLocation",G.place(exp).name);
@@ -93,6 +99,7 @@
     state.pendingRegion=regionId;
     // Selections are local to this preparation; cross-region expedition state is persistent.
     state.selectedParty.clear();
+    set("detailError","");
     render();
     G.uiNav.open("explorationDialog",source);
   }
