@@ -97,8 +97,8 @@
         <div class="detail-tiny"><span id="detailCountdown">–</span><span id="detailRound"></span><span>전리품 <strong id="detailBagCount">0개</strong></span></div>
       </div>
       <div id="detailSetup" class="detail-setup">
-        <p class="minor-title">탐험할 포켓몬 선택 (1~3마리, HP 100% 필요)</p>
-        <div id="detailParty" class="selection"></div>
+        <p class="minor-title">출발할 포켓몬 <span id="detailSelectedCount">0/3</span></p>
+        <div id="detailParty" class="party-slots" aria-label="출발 포켓몬 슬롯"></div>
       </div>
       <p id="detailError" class="detail-error" role="alert"></p>
       <footer class="detail-actions">
@@ -106,6 +106,26 @@
         <button id="detailRetreat" class="secondary" type="button" hidden>후퇴하기</button>
         <button class="secondary" type="button" data-close-dialog="explorationDialog">닫기</button>
       </footer>
+      <section id="pokemonPicker" class="pokemon-picker" hidden aria-label="포켓몬 선택">
+        <div class="picker-heading">
+          <button id="pickerBack" type="button" class="picker-back" aria-label="탐험 준비창으로 돌아가기">‹</button>
+          <h3>포켓몬 선택</h3>
+          <span id="pickerSlotLabel" class="state">슬롯 1</span>
+        </div>
+        <div class="picker-toolbar">
+          <label class="picker-sort-label" for="pickerSort">정렬
+            <select id="pickerSort">
+              <option value="acquired">획득 순서</option>
+              <option value="level">레벨</option>
+              <option value="dex">도감번호</option>
+            </select>
+          </label>
+          <button id="pickerDirection" type="button" class="picker-tool-button" aria-label="정렬 방향 변경" title="정렬 방향 변경">↑</button>
+          <button id="pickerViewToggle" type="button" class="picker-tool-button" aria-label="목록형으로 전환" title="아이콘형 / 목록형 전환">☷</button>
+        </div>
+        <p id="pickerMessage" class="picker-message" role="status" aria-live="polite"></p>
+        <div id="pickerPokemonList" class="picker-pokemon-list icon-view" aria-label="보유 포켓몬 전체 목록"></div>
+      </section>
     </div>
   </dialog>
 </body>
