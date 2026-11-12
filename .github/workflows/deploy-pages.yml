@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - '게임/**'
+      - 'game/**'
       - 'index.html'
       - '.nojekyll'
       - '.github/workflows/deploy-pages.yml'
@@ -33,9 +33,9 @@ jobs:
       - name: Prepare static site
         run: |
           mkdir -p _site
-          # Preserve the repository's public /게임/ path and root redirect.
+          # Preserve the repository's public /game/ path and root redirect.
           cp index.html _site/index.html
-          cp -R "게임" _site/
+          cp -R "game" _site/
           touch _site/.nojekyll
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

@@ -1,21 +1,21 @@
 # PokeTree 개발 인수인계 — 2026-11-12
 
-> **다음 대화의 출발점**: 이 문서를 먼저 읽은 후, GitHub `ball7847/poketree`의 `main` 브랜치 실제 코드와 `개발가이드/README.md`, `개발가이드/구현계획.md`, `docs/` 원본을 대조한다. 이전 대화의 설명보다 **현재 GitHub 코드와 사용자가 확정한 규칙**을 우선한다. 임의로 규칙을 추가하지 않는다.
+> **다음 대화의 출발점**: 이 문서를 먼저 읽은 후, GitHub `ball7847/poketree`의 `main` 브랜치 실제 코드와 `dev-guide/README.md`, `dev-guide/implementation-plan.md`, `docs/` 원본을 대조한다. 이전 대화의 설명보다 **현재 GitHub 코드와 사용자가 확정한 규칙**을 우선한다. 임의로 규칙을 추가하지 않는다.
 
 ## 저장소 및 실행 주소
 - GitHub: https://github.com/ball7847/poketree
 - 브랜치: `main`
 - 게임 주소: **https://ball7847.github.io/poketree/**
-- 게임 직접 경로: **https://ball7847.github.io/poketree/게임/index.html**
+- 게임 직접 경로: **https://ball7847.github.io/poketree/game/index.html**
 - 사용자는 직전 404 수정 후 **"ㅇㅋ됨"이라고 접속 성공을 확인**했다. 이 사실은 사용자 확인 기록이며, 새 대화에서의 실시간 접속 보장은 아니다.
 - GitHub Pages: `Settings → Pages → Source: GitHub Actions`.
-- 배포 워크플로: `.github/workflows/deploy-pages.yml`, `main`에 게임 코드가 push되면 배포. `_site/index.html`에 루트 리다이렉트, `_site/게임/`에 실제 파일을 복사한다.
-- **중요한 404 이력**: 이전에는 `게임/.`의 *내용만* `_site/`로 복사했기 때문에 루트 리다이렉트가 찾는 `/게임/` 경로가 없어졌다. **2026-11-12 커밋 `760d1856`에서 경로를 바로잡았다.** 워크플로에서 `cp index.html _site/index.html`, `cp -R "게임" _site/`, `touch _site/.nojekyll`를 유지한다. 다시 과거 방식으로 변경하지 말 것.
+- 배포 워크플로: `.github/workflows/deploy-pages.yml`, `main`에 게임 코드가 push되면 배포. `_site/index.html`에 루트 리다이렉트, `_site/game/`에 실제 파일을 복사한다.
+- **중요한 404 이력**: 이전에는 `game/.`의 *내용만* `_site/`로 복사했기 때문에 루트 리다이렉트가 찾는 `/game/` 경로가 없어졌다. **2026-11-12 커밋 `760d1856`에서 당시 경로를 바로잡았다. 이후 영문 경로 `game/`으로 변경했다.** 워크플로에서 `cp index.html _site/index.html`, `cp -R "game" _site/`, `touch _site/.nojekyll`를 유지한다. 다시 과거 방식으로 변경하지 말 것.
 - 게임은 정적 HTML/CSS/JavaScript. 빌드 단계 없이 브라우저에서 사용한다. GitHub `blob` 파일 보기 주소는 게임 실행 페이지가 아니다.
 
 ## 현재 완료된 작업 — 게임 코드 구조
 ```text
-게임/
+game/
   index.html                 상단·중앙 4탭·하단 네비 / 팝업 구조
   style.css                  모바일 우선 스타일, 4열 포켓몬 아이콘
   data.js                    임시 포켓몬 및 지역 데이터
@@ -84,13 +84,13 @@
 2. 변경 전 **현재 `main`의 해당 파일을 읽고 SHA 확인**, 변경된 파일만 커밋한다. 아직 코드 수정 요청이 아니라면 GitHub 수정 금지.
 3. 변경을 요청받으면 탐험 준비창의 모바일 UI/이미지·포켓몬 선택 작동 여부를 먼저 점검한다.
 4. 회귀 테스트: 지역 카드 → 3슬롯 → 아이콘 4열 → 선택 즉시 배치 → 채워진 슬롯 해제 → 아이콘/목록 전환 → 정렬 유지 → 선택 불가 안내 → 뒤로가기와 준비창 닫기 각각의 동작 → 출발 → 상세창 닫고 탐험 계속 → 다른 지역 동시 파견 → 후퇴.
-5. **GitHub Pages 404가 다시 나면** `.github/workflows/deploy-pages.yml`의 `_site/게임/` 구조와 GitHub Actions 배포 상태부터 확인한다.
+5. **GitHub Pages 404가 다시 나면** `.github/workflows/deploy-pages.yml`의 `_site/game/` 구조와 GitHub Actions 배포 상태부터 확인한다.
 6. GitHub Pages는 정적 파일과 URL 기반. 사이트 확인 없이 배포 성공/실제 동작 성공을 단정하지 말 것.
 
 ## 주요 링크
 - [개발 원칙](README.md)
-- [구현 계획·체크리스트](구현계획.md)
-- [확정 기획 요약](기획정리.md)
+- [구현 계획·체크리스트](implementation-plan.md)
+- [확정 기획 요약](design-summary.md)
 - [원본 탐험 설계](../docs/EXPLORATION.md)
 - [원본 전투 설계](../docs/COMBAT.md)
 - [미정 사항](../docs/OPEN_QUESTIONS.md)
@@ -100,3 +100,8 @@
 - 사용자의 확정 선택만 명세로 기록한다. 예시/추천을 확정값으로 넣지 않는다.
 - 질문은 필요한 경우 **한 번에 하나**. 사용자가 "이제 개발해"라면 이미 받은 답을 반복 질문하지 말고 작업.
 - 구현 후에는 무엇을 바꿨고 무엇은 미완료인지, 검증 범위가 무엇인지 명확히 보고한다.
+
+## 영문 경로 전환 안내
+- `게임/` → `game/`, `개발가이드/` → `dev-guide/`로 경로를 변경했다.
+- 문서명: `다음대화_인수인계.md` → `handoff.md`, `구현계획.md` → `implementation-plan.md`, `기획정리.md` → `design-summary.md`.
+- 배포 경로는 `_site/game/`이고 루트 `index.html`은 `./game/`으로 이동한다. 과거 `/게임/` 직접 경로는 유지하지 않는다.
