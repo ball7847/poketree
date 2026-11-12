@@ -207,6 +207,9 @@
     const classname="detail-scene theme-"+(region.theme||"default");
     if($("detailScene").className!==classname)$("detailScene").className=classname;
     const idle=exp.mode==="idle";
+    $("detailScene").hidden=idle;
+    $("detailProgress").hidden=idle;
+    $("detailInfo").hidden=idle;
     $("detailSetup").hidden=!idle;
     $("detailStart").hidden=!idle;
     $("detailRetreat").hidden=idle;
