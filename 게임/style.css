@@ -50,3 +50,44 @@
 .detail-actions button{min-width:90px}
 @media(min-width:800px){.region-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.region-card{min-height:225px}.region-title{font-size:25px}.detail-layout{padding:22px}}
 @media(max-width:360px){.region-side{width:74px;padding:9px 5px}.region-title{font-size:19px}.region-shade{padding:12px}.detail-layout{padding:11px}.detail-actions button{min-width:0}}
+
+
+/* Expedition preparation / Pokémon roster selector */
+[hidden]{display:none!important}
+.exploration-dialog{position:relative}
+.detail-layout{position:relative}
+.detail-setup{margin:8px 0 0}
+.detail-setup .minor-title{margin-bottom:10px;font-size:14px}
+.party-slots{display:flex;flex-direction:column;gap:10px;min-width:0}
+.party-slot{display:flex;align-items:center;gap:14px;min-height:78px;width:100%;text-align:left;padding:9px 12px;border:1px solid #788c90;border-radius:12px;background:#263c44;color:#e4eeef}
+.party-slot.filled{background:#2b4843;border-color:#7eaa90}
+.slot-index{width:64px;flex:none;font-size:12px;color:#a9c3ca}
+.slot-body{display:flex;align-items:center;gap:12px;flex:1;min-width:0;flex-wrap:wrap}
+.slot-plus{display:grid;place-items:center;width:48px;height:48px;border:1px dashed #97b2b3;border-radius:10px;font-size:26px;color:#c5d6d7}
+.slot-empty{font-size:14px;color:#bed0d5}
+.slot-name{font-weight:700;font-size:15px}
+.slot-description{display:block;width:100%;font-size:11px;color:#c4d6d0;padding-left:60px;margin-top:-12px}
+.picker-sprite{display:block;width:60px;height:60px;object-fit:contain;image-rendering:auto;flex:none}
+.sprite-fallback{display:grid;place-items:center;width:60px;height:60px;font-size:28px;flex:none;color:#bdd7c0}
+.pokemon-picker{position:absolute;z-index:5;inset:0;background:#25343b;border-radius:14px;min-height:100%;padding:14px;display:flex;flex-direction:column;gap:12px;overflow:hidden}
+.picker-heading{display:flex;align-items:center;gap:10px}
+.picker-heading h3{margin:0;font-size:19px;flex:1}
+.picker-back{font-size:28px;line-height:1;min-width:40px;min-height:40px;padding:0}
+.picker-toolbar{display:flex;align-items:flex-end;gap:8px}
+.picker-sort-label{display:flex;flex:1;align-items:center;gap:8px;margin:0;min-width:0}
+.picker-sort-label select{width:100%;min-width:0;max-width:230px}
+.picker-tool-button{width:44px;height:44px;flex:none;padding:7px;font-size:22px;display:grid;place-items:center}
+.picker-message{min-height:1.4em;margin:0;color:#ffccac;font-size:12px}
+.picker-pokemon-list{overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;max-height:min(56dvh,500px);min-height:130px;align-content:start;padding:3px}
+.picker-pokemon-list.icon-view{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.picker-pokemon-list.list-view{display:flex;flex-direction:column;gap:7px}
+.picker-pokemon{appearance:none;display:flex;align-items:center;justify-content:center;min-width:0;background:#344852;border:1px solid #5d7782;border-radius:11px;padding:6px;aspect-ratio:1}
+.picker-pokemon .picker-sprite{width:100%;height:auto;aspect-ratio:1;max-width:76px}
+.picker-pokemon.unavailable{opacity:.45;filter:grayscale(.85);border-style:dashed}
+.picker-pokemon.unavailable:focus-visible{opacity:1}
+.list-view .picker-pokemon{justify-content:flex-start;aspect-ratio:auto;min-height:68px;gap:12px;text-align:left}
+.list-view .picker-pokemon .picker-sprite{width:54px;height:54px;flex:none}
+.picker-row-info{display:flex;flex-direction:column;gap:4px;min-width:0;overflow-wrap:anywhere}
+.picker-row-info strong{font-size:14px}
+.picker-row-info small{font-size:11px;color:#c5d2d9}
+@media(max-width:390px){.slot-index{width:52px}.party-slot{gap:8px}.slot-description{padding-left:48px}.picker-pokemon-list.icon-view{gap:5px}.picker-pokemon{padding:3px}.pokemon-picker{padding:10px}.picker-toolbar{gap:5px}}
