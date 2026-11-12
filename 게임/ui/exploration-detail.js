@@ -25,7 +25,7 @@
     }
     img.addEventListener("error",()=>{
       img.hidden=true;
-      if(!img.nextElementSibling)img.after(create("span","sprite-fallback","◇"));
+      if(img.parentNode && !img.parentNode.querySelector(".sprite-fallback"))img.after(create("span","sprite-fallback","◇"));
     },{once:true});
     return img;
   };
