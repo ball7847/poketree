@@ -13,3 +13,7 @@ undefined
 
 - 상태이상 지속 피해와 날씨·필드 남은 시간은 전투 시 라운드 종료에 일괄 처리. 비전투에서는 기존 탐험 턴마다 남은 시간 감소.
 - 검증: https://www.pokemon-zone.com/champions/status/ ; https://www.pokemon-zone.com/champions/battle-effects/
+
+- PP 사유 재정렬 시 스피드는 **라운드 시작 스냅샷**을 적용한다. 스피드 상승·감소는 다음 라운드부터 반영.
+- `accuracyMode:"per-hit"` 기술 데이터는 타격마다 명중 판정 후 빗나가면 중단한다. 기본 연속기술은 최초 1회 판정.
+- 땅 타입에는 전기자석파 무효를 별도 적용하고, 전기/그래스/사이코 필드의 화력 보정은 지면에 있는 사용자에게만 적용(부유 특성 등 미구현은 별도).

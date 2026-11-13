@@ -42,9 +42,11 @@
       if(type==="fire")damage=Math.floor(damage*1.5);
       if(type==="water")damage=Math.floor(damage*.5);
     }
-    if(terrain?.kind==="electric"&&type==="electric")damage=Math.floor(damage*1.3);
-    if(terrain?.kind==="grassy"&&type==="grass")damage=Math.floor(damage*1.3);
-    if(terrain?.kind==="psychic"&&type==="psychic")damage=Math.floor(damage*1.3);
+    // Grounded targets only; effects that depend on the attacker check attacker.
+    const grounded=!P.template(attacker.species,attacker.form).form.types.includes("flying");
+    if(grounded&&terrain?.kind==="electric"&&type==="electric")damage=Math.floor(damage*1.3);
+    if(grounded&&terrain?.kind==="grassy"&&type==="grass")damage=Math.floor(damage*1.3);
+    if(grounded&&terrain?.kind==="psychic"&&type==="psychic")damage=Math.floor(damage*1.3);
     for(const defendingType of P.template(defender.species,defender.form).form.types)
       damage=Math.floor(damage*(chart[type]?.[defendingType]??1));
     damage=Math.max(1,damage);

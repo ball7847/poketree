@@ -27,17 +27,29 @@
     let recoil=0;
     for(const target of chosen){
       const probability=S.accuracy(move,user,target);
-      if(Math.random()>=probability){G.record(exp,move.name+" · "+target.name+"에게 빗나감");continue;}
+      if(move.accuracyMode!=="per-hit"&&Math.random()>=probability){G.record(exp,move.name+" · "+target.name+"에게 빗나감");continue;}
       if(move.effect==="heal"){
         const actual=Math.min(target.maxHp-target.hp,healAmount(user,target,move.target==="allies"));
         target.hp+=actual;G.record(exp,target.name+" HP "+actual+" 회복");continue;
       }
       if(move.effect==="rank"){S.rank(target,move.rank.stat,move.rank.stages);G.record(exp,target.name+"의 "+move.rank.stat+" 랭크 변화");continue;}
-      if(move.effect==="status"){if(S.inflict(target,move.status))G.record(exp,target.name+" · "+move.status+" 상태이상");continue;}
+      if(move.effect==="status"){
+        // E.g. Thunder Wave cannot paralyze Ground targets (Electric immunity).
+        if(move.type==="electric"&&D.effectiveness(move.type,target)===0){
+          G.record(exp,target.name+"에게 "+move.name+" 효과 없음");continue;
+        }
+        if(S.inflict(target,move.status))G.record(exp,target.name+" · "+move.status+" 상태이상");
+        continue;
+      }
       if(move.effect==="weather"){exp.weather={kind:move.weather,remaining:move.duration};G.record(exp,"날씨: "+move.weather);continue;}
       if(move.effect==="terrain"){exp.terrain={kind:move.terrain,remaining:move.duration};G.record(exp,"필드: "+move.terrain);continue;}
       const count=hitCount(move);
       for(let i=0;i<count;i++){
+        // Certain original multi-hit moves check accuracy on every hit and
+        // terminate on their first miss. Others check only once above.
+        if(move.accuracyMode==="per-hit"&&Math.random()>=probability){
+          G.record(exp,move.name+" · "+(i+1)+"타 빗나감 · 연속 공격 종료");break;
+        }
         // Confirmed PokeTree rule: run every hit, even after reaching 0 HP.
         const result=D.roll(user,target,{move,weather:exp.weather,terrain:exp.terrain});
         const actual=Math.min(target.hp,result.damage);

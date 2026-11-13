@@ -370,3 +370,13 @@ test("PP deficit drops reserved priority and permits same-round reordering",()=>
  assert.equal(e.turnIndex,1);
  assert.ok(e.logs.some(x=>x.message.includes("행동 순서 재계산")));
 });
+
+test("speed snapshot remains constant during PP-based reorder in current round",()=>{
+ const {G}=boot(),S=G.state;
+ G.exploration.start("windy",["partner1","partner2"]);
+ const e=S.regions.windy;G.combat.start(e);
+ const u=e.party[0],before=e.speeds.get(u);
+ assert.equal(typeof before,"number");
+ u.speed+=999;
+ assert.equal(e.speeds.get(u),before);
+});

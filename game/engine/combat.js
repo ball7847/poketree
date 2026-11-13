@@ -7,12 +7,13 @@
   function priority(order){return order?.move?.priority??0;}
   function sortRemaining(exp){
     exp.order.sort((a,b)=>priority(exp.plans.get(b))-priority(exp.plans.get(a))||
-      speed(b)-speed(a)||(exp.tiebreak.get(a)-exp.tiebreak.get(b)));
+      exp.speeds.get(b)-exp.speeds.get(a)||(exp.tiebreak.get(a)-exp.tiebreak.get(b)));
   }
   function beginRound(exp){
     const members=[...exp.party,...exp.enemies].filter(alive);
     exp.plans=new Map();
     exp.tiebreak=new Map(members.map(u=>[u,Math.random()]));
+    exp.speeds=new Map(members.map(u=>[u,speed(u)])); // fixed for this round
     for(const u of members){
       exp.plans.set(u,u.pp>=100&&u.moves?.length?T.select(exp,u):null);
     }
@@ -44,7 +45,7 @@
   }
   function clear(exp){
     for(const u of [...exp.party,...exp.enemies])S.endBattle(u);
-    exp.order=[];exp.plans=null;exp.tiebreak=null;exp.turnIndex=0;exp.round=0;
+    exp.order=[];exp.plans=null;exp.tiebreak=null;exp.speeds=null;exp.turnIndex=0;exp.round=0;
   }
   function finish(exp){
     exp.wins++;record(exp,"전투 승리");G.addLoot(exp,"시연용 전리품");
