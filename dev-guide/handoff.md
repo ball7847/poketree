@@ -110,3 +110,10 @@ undefined
 - CI test workflow now executes `tests/browser-smoke.cjs` via Playwright-core and installed Chrome/Chromium after building `_site`.
 - Browser clicks verify village warehouse modal, filters, empty consumable, sorting, item details; Pokémon equipment modal with locked tool category, detail/equip and return; workshop queue/cancel and material refund. Errors from page script exceptions fail smoke.
 - No player saves touched: smoke runs on ephemeral GitHub Actions checkout and separate HTTP server.
+
+
+## 2026-11-13 Six approved regions and permanent unlock gates
+- Six named region cards registered; initial windy/meadow playable with existing demo encounters only. Four later regions have no invented locations/species, cannot depart while undisigned. Unlock status is permanent but does not imply content is implemented.
+- Internal timer ticks `actions` remain separate from expedition-party `steps`, which count noncombat actions +1 and victory +1, not individual combat turns. Counter reset on start, retreat, full faint. Region unlock occurs immediately and saves under existing save v1 using optional `unlockedRegions` field; legacy save remains accepted.
+- `G.regions.bossDefeated("spark")` hook is reserved for future actual boss victory; currently no approved boss encounter exists. Never call it from ordinary combat.
+- Full-party wipe now ends expedition and settles remaining bags using existing recall, preserving already-applied per-Pokémon faint loot/XP penalties. Browser smoke asserts six region cards and two initially playable areas.

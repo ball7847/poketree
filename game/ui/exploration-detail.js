@@ -293,7 +293,7 @@
     if(!regionId)return;
     if(type==="progress"&&id===regionId&&$("explorationDialog").open)progress();
     if((type==="expedition"||type==="log"||type==="bags"||type==="regionSteps")&&id===regionId){
-      if(state.regions[regionId].mode!=="idle")queueRender();
+      queueRender();
     }
     if(["roster","level","nickname"].includes(type)){
       if(state.regions[regionId].mode==="idle"&&picker.open)renderPicker();

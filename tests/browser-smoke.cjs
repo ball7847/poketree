@@ -39,6 +39,12 @@ function server(){
   await page.goto("http://127.0.0.1:"+srv.address().port+"/game/index.html",{waitUntil:"load"});
   await page.waitForFunction(()=>!!window.PokeTree?.uiWarehouse && !!window.PokeTree?.uiTools);
   assert.deepEqual(errors,[],"Initial boot must not throw");
+  // Region cards: two playable demos and four explicitly undesigned locked regions.
+  await page.locator("#nav-exploration").click();
+  assert.equal(await page.locator(".region-card").count(),6);
+  assert.equal(await page.locator(".region-card:not([disabled])").count(),2);
+  assert.equal(await page.locator(".region-card[disabled]").count(),4);
+  await page.locator("#nav-village").click();
   // Village > warehouse > filter > sort > detail > close.
   await page.locator("#openWarehouse").click();
   assert.equal(await page.locator("#warehouseDialog").evaluate(x=>x.open),true);
