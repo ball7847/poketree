@@ -123,14 +123,18 @@
    const info=selected&&W.detail(selected.category,selected.id);
    const error=info?equipError(info):"아이템을 찾을 수 없습니다.";
    if(error){G.text("warehouseEquipMessage",error);renderDetail();return;}
-   const unit=contextUnit();
-   const result=T.equip(unit,info.id,context.slot);
+   const unit=contextUnit(),slot=context.slot;
+   const result=T.equip(unit,info.id,slot);
    if(result){G.text("warehouseEquipMessage",result);return;}
    // Closing the nested warehouse restores focus to the original Pokémon dialog.
    G.uiNav.close("warehouseDetailDialog");
    G.uiNav.close("warehouseDialog");
    G.uiPokemonDetail?.render?.();
    G.text("pokemonToolMessage","도구 장착 완료");
+   // The old opener is replaced by the Pokémon rerender. Refocus the new button.
+   const slotButton=[...document.querySelectorAll("#pokemonToolSlots button")]
+     .find(button=>button.getAttribute("aria-label")==="도구 슬롯 "+(slot+1)+" 변경");
+   slotButton?.focus();
  });
  $("warehouseDetailClose").addEventListener("click",()=>G.uiNav.close("warehouseDetailDialog"));
  $("warehouseDetailDialog").addEventListener("close",()=>{selected=null;});

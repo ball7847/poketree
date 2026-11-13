@@ -50,8 +50,8 @@
      amount.addEventListener("input",()=>{
        if(amount.value==="")return;
        const v=Number(amount.value);
-       if(Number.isFinite(v)&&v>max)amount.value=String(Math.max(1,max));
-       else if(Number.isFinite(v)&&v<1)amount.value="1";
+       if(!Number.isFinite(v))amount.value="1";
+       else amount.value=String(Math.max(1,Math.min(max,Math.floor(v))));
        selectedQuantity.set(id,Number(amount.value)||1);
      });
      btn.addEventListener("click",()=>{

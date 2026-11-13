@@ -98,3 +98,9 @@ undefined
 - Pokémon item slots launch the **same warehouse modal** in equipment mode: category fixed to 도구, all other category filters disabled; clicking tool opens its detail modal with 장착 button. Existing item engine validates inventory, no duplicates, and no expedition changes. Manual unequip remains available from Pokémon detail. Success closes both warehouse dialogs and retains the Pokémon dialog.
 - Workshop now only opens from village button, original three-slot crafting engine/queue/cancel/refund/claim saved data unchanged. TM crafting remains at its existing button in Pokémon tab.
 - No changes to game save schema or inventories; text-based fallback icons until verified item images are provided.
+
+
+## 2026-11-13 integrated audit follow-up
+- UI focus fallback on nested modal close with stale removed trigger; successful equipment changes refocus the rebuilt Pokémon equipment-slot control.
+- Workshop requested batch quantity input normalizes finite values to an integer via floor and clamps to currently craftable maximum.
+- Added regression checks for navigation wiring plus combined material reservation/cancel/claim/equip/save round trip. CI covers engine and static UI checks; true human browser testing is not implied.

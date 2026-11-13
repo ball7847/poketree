@@ -45,6 +45,13 @@
       const previous=focusByDialog.get(id);
       focusByDialog.delete(id);
       if(previous?.isConnected)previous.focus();
+      else {
+        // Dynamic inventory grids rebuild button nodes while dialogs are open.
+        // Restore keyboard focus to a surviving control in the preceding dialog.
+        const activeDialogs=[...document.querySelectorAll("dialog[open]")].filter(node=>node!==d);
+        const parent=activeDialogs.at(-1);
+        parent?.querySelector('button:not([disabled])')?.focus();
+      }
     });
     d.addEventListener("click",event=>{
       if(event.target===d)close(id);

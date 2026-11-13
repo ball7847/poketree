@@ -87,3 +87,37 @@ test("equipment is selected through tool-only warehouse, old dropdown removed",(
  assert.doesNotMatch(html,/보관 칸 무제한/);
  assert.match(html,/id="warehouseItems"/);
 });
+
+test("UI audit: dynamic modal focus fallback and equipment refocus are wired",()=>{
+ const html=fs.readFileSync(path.join(__dirname,"../game/index.html"),"utf8");
+ const navigation=fs.readFileSync(path.join(__dirname,"../game/ui/navigation.js"),"utf8");
+ const warehouse=fs.readFileSync(path.join(__dirname,"../game/ui/warehouse.js"),"utf8");
+ const workshop=fs.readFileSync(path.join(__dirname,"../game/ui/tools.js"),"utf8");
+ assert.match(navigation,/previous\?\.isConnected/);
+ assert.match(navigation,/querySelectorAll\("dialog\[open\]"\)/);
+ assert.match(warehouse,/const unit=contextUnit\(\),slot=context\.slot/);
+ assert.match(warehouse,/slotButton\?\.focus\(\)/);
+ assert.match(workshop,/Math\.floor\(v\)/);
+ assert.match(html,/id="toolCancelDialog"/);
+});
+test("integration audit: tool equip through shared warehouse, crafting, recall and save",()=>{
+ const G=boot(),T=G.tools,W=G.warehouse,u=G.state.roster[0];
+ G.techniques.discover("ore",8);G.techniques.discover("leaf",8);
+ let last=Date.now();
+ assert.equal(T.queue("training-band",1,last),null);
+ assert.equal(W.entries("tool").length,0);
+ const originalOre=G.state.materials.ore;
+ assert.equal(T.cancel(G.state.toolQueue[0].uid,last),null);
+ assert.equal(G.state.materials.ore,originalOre+2);
+ assert.equal(T.queue("training-band",1,last),null);
+ T.advance(last+60000);
+ assert.equal(W.entries("tool").length,0);
+ assert.equal(T.claimAll(last+60000),1);
+ assert.equal(W.detail("tool","training-band").count,1);
+ assert.equal(T.equip(u,"training-band",0),null);
+ assert.equal(W.detail("tool","training-band").lines[2][1],"0개");
+ const save=JSON.parse(JSON.stringify(G.saveGame.snapshot()));
+ assert.equal(G.saveGame.restore(save),true);
+ assert.equal(G.state.roster[0].toolSlots[0],"training-band");
+ assert.equal(W.detail("tool","training-band").count,1);
+});
