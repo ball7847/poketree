@@ -14,6 +14,12 @@
   }
   function execute(exp,user,plan,applyFaint){
     const G=window.PokeTree,move=plan.move;
+    // Every recoil attack is single-target in PokeTree, including originally
+    // spread moves. Reject invalid data rather than silently attacking a group.
+    if(move.effect==="recoil"&&move.target!=="enemy")
+      throw Error("반동 공격은 단일 적 대상이어야 합니다.");
+    if(!Number.isFinite(user.pp)||user.pp<100)
+      return {failed:true,reason:"insufficient-pp"};
     const targets=window.PokeTargeting.candidates(exp,user,move);
     let chosen=targets;
     if(!["enemies","allies","field"].includes(move.target)){
@@ -21,6 +27,7 @@
       if(!t)return {failed:true};
       chosen=[t];
     }
+    if(!chosen.length)return {failed:true,reason:"no-target"};
     user.pp-=100;
     G.record(exp,user.name+" · "+move.name+" 사용 (PP -100)");
     const faintCandidates=new Set();

@@ -508,3 +508,91 @@ test("PP loss never lets the same Pokémon act twice in a round",()=>{
  const log=e.logs.filter(l=>l.message.includes(" → "));
  assert.equal(log.filter(l=>l.message.startsWith(first.name+" → ")).length,1);
 });
+
+test("effect: healing full HP still spends 100 PP but cannot exceed max HP",()=>{
+ const {G,ctx}=boot(),M=ctx.window.PokeMoveEffects;
+ const u=G.state.roster[0],e={id:"e",party:[u],enemies:[],logs:[]};
+ // Use an existing, supported heal move but no new Pokémon move assignment.
+ u.pp=130;u.hp=u.maxHp;
+ const move=ctx.window.POKE_MOVES.recover;
+ const result=M.execute(e,u,{moveId:"recover",move,targetId:u.id},()=>{});
+ assert.equal(result.failed,false);
+ assert.equal(u.pp,30);
+ assert.equal(u.hp,u.maxHp);
+});
+test("effect: no PP or unavailable target cannot consume energy",()=>{
+ const {G,ctx}=boot(),M=ctx.window.PokeMoveEffects;
+ const u=G.state.roster[0],foe=G.Pokemon.create({id:"foe",species:"rattata",side:"enemy"});
+ const exp={id:"e",party:[u],enemies:[foe],logs:[]};
+ const move=ctx.window.POKE_MOVES["quick-attack"],plan={moveId:"quick-attack",move,targetId:foe.id};
+ u.pp=99;assert.equal(M.execute(exp,u,plan,()=>{}).failed,true);
+ assert.equal(u.pp,99);assert.equal(foe.hp,foe.maxHp);
+ u.pp=150;foe.hp=0;
+ assert.equal(M.execute(exp,u,plan,()=>{}).failed,true);
+ assert.equal(u.pp,150);
+});
+test("effect: recoil move cannot ever hit an area",()=>{
+ const {G,ctx}=boot(),M=ctx.window.PokeMoveEffects;
+ const u=G.state.roster[0],foe=G.Pokemon.create({id:"foe",species:"rattata",side:"enemy"});
+ const exp={id:"e",party:[u],enemies:[foe],logs:[]};
+ u.pp=100;const base=ctx.window.POKE_MOVES["flare-blitz"];
+ assert.throws(()=>M.execute(exp,u,{moveId:"recoil-invalid",move:{...base,target:"enemies"},targetId:null},()=>{}),/단일 적/);
+ assert.equal(u.pp,100);assert.equal(foe.hp,foe.maxHp);
+});
+test("effect: multi-hit continues striking same zero-HP opponent and only spends 100 PP",()=>{
+ const {G,ctx}=boot(),M=ctx.window.PokeMoveEffects;
+ const u=G.state.roster[0],foe=G.Pokemon.create({id:"foe",species:"rattata",side:"enemy"});
+ const exp={id:"e",party:[u],enemies:[foe],logs:[]};
+ // A controlled two-hit move tests PokeTree's explicit continuation rule.
+ const move={...ctx.window.POKE_MOVES["bullet-seed"],hits:[2]};
+ u.pp=150;foe.hp=1;
+ let faintCalls=0;
+ const original=Math.random;
+ // move-effects uses the VM's Math object (shared with host) for hit count;
+ // hitCount's first bucket is guaranteed to return two.
+ try{Math.random=()=>0.5;M.execute(exp,u,{moveId:"bullet-seed",move,targetId:foe.id},()=>{faintCalls++;});}
+ finally{Math.random=original;}
+ const strikes=exp.logs.filter(x=>x.message.includes("기관총 → "));
+ assert.equal(strikes.length,2);
+ assert.equal(foe.hp,0);
+ assert.equal(u.pp,50);
+ assert.equal(faintCalls,1);
+});
+test("effect: recoil user faint is resolved before enemy XP recipients are chosen",()=>{
+ const {G,ctx}=boot(),M=ctx.window.PokeMoveEffects;
+ const attacker=G.state.roster[0],survivor=G.state.roster[1];
+ const foe=G.Pokemon.create({id:"foe",species:"caterpie",side:"enemy",level:5});
+ const exp={id:"e",party:[attacker,survivor],enemies:[foe],logs:[]};
+ attacker.pp=100;attacker.hp=1;foe.hp=1;
+ const move=ctx.window.POKE_MOVES["flare-blitz"];
+ const events=[];
+ const result=M.execute(exp,attacker,{moveId:"flare-blitz",move,targetId:foe.id},(u,award)=>events.push([u.id,award]));
+ assert.equal(result.failed,false);
+ assert.equal(attacker.hp,0);assert.equal(foe.hp,0);
+ assert.deepEqual(events.map(x=>x[0]),[attacker.id,foe.id]);
+ assert.deepEqual(events.map(x=>x[1]),[false,true]);
+ assert.ok(survivor.hp>0);
+});
+test("effect: self-destruct KOs user on miss, even without enemy damage",()=>{
+ const {G,ctx}=boot(),M=ctx.window.PokeMoveEffects;
+ const user=G.state.roster[0],foe=G.Pokemon.create({id:"foe",species:"rattata",side:"enemy"});
+ const exp={id:"e",party:[user],enemies:[foe],logs:[]};
+ user.pp=100;
+ const move={...ctx.window.POKE_MOVES["self-destruct"],accuracy:0};
+ const events=[];
+ M.execute(exp,user,{moveId:"self-destruct",move,targetId:null},(u,award)=>events.push([u.id,award]));
+ assert.equal(user.hp,0);
+ assert.equal(foe.hp,foe.maxHp);
+ assert.equal(user.pp,0);
+ assert.deepEqual(events.map(e=>e[0]),[user.id]);
+});
+test("effect: HP drain cannot heal from immunity or actual zero damage",()=>{
+ const {G,ctx}=boot(),M=ctx.window.PokeMoveEffects;
+ const user=G.state.roster[0],foe=G.Pokemon.create({id:"foe",species:"pidgey",side:"enemy"});
+ const exp={id:"e",party:[user],enemies:[foe],logs:[]};
+ user.pp=200;user.hp=Math.max(1,user.maxHp-7);
+ const hp=user.hp,move={...ctx.window.POKE_MOVES["giga-drain"],type:"ground"};
+ M.execute(exp,user,{moveId:"giga-drain",move,targetId:foe.id},()=>{});
+ assert.equal(user.hp,hp);assert.equal(user.pp,100);
+ assert.equal(foe.hp,foe.maxHp);
+});
