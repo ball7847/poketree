@@ -25,7 +25,24 @@ jobs:
         with:
           node-version: '22'
       - run: bash scripts/prepare-pages.sh
-      - run: node --test tests/*.test.cjs
+      - name: Engine regression tests
+        if: always()
+        run: node --test tests/engine.test.cjs
+      - name: Technique regression tests
+        if: always()
+        run: node --test tests/techniques.test.cjs
+      - name: Tool regression tests
+        if: always()
+        run: node --test tests/tools.test.cjs
+      - name: Warehouse regression tests
+        if: always()
+        run: node --test tests/warehouse.test.cjs
+      - name: Region progression tests
+        if: always()
+        run: node --test tests/regions.test.cjs
+      - name: Deployment artifact tests
+        if: always()
+        run: node --test tests/pages.test.cjs
       - name: Install browser testing runtime
         run: npm install --no-save --no-package-lock playwright-core@1.58.2
       - name: Chromium user-flow smoke tests
