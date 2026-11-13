@@ -365,6 +365,7 @@ test("PP deficit drops reserved priority and permits same-round reordering",()=>
  // Give b an artificially higher speed for this test.
  b.speed=a.speed+100;
  e.speeds.set(b,b.speed); // Pretend this was the round-start speed snapshot.
+ e.speeds.set(enemy,0); // Deterministic ordering independent of random enemy IVs.
  G.combat.step(e);
  assert.equal(e.order[0],b);
  assert.equal(e.order[1],a);
