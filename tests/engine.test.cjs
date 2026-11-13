@@ -550,7 +550,7 @@ test("effect: multi-hit continues striking same zero-HP opponent and only spends
  const original=Math.random;
  // move-effects uses the VM's Math object (shared with host) for hit count;
  // hitCount's first bucket is guaranteed to return two.
- try{Math.random=()=>0.5;M.execute(exp,u,{moveId:"bullet-seed",move,targetId:foe.id},()=>{faintCalls++;});}
+ try{Math.random=()=>0.2;M.execute(exp,u,{moveId:"bullet-seed",move,targetId:foe.id},()=>{faintCalls++;});}
  finally{Math.random=original;}
  const strikes=exp.logs.filter(x=>x.message.includes("기관총 → "));
  assert.equal(strikes.length,2);
