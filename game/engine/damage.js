@@ -12,6 +12,11 @@
     if(!Number.isInteger(rank)||rank< -6||rank>6)throw Error("능력치 랭크는 -6~6");
     return rank>=0?1+0.2*rank:1/(1+0.2*Math.abs(rank));
   }
+  function weatherDefenseMultiplier(weather,category,defenderTypes){
+    if(weather?.kind==="sandstorm"&&category==="special"&&defenderTypes.includes("rock"))return 1.5;
+    if(weather?.kind==="snow"&&category==="physical"&&defenderTypes.includes("ice"))return 1.5;
+    return 1;
+  }
   function compute(attacker,defender,{random=100,critical=false,rankAttack,rankDefense,move=null,weather=null,terrain=null}={}){
     if(!Number.isInteger(random)||random<85||random>100)throw Error("난수는 85~100 사이 정수");
     const category=move?.category||P.attackCategory(attacker);
@@ -24,10 +29,7 @@
     if(category==="physical"&&attacker.battleStatus?.major?.kind==="burn")attack=Math.max(1,Math.floor(attack*.5));
     let defense=Math.max(1,Math.floor(defender[dKey]*rankFactor(defRank)));
     const defendingTypes=P.template(defender.species,defender.form).form.types;
-    if(weather?.kind==="sandstorm"&&category==="special"&&defendingTypes.includes("rock"))
-      defense=Math.max(1,Math.floor(defense*1.5));
-    if(weather?.kind==="snow"&&category==="physical"&&defendingTypes.includes("ice"))
-      defense=Math.max(1,Math.floor(defense*1.5));
+    defense=Math.max(1,Math.floor(defense*weatherDefenseMultiplier(weather,category,defendingTypes)));
     const type=move?.type||P.normalAttackType(attacker),types=P.template(attacker.species,attacker.form).form.types;
     const stab=types.includes(type)?1.5:1;
     const eff=effectiveness(type,defender);
@@ -73,5 +75,5 @@
     const base=Math.floor(Math.floor(lvl*40*atk/def)/50)+2;
     return Math.max(1,Math.floor(base*(85+Math.floor(rng()*16))/100));
   }
-  window.PokeDamage=Object.freeze({compute,roll,effectiveness,confusionDamage});
+  window.PokeDamage=Object.freeze({compute,roll,effectiveness,confusionDamage,weatherDefenseMultiplier});
 })();

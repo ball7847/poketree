@@ -658,12 +658,13 @@ test("status immunity, major status exclusivity, and confusion coexistence",()=>
 test("weather: rock special defense in sandstorm and ice physical defense in snow",()=>{
  const {G}=boot(),P=G.Pokemon,D=G.Damage;
  const attacker=P.create({id:"att",species:"pikachu",level:50});
- const rock=P.create({id:"rock",species:"geodude",level:50});
- const ice=P.create({id:"ice",species:"snover",level:50});
+ const foe=P.create({id:"foe",species:"eevee",level:50});
  const special={type:"electric",category:"special",power:90};
- const physical={type:"normal",category:"physical",power:90};
- assert.ok(D.compute(attacker,rock,{move:special,random:100,weather:{kind:"sandstorm"}}).damage<=D.compute(attacker,rock,{move:special,random:100}).damage);
- assert.ok(D.compute(attacker,ice,{move:physical,random:100,weather:{kind:"snow"}}).damage<=D.compute(attacker,ice,{move:physical,random:100}).damage);
+ assert.equal(D.weatherDefenseMultiplier({kind:"sandstorm"},"special",["rock"]),1.5);
+ assert.equal(D.weatherDefenseMultiplier({kind:"snow"},"physical",["ice"]),1.5);
+ assert.equal(D.weatherDefenseMultiplier({kind:"rain"},"special",["rock"]),1);
+ assert.equal(D.weatherDefenseMultiplier({kind:"sandstorm"},"physical",["rock"]),1);
+ assert.ok(D.compute(attacker,foe,{move:special,random:100}).damage>0);
 });
 test("terrain: misty dragon reduction only against grounded target",()=>{
  const {G}=boot(),P=G.Pokemon,D=G.Damage;
