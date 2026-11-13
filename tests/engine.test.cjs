@@ -294,3 +294,44 @@ test("confirmed heal formula uses target max HP and caster special attack",()=>{
  assert.ok(p.spAttack>0);
  assert.ok(G.state.roster[0].battleStatus);
 });
+
+test("Champions paralysis and wake rates, original confusion self-hit formula",()=>{
+ const {ctx,G}=boot(),S=ctx.window.PokeBattleStatus,D=G.Damage;
+ const p=G.state.roster[1];
+ assert.equal(S.inflict(p,"paralysis"),true);
+ assert.equal(S.beforeAction(p,()=>0),"몸이 마비되어 행동하지 못했습니다.");
+ assert.equal(S.beforeAction(p,()=>0.2),null);
+ assert.equal(S.speed(p),Math.floor(p.speed*.5));
+ S.endExpedition(p);
+ assert.equal(S.inflict(p,"sleep"),true);
+ assert.match(S.beforeAction(p,()=>0),/잠들어/);
+ assert.equal(S.beforeAction(p,()=>0),null);
+ S.endExpedition(p);
+ assert.equal(S.inflict(p,"confusion"),true);
+ assert.ok(S.ensure(p).confusion>=2&&S.ensure(p).confusion<=5);
+ assert.ok(D.confusionDamage(p,()=>0)>=1);
+});
+test("actual move engine preserves PP and handles target retargeting",()=>{
+ const {ctx,G}=boot(),T=ctx.window.PokeTargeting,M=ctx.window.PokeMoveEffects;
+ G.exploration.start("windy",["partner1","partner2"]);
+ const e=G.state.regions.windy;G.combat.start(e);
+ const u=e.party[0],target=e.enemies[0],p=ctx.window.POKE_MOVES["quick-attack"];
+ u.pp=150;
+ const chosen={moveId:"quick-attack",move:p,targetId:target.id};
+ assert.equal(T.retarget(e,u,chosen).targetId,target.id);
+ target.hp=0;
+ assert.equal(T.retarget(e,u,chosen),null);
+ target.hp=target.maxHp;
+ const outcome=M.execute(e,u,chosen,()=>{});
+ assert.equal(outcome.failed,false);
+ assert.equal(u.pp,50);
+ assert.ok(e.logs.some(x=>x.message.includes("PP -100")));
+});
+test("HP healing distinguishes self and other Pokémon",()=>{
+ const {ctx,G}=boot(),M=ctx.window.PokeMoveEffects;
+ const a=G.state.roster[0],b=G.state.roster[1];
+ const self=Math.floor((a.maxHp+a.spAttack)/4);
+ const other=Math.floor(Math.floor((b.maxHp+a.spAttack)/4)*2/3);
+ assert.equal(M.healAmount(a,a),self);
+ assert.equal(M.healAmount(a,b),other);
+});

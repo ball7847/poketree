@@ -56,5 +56,13 @@
     const random=85+Math.floor(rng()*16);
     return compute(attacker,defender,{...options,critical,random});
   }
-  window.PokeDamage=Object.freeze({compute,roll,effectiveness});
+  function confusionDamage(unit,rng=Math.random){
+    // Original-style typeless, power 40 physical self-hit, never critical/STAB.
+    const lvl=Math.floor(2*unit.level/5)+2;
+    const atk=Math.max(1,Math.floor(unit.attack*rankFactor(unit.battleStatus?.ranks?.attack??0)));
+    const def=Math.max(1,Math.floor(unit.defense*rankFactor(unit.battleStatus?.ranks?.defense??0)));
+    const base=Math.floor(Math.floor(lvl*40*atk/def)/50)+2;
+    return Math.max(1,Math.floor(base*(85+Math.floor(rng()*16))/100));
+  }
+  window.PokeDamage=Object.freeze({compute,roll,effectiveness,confusionDamage});
 })();

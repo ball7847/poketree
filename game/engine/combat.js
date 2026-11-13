@@ -95,7 +95,7 @@
     if(!unit||!alive(unit))return;
     const interruption=S.beforeAction(unit);
     if(interruption==="confusion"){
-      const amount=Math.max(1,Math.floor(unit.maxHp/12));
+      const amount=Damage.confusionDamage(unit);
       unit.hp=Math.max(0,unit.hp-amount);
       record(exp,unit.name+" 혼란 자해 · "+amount+" 피해");
       if(unit.hp===0)handleFaint(exp,unit,false);

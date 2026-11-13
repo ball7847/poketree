@@ -9,7 +9,10 @@
     const s=ensure(u);s.ranks[key]=Math.max(-6,Math.min(6,s.ranks[key]+delta));
     return s.ranks[key];
   }
-  function stage(value){return value>=0?(3+value)/3:3/(3-value);}
+  function stage(value){
+    const rank=Math.max(-6,Math.min(6,value));
+    return rank>=0?(3+rank)/3:3/(3-rank);
+  }
   function accuracy(move,attacker,defender){
     if(move.accuracy===null)return 1;
     const a=ensure(attacker).ranks.accuracy,d=ensure(defender).ranks.evasion;
@@ -17,7 +20,11 @@
   }
   function inflict(u,kind){
     const status=ensure(u);
-    if(kind==="confusion"){status.confusion=Math.max(status.confusion,3);return true;}
+    if(kind==="confusion"){
+      if(status.confusion>0)return false;
+      status.confusion=2+Math.floor(Math.random()*4); // 2–5 actions
+      return true;
+    }
     if(status.major)return false;
     const types=window.PokePokemon.template(u.species,u.form).form.types;
     if((kind==="burn"&&types.includes("fire"))||
@@ -29,10 +36,21 @@
   }
   function beforeAction(u,roll=Math.random){
     const s=ensure(u),m=s.major;
-    if(m?.kind==="sleep"){m.counter++;if(m.counter<=2)return "잠들어 행동하지 못했습니다.";s.major=null;}
-    if(m?.kind==="freeze"){if(roll()>=0.2)return "얼어서 행동하지 못했습니다.";s.major=null;}
-    if(m?.kind==="paralysis"&&roll()<0.25)return "몸이 마비되어 행동하지 못했습니다.";
-    if(s.confusion>0){s.confusion--;if(roll()<1/3)return "confusion"; }
+    if(m?.kind==="sleep"){
+      m.counter++;
+      if(m.counter===1||(m.counter===2&&roll()>=1/3))return "잠들어 행동하지 못했습니다.";
+      s.major=null; // Champions: 1st blocked, 2nd 1/3 wake, 3rd guaranteed
+    }
+    if(m?.kind==="freeze"){
+      m.counter++;
+      if(m.counter<3&&roll()>=.25)return "얼어서 행동하지 못했습니다.";
+      s.major=null;
+    }
+    if(m?.kind==="paralysis"&&roll()<.125)return "몸이 마비되어 행동하지 못했습니다.";
+    if(s.confusion>0){
+      s.confusion--;
+      if(s.confusion>0&&roll()<1/3)return "confusion";
+    }
     return null;
   }
   function afterAction(u){
