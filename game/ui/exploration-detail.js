@@ -225,6 +225,7 @@
       $set("detailMode","");
       $set("detailMessage","포켓몬을 선택하여 탐험을 시작하세요.");
       $set("detailRound","");
+      $set("detailSteps","이동 0회");
       $set("detailBagCount","0개");
       reconcileRoster($("detailAllies"),[]);
       reconcileRoster($("detailEnemies"),[]);
@@ -239,6 +240,8 @@
       reconcileRoster($("detailEnemies"),exp.enemies);
       $("detailEnemiesWrap").hidden=exp.mode!=="combat";
       $set("detailRound",exp.mode==="combat"?"라운드 "+exp.round:"");
+      const next=Object.entries(db.regions).find(([id,v])=>v.unlock?.type==="steps"&&v.unlock.region===regionId&&!G.regions.isUnlocked(id));
+      $set("detailSteps","이동 "+exp.steps+(next?"/"+next[1].unlock.count:"")+"회");
       $set("detailBagCount",exp.party.reduce((n,u)=>n+u.bag.length,0)+"개");
     }
     progress();
@@ -252,6 +255,7 @@
     $set("detailError","");
   }
   function open(id,source){
+    if(!G.regions.isPlayable(id))return;
     regionId=id;
     resetPreparation();render();
     G.uiNav.open("explorationDialog",source);
@@ -288,7 +292,7 @@
   G.onChange((type,id)=>{
     if(!regionId)return;
     if(type==="progress"&&id===regionId&&$("explorationDialog").open)progress();
-    if((type==="expedition"||type==="log"||type==="bags")&&id===regionId){
+    if((type==="expedition"||type==="log"||type==="bags"||type==="regionSteps")&&id===regionId){
       if(state.regions[regionId].mode!=="idle")queueRender();
     }
     if(["roster","level","nickname"].includes(type)){

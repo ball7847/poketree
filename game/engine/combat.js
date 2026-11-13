@@ -57,6 +57,7 @@
   function finish(exp){
     exp.wins++;record(exp,"전투 승리");G.addLoot(exp,"시연용 전리품");
     clear(exp);exp.enemies=[];exp.mode="exploration";
+    G.regions.addStep(exp.id);
   }
   function fallbackAttack(exp,u){
     const enemies=(u.side==="ally"?exp.enemies:exp.party).filter(alive);
@@ -73,8 +74,8 @@
   function finalize(exp){
     if(!exp.enemies.some(alive))finish(exp);
     else if(!exp.party.some(alive)){
-      clear(exp);exp.enemies=[];exp.mode="recovery";
-      record(exp,"전원 기절 · HP 회복 후 같은 지역에서 탐험 재개");
+      clear(exp);exp.enemies=[];
+      G.exploration.recall(exp.id,"파티 전멸 · 탐험 종료");
     }
   }
   function step(exp){

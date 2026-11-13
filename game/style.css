@@ -188,3 +188,5 @@
 .warehouse-detail-dialog .warehouse-icon{width:72px;height:72px;font-size:40px}
 #warehouseEquip[hidden]{display:none!important}
 @media(max-width:390px){.village-facilities{gap:8px}.facility-button{min-height:123px;padding:10px 2px}.warehouse-dialog{padding:10px}.warehouse-toolbar{gap:3px}.warehouse-filter{font-size:10px;padding:8px 0}}
+
+.region-card:disabled{cursor:not-allowed;opacity:1}.region-card.region-locked::before{filter:grayscale(1) brightness(.55)}.region-card.region-unfinished::before{filter:saturate(.5) brightness(.7)}

@@ -14,6 +14,8 @@
   function start(id, pokemonIds) {
     const exp=state.regions[id];
     if(!exp) return "존재하지 않는 지역입니다.";
+    if(!G.regions.isUnlocked(id))return "아직 해금되지 않은 지역입니다.";
+    if(!G.regions.isPlayable(id))return "세부지역이 아직 개발되지 않은 지역입니다.";
     if(exp.mode!=="idle") return "이미 탐험 중입니다.";
     if(!Array.isArray(pokemonIds)||pokemonIds.length<1||pokemonIds.length>3||
        new Set(pokemonIds).size!==pokemonIds.length||
@@ -24,21 +26,21 @@
     if(party.some(u=>u.expedition!==null)) return "다른 지역에 파견된 포켓몬은 선택할 수 없습니다.";
     if(party.some(u=>u.hp!==u.maxHp)) return "모든 포켓몬의 HP가 100%여야 출발할 수 있습니다.";
     exp.mode="exploration";exp.error=null;exp.locationId=G.region(exp).start;exp.party=party;exp.enemies=[];
-    exp.round=0;exp.order=[];exp.turnIndex=0;exp.actions=0;exp.remainingMs=state.speedMs;
+    exp.round=0;exp.order=[];exp.turnIndex=0;exp.actions=0;exp.steps=0;exp.remainingMs=state.speedMs;
     party.forEach(u=>{u.expedition=id;u.bag=[];u.pp=0;u.normalAttackCount=0;window.PokeBattleStatus.endExpedition(u);});
     exp.weather=null;exp.terrain=null;
     record(exp,G.region(exp).name+" 탐험 출발 · "+G.place(exp).name);
     G.change("expedition",id);G.change("roster");
     return null;
   }
-  function recall(id) {
+  function recall(id,reason="후퇴 완료") {
     const exp=state.regions[id];if(!exp||exp.mode==="idle")return;
     const count=exp.party.reduce((n,u)=>n+u.bag.length,0);
     exp.party.forEach(u=>{state.collected.push(...u.bag);for(const loot of u.bag){G.techniques?.collectLoot(loot);G.tools?.collectLoot(loot);}u.bag=[];u.expedition=null;u.pp=0;u.normalAttackCount=0;window.PokeBattleStatus.endExpedition(u);});
     exp.weather=null;exp.terrain=null;
-    record(exp,"후퇴 완료 · 아이템 "+count+"개 귀환 수령");
+    record(exp,reason+" · 남은 아이템 "+count+"개 귀환 수령");
     exp.mode="idle";exp.error=null;exp.party=[];exp.enemies=[];exp.locationId=null;
-    exp.round=0;exp.order=[];exp.turnIndex=0;exp.remainingMs=state.speedMs;
+    exp.round=0;exp.order=[];exp.turnIndex=0;exp.steps=0;exp.remainingMs=state.speedMs;
     G.change("expedition",id);G.change("roster");G.change("bags",id);
   }
   function explorationStep(exp) {
@@ -49,6 +51,7 @@
     }
     const loc=G.place(exp);
     const action=choose(loc.actions,item=>item.weight);
+    if(action.type!=="encounter")G.regions.addStep(exp.id);
     switch(action.type) {
       case "walk": record(exp,loc.name+"을(를) 걷습니다.");break;
       case "move":
@@ -60,18 +63,11 @@
       default: throw Error("알 수 없는 행동: "+action.type);
     }
   }
-  function recoveryStep(exp) {
-    for(const u of exp.party)u.hp=Math.min(u.maxHp,u.hp+DEMO.recovery);
-    if(exp.party.every(u=>u.hp===u.maxHp)){
-      exp.mode="exploration";record(exp,"전원 HP 회복 완료 · 탐험 재개");
-    }
-  }
   function tick(exp) {
     if(exp.mode==="idle")return;
     exp.actions++;
     if(exp.mode==="exploration")explorationStep(exp);
     else if(exp.mode==="combat")G.combat.step(exp);
-    else if(exp.mode==="recovery")recoveryStep(exp);
     G.change("expedition",exp.id);
   }
   function healIdle() {
