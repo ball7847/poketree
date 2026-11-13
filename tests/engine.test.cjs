@@ -316,6 +316,7 @@ test("actual move engine preserves PP and handles target retargeting",()=>{
  G.exploration.start("windy",["partner1","partner2"]);
  const e=G.state.regions.windy;G.combat.start(e);
  const u=e.party[0],target=e.enemies[0],p=ctx.window.POKE_MOVES["quick-attack"];
+ e.enemies=[target]; // Only one enemy; no alternative target after it faints.
  u.pp=150;
  const chosen={moveId:"quick-attack",move:p,targetId:target.id};
  assert.equal(T.retarget(e,u,chosen).targetId,target.id);
