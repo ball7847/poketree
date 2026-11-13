@@ -39,6 +39,7 @@ function server(){
   await page.goto("http://127.0.0.1:"+srv.address().port+"/game/index.html",{waitUntil:"load"});
   await page.waitForFunction(()=>!!window.PokeTree?.uiWarehouse && !!window.PokeTree?.uiTools);
   assert.deepEqual(errors,[],"Initial boot must not throw");
+  assert.equal(await page.evaluate(()=>Object.keys(window.POKE_SPECIES).length),1025);
   // Region cards: two playable demos and four explicitly undesigned locked regions.
   await page.locator("#nav-exploration").click();
   assert.equal(await page.locator(".region-card").count(),6);

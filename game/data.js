@@ -5,14 +5,9 @@
 window.POKE_DATA = Object.freeze({
   demo: true,
   provenance: window.POKE_DATA_PROVENANCE,
-  species: {
-    rattata: { ...window.POKE_SPECIES.rattata, weight: 1000 },
-    pidgey: { ...window.POKE_SPECIES.pidgey, weight: 1000 },
-    caterpie: { ...window.POKE_SPECIES.caterpie, weight: 800 },
-    weedle: { ...window.POKE_SPECIES.weedle, weight: 800 },
-    pikachu: { ...window.POKE_SPECIES.pikachu, weight: 10 },
-    eevee: { ...window.POKE_SPECIES.eevee, weight: 10 },
-  },
+  // Undesigned national species never spawn without approved region encounter weights.
+  species:Object.fromEntries(Object.entries(window.POKE_SPECIES).map(([id,entry])=>
+    [id,{...entry,weight:({rattata:1000,pidgey:1000,caterpie:800,weedle:800,pikachu:10,eevee:10})[id]||0}])),
   regions: {
     windy: {
       name: "바람의평원", levelRange:[1,6],mainTypes:["노말","비행","벌레"],demoContent:true,unlock:null,

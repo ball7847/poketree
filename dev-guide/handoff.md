@@ -119,3 +119,9 @@ undefined
 - Full-party wipe now ends expedition and settles remaining bags using existing recall, preserving already-applied per-Pokémon faint loot/XP penalties. Browser smoke asserts six region cards and two initially playable areas.
 
 - Save restore now explicitly clears transient active expeditions and party steps, because the saved-game snapshot persists permanent progression but not live expedition sessions. Ensures old/new saves cannot retain stale object references on in-process restore.
+
+
+## 2026-11-13 전국도감 B-1 데이터
+- PokeAPI/pokeapi CSV rev `8a92bfa7dab2f12b84b5d151562f9857c133ff30` 기반 `game/data/national-catalog.js` 정적 로딩. 1,025종, 배틀형 개체 변형 1,351개, 폼 원본 1,579항목과 특성 및 진화 원본 조건. **Champions 최신값 검증을 완료한 데이터가 아니며**, 별도 source/verifiedAgainstChampions=false 표시.
+- 기존 6종의 기본폼/종족값은 데모 레코드 우선 유지. 신규 1,019종의 탐험 출현 가중치는 0; 기술 습득·특성 효과·진화 자동 처리·보상 확장 금지.
+- `game/data/national-catalog.js` 는 로컬 정적 파일이므로 런타임 API 의존 없음.

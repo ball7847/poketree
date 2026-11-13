@@ -37,7 +37,7 @@
       if(!data.species[unit.species])errors.push("알 수 없는 보유 포켓몬 종족: "+unit.species);
     }
     for(const [sid,s] of Object.entries(data.species)){
-      if(!Number.isFinite(s.weight)||s.weight<=0)errors.push("종족 가중치 오류: "+sid);
+      if(!Number.isFinite(s.weight)||s.weight<0)errors.push("종족 가중치 오류: "+sid);
       if(!s.forms?.normal || !s.growth)errors.push("종족 데이터 오류: "+sid);
     }
     for(const [rid,region] of Object.entries(data.regions)){
@@ -61,7 +61,7 @@
         if(!Array.isArray(loc.enemyCount)||Math.abs(loc.enemyCount.reduce((sum,a)=>sum+Number(a.weight||0),0)-100)>1e-9)errors.push("적 마릿수 확률 합계 오류: "+context);
         for(const a of loc.enemyCount||[])if(!Number.isInteger(a.value)||a.value<=0||!Number.isFinite(a.weight)||a.weight<0)errors.push("적 마릿수 가중치 오류: "+context);
         if(!Array.isArray(loc.species)||!loc.species.length)errors.push("등장 종족 없음: "+context);
-        for(const id of loc.species||[])if(!data.species[id])errors.push("없는 등장 종족: "+context+"/"+id);
+        for(const id of loc.species||[])if(!data.species[id]||data.species[id].weight<=0)errors.push("출현 비율 미설정 종족: "+context+"/"+id);
       }
     }
     return errors;
