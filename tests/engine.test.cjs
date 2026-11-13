@@ -96,19 +96,36 @@ test("level up retains damage and nickname is individual",()=>{
   G.Pokemon.setNickname(u,"");
   assert.equal(u.name,"피카츄");
 });
-test("type advantages, immunity and dual-type attack rotation",()=>{
+test("basic attack is always typeless, while equipped moves preserve type effectiveness",()=>{
   const {G}=boot(),P=G.Pokemon,D=G.Damage;
   const p=P.create({id:"p",species:"pidgey",level:10,iv:{hp:0,attack:0,defense:0,spAttack:0,spDefense:0,speed:0}});
   const r=P.create({id:"r",species:"rattata",level:10,iv:{hp:0,attack:0,defense:0,spAttack:0,spDefense:0,speed:0}});
-  assert.equal(P.normalAttackType(p),"normal");
+  assert.equal(P.normalAttackType(p),"???");
   P.usedNormalAttack(p);
-  assert.equal(P.normalAttackType(p),"flying");
+  assert.equal(P.normalAttackType(p),"???");
   assert.equal(D.effectiveness("normal",r),1);
   assert.equal(D.effectiveness("ground",p),0);
   const result=D.compute(p,r,{random:85});
   assert.ok(Number.isInteger(result.damage));
-  assert.equal(result.type,"flying");
+  assert.equal(result.type,"???");
+  assert.equal(result.stab,1);
+  assert.equal(result.effectiveness,1);
   assert.equal(result.random,85);
+  // Ghost immunity applies to normal-type moves, NOT to typeless basic attacks.
+  const ghostDefender={...r,species:"rattata"};
+  const originalChart=G.db.species.rattata.forms.normal.types;
+  const prior=[...originalChart];
+  originalChart.splice(0,originalChart.length,"ghost");
+  try {
+    const basic=D.compute(p,ghostDefender,{random:100});
+    assert.ok(basic.damage>0);
+    assert.equal(basic.effectiveness,1);
+    assert.equal(D.effectiveness("normal",ghostDefender),0);
+    const typed=D.compute(p,ghostDefender,{random:100,move:{type:"normal",category:"physical",power:40}});
+    assert.equal(typed.damage,0);
+  } finally {originalChart.splice(0,originalChart.length,...prior);}
+  const normalTyped=D.compute(p,r,{random:100,move:{type:"normal",category:"physical",power:40}});
+  assert.equal(normalTyped.stab,1.5);
 });
 
 test("game combat uses stats and real damage, no demo 12/9 constants",()=>{

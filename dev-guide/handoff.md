@@ -69,3 +69,7 @@ undefined
 - Loot: existing *demo find* events now offer demo materials/TMs, credited upon expedition recall; existing combat loot remains demo placeholders. Never treat these as finalized rewards.
 - Save: `game/engine/save.js` stores validated player progression to browser localStorage, key `poketree-save-v1`. Preexisting prototype had no persistence. Active battles/loot/HP are not persisted; refresh resumes idle. Incompatible saves ignored.
 - Tests: `tests/techniques.test.cjs`; CI must pass before marking deploy successful.
+
+
+## 2026-11-13: Typeless basic attack
+- Basic attack always emits type `???`, ignores type matchups and STAB (both fixed at 1x); base power 10, physical/special category choice, PP-on-damage and random target unchanged. Move (active skill) damage still uses standard type matchup and STAB. Previous two-type basic attack rotation is deprecated; legacy `normalAttackCount` is retained only for compatibility with the existing runtime.

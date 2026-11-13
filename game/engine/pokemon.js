@@ -83,8 +83,8 @@
   }
   function attackCategory(unit){return unit.attack>=unit.spAttack?"physical":"special";}
   function normalAttackType(unit){
-    const types=template(unit.species,unit.form).form.types;
-    return types[unit.normalAttackCount%types.length];
+    // Fixed typeless basic attack: never alternates with species types.
+    return "???";
   }
   function usedNormalAttack(unit){unit.normalAttackCount++;}
   function validateSpecies(){

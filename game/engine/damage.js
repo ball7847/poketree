@@ -30,9 +30,12 @@
     let defense=Math.max(1,Math.floor(defender[dKey]*rankFactor(defRank)));
     const defendingTypes=P.template(defender.species,defender.form).form.types;
     defense=Math.max(1,Math.floor(defense*weatherDefenseMultiplier(weather,category,defendingTypes)));
-    const type=move?.type||P.normalAttackType(attacker),types=P.template(attacker.species,attacker.form).form.types;
-    const stab=types.includes(type)?1.5:1;
-    const eff=effectiveness(type,defender);
+    const isBasicAttack=move===null;
+    const type=isBasicAttack?P.normalAttackType(attacker):move.type;
+    const types=P.template(attacker.species,attacker.form).form.types;
+    // Basic attacks are always typeless: 1x effectiveness and no STAB.
+    const stab=isBasicAttack?1:types.includes(type)?1.5:1;
+    const eff=isBasicAttack?1:effectiveness(type,defender);
     const power=move?.power??10;
     if(!Number.isSafeInteger(power)||power<=0)throw Error("위력 정보 오류");
     const levelTerm=Math.floor(2*attacker.level/5)+2;
