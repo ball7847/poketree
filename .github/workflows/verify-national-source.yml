@@ -1,0 +1,20 @@
+name: Verify national Pokédex pinned CSV snapshot
+on:
+  push:
+    paths:
+      - "game/data/national-catalog.js"
+      - "scripts/generate-national-catalog.cjs"
+      - ".github/workflows/verify-national-source.yml"
+  workflow_dispatch:
+jobs:
+  verify-source:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Check generated catalog against source revision
+        run: node scripts/generate-national-catalog.cjs --check

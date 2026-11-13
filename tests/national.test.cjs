@@ -14,8 +14,10 @@ test("every species creates valid stats, verified demo encounters remain unchang
  assert.equal(G.Pokemon.validateSpecies().length,0);
  assert.equal(G.validateData().length,0);
  for(const [id,s] of Object.entries(c.species)){
-  const p=G.Pokemon.create({id:"test-"+s.dex,species:id,level:10});
-  assert.ok(p.maxHp>0&&p.attack>0);
+  for(const form of Object.keys(s.forms)){
+   const p=G.Pokemon.create({id:"test-"+s.dex+"-"+form,species:id,form,level:10});
+   assert.ok(p.maxHp>0&&p.attack>0);
+  }
  }
  assert.equal(G.db.species.bulbasaur.weight,0);
  assert.equal(G.db.regions.windy.locations.road.species.length,4);
@@ -29,6 +31,10 @@ test("passive abilities/evolution/form data and source lineage accessible",()=>{
  assert.ok(c.species.bulbasaur.forms.normal.abilities.some(x=>x.id==="overgrow"));
  assert.ok(c.species.charizard.forms["mega-x"]);
  assert.ok(c.cosmeticForms.unown.length>1);
+ for(const [id,s] of Object.entries(c.species)){
+  if(s.evolvesFrom)assert.ok(c.species[s.evolvesFrom],"missing previous evolution: "+id);
+  for(const f of Object.values(s.forms))assert.ok(f.abilities.every(a=>a.id),"missing ability: "+id);
+ }
 });
 test("existing saved Pokémon and region data restore unchanged",()=>{
  assert.equal(G.state.roster.length,3);

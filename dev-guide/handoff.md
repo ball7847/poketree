@@ -127,3 +127,5 @@ undefined
 - `game/data/national-catalog.js` 는 로컬 정적 파일이므로 런타임 API 의존 없음.
 
 - National species provenance records default to `source:null,checked:false` for every existing field until Champions/version-order validation; the original six have their previous exact field provenance overlaid. `nationalSnapshot` separately records the source CSV commit.
+
+- Rebuild/check pinned source: `node scripts/generate-national-catalog.cjs` or `node scripts/generate-national-catalog.cjs --check` (Node 22+, network required only for regeneration). Dedicated GitHub workflow `.github/workflows/verify-national-source.yml` runs pinned-source comparison on catalog changes or manually.
