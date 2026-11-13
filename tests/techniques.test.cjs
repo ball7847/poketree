@@ -21,7 +21,7 @@ test("levelup and new high level individual grant all eligible demo techniques",
  G.techniques.initialize(u);assert.ok(u.learnedMoves.includes("quick-attack"));assert.ok(u.learnedMoves.includes("thunderbolt"));
  const other=G.Pokemon.create({id:"low",species:"pikachu",level:1});
  G.techniques.initialize(other);assert.ok(!other.learnedMoves.includes("thunderbolt"));
- G.Pokemon.grantExperience(other,G.Experience.remaining(other)*10);
+ G.Pokemon.grantExperience(other,G.Experience.total(5,other.growth));
  assert.ok(other.learnedMoves.includes("thunderbolt"));
 });
 test("expedition equipment allowed only in exploration, not combat/recovery; item TM needs recall",()=>{
@@ -64,4 +64,17 @@ test("save/load restores learned skills and TM codex while excluding runtime com
  assert.equal(G.state.technicalMachines.includes("gust"),true);
  assert.equal(G.state.roster[0].moves.includes("thunderbolt"),false);
  assert.equal(G.state.roster[0].expedition,null);
+});
+
+test("slot 2 remains in slot 2 through a save/restore, and tool guard blocks expedition",()=>{
+ const {G}=boot(),T=G.techniques,u=G.state.roster[0];
+ assert.equal(T.equip(u,null,0),null);
+ assert.equal(u.moves[0],null);assert.equal(u.moves[1],"thunderbolt");
+ const raw=JSON.parse(JSON.stringify(G.saveGame.snapshot()));
+ assert.equal(G.saveGame.restore(raw),true);
+ assert.equal(G.state.roster[0].moves[0],null);
+ assert.equal(G.state.roster[0].moves[1],"thunderbolt");
+ assert.equal(G.exploration.start("windy",["partner1"]),null);
+ assert.match(T.canEditTools(G.state.roster[0]),/귀환/);
+ G.exploration.recall("windy");assert.equal(T.canEditTools(G.state.roster[0]),null);
 });

@@ -22,7 +22,8 @@
    for(const entry of raw.roster){
      if(!G.db.species[entry.species]||!entry.id||rebuilt.some(u=>u.id===entry.id))return false;
      const learned=allowed(entry.learnedMoves,id=>!!window.POKE_MOVES[id]);
-     const moves=allowed(entry.moves,id=>!!window.POKE_MOVES[id]).slice(0,2);
+     const moves=Array.isArray(entry.moves)?entry.moves.slice(0,2).map(id=>id===null||!!window.POKE_MOVES[id]?id:null):[];
+     if(moves.length===2&&moves[0]!==null&&moves[0]===moves[1])moves[1]=null;
      const unit=P.create({...entry,learnedMoves:learned,moves,side:"ally"});
      T.initialize(unit);rebuilt.push(unit);
    }

@@ -30,6 +30,10 @@
    unit.maxHp=updated.hp;unit.hp=Math.max(0,Math.min(updated.hp,oldHp+updated.hp-oldMax));
    initialize(unit);G.change("roster");return null;
  }
+ function canEditTools(unit){
+   if(unit.side!=="ally")return "보유 포켓몬만 도구를 변경할 수 있습니다.";
+   return unit.expedition===null?null:"탐험에서 귀환한 뒤에만 도구를 변경할 수 있습니다.";
+ }
  function canEdit(unit){
    if(unit.side!=="ally")return "보유 포켓몬만 변경할 수 있습니다.";
    if(unit.expedition===null)return null;
@@ -97,7 +101,7 @@
    const pick=choices[exp.actions%choices.length];
    return pick.startsWith("tm:")?pick:"material:"+pick;
  }
- G.techniques={initialize,levelMoves,learn,onLevel,evolve,canEdit,equip,canUseTM,useTM,
+ G.techniques={initialize,levelMoves,learn,onLevel,evolve,canEdit,canEditTools,equip,canUseTM,useTM,
    materialStatus,recipeStatus,discover,unlock,craft,materialDisplay,collectLoot,demoFind,data};
  for(const u of G.state.roster)initialize(u);
 })();
