@@ -38,3 +38,10 @@ undefined
 - `move-effects.js`: 반동 공격은 반드시 단일 적 대상(광역 데이터 입력 시 안전하게 오류). PP 100 미만/유효 대상 없음 직접 실행 차단.
 - 회복 최대HP 제한·PP 소모, 연속타 HP0 후 타격 지속·단일 기절 처리, 반동 자해 기절 선처리, 자폭 빗나감에도 자해, 무효 상성 흡수 HP0을 추가 자동 테스트.
 - 부활 기술의 회복 수치/비율은 미정이므로 이번 변경에서 신규 기술을 만들어 넣지 않음.
+
+
+## 2026-11-13 상태이상 정확도 보정
+- `battle-status.js`: 혼란 횟수 1~4(마지막 행동 시도 자해 판정 포함). `thawFromFire` 추가. `endBattle`은 맹독 카운터만 초기화하며 주요 상태이상·혼란을 유지.
+- `move-effects.js`: 명중한 피해 불꽃 기술이 얼음 상태를 해제.
+- 회귀 테스트: 혼란 마지막 턴, 얼음 해제, 불꽃 명중 해제, 맹독 전투 간 횟수 초기화, 타입 면역/상태 중복.
+- 근거: https://www.pokemon-zone.com/champions/status/ ; https://www.serebii.net/pokemonchampions/statusconditions.shtml

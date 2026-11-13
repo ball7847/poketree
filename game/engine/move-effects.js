@@ -61,6 +61,8 @@
         const result=D.roll(user,target,{move,weather:exp.weather,terrain:exp.terrain});
         const actual=Math.min(target.hp,result.damage);
         target.hp=Math.max(0,target.hp-result.damage);
+        if(move.type==="fire"&&result.effectiveness>0&&S.thawFromFire(target))
+          G.record(exp,target.name+" 얼음 상태 해제 (불꽃 기술)");
         G.record(exp,move.name+" → "+target.name+" "+(i+1)+"타 · "+actual+" 피해"+(result.critical?" · 급소":""));
         if(result.damage>0&&move.secondary&&Math.random()*100<move.secondary.chance&&S.inflict(target,move.secondary.kind))
           G.record(exp,target.name+" · "+move.secondary.kind+" 상태이상");

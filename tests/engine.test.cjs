@@ -308,7 +308,7 @@ test("Champions paralysis and wake rates, original confusion self-hit formula",(
  assert.equal(S.beforeAction(p,()=>0),null);
  S.endExpedition(p);
  assert.equal(S.inflict(p,"confusion"),true);
- assert.ok(S.ensure(p).confusion>=2&&S.ensure(p).confusion<=5);
+ assert.ok(S.ensure(p).confusion>=1&&S.ensure(p).confusion<=4);
  assert.ok(D.confusionDamage(p,()=>0)>=1);
 });
 test("actual move engine preserves PP and handles target retargeting",()=>{
@@ -595,4 +595,62 @@ test("effect: HP drain cannot heal from immunity or actual zero damage",()=>{
  M.execute(exp,user,{moveId:"giga-drain",move,targetId:foe.id},()=>{});
  assert.equal(user.hp,hp);assert.equal(user.pp,100);
  assert.equal(foe.hp,foe.maxHp);
+});
+
+test("Champions confusion lasts 1–4 attempts and can self-hit on its final attempt",()=>{
+ const {ctx,G}=boot(),S=ctx.window.PokeBattleStatus;
+ const u=G.state.roster[1];S.endExpedition(u);
+ assert.equal(S.inflict(u,"confusion"),true);
+ S.ensure(u).confusion=1;
+ assert.equal(S.beforeAction(u,()=>0),"confusion");
+ assert.equal(S.ensure(u).confusion,0);
+ assert.equal(S.beforeAction(u,()=>0),null);
+});
+test("Champions freeze first two attempts thaw at 25%, third always thaws",()=>{
+ const {ctx,G}=boot(),S=ctx.window.PokeBattleStatus,u=G.state.roster[1];
+ S.endExpedition(u);assert.equal(S.inflict(u,"freeze"),true);
+ assert.match(S.beforeAction(u,()=>.9),/얼어서/);
+ assert.match(S.beforeAction(u,()=>.9),/얼어서/);
+ assert.equal(S.beforeAction(u,()=>.9),null);
+ assert.equal(S.ensure(u).major,null);
+ S.endExpedition(u);assert.equal(S.inflict(u,"freeze"),true);
+ assert.equal(S.beforeAction(u,()=>.1),null);
+});
+test("frozen target thaws after a successful damaging fire move",()=>{
+ const {ctx,G}=boot(),S=ctx.window.PokeBattleStatus,M=ctx.window.PokeMoveEffects;
+ const u=G.state.roster[0],e=G.Pokemon.create({id:"frozen-foe",species:"eevee",level:10,side:"enemy"});
+ const exp={id:"windy",party:[u],enemies:[e],logs:[]};
+ assert.equal(S.inflict(e,"freeze"),true);
+ const move=ctx.window.POKE_MOVES["flare-blitz"];u.pp=100;
+ M.execute(exp,u,{moveId:"flare-blitz",move,targetId:e.id},()=>{});
+ assert.equal(S.ensure(e).major,null);
+ assert.ok(exp.logs.some(l=>l.message.includes("얼음 상태 해제")));
+});
+test("Toxic ramps during each battle but resets only its counter between encounters",()=>{
+ const {ctx,G}=boot(),S=ctx.window.PokeBattleStatus;
+ const u=G.state.roster[1];S.endExpedition(u);
+ assert.equal(S.inflict(u,"toxic"),true);
+ const first=S.afterAction(u),second=S.afterAction(u);
+ assert.ok(second>=first);
+ assert.equal(S.ensure(u).major.counter,2);
+ S.ensure(u).confusion=2;
+ S.endBattle(u);
+ assert.equal(S.ensure(u).major.kind,"toxic");
+ assert.equal(S.ensure(u).major.counter,0);
+ assert.equal(S.ensure(u).confusion,2);
+ assert.equal(S.afterAction(u),first);
+ S.endExpedition(u);
+ assert.equal(S.ensure(u).major,null);
+ assert.equal(S.ensure(u).confusion,0);
+});
+test("status immunity, major status exclusivity, and confusion coexistence",()=>{
+ const {ctx,G}=boot(),S=ctx.window.PokeBattleStatus;
+ const p=G.state.roster[0],q=G.state.roster[1];
+ S.endExpedition(p);S.endExpedition(q);
+ assert.equal(S.inflict(p,"paralysis"),false); // Pikachu: Electric
+ assert.equal(S.inflict(q,"poison"),true);
+ assert.equal(S.inflict(q,"burn"),false);
+ assert.equal(S.inflict(q,"confusion"),true);
+ assert.equal(S.ensure(q).major.kind,"poison");
+ assert.ok(S.ensure(q).confusion>0);
 });

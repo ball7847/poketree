@@ -22,7 +22,7 @@
     const status=ensure(u);
     if(kind==="confusion"){
       if(status.confusion>0)return false;
-      status.confusion=2+Math.floor(Math.random()*4); // 2–5 actions
+      status.confusion=1+Math.floor(Math.random()*4); // Champions: 1–4 attempts
       return true;
     }
     if(status.major)return false;
@@ -48,8 +48,9 @@
     }
     if(m?.kind==="paralysis"&&roll()<.125)return "몸이 마비되어 행동하지 못했습니다.";
     if(s.confusion>0){
+      // The final confused attempt can also trigger self-damage.
       s.confusion--;
-      if(s.confusion>0&&roll()<1/3)return "confusion";
+      if(roll()<1/3)return "confusion";
     }
     return null;
   }
@@ -64,12 +65,23 @@
     const s=ensure(u);
     for(const stat of stats)s.ranks[stat]-=Math.sign(s.ranks[stat]);
   }
-  function endBattle(u){ensure(u).volatile={};}
+  function thawFromFire(u){
+    const s=ensure(u);
+    if(s.major?.kind!=="freeze")return false;
+    s.major=null;
+    return true;
+  }
+  function endBattle(u){
+    const s=ensure(u);
+    s.volatile={};
+    // In a new encounter the Toxic damage sequence restarts at 1/16.
+    if(s.major?.kind==="toxic")s.major.counter=0;
+  }
   function endExpedition(u){u.battleStatus=create();}
   function speed(u){
     const s=ensure(u),rank=s.ranks.speed;
     const factor=rank>=0?1+.2*rank:1/(1+.2*Math.abs(rank));
     return Math.floor(u.speed*factor*(s.major?.kind==="paralysis"?.5:1));
   }
-  window.PokeBattleStatus=Object.freeze({create,ensure,rank,accuracy,inflict,beforeAction,afterAction,advanceExploration,endBattle,endExpedition,speed});
+  window.PokeBattleStatus=Object.freeze({create,ensure,rank,accuracy,inflict,beforeAction,afterAction,advanceExploration,thawFromFire,endBattle,endExpedition,speed});
 })();
