@@ -24,10 +24,10 @@ test("noncombat steps are party-scoped, threshold immediately unlocks next regio
  const {G,rng}=boot(),exp=G.state.regions.windy;
  assert.equal(G.exploration.start("windy",["partner1","partner2"]),null);
  rng.value=0;
- G.exploration.frame(3000);
+ for(let t=1000;t<=3000;t+=1000)G.exploration.frame(t);
  assert.equal(exp.steps,1);
  rng.value=0.99;
- G.exploration.frame(6000);
+ for(let t=4000;t<=6000;t+=1000)G.exploration.frame(t);
  assert.equal(exp.steps,2);
  for(let i=2;i<50;i++)G.regions.addStep("windy");
  assert.equal(exp.steps,50);
