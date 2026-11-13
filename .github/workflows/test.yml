@@ -37,9 +37,24 @@ jobs:
       - name: Warehouse regression tests
         if: always()
         run: node --test tests/warehouse.test.cjs
-      - name: Region progression tests
+      - name: Region data and gates
         if: always()
-        run: node --test tests/regions.test.cjs
+        run: node --test --test-name-pattern="six region specifications" tests/regions.test.cjs
+      - name: Region step and unlock
+        if: always()
+        run: node --test --test-name-pattern="noncombat steps" tests/regions.test.cjs
+      - name: Region routes and boss
+        if: always()
+        run: node --test --test-name-pattern="each route" tests/regions.test.cjs
+      - name: Region combat victory
+        if: always()
+        run: node --test --test-name-pattern="combat turn" tests/regions.test.cjs
+      - name: Region party wipe
+        if: always()
+        run: node --test --test-name-pattern="full defeat" tests/regions.test.cjs
+      - name: Region save compatibility
+        if: always()
+        run: node --test --test-name-pattern="restoring old save" tests/regions.test.cjs
       - name: Deployment artifact tests
         if: always()
         run: node --test tests/pages.test.cjs
