@@ -110,13 +110,23 @@
         else record(exp,unit.name+" · 대상 없음 · 행동 실패 (PP 유지)");
       }else fallbackAttack(exp,unit);
     }
-    if(alive(unit)){
-      const residual=S.afterAction(unit);
+    finalize(exp);
+    if(exp.mode!=="combat")return;
+    // End-of-round effects apply after every living combatant has had its chance.
+    // Fainted members cannot require an extra timer tick.
+    let next=exp.turnIndex;
+    while(next<exp.order.length&&!alive(exp.order[next]))next++;
+    if(next<exp.order.length)return;
+    for(const member of [...exp.party,...exp.enemies].filter(alive)){
+      const residual=S.afterAction(member);
       if(residual){
-        unit.hp=Math.max(0,unit.hp-residual);
-        record(exp,unit.name+" 상태이상 피해 "+residual);
-        if(unit.hp===0)handleFaint(exp,unit,false);
+        member.hp=Math.max(0,member.hp-residual);
+        record(exp,member.name+" 상태이상 피해 "+residual);
+        if(member.hp===0)handleFaint(exp,member,member.side==="enemy");
       }
+    }
+    for(const key of ["weather","terrain"]){
+      if(exp[key]&&--exp[key].remaining<=0){record(exp,key+" 효과 종료");exp[key]=null;}
     }
     finalize(exp);
   }

@@ -23,7 +23,7 @@
     }
     user.pp-=100;
     G.record(exp,user.name+" · "+move.name+" 사용 (PP -100)");
-    const faintCandidates=new Set(),recoilTargets=[];
+    const faintCandidates=new Set();
     let recoil=0;
     for(const target of chosen){
       const probability=S.accuracy(move,user,target);
@@ -43,7 +43,7 @@
         const actual=Math.min(target.hp,result.damage);
         target.hp=Math.max(0,target.hp-result.damage);
         G.record(exp,move.name+" → "+target.name+" "+(i+1)+"타 · "+actual+" 피해"+(result.critical?" · 급소":""));
-        if(move.secondary&&Math.random()*100<move.secondary.chance&&S.inflict(target,move.secondary.kind))
+        if(result.damage>0&&move.secondary&&Math.random()*100<move.secondary.chance&&S.inflict(target,move.secondary.kind))
           G.record(exp,target.name+" · "+move.secondary.kind+" 상태이상");
         if(move.effect==="drain"&&actual>0){
           const amount=Math.max(1,Math.floor(actual*move.drain));

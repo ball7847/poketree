@@ -10,3 +10,6 @@ undefined
 
 - 포켓몬 챔피언스 상태이상 수치 우선 반영(마비 행동불가 12.5%, 얼음 해제 25% 및 3번째 차례 확정, 잠듦 첫 차례 불가·둘째 1/3 확률 해제·셋째 확정). 확인: https://www.pokemon-zone.com/champions/status/
 - 혼란은 2~5회 및 약 1/3 자해, 자해 시 자기 물리공격/방어 기반 위력 40 무타입 공격 계산으로 처리. https://bulbapedia.bulbagarden.net/wiki/Confusion_(status_condition)
+
+- 상태이상 지속 피해와 날씨·필드 남은 시간은 전투 시 라운드 종료에 일괄 처리. 비전투에서는 기존 탐험 턴마다 남은 시간 감소.
+- 검증: https://www.pokemon-zone.com/champions/status/ ; https://www.pokemon-zone.com/champions/battle-effects/

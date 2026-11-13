@@ -335,3 +335,37 @@ test("HP healing distinguishes self and other Pokémon",()=>{
  assert.equal(M.healAmount(a,a),self);
  assert.equal(M.healAmount(a,b),other);
 });
+
+test("round-end weather and terrain expire, then next combat round begins",()=>{
+ const {G}=boot(),P=G.Pokemon;
+ G.exploration.start("windy",["partner1"]);
+ const e=G.state.regions.windy;G.combat.start(e);
+ const a=e.party[0],enemy=e.enemies[0];
+ a.pp=0;enemy.hp=enemy.maxHp;
+ e.enemies=[enemy];e.weather={kind:"rain",remaining:2};e.terrain={kind:"electric",remaining:1};
+ e.order=[a,enemy];e.turnIndex=0;e.plans=new Map([[a,null],[enemy,null]]);
+ e.tiebreak=new Map([[a,0],[enemy,1]]);
+ G.combat.step(e);
+ assert.equal(e.weather.remaining,2);
+ G.combat.step(e);
+ assert.equal(e.weather.remaining,1);
+ assert.equal(e.terrain,null);
+});
+test("PP deficit drops reserved priority and permits same-round reordering",()=>{
+ const {ctx,G}=boot(),P=G.Pokemon;
+ G.exploration.start("windy",["partner1","partner2"]);
+ const e=G.state.regions.windy;G.combat.start(e);
+ const a=e.party[0],b=e.party[1],enemy=e.enemies[0];
+ e.enemies=[enemy];a.pp=0;b.pp=0;enemy.hp=enemy.maxHp;
+ const quick={moveId:"quick-attack",move:ctx.window.POKE_MOVES["quick-attack"],targetId:enemy.id};
+ e.plans=new Map([[a,quick],[b,null],[enemy,null]]);
+ e.tiebreak=new Map([[a,0],[b,1],[enemy,2]]);
+ e.order=[a,b,enemy];e.turnIndex=0;
+ // Give b an artificially higher speed for this test.
+ b.speed=a.speed+100;
+ G.combat.step(e);
+ assert.equal(e.order[0],b);
+ assert.equal(e.order[1],a);
+ assert.equal(e.turnIndex,1);
+ assert.ok(e.logs.some(x=>x.message.includes("행동 순서 재계산")));
+});
