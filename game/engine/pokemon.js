@@ -47,8 +47,9 @@
     const unit={
       id:config.id,species:config.species,form,nickname:config.nickname?.trim()||null,name:species.name,
       nature,gender,growth:species.growth,level:config.level??1,experience:config.experience??0,
-      iv,ev,pp:0,bag:[],expedition:null,side:config.side||"ally",normalAttackCount:0
+      iv,ev,pp:0,moves:[...(config.moves||[])],bag:[],expedition:null,side:config.side||"ally",normalAttackCount:0,battleStatus:window.PokeBattleStatus?.create?.()??null
     };
+    if(!Array.isArray(unit.moves)||unit.moves.length>2||new Set(unit.moves).size!==unit.moves.length||unit.moves.some(id=>!window.POKE_MOVES?.[id]))throw Error("장착 기술 정보 오류");
     if(typeof unit.id!=="string"||!unit.id.trim()||!Number.isSafeInteger(unit.level)||unit.level<1)throw Error("포켓몬 ID 또는 레벨 오류");
     if(!Number.isSafeInteger(unit.experience)||unit.experience<0)throw Error("경험치 오류");
     const cost=experience.next(unit.level,unit.growth);

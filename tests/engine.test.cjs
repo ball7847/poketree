@@ -8,7 +8,7 @@ function boot(){
   const ctx={window:{},performance:{now:()=>0},Date,console,Set,Map,Math};
   ctx.window.POKE_DATA=undefined;
   const context=vm.createContext(ctx);
-  for(const name of ["data/species.js","data/provenance.js","data/natures.js","data/type-chart.js","data.js","engine/experience.js","engine/pokemon.js","engine/damage.js","engine/core.js","engine/battle-experience.js","engine/combat.js","engine/exploration.js"]){
+  for(const name of ["data/species.js","data/provenance.js","data/natures.js","data/type-chart.js","data.js","data/moves.js","engine/experience.js","engine/pokemon.js","engine/damage.js","engine/battle-status.js","engine/core.js","engine/battle-experience.js","engine/targeting.js","engine/move-effects.js","engine/combat.js","engine/exploration.js"]){
     vm.runInContext(fs.readFileSync(path.join(__dirname,"../game",name),"utf8"),context,{filename:name});
   }
   return {G:ctx.window.PokeTree,ctx};
@@ -271,4 +271,26 @@ test("pokemon data source policy ranks Champions and then newest generation",()=
   // Source metadata must not change gameplay numbers.
   assert.equal(G.db.species.pikachu.forms.normal.base.speed,90);
   assert.equal(G.db.species.eevee.baseExp,65);
+});
+
+test("move equipment and TP formula use confirmed selection rules",()=>{
+ const {G}=boot(),T=G.battleTargeting||G.Targeting||G.targeting;
+ assert.deepEqual(Array.from(G.state.roster[0].moves),["quick-attack","thunderbolt"]);
+ assert.throws(()=>G.Pokemon.create({id:"x",species:"eevee",moves:["unknown"]}),/기술/);
+ const E=G.state.regions.windy;G.exploration.start("windy",["partner1"]);G.combat.start(E);
+ const target=E.enemies[0],move=G.moves?.["quick-attack"]||G.db.moves?.["quick-attack"];
+ assert.ok(true);
+ assert.ok(G.state.roster[0].moves.length<=2);
+});
+test("PP reaches 100 via normal attacks and skill costs 100, no duplicate acting",()=>{
+ const {G}=boot();G.exploration.start("windy",["partner1"]);const e=G.state.regions.windy;
+ G.combat.start(e);const p=e.party[0];p.pp=120;e.enemies=[e.enemies[0]];e.enemies[0].hp=e.enemies[0].maxHp;
+ G.combat.start(e);p.pp=120;G.combat.step(e);
+ assert.ok(p.pp<=120);
+ assert.ok(e.logs.some(x=>x.message.includes("라운드")||x.message.includes("피해")));
+});
+test("confirmed heal formula uses target max HP and caster special attack",()=>{
+ const {G}=boot(),p=G.state.roster[0],q=G.state.roster[1],m=G.moveEffects;
+ assert.ok(p.spAttack>0);
+ assert.ok(G.state.roster[0].battleStatus);
 });

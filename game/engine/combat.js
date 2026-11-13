@@ -1,68 +1,124 @@
-/* A turn consumes one common action interval; speed sorts at ROUND boundaries. */
+/* Automatic turn actions: priority first, then speed, then stable per-round tie. */
 (() => {
   "use strict";
-  const G = window.PokeTree, {state,db,choose,alive,record,Pokemon,Damage} = G;
-  function beginRound(exp) {
-    const members = [...exp.party,...exp.enemies].filter(alive);
-    const tiebreak = new Map(members.map(u => [u,Math.random()]));
-    members.sort((a,b) => b.speed - a.speed || tiebreak.get(a) - tiebreak.get(b));
-    exp.order = members;
-    exp.turnIndex = 0;
-    exp.round++;
-    record(exp, exp.round + "라운드 시작");
+  const G=window.PokeTree,{db,choose,alive,record,Pokemon,Damage}=G;
+  const S=window.PokeBattleStatus,T=window.PokeTargeting,M=window.PokeMoveEffects;
+  function speed(u){return S.speed(u);}
+  function priority(order){return order?.move?.priority??0;}
+  function sortRemaining(exp){
+    exp.order.sort((a,b)=>priority(exp.plans.get(b))-priority(exp.plans.get(a))||
+      speed(b)-speed(a)||(exp.tiebreak.get(a)-exp.tiebreak.get(b)));
   }
-  function startCombat(exp) {
-    const loc = G.place(exp);
-    const count = choose(loc.enemyCount,item => item.weight).value;
-    exp.enemies = Array.from({length:count},(_,i)=>{
-      const species = choose(loc.species,id=>db.species[id].weight);
-      // Lv.5 is an explicit prototype opponent value; not final balance.
+  function beginRound(exp){
+    const members=[...exp.party,...exp.enemies].filter(alive);
+    exp.plans=new Map();
+    exp.tiebreak=new Map(members.map(u=>[u,Math.random()]));
+    for(const u of members){
+      exp.plans.set(u,u.pp>=100&&u.moves?.length?T.select(exp,u):null);
+    }
+    exp.order=members;sortRemaining(exp);exp.turnIndex=0;exp.round++;
+    record(exp,exp.round+"라운드 시작");
+  }
+  function startCombat(exp){
+    const loc=G.place(exp),count=choose(loc.enemyCount,x=>x.weight).value;
+    exp.enemies=Array.from({length:count},(_,i)=>{
+      const species=choose(loc.species,id=>db.species[id].weight);
       return Pokemon.create({id:exp.id+"-"+exp.actions+"-"+i,species,level:5,side:"enemy"});
     });
-    exp.mode = "combat"; exp.round = 0; exp.order = []; exp.turnIndex = 0;
+    exp.mode="combat";exp.round=0;exp.order=[];exp.turnIndex=0;
     record(exp,loc.name+"에서 "+exp.enemies.map(u=>u.name).join(", ")+"을(를) 마주쳤습니다.");
     beginRound(exp);
   }
-  function faint(exp,unit) {
-    if (unit.side === "ally") {
-      unit.experience=0; // confirmed: lose current-level XP, never lower level
-      const losses = Math.floor(unit.bag.length / 2);
-      for(let i=0;i<losses;i++) unit.bag.splice(Math.floor(Math.random()*unit.bag.length),1);
-      record(exp,unit.name+" 기절 · 전리품 "+losses+"개 손실");
-      G.change("bags",exp.id);
-    } else record(exp,unit.name+" 기절");
+  function faint(exp,u){
+    if(u.side==="ally"){
+      u.experience=0;
+      const losses=Math.floor(u.bag.length/2);
+      for(let i=0;i<losses;i++)u.bag.splice(Math.floor(Math.random()*u.bag.length),1);
+      record(exp,u.name+" 기절 · 전리품 "+losses+"개 손실");G.change("bags",exp.id);
+    }else record(exp,u.name+" 기절");
   }
-  function finish(exp) {
-    exp.wins++;
-    record(exp,"전투 승리");
-    G.addLoot(exp,"시연용 전리품");
-    exp.enemies=[];exp.order=[];exp.mode="exploration";exp.round=0;exp.turnIndex=0;
+  function handleFaint(exp,u,award){
+    if(u._faintedHandled)return;
+    u._faintedHandled=true;faint(exp,u);
+    if(award&&u.side==="enemy")G.battleExperience.award(exp,u);
   }
-  function step(exp) {
-    // Every skipped fainted turn is removed without taking an extra timer tick.
-    while (exp.turnIndex < exp.order.length && !alive(exp.order[exp.turnIndex])) exp.turnIndex++;
-    if (exp.turnIndex >= exp.order.length) beginRound(exp);
-    const unit = exp.order[exp.turnIndex++];
-    if (!unit || !alive(unit)) return;
-    const enemies = (unit.side==="ally" ? exp.enemies : exp.party).filter(alive);
-    if (!enemies.length) return;
-    const victim = enemies[Math.floor(Math.random()*enemies.length)];
-    const result=Damage.roll(unit,victim);
-    Pokemon.usedNormalAttack(unit); // rotate types even on immunity / zero damage
+  function clear(exp){
+    for(const u of [...exp.party,...exp.enemies])S.endBattle(u);
+    exp.order=[];exp.plans=null;exp.tiebreak=null;exp.turnIndex=0;exp.round=0;
+  }
+  function finish(exp){
+    exp.wins++;record(exp,"전투 승리");G.addLoot(exp,"시연용 전리품");
+    clear(exp);exp.enemies=[];exp.mode="exploration";
+  }
+  function fallbackAttack(exp,u){
+    const enemies=(u.side==="ally"?exp.enemies:exp.party).filter(alive);
+    if(!enemies.length)return;
+    const victim=enemies[Math.floor(Math.random()*enemies.length)];
+    const result=Damage.roll(u,victim,{weather:exp.weather,terrain:exp.terrain});
+    Pokemon.usedNormalAttack(u);
     const actual=Math.min(victim.hp,result.damage);
     victim.hp=Math.max(0,victim.hp-result.damage);
-    // PP gain requires at least one equipped skill; skills themselves await design.
-    if(unit.moves?.length&&actual>0)unit.pp+=Pokemon.ppGain(unit);
-    record(exp,unit.name+" → "+victim.name+" · "+actual+" 피해"+(result.critical?" · 급소":"")+" ("+result.type+")");
-    if(victim.hp===0){
-      faint(exp,victim);
-      if(victim.side==="enemy")G.battleExperience.award(exp,victim);
-    }
-    if(!exp.enemies.some(alive)) finish(exp);
-    else if(!exp.party.some(alive)) {
-      exp.enemies=[];exp.order=[];exp.round=0;exp.turnIndex=0;exp.mode="recovery";
+    if(u.moves?.length&&actual>0)u.pp+=Pokemon.ppGain(u);
+    record(exp,u.name+" → "+victim.name+" · "+actual+" 피해"+(result.critical?" · 급소":"")+" ("+result.type+")");
+    if(victim.hp===0)handleFaint(exp,victim,victim.side==="enemy");
+  }
+  function finalize(exp){
+    if(!exp.enemies.some(alive))finish(exp);
+    else if(!exp.party.some(alive)){
+      clear(exp);exp.enemies=[];exp.mode="recovery";
       record(exp,"전원 기절 · HP 회복 후 같은 지역에서 탐험 재개");
     }
+  }
+  function step(exp){
+    if(!exp.plans)beginRound(exp);
+    // Fainted members need no extra timer turn.
+    while(exp.turnIndex<exp.order.length&&!alive(exp.order[exp.turnIndex]))exp.turnIndex++;
+    if(exp.turnIndex>=exp.order.length)beginRound(exp);
+    // Revalidate before acting: a move's PP may have changed while waiting.
+    // Reordering never draws fresh tie-breakers; an actor can only move later
+    // when losing priority, and cannot act twice.
+    let guard=exp.order.length+1;
+    while(guard-->0){
+      const u=exp.order[exp.turnIndex];
+      if(!u||!alive(u)){exp.turnIndex++;continue;}
+      const initial=exp.plans.get(u);
+      if(initial&&u.pp<100){
+        exp.plans.set(u,null);
+        const pending=exp.order.slice(exp.turnIndex);
+        const saved=exp.order.slice(0,exp.turnIndex);
+        exp.order=pending;sortRemaining(exp);exp.order=saved.concat(exp.order);
+        if(exp.order[exp.turnIndex]!==u){record(exp,u.name+" PP 부족 · 행동 순서 재계산");continue;}
+      }
+      break;
+    }
+    const unit=exp.order[exp.turnIndex++];
+    if(!unit||!alive(unit))return;
+    const interruption=S.beforeAction(unit);
+    if(interruption==="confusion"){
+      const amount=Math.max(1,Math.floor(unit.maxHp/12));
+      unit.hp=Math.max(0,unit.hp-amount);
+      record(exp,unit.name+" 혼란 자해 · "+amount+" 피해");
+      if(unit.hp===0)handleFaint(exp,unit,false);
+    } else if(interruption)record(exp,unit.name+" · "+interruption);
+    else {
+      let plan=exp.plans.get(unit);
+      if(!plan&&unit.pp>=100&&unit.moves?.length)
+        plan=T.select(exp,unit);
+      if(plan&&unit.pp>=100){
+        const valid=T.retarget(exp,unit,plan);
+        if(valid)M.execute(exp,unit,valid,(u,award)=>handleFaint(exp,u,award));
+        else record(exp,unit.name+" · 대상 없음 · 행동 실패 (PP 유지)");
+      }else fallbackAttack(exp,unit);
+    }
+    if(alive(unit)){
+      const residual=S.afterAction(unit);
+      if(residual){
+        unit.hp=Math.max(0,unit.hp-residual);
+        record(exp,unit.name+" 상태이상 피해 "+residual);
+        if(unit.hp===0)handleFaint(exp,unit,false);
+      }
+    }
+    finalize(exp);
   }
   G.combat={start:startCombat,step};
 })();
