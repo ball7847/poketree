@@ -11,6 +11,9 @@
   }
   function beginRound(exp){
     const members=[...exp.party,...exp.enemies].filter(alive);
+    // A previously fainted Pokémon may have been revived between rounds.
+    // The next faint must apply its own experience/loot penalty exactly once.
+    for(const member of members)member._faintedHandled=false;
     exp.plans=new Map();
     exp.tiebreak=new Map(members.map(u=>[u,Math.random()]));
     exp.speeds=new Map(members.map(u=>[u,speed(u)])); // fixed for this round
@@ -27,6 +30,9 @@
       const species=choose(loc.species,id=>db.species[id].weight);
       return Pokemon.create({id:exp.id+"-"+exp.actions+"-"+i,species,level:5,side:"enemy"});
     });
+    // Revived allies can enter a later encounter with the same object identity.
+    // Do not inherit the previous encounter's handled-faint marker.
+    for(const member of exp.party)if(alive(member))member._faintedHandled=false;
     exp.mode="combat";exp.round=0;exp.order=[];exp.turnIndex=0;
     record(exp,loc.name+"에서 "+exp.enemies.map(u=>u.name).join(", ")+"을(를) 마주쳤습니다.");
     beginRound(exp);
@@ -77,8 +83,8 @@
     while(exp.turnIndex<exp.order.length&&!alive(exp.order[exp.turnIndex]))exp.turnIndex++;
     if(exp.turnIndex>=exp.order.length)beginRound(exp);
     // Revalidate before acting: a move's PP may have changed while waiting.
-    // Reordering never draws fresh tie-breakers; an actor can only move later
-    // when losing priority, and cannot act twice.
+    // Reordering never draws fresh tie-breakers; already-acted members stay
+    // excluded, even when the actor's position moves earlier or later.
     let guard=exp.order.length+1;
     while(guard-->0){
       const u=exp.order[exp.turnIndex];
@@ -86,7 +92,9 @@
       const initial=exp.plans.get(u);
       if(initial&&u.pp<100){
         exp.plans.set(u,null);
-        const pending=exp.order.slice(exp.turnIndex);
+        // Remove already fainted entries before reordering. Otherwise a dead
+        // priority holder can occupy the next slot and waste a timer tick.
+        const pending=exp.order.slice(exp.turnIndex).filter(alive);
         const saved=exp.order.slice(0,exp.turnIndex);
         exp.order=pending;sortRemaining(exp);exp.order=saved.concat(exp.order);
         if(exp.order[exp.turnIndex]!==u){record(exp,u.name+" PP 부족 · 행동 순서 재계산");continue;}

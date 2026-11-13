@@ -448,3 +448,63 @@ test("B flow: combat uses selected target at personal turn and original move ord
  assert.equal(actor.pp,100);
  assert.ok(exp.logs.some(l=>l.message.includes("전광석화")));
 });
+
+test("revived Pokémon resets the faint penalty marker before the next encounter",()=>{
+ const {G}=boot();
+ assert.equal(G.exploration.start("windy",["partner1"]),null);
+ const exp=G.state.regions.windy,member=exp.party[0];
+ member._faintedHandled=true;member.hp=member.maxHp;
+ G.combat.start(exp);
+ assert.equal(member._faintedHandled,false);
+ member._faintedHandled=true;
+ // Simulate a revival before a new round while combat is ongoing.
+ member.hp=member.maxHp;
+ const other=exp.enemies[0];
+ exp.order=[member,other];exp.turnIndex=exp.order.length;
+ exp.enemies=[other];other.hp=other.maxHp;
+ G.combat.step(exp);
+ assert.equal(member._faintedHandled,false);
+});
+test("PP priority recalculation skips fainted pending actors without using a timer tick",()=>{
+ const {G,ctx}=boot();
+ G.exploration.start("windy",["partner1","partner2"]);
+ const exp=G.state.regions.windy;G.combat.start(exp);
+ const [actor,deadAlly]=exp.party;
+ const enemy=exp.enemies[0];exp.enemies=[enemy];
+ actor.hp=actor.maxHp;deadAlly.hp=0;enemy.hp=enemy.maxHp;
+ actor.pp=0;
+ exp.order=[actor,deadAlly,enemy];exp.turnIndex=0;
+ const quick={moveId:"quick-attack",move:ctx.window.POKE_MOVES["quick-attack"],score:0};
+ exp.plans=new Map([[actor,quick],[deadAlly,quick],[enemy,null]]);
+ exp.tiebreak=new Map([[actor,0],[deadAlly,1],[enemy,2]]);
+ exp.speeds=new Map([[actor,10],[deadAlly,1000],[enemy,100]]);
+ const previousHP=actor.hp;
+ G.combat.step(exp);
+ assert.equal(exp.order.includes(deadAlly),false);
+ assert.equal(exp.order[0],enemy);
+ assert.equal(exp.turnIndex,1);
+ assert.ok(actor.hp<previousHP);
+ assert.equal(actor.pp,0);
+});
+test("PP loss never lets the same Pokémon act twice in a round",()=>{
+ const {G,ctx}=boot();
+ G.exploration.start("windy",["partner1","partner2"]);
+ const e=G.state.regions.windy;G.combat.start(e);
+ const [first,second]=e.party,enemy=e.enemies[0];
+ e.enemies=[enemy];enemy.hp=enemy.maxHp;
+ first.pp=0;second.pp=0;
+ e.order=[first,second,enemy];e.turnIndex=0;
+ e.plans=new Map([[first,{moveId:"quick-attack",move:ctx.window.POKE_MOVES["quick-attack"],score:0}],[second,null],[enemy,null]]);
+ e.tiebreak=new Map([[first,0],[second,1],[enemy,2]]);
+ e.speeds=new Map([[first,10],[second,100],[enemy,1]]);
+ G.combat.step(e);
+ assert.equal(e.turnIndex,1);
+ const firstAfter=e.order.indexOf(first);
+ assert.ok(firstAfter>0);
+ G.combat.step(e);
+ assert.equal(e.turnIndex,2);
+ G.combat.step(e);
+ assert.ok(e.round===1||e.mode!=="combat");
+ const log=e.logs.filter(l=>l.message.includes(" → "));
+ assert.equal(log.filter(l=>l.message.startsWith(first.name+" → ")).length,1);
+});
