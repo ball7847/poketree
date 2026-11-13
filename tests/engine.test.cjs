@@ -166,11 +166,17 @@ test("damage modifiers use crit -> random -> STAB -> type and floor per step",()
   const base=Math.floor(Math.floor((Math.floor(2*a.level/5)+2)*10*a.attack/b.defense)/50)+2;
   let expected=Math.floor(base*1.5);
   expected=Math.floor(expected*85/100);
-  expected=Math.floor(expected*1.5);
-  expected=Math.floor(expected*1);
-  expected=Math.floor(expected*2);
+  // Basic attack is typeless: no STAB and no type-effectiveness modifier.
   assert.equal(result.damage,Math.max(1,expected));
-  assert.equal(result.effectiveness,2);
+  assert.equal(result.effectiveness,1);
+  assert.equal(result.stab,1);
+  // Typed moves still apply the original modifier order.
+  const typed=D.compute(a,b,{random:85,critical:true,move:{type:"electric",category:"physical",power:10}});
+  let typedExpected=Math.floor(expected*1.5);
+  typedExpected=Math.floor(typedExpected*1);
+  typedExpected=Math.floor(typedExpected*2);
+  assert.equal(typed.damage,Math.max(1,typedExpected));
+  assert.equal(typed.effectiveness,2);
   assert.throws(()=>D.compute(a,b,{rankAttack:7}),/랭크/);
 });
 test("granting XP emits change events and retains damage",()=>{
