@@ -13,7 +13,13 @@ window.POKE_DATA_PROVENANCE = Object.freeze({
   }),
   // Values checked against current published species stats; exact in-game
   // highest-priority source for EVERY field has not yet been established.
+  // New national records are sourced from PokeAPI, but field-by-field precedence
+  // against Champions/gen IX is not yet verified. Existing six provenances override.
   species:Object.freeze({
+    ...Object.fromEntries(Object.keys(window.POKE_NATIONAL_CATALOG.species).map(id=>[
+      id,Object.fromEntries(["normal.base","normal.types","genderRate","growth","baseExp"].map(key=>
+        [key,{source:null,version:null,checked:false}]))
+    ])),
     rattata:Object.freeze({
       "normal.base":Object.freeze({source:"currentStats",version:"current-national-list",checked:true}),
       "normal.types":Object.freeze({source:null,version:null,checked:false}),

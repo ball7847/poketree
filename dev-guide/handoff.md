@@ -125,3 +125,5 @@ undefined
 - PokeAPI/pokeapi CSV rev `8a92bfa7dab2f12b84b5d151562f9857c133ff30` 기반 `game/data/national-catalog.js` 정적 로딩. 1,025종, 배틀형 개체 변형 1,351개, 폼 원본 1,579항목과 특성 및 진화 원본 조건. **Champions 최신값 검증을 완료한 데이터가 아니며**, 별도 source/verifiedAgainstChampions=false 표시.
 - 기존 6종의 기본폼/종족값은 데모 레코드 우선 유지. 신규 1,019종의 탐험 출현 가중치는 0; 기술 습득·특성 효과·진화 자동 처리·보상 확장 금지.
 - `game/data/national-catalog.js` 는 로컬 정적 파일이므로 런타임 API 의존 없음.
+
+- National species provenance records default to `source:null,checked:false` for every existing field until Champions/version-order validation; the original six have their previous exact field provenance overlaid. `nationalSnapshot` separately records the source CSV commit.
