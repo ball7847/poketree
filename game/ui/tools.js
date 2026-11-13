@@ -7,6 +7,7 @@
  const element=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e;};
  const label=id=>T.data.items[id]?.name||id;
  let pendingCancel=null;
+ const selectedQuantity=new Map();
  const fmt=ms=>{const sec=Math.ceil(ms/1000);return Math.floor(sec/3600)+"시간 "+Math.floor((sec%3600)/60)+"분 "+sec%60+"초";};
  function renderPokemon(unit){
    const root=$("pokemonToolSlots");root.replaceChildren();
@@ -48,7 +49,9 @@
      row.append(small);
      const controls=element("div","tool-recipe-controls");
      const amount=element("input");amount.type="number";amount.min="1";amount.step="1";amount.setAttribute("aria-label",tool.name+" 제작 수량");
-     const max=T.maxCraft(id);amount.max=String(Math.max(1,max));amount.value=String(Math.max(1,Math.min(max,Number(amount.value)||1)));
+     const max=T.maxCraft(id);amount.max=String(Math.max(1,max));
+     const quantity=Math.max(1,Math.min(max,selectedQuantity.get(id)||1));
+     selectedQuantity.set(id,quantity);amount.value=String(quantity);
      const btn=element("button","secondary","예약");btn.disabled=status!=="available"||G.state.toolQueue.length>=G.state.toolQueueCapacity;
      amount.disabled=status!=="available";
      amount.addEventListener("input",()=>{
@@ -56,9 +59,11 @@
        const v=Number(amount.value);
        if(Number.isFinite(v)&&v>max)amount.value=String(Math.max(1,max));
        else if(Number.isFinite(v)&&v<1)amount.value="1";
+       selectedQuantity.set(id,Number(amount.value)||1);
      });
      btn.addEventListener("click",()=>{
        const n=Math.max(1,Math.min(T.maxCraft(id),Math.floor(Number(amount.value)||1)));
+       selectedQuantity.set(id,n);
        const err=T.queue(id,n);
        G.text("toolMessage",err||tool.name+" × "+n+" 제작 예약");
        render();
@@ -89,11 +94,8 @@
      root.append(element("div","tool-empty-slot",(i+1)+"번칸 · 비어 있음"));
    $("toolClaimAll").disabled=!G.state.toolQueue.some(x=>x.status==="done");
  }
- function render(){
-   T.advance(Date.now());
-   renderQueue();renderRecipes();renderInventory();
- }
- $("openToolPanel").addEventListener("click",()=>{G.uiNav.open("toolDialog",$("openToolPanel"));render();});
+ function render(){renderQueue();renderRecipes();renderInventory();}
+ $("openToolPanel").addEventListener("click",()=>{G.uiNav.open("toolDialog",$("openToolPanel"));T.advance(Date.now());render();});
  $("toolFilter").addEventListener("change",render);
  $("toolClaimAll").addEventListener("click",()=>{const n=T.claimAll();G.text("toolMessage",n+"개 작업 수령 완료");render();});
  $("toolCancelNo").addEventListener("click",()=>{pendingCancel=null;G.uiNav.close("toolCancelDialog");});
