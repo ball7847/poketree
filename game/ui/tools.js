@@ -12,32 +12,25 @@
  function renderPokemon(unit){
    const root=$("pokemonToolSlots");root.replaceChildren();
    for(let slot=0;slot<2;slot++){
-     const row=element("div","technique-row"),select=element("select");
-     select.setAttribute("aria-label","도구 슬롯 "+(slot+1));
-     const blank=element("option","","미장착");blank.value="";select.append(blank);
-     for(const id of Object.keys(T.data.items)){
-       const opt=element("option","",label(id)+" · 사용 가능 "+T.available(id));
-       opt.value=id;
-       // Already equipped in the current slot must stay selectable.
-       opt.disabled=T.available(id)<=0&&T.slots(unit)[slot]!==id;
-       select.append(opt);
+     const row=element("div","technique-row"),assigned=T.slots(unit)[slot];
+     const choose=element("button","secondary",assigned?label(assigned)+" · 변경":"도구 선택");
+     choose.type="button";choose.setAttribute("aria-label","도구 슬롯 "+(slot+1)+" 변경");
+     choose.disabled=!!T.canEdit(unit);
+     choose.addEventListener("click",()=>G.uiWarehouse.openForEquip(unit.id,slot,choose));
+     row.append(element("span","","슬롯 "+(slot+1)),choose);
+     if(assigned){
+       const remove=element("button","secondary","해제");
+       remove.type="button";remove.disabled=!!T.canEdit(unit);
+       remove.addEventListener("click",()=>{
+         const err=T.equip(unit,null,slot);
+         G.text("pokemonToolMessage",err||"도구 해제 완료");
+         G.uiPokemonDetail?.render?.();
+       });
+       row.append(remove);
      }
-     select.value=T.slots(unit)[slot]||"";select.disabled=!!T.canEdit(unit);
-     select.addEventListener("change",()=>{
-       const err=T.equip(unit,select.value||null,slot);
-       G.text("pokemonToolMessage",err||"도구 장착이 변경되었습니다.");
-       renderPokemon(unit);
-       G.uiPokemonDetail?.render?.();
-     });
-     row.append(element("span","","슬롯 "+(slot+1)),select);root.append(row);
+     root.append(row);
    }
    G.text("pokemonToolMessage",T.canEdit(unit)||"");
- }
- function renderInventory(){
-   const root=$("toolInventory");root.replaceChildren();
-   for(const id of Object.keys(T.data.items)){
-     root.append(element("div","technique-row",label(id)+" · 전체 "+T.owned(id)+" / 장착 "+T.equipped(id)+" / 사용 가능 "+T.available(id)));
-   }
  }
  function renderRecipes(){
    const root=$("toolRecipes"),filter=$("toolFilter").value;root.replaceChildren();
@@ -94,8 +87,8 @@
      root.append(element("div","tool-empty-slot",(i+1)+"번칸 · 비어 있음"));
    $("toolClaimAll").disabled=!G.state.toolQueue.some(x=>x.status==="done");
  }
- function render(){renderQueue();renderRecipes();renderInventory();}
- $("openToolPanel").addEventListener("click",()=>{G.uiNav.open("toolDialog",$("openToolPanel"));T.advance(Date.now());render();});
+ function render(){renderQueue();renderRecipes();}
+ $("openWorkshop").addEventListener("click",()=>{G.uiNav.open("toolDialog",$("openWorkshop"));T.advance(Date.now());render();});
  $("toolFilter").addEventListener("change",render);
  $("toolClaimAll").addEventListener("click",()=>{const n=T.claimAll();G.text("toolMessage",n+"개 작업 수령 완료");render();});
  $("toolCancelNo").addEventListener("click",()=>{pendingCancel=null;G.uiNav.close("toolCancelDialog");});

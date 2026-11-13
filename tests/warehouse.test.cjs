@@ -56,12 +56,34 @@ test("existing save restoration preserves warehouse inventory without a separate
  assert.equal(W.entries("tool")[0].count,2);
  assert.equal(W.entries("tm")[0].name,"스피드스타");
 });
-test("HTML includes fifth navigation tab and matching modal, CSS grid fixed four",()=>{
+test("HTML has village facilities, warehouse modal, filters, equip action, and four navigation tabs",()=>{
  const html=fs.readFileSync(path.join(__dirname,"../game/index.html"),"utf8");
  const css=fs.readFileSync(path.join(__dirname,"../game/style.css"),"utf8");
  const nav=fs.readFileSync(path.join(__dirname,"../game/ui/navigation.js"),"utf8");
- assert.match(html,/id="nav-warehouse"/);assert.match(html,/id="tab-warehouse"/);
+ assert.doesNotMatch(html,/id="nav-warehouse"/);assert.doesNotMatch(html,/id="tab-warehouse"/);
+ assert.match(html,/id="openWarehouse"/);assert.match(html,/id="openWorkshop"/);
+ assert.match(html,/id="warehouseDialog"/);assert.match(html,/id="warehouseSort"/);
+ assert.match(html,/data-category="consumable"/);assert.match(html,/id="warehouseEquip"/);
  assert.match(html,/id="warehouseDetailDialog"/);assert.match(html,/id="warehouseItems"/);
- assert.match(nav,/warehouseDetailDialog/);assert.match(nav,/warehouse.*exploration/);
+ assert.match(nav,/warehouseDialog/);assert.match(nav,/\["village","pokemon","exploration","records"\]/);
  assert.match(css,/\.warehouse-grid\{[^}]*grid-template-columns:repeat\(4/);
+});
+
+test("consumables filter reserved without inventing consumable items",()=>{
+ const G=boot();
+ assert.equal(G.warehouse.categories.consumable,"소모품");
+ assert.equal(G.warehouse.entries("consumable").length,0);
+});
+test("equipment is selected through tool-only warehouse, old dropdown removed",()=>{
+ const fs=require("node:fs"),path=require("node:path");
+ const html=fs.readFileSync(path.join(__dirname,"../game/index.html"),"utf8");
+ const ui=fs.readFileSync(path.join(__dirname,"../game/ui/warehouse.js"),"utf8");
+ const tool=fs.readFileSync(path.join(__dirname,"../game/ui/tools.js"),"utf8");
+ assert.match(ui,/category=mode\?"tool":"all"/);
+ assert.match(ui,/b\.disabled=!!context&&b\.dataset\.category!=="tool"/);
+ assert.match(ui,/T\.equip\(unit,info\.id,context\.slot\)/);
+ assert.match(tool,/openForEquip\(unit\.id,slot,choose\)/);
+ assert.doesNotMatch(html,/id="openToolPanel"/);
+ assert.doesNotMatch(html,/보관 칸 무제한/);
+ assert.match(html,/id="warehouseItems"/);
 });

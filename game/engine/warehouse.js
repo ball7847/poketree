@@ -5,7 +5,7 @@
  "use strict";
  const G=window.PokeTree, materialData=window.POKE_TECH_DATA.materials,
        moveData=window.POKE_MOVES, toolData=window.POKE_TOOL_DATA.items;
- const categories=Object.freeze({material:"재료",tool:"도구",tm:"기술머신"});
+ const categories=Object.freeze({material:"재료",tool:"도구",consumable:"소모품",tm:"기술머신"});
  function entries(category="all"){
    if(!["all",...Object.keys(categories)].includes(category))return [];
    const out=[];

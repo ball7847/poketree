@@ -163,3 +163,28 @@
 .warehouse-detail-info>div{display:flex;align-items:start;justify-content:space-between;gap:8px;font-size:13px;border-bottom:1px solid #35505e;padding-bottom:8px}
 .warehouse-detail-info strong{font-variant-numeric:tabular-nums;text-align:right}
 @media(max-width:360px){.warehouse-grid{gap:5px;padding-inline:7px}.warehouse-cell{padding:8px 2px;min-height:95px}.warehouse-icon{width:43px;height:43px}.nav-button{font-size:10px}.warehouse-toolbar{gap:4px;padding-inline:7px}}
+
+/* Village-only facility entry; warehouse is a modal, not a fifth navigation tab. */
+.bottom-nav{grid-template-columns:repeat(4,minmax(0,1fr))}
+.village-facilities{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:12px 0}
+.facility-button{min-height:148px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;text-align:center;background:#213e48;border:1px solid #526c70}
+.facility-button strong{font-size:16px}.facility-button small{color:#afc6ca;font-size:12px}
+.facility-symbol{font-size:37px;color:#aad3b5}
+.warehouse-dialog[open]{display:flex;flex-direction:column}
+.warehouse-dialog{width:min(650px,calc(100vw - 18px));height:min(78dvh,700px);max-height:calc(100dvh - 26px);overflow:hidden;padding:15px}
+.warehouse-dialog .section-title{flex:none}
+.warehouse-toolbar{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));padding:9px 0;gap:5px}
+.warehouse-filter{font-size:11px;padding:8px 1px;min-width:0}
+.warehouse-filter:disabled{cursor:not-allowed;opacity:.34}
+.warehouse-filter.selected:disabled{opacity:1}
+.warehouse-sortbar{display:flex;flex:none;align-items:center;gap:8px;padding:0 0 10px}
+.warehouse-sortbar label{margin:0;font-size:12px;flex:1}
+.warehouse-sortbar select{width:auto;max-width:56%;padding:7px;font-size:12px}
+.warehouse-grid{padding:3px 2px 10px}
+.warehouse-cell{min-height:94px;padding:8px 3px}
+.warehouse-icon{position:relative;overflow:visible}
+.warehouse-count-badge{position:absolute;bottom:-3px;right:-7px;min-width:21px;max-width:67px;overflow:hidden;text-overflow:ellipsis;padding:2px 5px;border-radius:11px;border:1px solid #7fa38c;color:#f3fff7;background:#254a38;font-size:10px;font-weight:750;line-height:1.3;font-variant-numeric:tabular-nums;box-shadow:0 1px 5px #0008}
+.warehouse-footnote{padding:8px 2px}
+.warehouse-detail-dialog .warehouse-icon{width:72px;height:72px;font-size:40px}
+#warehouseEquip[hidden]{display:none!important}
+@media(max-width:390px){.village-facilities{gap:8px}.facility-button{min-height:123px;padding:10px 2px}.warehouse-dialog{padding:10px}.warehouse-toolbar{gap:3px}.warehouse-filter{font-size:10px;padding:8px 0}}

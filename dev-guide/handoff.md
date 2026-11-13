@@ -90,3 +90,11 @@ undefined
 - Expedition bag loot appears only after recall, materials decrease on crafting reservation, tools increase on crafting claim. Existing save (`poketree-save-v1`) persists underlying inventories unchanged.
 - `game/ui/warehouse.js` contains a standalone per-item icon mapping layer. It has fallback symbols while approved original image files are unavailable; no third-party artwork is fetched or made canonical. Exact text is inserted using textContent. No sale/delete/transfer/search/upgrades.
 - Validation: `tests/warehouse.test.cjs` covers inventory filtering and stock equality, expedition recall, crafting changes, saves, and static UI wiring. Full browser interaction may need separate manual verification.
+
+
+## 2026-11-13 village-modal warehouse / equipment / workshop v2 (approved)
+- Bottom tabs restored to 4: 마을/포켓몬/탐험/기록. Warehouse and item workshop are two central **village facility buttons**, each opens its own modal; warehouse is not a tab. Hide the old capacity label.
+- Warehouse category filters: 전체/재료/도구/소모품/기술머신. Consumables category is currently empty, pending approved item data. Asc/desc sorting is by Korean item names; stock quantity is drawn as a badge *over the icon*. Four-column grid and small central item-detail modal stay.
+- Pokémon item slots launch the **same warehouse modal** in equipment mode: category fixed to 도구, all other category filters disabled; clicking tool opens its detail modal with 장착 button. Existing item engine validates inventory, no duplicates, and no expedition changes. Manual unequip remains available from Pokémon detail. Success closes both warehouse dialogs and retains the Pokémon dialog.
+- Workshop now only opens from village button, original three-slot crafting engine/queue/cancel/refund/claim saved data unchanged. TM crafting remains at its existing button in Pokémon tab.
+- No changes to game save schema or inventories; text-based fallback icons until verified item images are provided.

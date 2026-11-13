@@ -54,7 +54,7 @@
       <section id="tab-village" class="tab-page" role="tabpanel" aria-labelledby="nav-village">
         <div class="page-heading"><h1>마을</h1><span class="tag">개발 중</span></div>
         <p class="notice"><strong>시연용 버전</strong> — 정식 자원·시설·생활 시스템은 아직 미구현입니다.</p>
-        <div class="panel"><h2>마을</h2><p class="hint">마을 화면의 세부 콘텐츠는 기획 확정 후 추가합니다. 상단의 돈과 에너지는 실제 수치가 정해질 때 연결합니다.</p></div>
+        <div class="panel"><h2>마을 시설</h2><div class="village-facilities"><button id="openWarehouse" type="button" class="facility-button"><span class="facility-symbol" aria-hidden="true">▣</span><strong>창고</strong><small>아이템 보관·조회</small></button><button id="openWorkshop" type="button" class="facility-button"><span class="facility-symbol" aria-hidden="true">⚒</span><strong>아이템 제작소</strong><small>제작 예약·수령</small></button></div></div>
       </section>
       <section id="tab-pokemon" class="tab-page" role="tabpanel" aria-labelledby="nav-pokemon" hidden>
         <div class="page-heading"><h1>포켓몬</h1><span class="tag">시연용 포켓몬</span></div>
@@ -63,20 +63,8 @@
           <p class="hint">보유 포켓몬 정보입니다. 탐험할 포켓몬은 탐험 지역 상세창에서 선택합니다.</p>
           <div id="partySelect" class="selection" aria-label="보유 포켓몬 목록"></div>
         <button id="openTmPanel" class="secondary full-button" type="button">기술머신 제작·사용</button>
-        <button id="openToolPanel" class="secondary full-button" type="button">도구 제작·소지품</button>
+        
         </div>
-      </section>
-      <section id="tab-warehouse" class="tab-page warehouse-page" role="tabpanel" aria-labelledby="nav-warehouse" hidden>
-        <div class="page-heading"><h1>창고</h1><span class="tag">보관 칸 무제한</span></div>
-        <div class="warehouse-toolbar" role="group" aria-label="아이템 종류 필터">
-          <button type="button" class="warehouse-filter selected" data-category="all" aria-pressed="true">전체</button>
-          <button type="button" class="warehouse-filter" data-category="material" aria-pressed="false">재료</button>
-          <button type="button" class="warehouse-filter" data-category="tool" aria-pressed="false">도구</button>
-          <button type="button" class="warehouse-filter" data-category="tm" aria-pressed="false">기술머신</button>
-        </div>
-        <div id="warehouseItems" class="warehouse-grid" aria-label="창고 아이템 목록"></div>
-        <p id="warehouseEmpty" class="warehouse-empty" hidden>보유한 아이템이 없습니다.</p>
-        <p class="warehouse-footnote">아이템 수량은 탐험 귀환·제작 수령 후 반영됩니다.</p>
       </section>
       <section id="tab-exploration" class="tab-page" role="tabpanel" aria-labelledby="nav-exploration" hidden>
         <div class="page-heading"><h1>탐험</h1><span id="activity" class="state">탐험 0곳</span></div>
@@ -94,7 +82,6 @@
     <nav class="bottom-nav" aria-label="하단 메뉴">
       <button id="nav-village" class="nav-button active" type="button" data-tab="village" aria-controls="tab-village" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 9-7 9 7M5 10v10h14V10M9 20v-7h6v7"/></svg><span>마을</span></button>
       <button id="nav-pokemon" class="nav-button" type="button" data-tab="pokemon" aria-controls="tab-pokemon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="8" r="1.2"/><circle cx="12" cy="6" r="1.2"/><circle cx="17" cy="8" r="1.2"/><path d="M7 16c0-3 3-5 5-5s5 2 5 5c0 3-2 4-5 3-3 1-5 0-5-3Z"/></svg><span>포켓몬</span></button>
-      <button id="nav-warehouse" class="nav-button" type="button" data-tab="warehouse" aria-controls="tab-warehouse"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M10 10v10M14 10v10"/></svg><span>창고</span></button>
       <button id="nav-exploration" class="nav-button" type="button" data-tab="exploration" aria-controls="tab-exploration"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6 9 3l6 3 6-3v15l-6 3-6-3-6 3ZM9 3v15m6-12v15"/></svg><span>탐험</span></button>
       <button id="nav-records" class="nav-button" type="button" data-tab="records" aria-controls="tab-records"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h12a2 2 0 0 1 2 2v14H7a2 2 0 0 1-2-2V4Zm0 14a2 2 0 0 1 2-2h12M9 9h6m-6 4h6"/></svg><span>기록</span></button>
     </nav>
@@ -136,13 +123,14 @@
     <section class="panel technique-section"><h3>기술 장착 (최대 2개)</h3><p class="hint">탐험 중 변경 가능 · 전투/회복 중 변경 불가 · PP 유지</p><div id="pokemonMoveSlots" class="technique-list"></div><h3>습득 기술</h3><div id="pokemonLearnedMoves" class="technique-list"></div><p id="pokemonMoveMessage" role="status" class="hint"></p></section>
   </dialog>
   <dialog id="tmDialog" class="popup tm-dialog" aria-labelledby="tmTitle"><div class="section-title"><h2 id="tmTitle">기술머신 제작·사용</h2><button type="button" data-close-dialog="tmDialog" class="popup-close" aria-label="닫기">×</button></div><p class="hint">시연용 재료·호환성·제작법입니다. 제작법은 처음부터 공개됩니다.</p><label for="tmFilter">제작 목록 필터</label><select id="tmFilter"><option value="all">전체</option><option value="available">제작 가능</option><option value="unavailable">제작 불가</option><option value="locked">잠김</option></select><div id="tmRecipes" class="technique-list"></div><h3>해금한 기술머신 사용</h3><label for="tmTarget">가르칠 포켓몬</label><select id="tmTarget"></select><div id="tmOwned" class="technique-list"></div><p id="tmMessage" class="hint" role="status"></p></dialog>
-  <dialog id="toolDialog" class="popup tm-dialog" aria-labelledby="toolTitle"><div class="section-title"><h2 id="toolTitle">도구 제작·소지품</h2><button type="button" class="popup-close" data-close-dialog="toolDialog" aria-label="닫기">×</button></div><p class="hint">도구명·수치·제작 시간·드롭은 시연용 데이터입니다.</p><section class="tool-crafting"><h3>제작 진행 <small id="toolCapacity"></small></h3><div id="toolCurrent"></div><div class="tool-progress"><div id="toolProgressFill"></div></div><p class="hint" id="toolTimeLeft">대기 중</p><div id="toolQueue" class="technique-list"></div><button id="toolClaimAll" class="secondary full-button" type="button">모두 수령</button></section><section class="tool-crafting"><h3>제작법</h3><label for="toolFilter">제작 목록 필터</label><select id="toolFilter"><option value="all">전체</option><option value="available">제작 가능</option><option value="unavailable">제작 불가</option><option value="locked">잠김</option></select><div id="toolRecipes" class="technique-list"></div></section><section class="tool-crafting"><h3>소지품</h3><div id="toolInventory" class="technique-list"></div></section><p id="toolMessage" class="hint" role="status"></p></dialog>
+  <dialog id="toolDialog" class="popup tm-dialog" aria-labelledby="toolTitle"><div class="section-title"><h2 id="toolTitle">아이템 제작소</h2><button type="button" class="popup-close" data-close-dialog="toolDialog" aria-label="닫기">×</button></div><p class="hint">도구명·수치·제작 시간·드롭은 시연용 데이터입니다.</p><section class="tool-crafting"><h3>제작 진행 <small id="toolCapacity"></small></h3><div id="toolCurrent"></div><div class="tool-progress"><div id="toolProgressFill"></div></div><p class="hint" id="toolTimeLeft">대기 중</p><div id="toolQueue" class="technique-list"></div><button id="toolClaimAll" class="secondary full-button" type="button">모두 수령</button></section><section class="tool-crafting"><h3>제작법</h3><label for="toolFilter">제작 목록 필터</label><select id="toolFilter"><option value="all">전체</option><option value="available">제작 가능</option><option value="unavailable">제작 불가</option><option value="locked">잠김</option></select><div id="toolRecipes" class="technique-list"></div></section><p id="toolMessage" class="hint" role="status"></p></dialog>
   <dialog id="toolCancelDialog" class="popup" aria-labelledby="toolCancelTitle"><h2 id="toolCancelTitle">제작 취소</h2><p id="toolCancelText">해당 작업을 취소하고 재료를 100% 돌려받을까요?</p><div class="buttons"><button id="toolCancelYes" type="button" class="primary">예</button><button id="toolCancelNo" type="button" class="secondary">아니요</button></div></dialog>
+  <dialog id="warehouseDialog" class="popup warehouse-dialog" aria-labelledby="warehouseTitle"><div class="section-title"><h2 id="warehouseTitle">창고</h2><button type="button" class="popup-close" data-close-dialog="warehouseDialog" aria-label="창고 닫기">×</button></div><div class="warehouse-toolbar" role="group" aria-label="아이템 종류 필터"><button type="button" class="warehouse-filter selected" data-category="all" aria-pressed="true">전체</button><button type="button" class="warehouse-filter" data-category="material" aria-pressed="false">재료</button><button type="button" class="warehouse-filter" data-category="tool" aria-pressed="false">도구</button><button type="button" class="warehouse-filter" data-category="consumable" aria-pressed="false">소모품</button><button type="button" class="warehouse-filter" data-category="tm" aria-pressed="false">기술머신</button></div><div class="warehouse-sortbar"><label for="warehouseSort">아이템 이름 정렬</label><select id="warehouseSort" aria-label="아이템 이름 정렬"><option value="asc">오름차순 (가나다)</option><option value="desc">내림차순 (역순)</option></select></div><div id="warehouseItems" class="warehouse-grid" aria-label="창고 아이템 목록"></div><p id="warehouseEmpty" class="warehouse-empty" hidden>해당하는 아이템이 없습니다.</p><p class="warehouse-footnote">탐험 전리품은 귀환 후, 제작 아이템은 수령 후 창고에 반영됩니다.</p></dialog>
   <dialog id="warehouseDetailDialog" class="popup warehouse-detail-dialog" aria-labelledby="warehouseDetailName">
     <div class="section-title"><h2 id="warehouseDetailName">아이템 정보</h2><button type="button" class="popup-close" data-close-dialog="warehouseDetailDialog" aria-label="아이템 정보 닫기">×</button></div>
     <div id="warehouseDetailIcon" class="warehouse-detail-icon" aria-hidden="true"></div>
     <p id="warehouseDetailCategory" class="warehouse-detail-category"></p>
-    <div id="warehouseDetailInfo" class="warehouse-detail-info"></div>
+    <div id="warehouseDetailInfo" class="warehouse-detail-info"></div><p id="warehouseEquipMessage" class="hint" role="status"></p><button type="button" id="warehouseEquip" class="primary full-button" hidden>장착</button>
     <button type="button" id="warehouseDetailClose" class="secondary full-button">닫기</button>
   </dialog>
   <dialog id="notificationsDialog" class="popup" aria-labelledby="notificationsTitle">

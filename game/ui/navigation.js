@@ -2,7 +2,7 @@
 (() => {
   "use strict";
   const G=window.PokeTree,$=G.$;
-  const tabs=["village","pokemon","warehouse","exploration","records"];
+  const tabs=["village","pokemon","exploration","records"];
   const scroll=Object.fromEntries(tabs.map(id=>[id,0]));
   function switchTab(id) {
     if(!tabs.includes(id))return;
@@ -20,7 +20,6 @@
     $("nav-"+id).setAttribute("aria-current","page");
     G.state.activeTab=id;
     target.scrollTop=scroll[id];
-    if(id==="warehouse")G.uiWarehouse?.render();
     if(id==="exploration"){
       for(const regionId of Object.keys(G.state.regions))G.change("progress",regionId);
     }
@@ -40,7 +39,7 @@
   }
   document.querySelectorAll("[data-close-dialog]").forEach(btn=>
     btn.addEventListener("click",()=>close(btn.dataset.closeDialog)));
-  ["notificationsDialog","settingsDialog","explorationDialog","pokemonDetailDialog","tmDialog","toolDialog","toolCancelDialog","warehouseDetailDialog"].forEach(id=>{
+  ["notificationsDialog","settingsDialog","explorationDialog","pokemonDetailDialog","tmDialog","toolDialog","toolCancelDialog","warehouseDialog","warehouseDetailDialog"].forEach(id=>{
     const d=$(id);
     d.addEventListener("close",()=>{
       const previous=focusByDialog.get(id);
