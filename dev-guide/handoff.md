@@ -104,3 +104,9 @@ undefined
 - UI focus fallback on nested modal close with stale removed trigger; successful equipment changes refocus the rebuilt Pokémon equipment-slot control.
 - Workshop requested batch quantity input normalizes finite values to an integer via floor and clamps to currently craftable maximum.
 - Added regression checks for navigation wiring plus combined material reservation/cancel/claim/equip/save round trip. CI covers engine and static UI checks; true human browser testing is not implied.
+
+
+## 2026-11-13 actual Chromium interaction verification
+- CI test workflow now executes `tests/browser-smoke.cjs` via Playwright-core and installed Chrome/Chromium after building `_site`.
+- Browser clicks verify village warehouse modal, filters, empty consumable, sorting, item details; Pokémon equipment modal with locked tool category, detail/equip and return; workshop queue/cancel and material refund. Errors from page script exceptions fail smoke.
+- No player saves touched: smoke runs on ephemeral GitHub Actions checkout and separate HTTP server.
