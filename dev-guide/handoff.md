@@ -59,3 +59,13 @@ undefined
 - 라운드 시작 `selectMove`: 기술별 유효 대상 최고 TP를 계산, `max(0, TP)`를 확률 가중치로 사용한다. 양수 가중치 합계가 0이면 원래 TP 최고 기술을 선택하고 동점 시 균등 선택.
 - 개인 턴 `selectTarget`: 기존 최고 TP 대상 선택 및 동률 무작위 방식 유지. PP 충전/소모, 우선도, 행동 순서 로직 변경 없음.
 - `chooseMove(choices,roll)`를 순수 확률 선택 검증 함수로 분리, `selectMove` 네 번째 파라미터로 테스트 RNG 주입 가능.
+
+
+## 2026-11-13: Approved first-stage technique/TM implementation
+- Data: `game/data/techniques.js` **DEMO ONLY** learnsets, compatibility, recipes, material drops. Actual 1000+ species/recipes/drop rates are not established.
+- Model: `game/engine/techniques.js` per-individual permanent learn list, 0–2 manual equipment; level-up and acquisition learning; evolution API with no unapproved evolution trigger; reusable TM unlocks; discovered-material codex and three mutually exclusive crafting states. Owned TM always unavailable.
+- Technical machine use is idle-only, equipment change is forbidden in combat/recovery; expedition exploration permits changes without resetting PP. Item tool equip/edit in expedition remains unimplemented (no item-equipment UI/model yet).
+- UI: Pokémon detail equipment list and TM/crafting dialog, `game/ui/techniques.js`.
+- Loot: existing *demo find* events now offer demo materials/TMs, credited upon expedition recall; existing combat loot remains demo placeholders. Never treat these as finalized rewards.
+- Save: `game/engine/save.js` stores validated player progression to browser localStorage, key `poketree-save-v1`. Preexisting prototype had no persistence. Active battles/loot/HP are not persisted; refresh resumes idle. Incompatible saves ignored.
+- Tests: `tests/techniques.test.cjs`; CI must pass before marking deploy successful.

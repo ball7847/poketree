@@ -30,6 +30,7 @@
     if(img.getAttribute("src")!==src){img.hidden=false;img.src=src;}
     img.alt=spec.name;
     img.onerror=()=>{img.hidden=true;};
+    G.uiTechniques?.renderPokemon?.(u);
     if(syncNickname)$("pokemonNickname").value=u.nickname||"";
     if(syncNickname)G.text("pokemonNicknameMessage","");
   }

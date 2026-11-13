@@ -22,6 +22,7 @@
     roster, speedMs: 3000, lastTime: performance.now(),
     activeTab: "village",
     log: [], notifications: [], collected: [],
+    technicalMachines:[],materialDex:[],materials:{},
     // Popup preparation state stays inside its UI module.
   };
   function validateData(data=db) {

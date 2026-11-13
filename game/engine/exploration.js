@@ -34,7 +34,7 @@
   function recall(id) {
     const exp=state.regions[id];if(!exp||exp.mode==="idle")return;
     const count=exp.party.reduce((n,u)=>n+u.bag.length,0);
-    exp.party.forEach(u=>{state.collected.push(...u.bag);u.bag=[];u.expedition=null;u.pp=0;u.normalAttackCount=0;window.PokeBattleStatus.endExpedition(u);});
+    exp.party.forEach(u=>{state.collected.push(...u.bag);for(const loot of u.bag)G.techniques?.collectLoot(loot);u.bag=[];u.expedition=null;u.pp=0;u.normalAttackCount=0;window.PokeBattleStatus.endExpedition(u);});
     exp.weather=null;exp.terrain=null;
     record(exp,"후퇴 완료 · 아이템 "+count+"개 귀환 수령");
     exp.mode="idle";exp.error=null;exp.party=[];exp.enemies=[];exp.locationId=null;
@@ -55,7 +55,7 @@
         if(!G.region(exp).locations[action.to]) throw Error("없는 세부 지역 연결");
         exp.locationId=action.to;record(exp,G.place(exp).name+"으로 이동합니다.");break;
       case "encounter":G.combat.start(exp);break;
-      case "find":record(exp,loc.name+"에서 아이템을 발견했습니다.");addLoot(exp,"시연용 발견 아이템");break;
+      case "find":{const loot=G.techniques?.demoFind(exp);record(exp,loc.name+"에서 아이템을 발견했습니다.");addLoot(exp,loot||"시연용 발견 아이템");break;}
       case "egg":record(exp,loc.name+"에서 알을 발견했습니다.");addLoot(exp,"시연용 알");break;
       default: throw Error("알 수 없는 행동: "+action.type);
     }
