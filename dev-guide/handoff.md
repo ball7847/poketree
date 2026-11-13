@@ -1,4 +1,43 @@
-undefined
+# 다음 대화 개발 인수인계 — 2026-11-13 최신
+
+**이 절을 반드시 먼저 읽고 GitHub `main` 현재 HEAD를 확인할 것.** 아래의 상태는 이 문서 하단 과거 이력과 기존 `/docs`의 낡은 구현 현황 설명보다 최신이다. 확정 기획은 사용자의 최신 명시적 결정이 기준이다. 개발 요청 시 승인 범위를 먼저 제시하고 승인을 받은 후에만 **게임 코드**를 변경한다. 개발을 요청하지 않았으면 변경 금지. 세부 기획은 결정이 필요한 질문만 한 번에 하나씩 하며, 당연하거나 이미 답한 질문은 금지.
+
+- 저장소: https://github.com/ball7847/poketree
+- 대표 실행: https://ball7847.github.io/poketree/
+- 2026-11-13 마지막 **게임 코드** 커밋: `65c6404742647507d13b261fc93166464c8552ca`. 이후 문서만 갱신했더라도 HEAD와 게임 코드 변경 여부를 별도 확인할 것.
+- 종족 데이터 B-1: `game/data/national-catalog.js`에 PokéAPI/pokeapi 고정 커밋 `8a92bfa7dab2f12b84b5d151562f9857c133ff30`의 종족 **1,025종(1~1025)**, 능력치 변형 **1,351개**, 원본 폼 항목 **1,579개**. 한국어 종족명·타입·종족값·성비·성장그룹·기본 경험치·폼·일반/숨겨진 특성 식별자·진화 관계/조건 원본 저장. `game/data/species.js`가 기존 6종 데모 레코드를 우선 유지. 다른 1,019종의 지역 출현 가중치는 **0**. 능력/진화 효과·전체 기술/습득표/전국도감 이미지·야생 출현을 임의 구현하지 않는다.
+- **출처 정확도**: 핀 고정 PokeAPI 원본 재생성 일치와 구조 검증은 완료. **모든 종의 챔피언스 > 9세대 > 8세대 ... 우선순위별 수치 대조는 미완료**. `game/data/provenance.js`는 신규 종의 개별 필드 `checked:false`; `nationalSnapshot`에 원본 SHA 기록. 값이 없는 일부 폼 기본 경험치는 `null`로 남겨둠. 자료 출처와 공식 게임 버전 검증을 혼동하지 않는다.
+- 재생성: `node scripts/generate-national-catalog.cjs --check` (Node 22+, 네트워크 필요). 원본 대조 CI: `.github/workflows/verify-national-source.yml`; 실제 게임은 정적 로컬 데이터만 사용.
+- 6개 승인 지역: **바람의평원** (`windy`, Lv.1~6, 노말/비행/벌레, 처음 개방); **미끌바위언덕** (`meadow`, Lv.1~9, 땅/바위/물, 처음 개방); **아삭사과숲** (`apple`, Lv.5~15, 비행/벌레/풀, windy에서 이동 50회); **찌릿돌동굴** (`spark`, Lv.8~13, 땅/바위/전기, meadow에서 이동 80회); **어둑시니숲** (`dusk`, Lv.10~25, 노말/악/고스트, apple에서 이동 150회); **깊은굴** (`deep`, Lv.12~26, 땅/바위/강철, spark의 보스 최초 처치).
+- 최초 두 지역만 기존 **시연용 세부지역·출현표**로 탐험 가능. 다른 네 지역은 해금 조건/카드만 구현. 해금되어도 설계 전에는 **'세부지역 준비 중'으로 출발 불가**. 확정 Lv 범위는 현재 조우 적 레벨 자동 적용과 다름(현재 `combat.js`에서 시연 적 레벨 5 생성).
+- 이동 횟수는 **각 파티의 탐험 1회** 기준. 이동·걷기·채집/아이템/알 발견 등 비전투 탐험 행동 **각 +1회**. 전투 승리 **전투 종료 때 +1회**, 전투 중 개별 턴 0회. 탐험 시작·정상 귀환·파티 전멸 시 **0회로 초기화**. 조건 만족 순간 영구 개방, 해금 상태는 브라우저에 저장. 서로 다른 지역의 탐험은 독립.
+- **파티 전멸 = 탐험 종료**, 이동 횟수 0, 각 기절자 경험치 소멸/개별 보관함 절반 손실 유지, 남은 전리품 정산 및 포켓몬 비파견 복귀. **전멸 뒤 HP 회복 및 자동 재탐험**이라는 옛 문서는 폐기. `G.regions.bossDefeated("spark")`는 이후 승인된 보스 승리 처리에 사용할 훅일 뿐 보스 자체는 미구현이며 일반 전투 승리로 발동하면 안 됨.
+- 저장 키: `poketree-save-v1` 그대로. 기존 포켓몬·아이템·제작·영구 지역 해금 유지. 실시간 탐험과 파티 이동 횟수는 영구 저장하지 않아 로드 시 초기화. 이전 저장 형식 호환.
+- 구현된 기존 시스템: 포켓몬 능력치(종족값/IV/EV/성격), 레벨/경험치, 기본공격과 일부 원작 기술·PP, 자동 전투/타겟팅 포인트, 상태이상, 도구 2칸, 창고/제작소 모달, 지역 6개 표시. **모든 특성/기술/진화가 구현된 것은 아님.** 오래된 '레벨 미구현', '피해량 모두 고정 시연' 문구는 폐기.
+- 검증: [전체 엔진·Chromium](https://github.com/ball7847/poketree/actions/runs/43396278211), [원본 생성 일치](https://github.com/ball7847/poketree/actions/runs/43396278149), [GitHub Pages 최종 배포](https://github.com/ball7847/poketree/actions/runs/43396278218) 모두 해당 코드 커밋에 대해 성공 확인. 신규 수정 때는 **별도 재검증** 필수.
+
+## 현재 미구현 및 후속 후보 (아직 승인되지 않은 개발 착수 금지)
+1. 전국도감 1,025종의 **챔피언스 우선 필드별 실제 작품 검증**, 특수 폼 결측값 검토.
+2. 전 종의 기술/레벨업 습득표/TM 호환성, 미지원 기술 효과 및 특성 전투 효과, 진화 조건의 실제 실행.
+3. 지역별 세부지역·이동 경로·행동 확률·출현 종족/레벨 확률·전리품 및 보스 설계. 기존 2개 지역도 세부 콘텐츠는 데모.
+4. 알 부화·포켓몬 획득·이미지 매핑과 기타 생활/경제. 승인되지 않은 수치·기능·보상을 임의로 넣지 말 것.
+
+## 다음 개발의 검증 명령
+```sh
+bash scripts/prepare-pages.sh
+node --test tests/*.test.cjs
+# CI Chrome 및 playwright-core 설치 환경에서
+node tests/browser-smoke.cjs
+# 전국도감 원본 대조 (네트워크 필요)
+node scripts/generate-national-catalog.cjs --check
+```
+- 관련 파일: `game/data/national-catalog.js`, `game/data/species.js`, `game/data/provenance.js`, `game/data.js`, `game/engine/pokemon.js`, `game/engine/regions.js`, `game/engine/exploration.js`, `game/engine/combat.js`, `game/engine/save.js`.
+- CI: `.github/workflows/test.yml`, `.github/workflows/verify-national-source.yml`, `.github/workflows/deploy-pages.yml`. 테스트/배포 실패 시 성공을 주장하지 말고 로그 확인 및 수정.
+
+---
+
+## 과거 작업 이력 (최신 규칙과 충돌하는 설명은 위 내용을 우선)
+
 
 ## 2026-11-13 기술 시스템 초기 실제 전투 적용
 - `game/data/moves.js`: 원작 기준 기술의 타입·위력·명중률·행동 우선도와 지원되는 효과만 등록.
