@@ -82,3 +82,11 @@ undefined
 - Workshop: sequential queue initial 3 slots, reservations consume ingredients immediately; queued/running cancellation fully refunds; completed jobs occupy slots until individually or collectively claimed, later jobs auto-run. Wall-clock progress including offline time saved under existing `poketree-save-v1` without invalidating older saves. Upgrade price/max undefined; no free upgrade UI.
 - UI: Pokémon info equipment selectors, Pokémon tab workshop, per-slot progress, cancel confirmation, recipe status filters, inventory counts.
 - Test suite `tests/tools.test.cjs`. All running game data remains explicitly prototype-only.
+
+
+## 2026-11-13 Warehouse v1 (user-approved)
+- New bottom-navigation **창고** tab, 4-column icon-only style with name and count, pinned filters 전체/재료/도구/기술머신, internal list scrolling, no slot cap. Selecting an entry opens a **small central dialog**, close returns to warehouse.
+- `game/engine/warehouse.js` is a **read-only aggregation** of current `state.materials`, `state.toolInventory`, `state.technicalMachines`. Do not store independent warehouse stock. Zero-count items absent; equipped tool count is included in total and split in detail; TMs are permanent unlocks and show 해금 instead of count.
+- Expedition bag loot appears only after recall, materials decrease on crafting reservation, tools increase on crafting claim. Existing save (`poketree-save-v1`) persists underlying inventories unchanged.
+- `game/ui/warehouse.js` contains a standalone per-item icon mapping layer. It has fallback symbols while approved original image files are unavailable; no third-party artwork is fetched or made canonical. Exact text is inserted using textContent. No sale/delete/transfer/search/upgrades.
+- Validation: `tests/warehouse.test.cjs` covers inventory filtering and stock equality, expedition recall, crafting changes, saves, and static UI wiring. Full browser interaction may need separate manual verification.
