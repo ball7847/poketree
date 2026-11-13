@@ -15,7 +15,7 @@ window.POKE_DATA = Object.freeze({
   },
   regions: {
     windy: {
-      name: "바람의 들판",
+      name: "바람의평원", levelRange:[1,6],mainTypes:["노말","비행","벌레"],demoContent:true,unlock:null,
       theme: "windy",
       start: "road",
       locations: {
@@ -45,7 +45,7 @@ window.POKE_DATA = Object.freeze({
       }
     },
     meadow: {
-      name: "시연용 초원",
+      name: "미끌바위언덕", levelRange:[1,9],mainTypes:["땅","바위","물"],demoContent:true,unlock:null,
       start: "trail",
       theme: "meadow",
       locations: {
@@ -73,7 +73,11 @@ window.POKE_DATA = Object.freeze({
           ]
         }
       }
-    }
+    },
+    apple:{name:"아삭사과숲",levelRange:[5,15],mainTypes:["비행","벌레","풀"],unlock:{type:"steps",region:"windy",count:50},start:null,locations:{},demoContent:false},
+    spark:{name:"찌릿돌동굴",levelRange:[8,13],mainTypes:["땅","바위","전기"],unlock:{type:"steps",region:"meadow",count:80},start:null,locations:{},demoContent:false},
+    dusk:{name:"어둑시니숲",levelRange:[10,25],mainTypes:["노말","악","고스트"],unlock:{type:"steps",region:"apple",count:150},start:null,locations:{},demoContent:false},
+    deep:{name:"깊은굴",levelRange:[12,26],mainTypes:["땅","바위","강철"],unlock:{type:"boss",region:"spark"},start:null,locations:{},demoContent:false}
   },
   demoParty: [
     { id: "partner1", species: "pikachu", name: "피카츄", moves: ["quick-attack","thunderbolt"] },

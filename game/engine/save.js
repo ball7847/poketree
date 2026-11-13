@@ -13,7 +13,7 @@
      nature:u.nature,gender:u.gender,nickname:u.nickname,iv:u.iv,ev:u.ev,
      learnedMoves:[...u.learnedMoves],moves:[...u.moves],toolSlots:[...G.tools.slots(u)]
    })),technicalMachines:[...G.state.technicalMachines],materialDex:[...G.state.materialDex],
-   materials:{...G.state.materials},collected:[...G.state.collected],...G.tools.snapshot()};
+   materials:{...G.state.materials},collected:[...G.state.collected],unlockedRegions:[...G.state.unlockedRegions],bossFirstWins:[...G.state.bossFirstWins],...G.tools.snapshot()};
  }
  function restore(raw){
    if(!raw||raw.version!==VERSION||!Array.isArray(raw.roster))return false;
@@ -36,6 +36,7 @@
       [id,G.state.materialDex.includes(id)&&Number.isSafeInteger(raw.materials?.[id])&&raw.materials[id]>=0?raw.materials[id]:0]));
    G.state.collected=allowed(raw.collected,x=>typeof x==="string");
    G.tools.restore(raw);
+   G.regions.restore(raw.unlockedRegions,raw.bossFirstWins);
    G.change("roster");G.change("materials");G.change("tools");return true;
  }
  function load(){
@@ -49,6 +50,6 @@
  G.saveGame={snapshot,restore,save,load,version:VERSION};
  load();
  // Saving after actual state changes avoids overwriting loading progress.
- G.onChange(type=>{if(["roster","level","materials","bags","expedition","nickname","tools"].includes(type))save();});
+ G.onChange(type=>{if(["roster","level","materials","bags","expedition","nickname","tools","regions"].includes(type))save();});
  window.addEventListener?.("pagehide",save);
 })();

@@ -16,9 +16,10 @@
   const state = {
     regions: Object.fromEntries(Object.keys(db.regions).map(id => [id, {
       id, mode: "idle", locationId: null, party: [], enemies: [],
-      round: 0, order: [], turnIndex: 0, actions: 0,
+      round: 0, order: [], turnIndex: 0, actions: 0, steps: 0,
       remainingMs: 3000, lastEvent: "탐험 대기", logs: [], wins: 0, error: null
     }])),
+    unlockedRegions:["windy","meadow"],bossFirstWins:[],
     roster, speedMs: 3000, lastTime: performance.now(),
     activeTab: "village",
     log: [], notifications: [], collected: [],
@@ -40,6 +41,14 @@
       if(!s.forms?.normal || !s.growth)errors.push("종족 데이터 오류: "+sid);
     }
     for(const [rid,region] of Object.entries(data.regions)){
+      if(!Array.isArray(region.levelRange)||region.levelRange.length!==2||region.levelRange.some(x=>!Number.isInteger(x)||x<1)||region.levelRange[0]>region.levelRange[1])errors.push("지역 레벨 범위 오류: "+rid);
+      if(!Array.isArray(region.mainTypes)||region.mainTypes.length!==3)errors.push("지역 주타입 오류: "+rid);
+      if(region.unlock){
+        if(!data.regions[region.unlock.region])errors.push("지역 해금 선행 지역 누락: "+rid);
+        if(!["steps","boss"].includes(region.unlock.type))errors.push("지역 해금 종류 오류: "+rid);
+        if(region.unlock.type==="steps"&&(!Number.isSafeInteger(region.unlock.count)||region.unlock.count<1))errors.push("지역 해금 횟수 오류: "+rid);
+      }
+      if(!region.demoContent&&Object.keys(region.locations||{}).length===0)continue;
       if(!region.locations?.[region.start])errors.push("지역 시작 지점 누락: "+rid);
       for(const [lid,loc] of Object.entries(region.locations||{})){
         const context=rid+"/"+lid;
