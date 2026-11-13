@@ -36,6 +36,14 @@
       [id,G.state.materialDex.includes(id)&&Number.isSafeInteger(raw.materials?.[id])&&raw.materials[id]>=0?raw.materials[id]:0]));
    G.state.collected=allowed(raw.collected,x=>typeof x==="string");
    G.tools.restore(raw);
+   // Expeditions and party steps are transient, not serialized. A restored save
+   // must not retain references to a now-replaced roster or stale progress.
+   for(const exp of Object.values(G.state.regions)){
+     exp.mode="idle";exp.error=null;exp.locationId=null;
+     exp.party=[];exp.enemies=[];exp.order=[];exp.turnIndex=0;
+     exp.round=0;exp.actions=0;exp.steps=0;exp.remainingMs=G.state.speedMs;
+   }
+   for(const u of G.state.roster)u.expedition=null;
    G.regions.restore(raw.unlockedRegions,raw.bossFirstWins);
    G.change("roster");G.change("materials");G.change("tools");return true;
  }

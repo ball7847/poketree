@@ -117,3 +117,5 @@ undefined
 - Internal timer ticks `actions` remain separate from expedition-party `steps`, which count noncombat actions +1 and victory +1, not individual combat turns. Counter reset on start, retreat, full faint. Region unlock occurs immediately and saves under existing save v1 using optional `unlockedRegions` field; legacy save remains accepted.
 - `G.regions.bossDefeated("spark")` hook is reserved for future actual boss victory; currently no approved boss encounter exists. Never call it from ordinary combat.
 - Full-party wipe now ends expedition and settles remaining bags using existing recall, preserving already-applied per-Pokémon faint loot/XP penalties. Browser smoke asserts six region cards and two initially playable areas.
+
+- Save restore now explicitly clears transient active expeditions and party steps, because the saved-game snapshot persists permanent progression but not live expedition sessions. Ensures old/new saves cannot retain stale object references on in-process restore.
