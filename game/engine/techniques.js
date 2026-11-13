@@ -9,7 +9,7 @@
  }
  function initialize(unit){
    if(!Array.isArray(unit.learnedMoves))unit.learnedMoves=[];
-   unit.learnedMoves=unique([...levelMoves(unit.species,unit.level),...unit.learnedMoves,...unit.moves]);
+   unit.learnedMoves=unique([...levelMoves(unit.species,unit.level),...unit.learnedMoves,...unit.moves].filter(id=>!!moves[id]));
    return unit.learnedMoves;
  }
  function learn(unit,id){
@@ -95,7 +95,8 @@
    return false;
  }
  function demoFind(exp){
-   const choices=data.demoFinds.filter(item=>!item.startsWith("tm:")||!G.state.technicalMachines.includes(item.slice(3))&&!exp.party.some(u=>u.bag.includes(item)));
+   const pending=new Set(Object.values(G.state.regions).flatMap(region=>region.party.flatMap(unit=>unit.bag)));
+   const choices=data.demoFinds.filter(item=>!item.startsWith("tm:")||!G.state.technicalMachines.includes(item.slice(3))&&!pending.has(item));
    if(!choices.length)return null;
    // Deterministic demo sequence; no invented balancing probability.
    const pick=choices[exp.actions%choices.length];

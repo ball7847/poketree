@@ -78,3 +78,12 @@ test("slot 2 remains in slot 2 through a save/restore, and tool guard blocks exp
  assert.match(T.canEditTools(G.state.roster[0]),/귀환/);
  G.exploration.recall("windy");assert.equal(T.canEditTools(G.state.roster[0]),null);
 });
+
+test("save restore does not add null entries to learned moves; duplicate TM pending in any region excluded",()=>{
+ const {G}=boot(),T=G.techniques,u=G.state.roster[0];
+ T.equip(u,null,0);G.saveGame.restore(JSON.parse(JSON.stringify(G.saveGame.snapshot())));
+ assert.ok(!G.state.roster[0].learnedMoves.includes(null));
+ G.exploration.start("windy",["partner1"]);
+ G.state.roster[0].bag.push("tm:gust");
+ const choice=T.demoFind({actions:2,party:[]});assert.notEqual(choice,"tm:gust");
+});
