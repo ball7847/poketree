@@ -34,7 +34,7 @@
   function recall(id) {
     const exp=state.regions[id];if(!exp||exp.mode==="idle")return;
     const count=exp.party.reduce((n,u)=>n+u.bag.length,0);
-    exp.party.forEach(u=>{state.collected.push(...u.bag);for(const loot of u.bag)G.techniques?.collectLoot(loot);u.bag=[];u.expedition=null;u.pp=0;u.normalAttackCount=0;window.PokeBattleStatus.endExpedition(u);});
+    exp.party.forEach(u=>{state.collected.push(...u.bag);for(const loot of u.bag){G.techniques?.collectLoot(loot);G.tools?.collectLoot(loot);}u.bag=[];u.expedition=null;u.pp=0;u.normalAttackCount=0;window.PokeBattleStatus.endExpedition(u);});
     exp.weather=null;exp.terrain=null;
     record(exp,"후퇴 완료 · 아이템 "+count+"개 귀환 수령");
     exp.mode="idle";exp.error=null;exp.party=[];exp.enemies=[];exp.locationId=null;

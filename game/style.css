@@ -121,3 +121,18 @@
 .technique-card strong{grid-column:1;font-size:14px}
 .technique-card small{grid-column:1;overflow-wrap:anywhere;color:#b3c7d0}
 .technique-card button{grid-column:2;grid-row:1 / span 2;align-self:center}
+
+/* Tool crafting / owned inventory */
+.tool-crafting{border-top:1px solid #34515d;margin-top:12px;padding-top:12px}
+.tool-crafting h3{margin:3px 0 9px;font-size:15px}
+.tool-crafting h3 small{color:#aac2c5;font-size:12px;margin-left:8px}
+.tool-progress{height:9px;border-radius:9px;overflow:hidden;background:#40545a;margin-top:8px}
+.tool-progress>div{height:100%;width:0;background:#77bd94;transition:width .2s linear}
+.tool-queue-row,.tool-empty-slot{display:flex;flex-direction:column;align-items:flex-start;gap:4px;width:100%;padding:11px;border-radius:9px;border:1px solid #47606c;background:#1e3946;text-align:left}
+.tool-queue-row strong{font-size:13px}
+.tool-queue-row small,.tool-empty-slot{font-size:12px;color:#abc2cb}
+.tool-empty-slot{opacity:.62;border-style:dashed}
+.tool-recipe-controls{grid-column:2;grid-row:1 / span 2;align-self:center;display:flex;align-items:center;gap:5px}
+.tool-recipe-controls input{background:#152c37;color:#e9f1f3;border:1px solid #4b6570;border-radius:8px;padding:8px;width:58px;min-width:0}
+.tool-recipe-controls button{font-size:12px;padding:8px}
+.tool-recipe-controls input:disabled{opacity:.5}

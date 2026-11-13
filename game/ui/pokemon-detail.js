@@ -31,6 +31,7 @@
     img.alt=spec.name;
     img.onerror=()=>{img.hidden=true;};
     G.uiTechniques?.renderPokemon?.(u);
+    G.uiTools?.renderPokemon?.(u);
     if(syncNickname)$("pokemonNickname").value=u.nickname||"";
     if(syncNickname)G.text("pokemonNicknameMessage","");
   }

@@ -23,5 +23,5 @@ window.POKE_TECH_DATA=Object.freeze({
     leaf:{name:"시연용 잎"}
   },
   // Uses existing demo "find" events; this is not a final drop table.
-  demoFinds:["ore","leaf","tm:gust","ore","leaf","tm:swift"]
+  demoFinds:["ore","leaf","tm:gust","tool:training-band","ore","leaf","tm:swift","tool:guard-charm"]
 });

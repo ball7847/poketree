@@ -23,6 +23,7 @@
     activeTab: "village",
     log: [], notifications: [], collected: [],
     technicalMachines:[],materialDex:[],materials:{},
+    toolInventory:{},toolQueue:[],toolQueueCapacity:3,toolNextId:1,toolLastAt:Date.now(),
     // Popup preparation state stays inside its UI module.
   };
   function validateData(data=db) {

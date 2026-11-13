@@ -73,3 +73,12 @@ undefined
 
 ## 2026-11-13: Typeless basic attack
 - Basic attack always emits type `???`, ignores type matchups and STAB (both fixed at 1x); base power 10, physical/special category choice, PP-on-damage and random target unchanged. Move (active skill) damage still uses standard type matchup and STAB. Previous two-type basic attack rotation is deprecated; legacy `normalAttackCount` is retained only for compatibility with the existing runtime.
+
+
+## 2026-11-13 approved tools v1
+- Two manual equipment slots per Pokémon; duplicate item types forbidden on one Pokémon, individual inventory shared across roster; expedition equipment editing forbidden. Replacing an item releases stock immediately.
+- Tool stat percentage bonuses are added per stat, applied/floored before battle ranks; changes recalculate max HP keeping damage and HP=0 remains fainted. Special PP/damage effect data can be added later; no unconfirmed final rules invented.
+- `game/data/tools.js` contains **DEMO ONLY** 3 tool effects, recipes, time values, and demonstration drops. No official item balance or rates.
+- Workshop: sequential queue initial 3 slots, reservations consume ingredients immediately; queued/running cancellation fully refunds; completed jobs occupy slots until individually or collectively claimed, later jobs auto-run. Wall-clock progress including offline time saved under existing `poketree-save-v1` without invalidating older saves. Upgrade price/max undefined; no free upgrade UI.
+- UI: Pokémon info equipment selectors, Pokémon tab workshop, per-slot progress, cancel confirmation, recipe status filters, inventory counts.
+- Test suite `tests/tools.test.cjs`. All running game data remains explicitly prototype-only.

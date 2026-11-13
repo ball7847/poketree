@@ -11,9 +11,9 @@
    return {version:VERSION,roster:G.state.roster.map(u=>({
      id:u.id,species:u.species,form:u.form,level:u.level,experience:u.experience,
      nature:u.nature,gender:u.gender,nickname:u.nickname,iv:u.iv,ev:u.ev,
-     learnedMoves:[...u.learnedMoves],moves:[...u.moves]
+     learnedMoves:[...u.learnedMoves],moves:[...u.moves],toolSlots:[...G.tools.slots(u)]
    })),technicalMachines:[...G.state.technicalMachines],materialDex:[...G.state.materialDex],
-   materials:{...G.state.materials},collected:[...G.state.collected]};
+   materials:{...G.state.materials},collected:[...G.state.collected],...G.tools.snapshot()};
  }
  function restore(raw){
    if(!raw||raw.version!==VERSION||!Array.isArray(raw.roster))return false;
@@ -24,7 +24,8 @@
      const learned=allowed(entry.learnedMoves,id=>!!window.POKE_MOVES[id]);
      const moves=Array.isArray(entry.moves)?entry.moves.slice(0,2).map(id=>id===null||!!window.POKE_MOVES[id]?id:null):[];
      if(moves.length===2&&moves[0]!==null&&moves[0]===moves[1])moves[1]=null;
-     const unit=P.create({...entry,learnedMoves:learned,moves,side:"ally"});
+     const unit=P.create({...entry,learnedMoves:learned,moves,toolSlots:[null,null],side:"ally"});
+     unit.toolSlots=Array.isArray(entry.toolSlots)?entry.toolSlots.slice(0,2):[null,null];
      T.initialize(unit);rebuilt.push(unit);
    }
    if(rebuilt.length!==G.state.roster.length||rebuilt.length===0)return false;
@@ -34,7 +35,8 @@
    G.state.materials=Object.fromEntries(Object.keys(T.data.materials).map(id=>
       [id,G.state.materialDex.includes(id)&&Number.isSafeInteger(raw.materials?.[id])&&raw.materials[id]>=0?raw.materials[id]:0]));
    G.state.collected=allowed(raw.collected,x=>typeof x==="string");
-   G.change("roster");G.change("materials");return true;
+   G.tools.restore(raw);
+   G.change("roster");G.change("materials");G.change("tools");return true;
  }
  function load(){
    if(!storage)return false;
@@ -47,6 +49,6 @@
  G.saveGame={snapshot,restore,save,load,version:VERSION};
  load();
  // Saving after actual state changes avoids overwriting loading progress.
- G.onChange(type=>{if(["roster","level","materials","bags","expedition","nickname"].includes(type))save();});
+ G.onChange(type=>{if(["roster","level","materials","bags","expedition","nickname","tools"].includes(type))save();});
  window.addEventListener?.("pagehide",save);
 })();

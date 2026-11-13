@@ -26,7 +26,7 @@
    initialize(unit);
    const oldHp=unit.hp,oldMax=unit.maxHp;
    unit.species=newSpecies;unit.form=newForm;unit.name=G.Pokemon.named(unit);
-   const updated=G.Pokemon.stats(unit);Object.assign(unit,updated);
+   const updated=G.tools?.modifiedStats(unit,G.Pokemon.stats(unit))||G.Pokemon.stats(unit);Object.assign(unit,updated);
    unit.maxHp=updated.hp;unit.hp=Math.max(0,Math.min(updated.hp,oldHp+updated.hp-oldMax));
    initialize(unit);G.change("roster");return null;
  }
@@ -100,7 +100,7 @@
    if(!choices.length)return null;
    // Deterministic demo sequence; no invented balancing probability.
    const pick=choices[exp.actions%choices.length];
-   return pick.startsWith("tm:")?pick:"material:"+pick;
+   return pick.startsWith("tm:")||pick.startsWith("tool:")?pick:"material:"+pick;
  }
  G.techniques={initialize,levelMoves,learn,onLevel,evolve,canEdit,canEditTools,equip,canUseTM,useTM,
    materialStatus,recipeStatus,discover,unlock,craft,materialDisplay,collectLoot,demoFind,data};

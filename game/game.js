@@ -62,6 +62,8 @@
     });
   });
   updateActiveCount();updateSpeedButtons();
+  // Crafting uses real elapsed wall time; safe to settle after tab inactivity.
+  setInterval(()=>G.tools?.advance(Date.now()),1000);
   G.record(null,"PokeTree 탐험 프로토타입 시작 · 지역 카드를 눌러 탐험하세요.");
   // Ignore inactive period rather than fast-forwarding huge action bursts.
   // Timers keep running while another tab or dialog is shown.
