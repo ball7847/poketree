@@ -382,3 +382,69 @@ test("speed snapshot remains constant during PP-based reorder in current round",
  u.speed+=999;
  assert.equal(e.speeds.get(u),before);
 });
+
+test("B flow: round-start move chosen with no reserved target; target picked at personal turn",()=>{
+ const {G,ctx}=boot(),T=ctx.window.PokeTargeting;
+ G.exploration.start("windy",["partner1"]);
+ const exp=G.state.regions.windy;G.combat.start(exp);
+ const user=exp.party[0];user.pp=160;
+ const foes=[
+   G.Pokemon.create({id:"b-flow-1",species:"rattata",level:5,side:"enemy"}),
+   G.Pokemon.create({id:"b-flow-2",species:"caterpie",level:5,side:"enemy"})
+ ];
+ exp.enemies=foes;
+ const plan=T.selectMove(exp,user,["quick-attack"]);
+ assert.equal(plan.moveId,"quick-attack");
+ assert.equal(Object.hasOwn(plan,"targetId"),false);
+ exp.plans.set(user,plan);
+ assert.equal(Object.hasOwn(exp.plans.get(user),"targetId"),false);
+ const selected=T.selectTarget(exp,user,plan);
+ assert.ok(foes.some(e=>e.id===selected.targetId));
+ assert.equal(Object.hasOwn(plan,"targetId"),false);
+});
+test("B flow: latest HP drives personal-turn healing TP, not earlier target",()=>{
+ const {G,ctx}=boot(),T=ctx.window.PokeTargeting;
+ G.exploration.start("windy",["partner1","partner2"]);
+ const exp=G.state.regions.windy,actor=exp.party[0],other=exp.party[1];
+ const plan=T.selectMove(exp,actor,["recover"]);
+ // Recover is self-only, so test heal targeting with a synthetic ally-target move;
+ // no new move is registered or made available to the game.
+ const healing={...ctx.window.POKE_MOVES.recover,target:"ally"};
+ const allyPlan={moveId:"test-only",move:healing,score:0};
+ assert.equal(T.selectTarget(exp,actor,allyPlan).targetId===null,false);
+ actor.hp=1;other.hp=other.maxHp;
+ assert.equal(T.selectTarget(exp,actor,allyPlan).targetId,actor.id);
+ actor.hp=actor.maxHp;other.hp=1;
+ assert.equal(T.selectTarget(exp,actor,allyPlan).targetId,other.id);
+ assert.equal(Object.hasOwn(allyPlan,"targetId"),false);
+});
+test("B flow: a target fainted before turn is never retained from move selection",()=>{
+ const {G,ctx}=boot(),T=ctx.window.PokeTargeting;
+ G.exploration.start("windy",["partner1"]);
+ const exp=G.state.regions.windy;G.combat.start(exp);
+ const actor=exp.party[0],first=G.Pokemon.create({id:"first",species:"rattata",side:"enemy",level:5}),
+ second=G.Pokemon.create({id:"second",species:"eevee",side:"enemy",level:5});
+ exp.enemies=[first,second];
+ const plan=T.selectMove(exp,actor,["quick-attack"]);
+ first.hp=0;
+ assert.equal(T.selectTarget(exp,actor,plan).targetId,second.id);
+ second.hp=0;
+ assert.equal(T.selectTarget(exp,actor,plan),null);
+});
+test("B flow: combat uses selected target at personal turn and original move order",()=>{
+ const {G,ctx}=boot();
+ G.exploration.start("windy",["partner1"]);
+ const exp=G.state.regions.windy;G.combat.start(exp);
+ const actor=exp.party[0],one=G.Pokemon.create({id:"first",species:"rattata",side:"enemy",level:5}),
+ two=G.Pokemon.create({id:"second",species:"eevee",side:"enemy",level:5});
+ exp.enemies=[one,two];actor.pp=200;
+ const quick=ctx.window.POKE_MOVES["quick-attack"];
+ exp.plans.set(actor,{moveId:"quick-attack",move:quick,score:0});
+ exp.order=[actor,one,two];exp.turnIndex=0;
+ one.hp=0;const originalHP=two.hp;
+ G.combat.step(exp);
+ assert.equal(one.hp,0);
+ assert.ok(two.hp<originalHP);
+ assert.equal(actor.pp,100);
+ assert.ok(exp.logs.some(l=>l.message.includes("전광석화")));
+});

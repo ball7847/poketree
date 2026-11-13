@@ -15,7 +15,8 @@
     exp.tiebreak=new Map(members.map(u=>[u,Math.random()]));
     exp.speeds=new Map(members.map(u=>[u,speed(u)])); // fixed for this round
     for(const u of members){
-      exp.plans.set(u,u.pp>=100&&u.moves?.length?T.select(exp,u):null);
+      // Select the move by its current best TP; do not reserve a target.
+      exp.plans.set(u,u.pp>=100&&u.moves?.length?T.selectMove(exp,u):null);
     }
     exp.order=members;sortRemaining(exp);exp.turnIndex=0;exp.round++;
     record(exp,exp.round+"라운드 시작");
@@ -104,10 +105,11 @@
     else {
       let plan=exp.plans.get(unit);
       if(!plan&&unit.pp>=100&&unit.moves?.length)
-        plan=T.select(exp,unit);
+        plan=T.selectMove(exp,unit); // PP recovered; priority/order never retroactively changes.
       if(plan&&unit.pp>=100){
-        const valid=T.retarget(exp,unit,plan);
-        if(valid)M.execute(exp,unit,valid,(u,award)=>handleFaint(exp,u,award));
+        // Select the target NOW using current HP, status and living members.
+        const withTarget=T.selectTarget(exp,unit,plan);
+        if(withTarget)M.execute(exp,unit,withTarget,(u,award)=>handleFaint(exp,u,award));
         else record(exp,unit.name+" · 대상 없음 · 행동 실패 (PP 유지)");
       }else fallbackAttack(exp,unit);
     }
