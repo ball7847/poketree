@@ -81,7 +81,7 @@ test("equipment is selected through tool-only warehouse, old dropdown removed",(
  const tool=fs.readFileSync(path.join(__dirname,"../game/ui/tools.js"),"utf8");
  assert.match(ui,/category=mode\?"tool":"all"/);
  assert.match(ui,/b\.disabled=!!context&&b\.dataset\.category!=="tool"/);
- assert.match(ui,/T\.equip\(unit,info\.id,context\.slot\)/);
+ assert.match(ui,/T\.equip\(unit,info\.id,slot\)/);
  assert.match(tool,/openForEquip\(unit\.id,slot,choose\)/);
  assert.doesNotMatch(html,/id="openToolPanel"/);
  assert.doesNotMatch(html,/보관 칸 무제한/);
