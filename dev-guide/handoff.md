@@ -53,3 +53,9 @@ undefined
 - `move-effects.js`는 지면 대상 사이코필드 단일 우선도 공격 차단, 수면·상태·혼란 방지 적용.
 - `combat.js` 라운드 종료에서 날씨·필드 잔여시간 감소 전 모래바람 피해/그래스필드 회복 수행, 기절은 기존 경험치 지급 흐름으로 전달.
 - 근거: https://www.pokemon-zone.com/champions/terrain/ , https://bulbapedia.bulbagarden.net/wiki/Weather
+
+
+## 2026-11-13 기술 TP 비례 확률 선택 확정
+- 라운드 시작 `selectMove`: 기술별 유효 대상 최고 TP를 계산, `max(0, TP)`를 확률 가중치로 사용한다. 양수 가중치 합계가 0이면 원래 TP 최고 기술을 선택하고 동점 시 균등 선택.
+- 개인 턴 `selectTarget`: 기존 최고 TP 대상 선택 및 동률 무작위 방식 유지. PP 충전/소모, 우선도, 행동 순서 로직 변경 없음.
+- `chooseMove(choices,roll)`를 순수 확률 선택 검증 함수로 분리, `selectMove` 네 번째 파라미터로 테스트 RNG 주입 가능.

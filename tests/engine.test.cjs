@@ -713,3 +713,47 @@ test("terrain: Psychic blocks priority move against grounded foe but not flying 
  M.execute(exp,actor,{move,moveId:"quick-attack",targetId:airborne.id},()=>{});
  assert.ok(airborne.hp<ahp);
 });
+
+test("move TP weights +3/+1 produce 75/25 while positive TP excludes zero and negative",()=>{
+ const {ctx}=boot(),T=ctx.window.PokeTargeting;
+ const options=[{moveId:"a",score:3},{moveId:"b",score:1}];
+ assert.equal(T.chooseMove(options,()=>0).moveId,"a");
+ assert.equal(T.chooseMove(options,()=>0.7499).moveId,"a");
+ assert.equal(T.chooseMove(options,()=>0.75).moveId,"b");
+ assert.equal(T.chooseMove(options,()=>0.999).moveId,"b");
+ const mixed=[{moveId:"a",score:2},{moveId:"b",score:-1},{moveId:"c",score:0}];
+ for(const r of [0,0.5,0.99,1])assert.equal(T.chooseMove(mixed,()=>r).moveId,"a");
+});
+test("all non-positive move TPs fall back to highest ORIGINAL score, ties are random",()=>{
+ const {ctx}=boot(),T=ctx.window.PokeTargeting;
+ const unfavorable=[{moveId:"a",score:-2},{moveId:"b",score:-4}];
+ assert.equal(T.chooseMove(unfavorable,()=>0.99).moveId,"a");
+ const tied=[{moveId:"a",score:-2},{moveId:"b",score:-2}];
+ assert.equal(T.chooseMove(tied,()=>0.01).moveId,"a");
+ assert.equal(T.chooseMove(tied,()=>0.99).moveId,"b");
+ assert.equal(T.chooseMove([{moveId:"a",score:0},{moveId:"b",score:0}],()=>0.75).moveId,"b");
+ assert.equal(T.chooseMove([],()=>0),null);
+});
+test("round-start move selection uses weighted TP; personal-turn target still highest TP",()=>{
+ const {G,ctx}=boot(),T=ctx.window.PokeTargeting;
+ G.exploration.start("windy",["partner1"]);
+ const exp=G.state.regions.windy;G.combat.start(exp);
+ const u=exp.party[0];
+ const foe=G.Pokemon.create({id:"foe",species:"caterpie",level:5,side:"enemy"});
+ exp.enemies=[foe];
+ // Thunderbolt against Bug has neutral TP 0; Recover on damaged Pikachu has positive TP.
+ u.hp=Math.max(1,Math.floor(u.maxHp/4));
+ const options=["thunderbolt","recover"];
+ const chosen=T.selectMove(exp,u,options,()=>0.99);
+ assert.equal(chosen.moveId,"recover");
+ assert.equal(Object.hasOwn(chosen,"targetId"),false);
+ const plan=T.selectTarget(exp,u,chosen);
+ assert.equal(plan.targetId,u.id);
+ // Target selection is unchanged: the highest scoring eligible ally is selected.
+ const healing={...ctx.window.POKE_MOVES.recover,target:"ally"};
+ const ally=G.Pokemon.create({id:"friend",species:"eevee",level:5,side:"ally"});
+ ally.hp=1;u.hp=u.maxHp;
+ exp.party.push(ally);
+ const aimed=T.selectTarget(exp,u,{moveId:"test-heal",move:healing,score:0});
+ assert.equal(aimed.targetId,ally.id);
+});

@@ -25,7 +25,27 @@
     const tied=choices.filter(x=>x.score===high);
     return tied[Math.floor(Math.random()*tied.length)];
   }
-  function selectMove(exp,unit,ids=unit.moves){
+  function chooseMove(choices,roll=Math.random){
+    if(!choices.length)return null;
+    const weights=choices.map(choice=>Math.max(0,choice.score));
+    const sum=weights.reduce((total,weight)=>total+weight,0);
+    if(sum===0){
+      // All scores are non-positive: prefer the highest ORIGINAL TP.
+      const high=Math.max(...choices.map(choice=>choice.score));
+      const tied=choices.filter(choice=>choice.score===high);
+      return tied[Math.min(tied.length-1,Math.floor(roll()*tied.length))];
+    }
+    // Positive TP: weighted random, zero/negative TP never selected.
+    let threshold=roll()*sum;
+    for(let i=0;i<choices.length;i++){
+      if(weights[i]===0)continue;
+      if(threshold<weights[i])return choices[i];
+      threshold-=weights[i];
+    }
+    // Guard against a custom RNG returning 1 or floating rounding.
+    for(let i=choices.length-1;i>=0;i--)if(weights[i]>0)return choices[i];
+  }
+  function selectMove(exp,unit,ids=unit.moves,roll=Math.random){
     const options=[];
     for(const moveId of ids||[]){
       const move=window.POKE_MOVES[moveId];
@@ -35,7 +55,7 @@
       // A move's score is its highest individual target TP; never reserve one.
       options.push({moveId,move,score:Math.max(...targets.map(target=>points(unit,move,target)))});
     }
-    return best(options);
+    return chooseMove(options,roll);
   }
   function selectTarget(exp,unit,plan){
     if(!plan?.move)return null;
@@ -50,5 +70,5 @@
   // It now always uses current HP and valid targets, not any reserved target.
   function retarget(exp,unit,plan){return selectTarget(exp,unit,plan);}
   function select(exp,unit,ids=unit.moves){return selectMove(exp,unit,ids);}
-  window.PokeTargeting=Object.freeze({healPoints,candidates,points,selectMove,selectTarget,select,retarget});
+  window.PokeTargeting=Object.freeze({healPoints,candidates,points,chooseMove,selectMove,selectTarget,select,retarget});
 })();
