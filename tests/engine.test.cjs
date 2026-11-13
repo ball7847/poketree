@@ -623,7 +623,8 @@ test("frozen target thaws after a successful damaging fire move",()=>{
  assert.equal(S.inflict(e,"freeze"),true);
  const move=ctx.window.POKE_MOVES["flare-blitz"];u.pp=100;
  M.execute(exp,u,{moveId:"flare-blitz",move,targetId:e.id},()=>{});
- assert.equal(S.ensure(e).major,null);
+ // A successful Fire hit thaws; its separate 10% burn effect may apply.
+ assert.notEqual(S.ensure(e).major?.kind,"freeze");
  assert.ok(exp.logs.some(l=>l.message.includes("얼음 상태 해제")));
 });
 test("Toxic ramps during each battle but resets only its counter between encounters",()=>{
