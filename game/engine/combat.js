@@ -136,6 +136,12 @@
         if(member.hp===0)handleFaint(exp,member,member.side==="enemy");
       }
     }
+    // The terrain/weather effects resolve before their duration decreases.
+    for(const effect of S.fieldEndRound(exp)){
+      const desc=effect.kind==="sandstorm"?"모래바람 피해":"그래스필드 회복";
+      record(exp,effect.unit.name+" · "+desc+" "+effect.amount);
+      if(effect.unit.hp===0)handleFaint(exp,effect.unit,effect.unit.side==="enemy");
+    }
     for(const key of ["weather","terrain"]){
       if(exp[key]&&--exp[key].remaining<=0){record(exp,key+" 효과 종료");exp[key]=null;}
     }

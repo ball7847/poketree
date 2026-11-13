@@ -18,7 +18,16 @@
     const a=ensure(attacker).ranks.accuracy,d=ensure(defender).ranks.evasion;
     return Math.max(0,Math.min(1,move.accuracy/100*stage(a-d)));
   }
-  function inflict(u,kind){
+  function grounded(u){
+    // Flying typing is supported; Levitate, Air Balloon and forced grounding
+    // require their own confirmed ability/item/move implementations.
+    return !window.PokePokemon.template(u.species,u.form).form.types.includes("flying");
+  }
+  function inflict(u,kind,field={}){
+    if(u.hp<=0)return false;
+    if(field.terrain?.kind==="misty"&&grounded(u))return false;
+    if(kind==="sleep"&&field.terrain?.kind==="electric"&&grounded(u))return false;
+    if(kind==="freeze"&&field.weather?.kind==="sun")return false;
     const status=ensure(u);
     if(kind==="confusion"){
       if(status.confusion>0)return false;
@@ -77,11 +86,26 @@
     // In a new encounter the Toxic damage sequence restarts at 1/16.
     if(s.major?.kind==="toxic")s.major.counter=0;
   }
+  function fieldEndRound(exp){
+    const effects=[];
+    for(const u of [...exp.party,...exp.enemies].filter(x=>x.hp>0)){
+      const types=window.PokePokemon.template(u.species,u.form).form.types;
+      if(exp.weather?.kind==="sandstorm"&&!types.some(t=>["rock","ground","steel"].includes(t))){
+        const amount=Math.min(u.hp,Math.max(1,Math.floor(u.maxHp/16)));
+        u.hp-=amount;effects.push({unit:u,amount,kind:"sandstorm"});
+      }
+      if(u.hp>0&&exp.terrain?.kind==="grassy"&&grounded(u)){
+        const amount=Math.min(u.maxHp-u.hp,Math.max(1,Math.floor(u.maxHp/16)));
+        u.hp+=amount;if(amount)effects.push({unit:u,amount,kind:"grassy"});
+      }
+    }
+    return effects;
+  }
   function endExpedition(u){u.battleStatus=create();}
   function speed(u){
     const s=ensure(u),rank=s.ranks.speed;
     const factor=rank>=0?1+.2*rank:1/(1+.2*Math.abs(rank));
     return Math.floor(u.speed*factor*(s.major?.kind==="paralysis"?.5:1));
   }
-  window.PokeBattleStatus=Object.freeze({create,ensure,rank,accuracy,inflict,beforeAction,afterAction,advanceExploration,thawFromFire,endBattle,endExpedition,speed});
+  window.PokeBattleStatus=Object.freeze({create,ensure,rank,accuracy,inflict,beforeAction,afterAction,advanceExploration,thawFromFire,endBattle,endExpedition,speed,grounded,fieldEndRound});
 })();

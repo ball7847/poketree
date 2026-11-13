@@ -33,6 +33,11 @@
     const faintCandidates=new Set();
     let recoil=0;
     for(const target of chosen){
+      // Psychic Terrain protects grounded foes from positive-priority attacks.
+      if(exp.terrain?.kind==="psychic"&&move.priority>0&&
+         (move.target==="enemy")&&S.grounded(target)){
+        G.record(exp,target.name+" · 사이코필드로 우선도 기술 차단");continue;
+      }
       const probability=S.accuracy(move,user,target);
       if(move.accuracyMode!=="per-hit"&&Math.random()>=probability){G.record(exp,move.name+" · "+target.name+"에게 빗나감");continue;}
       if(move.effect==="heal"){
@@ -45,7 +50,7 @@
         if(move.type==="electric"&&D.effectiveness(move.type,target)===0){
           G.record(exp,target.name+"에게 "+move.name+" 효과 없음");continue;
         }
-        if(S.inflict(target,move.status))G.record(exp,target.name+" · "+move.status+" 상태이상");
+        if(S.inflict(target,move.status,exp))G.record(exp,target.name+" · "+move.status+" 상태이상");
         continue;
       }
       if(move.effect==="weather"){exp.weather={kind:move.weather,remaining:move.duration};G.record(exp,"날씨: "+move.weather);continue;}
@@ -64,7 +69,7 @@
         if(move.type==="fire"&&result.effectiveness>0&&S.thawFromFire(target))
           G.record(exp,target.name+" 얼음 상태 해제 (불꽃 기술)");
         G.record(exp,move.name+" → "+target.name+" "+(i+1)+"타 · "+actual+" 피해"+(result.critical?" · 급소":""));
-        if(result.damage>0&&move.secondary&&Math.random()*100<move.secondary.chance&&S.inflict(target,move.secondary.kind))
+        if(result.damage>0&&move.secondary&&Math.random()*100<move.secondary.chance&&S.inflict(target,move.secondary.kind,exp))
           G.record(exp,target.name+" · "+move.secondary.kind+" 상태이상");
         if(move.effect==="drain"&&actual>0){
           const amount=Math.max(1,Math.floor(actual*move.drain));

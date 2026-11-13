@@ -22,7 +22,12 @@
     const defRank=critical&&dRank>0?0:dRank;
     let attack=Math.max(1,Math.floor(attacker[aKey]*rankFactor(atkRank)));
     if(category==="physical"&&attacker.battleStatus?.major?.kind==="burn")attack=Math.max(1,Math.floor(attack*.5));
-    const defense=Math.max(1,Math.floor(defender[dKey]*rankFactor(defRank)));
+    let defense=Math.max(1,Math.floor(defender[dKey]*rankFactor(defRank)));
+    const defendingTypes=P.template(defender.species,defender.form).form.types;
+    if(weather?.kind==="sandstorm"&&category==="special"&&defendingTypes.includes("rock"))
+      defense=Math.max(1,Math.floor(defense*1.5));
+    if(weather?.kind==="snow"&&category==="physical"&&defendingTypes.includes("ice"))
+      defense=Math.max(1,Math.floor(defense*1.5));
     const type=move?.type||P.normalAttackType(attacker),types=P.template(attacker.species,attacker.form).form.types;
     const stab=types.includes(type)?1.5:1;
     const eff=effectiveness(type,defender);
@@ -42,12 +47,14 @@
       if(type==="fire")damage=Math.floor(damage*1.5);
       if(type==="water")damage=Math.floor(damage*.5);
     }
-    // Grounded targets only; effects that depend on the attacker check attacker.
+    // Terrain attack boosts require a grounded attacker.
     const grounded=!P.template(attacker.species,attacker.form).form.types.includes("flying");
     if(grounded&&terrain?.kind==="electric"&&type==="electric")damage=Math.floor(damage*1.3);
     if(grounded&&terrain?.kind==="grassy"&&type==="grass")damage=Math.floor(damage*1.3);
     if(grounded&&terrain?.kind==="psychic"&&type==="psychic")damage=Math.floor(damage*1.3);
-    for(const defendingType of P.template(defender.species,defender.form).form.types)
+    if(terrain?.kind==="misty"&&type==="dragon"&&!defendingTypes.includes("flying"))
+      damage=Math.floor(damage*.5);
+    for(const defendingType of defendingTypes)
       damage=Math.floor(damage*(chart[type]?.[defendingType]??1));
     damage=Math.max(1,damage);
     return {damage,category,type,stab,effectiveness:eff,critical,random};

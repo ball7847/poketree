@@ -45,3 +45,11 @@ undefined
 - `move-effects.js`: 명중한 피해 불꽃 기술이 얼음 상태를 해제.
 - 회귀 테스트: 혼란 마지막 턴, 얼음 해제, 불꽃 명중 해제, 맹독 전투 간 횟수 초기화, 타입 면역/상태 중복.
 - 근거: https://www.pokemon-zone.com/champions/status/ ; https://www.serebii.net/pokemonchampions/statusconditions.shtml
+
+
+## 2026-11-13 환경 효과 안정화
+- `battle-status.js`의 `grounded`, `fieldEndRound`로 지면 판정 및 모래바람/그래스필드 종료 효과 공통 처리. 지면 판정은 **비행 타입만** 우선 반영(특성·도구 미구현).
+- `damage.js`는 설경 얼음타입 물리방어 +50%, 모래바람 바위타입 특수방어 +50%, 미스트필드 지면 대상 드래곤 피해 반감 추가.
+- `move-effects.js`는 지면 대상 사이코필드 단일 우선도 공격 차단, 수면·상태·혼란 방지 적용.
+- `combat.js` 라운드 종료에서 날씨·필드 잔여시간 감소 전 모래바람 피해/그래스필드 회복 수행, 기절은 기존 경험치 지급 흐름으로 전달.
+- 근거: https://www.pokemon-zone.com/champions/terrain/ , https://bulbapedia.bulbagarden.net/wiki/Weather

@@ -654,3 +654,61 @@ test("status immunity, major status exclusivity, and confusion coexistence",()=>
  assert.equal(S.ensure(q).major.kind,"poison");
  assert.ok(S.ensure(q).confusion>0);
 });
+
+test("weather: rock special defense in sandstorm and ice physical defense in snow",()=>{
+ const {G}=boot(),P=G.Pokemon,D=G.Damage;
+ const attacker=P.create({id:"att",species:"pikachu",level:50});
+ const rock=P.create({id:"rock",species:"geodude",level:50});
+ const ice=P.create({id:"ice",species:"snover",level:50});
+ const special={type:"electric",category:"special",power:90};
+ const physical={type:"normal",category:"physical",power:90};
+ assert.ok(D.compute(attacker,rock,{move:special,random:100,weather:{kind:"sandstorm"}}).damage<=D.compute(attacker,rock,{move:special,random:100}).damage);
+ assert.ok(D.compute(attacker,ice,{move:physical,random:100,weather:{kind:"snow"}}).damage<=D.compute(attacker,ice,{move:physical,random:100}).damage);
+});
+test("terrain: misty dragon reduction only against grounded target",()=>{
+ const {G}=boot(),P=G.Pokemon,D=G.Damage;
+ const a=P.create({id:"a",species:"eevee",level:50});
+ const ground=P.create({id:"g",species:"eevee",level:50});
+ const flying=P.create({id:"f",species:"pidgey",level:50});
+ const dragon={type:"dragon",category:"special",power:90};
+ assert.ok(D.compute(a,ground,{move:dragon,terrain:{kind:"misty"}}).damage<D.compute(a,ground,{move:dragon}).damage);
+ assert.equal(D.compute(a,flying,{move:dragon,terrain:{kind:"misty"}}).damage,D.compute(a,flying,{move:dragon}).damage);
+});
+test("terrain: grounded Electric blocks sleep, Misty blocks all new conditions including confusion",()=>{
+ const {G,ctx}=boot(),S=ctx.window.PokeBattleStatus,P=G.Pokemon;
+ const normal=P.create({id:"normal",species:"eevee"});
+ const flying=P.create({id:"flying",species:"pidgey"});
+ assert.equal(S.inflict(normal,"sleep",{terrain:{kind:"electric"}}),false);
+ assert.equal(S.inflict(flying,"sleep",{terrain:{kind:"electric"}}),true);
+ assert.equal(S.inflict(normal,"confusion",{terrain:{kind:"misty"}}),false);
+ assert.equal(S.inflict(normal,"burn",{terrain:{kind:"misty"}}),false);
+ assert.equal(S.inflict(normal,"freeze",{weather:{kind:"sun"}}),false);
+});
+test("terrain: grassy healing and sandstorm residual are applied at battle round end",()=>{
+ const {G,ctx}=boot(),S=ctx.window.PokeBattleStatus,P=G.Pokemon;
+ const normal=P.create({id:"n",species:"eevee"}),fly=P.create({id:"f",species:"pidgey"});
+ const exp={party:[normal,fly],enemies:[],terrain:{kind:"grassy"},weather:null};
+ normal.hp=normal.maxHp-5;fly.hp=fly.maxHp-5;
+ const first=S.fieldEndRound(exp);
+ assert.ok(normal.hp>normal.maxHp-5);
+ assert.equal(fly.hp,fly.maxHp-5);
+ assert.equal(first.length,1);
+ exp.terrain=null;exp.weather={kind:"sandstorm"};
+ const before=normal.hp;
+ S.fieldEndRound(exp);
+ assert.ok(normal.hp<before);
+});
+test("terrain: Psychic blocks priority move against grounded foe but not flying foe",()=>{
+ const {G,ctx}=boot(),M=ctx.window.PokeMoveEffects,P=G.Pokemon;
+ const actor=P.create({id:"actor",species:"pikachu"});
+ const ground=P.create({id:"ground",species:"eevee",side:"enemy"});
+ const airborne=P.create({id:"air",species:"pidgey",side:"enemy"});
+ const exp={id:"test",party:[actor],enemies:[ground,airborne],terrain:{kind:"psychic"},logs:[]};
+ const move=ctx.window.POKE_MOVES["quick-attack"];
+ actor.pp=200;const ghp=ground.hp;
+ M.execute(exp,actor,{move,moveId:"quick-attack",targetId:ground.id},()=>{});
+ assert.equal(ground.hp,ghp);assert.equal(actor.pp,100);
+ actor.pp=200;const ahp=airborne.hp;
+ M.execute(exp,actor,{move,moveId:"quick-attack",targetId:airborne.id},()=>{});
+ assert.ok(airborne.hp<ahp);
+});
