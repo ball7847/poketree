@@ -27,12 +27,13 @@ function audit(data, evidence) {
   const errors = [], warnings = [], required = new Map(), validated = new Map();
   if (!data || data.schemaVersion !== 1 || !Array.isArray(data.records))
     throw Error("Invalid verification records format");
-  const catalog = evidence.POKE_NATIONAL_CATALOG?.species;
+  const national = evidence.POKE_NATIONAL_CATALOG;
+  const catalog = national?.species;
   const effective = evidence.POKE_SPECIES;
   if (!catalog || !effective) throw Error("National catalog or resolved species missing");
   const speciesIds = Object.keys(catalog);
   const dexes = new Map();
-  let formCount = 0;
+  let formCount = 0, cosmeticFormCount = 0, evolutionRowCount = 0;
   const add = (species, form, field) => required.set(key(species,form,field), {species, form, field});
   for (const id of speciesIds) {
     const s = catalog[id], e = effective[id];
@@ -56,6 +57,17 @@ function audit(data, evidence) {
       if (!Array.isArray(form.abilities)) errors.push(id + "/" + formId + ": missing abilities list");
       if (form.baseExp !== null && (!Number.isInteger(form.baseExp) || form.baseExp < 0))
         errors.push(id + "/" + formId + ": invalid baseExp");
+    }
+    for (const row of national.cosmeticForms?.[id] || []) {
+      cosmeticFormCount++;
+      for (const field of ["identifier","battleForm","formIdentifier","name","formPokemonName","battleOnly","mega","default"])
+        add(id,"cosmetic:"+row.id,"cosmetic."+field);
+      if (row.battleForm && !s.forms?.[row.battleForm]) errors.push(id + ": cosmetic form missing battle-form reference");
+    }
+    for (const row of national.evolution?.[id] || []) {
+      evolutionRowCount++;
+      const target="evolution:"+row.id;
+      for(const field of Object.keys(row)) if(field!=="id") add(id,target,"evolution."+field);
     }
     if (s.evolvesFrom !== null && s.evolvesFrom !== undefined && !catalog[s.evolvesFrom])
       errors.push(id + ": broken evolvesFrom");
@@ -92,7 +104,7 @@ function audit(data, evidence) {
   return {
     schemaVersion:1,
     sourceRevision:evidence.POKE_NATIONAL_CATALOG.source?.revision ?? null,
-    speciesCount:speciesIds.length, formCount,
+    speciesCount:speciesIds.length, formCount, cosmeticFormCount, evolutionRowCount,
     totalFields:required.size,
     verified, mismatch, unavailable, notApplicable,
     unverified:required.size-verified-mismatch-unavailable-notApplicable,
