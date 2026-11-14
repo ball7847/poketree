@@ -35,3 +35,18 @@ test("invalid fabricated or unsupported evidence is rejected",()=>{
  const wrong={schemaVersion:1,records:[{species:"pikachu",form:"normal",field:"base.badstat",status:"unverified",checked:false,source:null,version:null,reference:null}]};
  assert.match(audit(wrong,catalog).errors.join(" "),/unknown field target/);
 });
+
+test("verified values must match the game snapshot and cited expected value",()=>{
+ const valid={schemaVersion:1,records:[{
+ species:"starmie",form:"mega",field:"base.attack",status:"verified",checked:true,
+ source:"champions-reference",version:"champions",reference:"https://bulbapedia.bulbagarden.net/wiki/Base_stats",
+ observedValue:100,expectedValue:100
+ }]};
+ assert.equal(audit(valid,catalog).errors.length,0);
+ valid.records[0].expectedValue=140;
+ assert.match(audit(valid,catalog).errors.join(" "),/value\/status conflict/);
+ valid.records[0].status="mismatch";
+ assert.equal(audit(valid,catalog).errors.length,0);
+ valid.records[0].observedValue=999;
+ assert.match(audit(valid,catalog).errors.join(" "),/snapshot changed/);
+});
