@@ -951,11 +951,13 @@
       "championsSeptemberMC": 42
     },
     "confirmedErrors": 0,
-    "referenceDisagreementsNeedReview": 0,
+    "referenceDisagreementsNeedReview": 15,
     "fieldEvidenceVerifiedAgainstAprilSnapshot": 2047,
     "legacyProvenanceRecordsWithoutPinnedAprilCorroboration": 6,
     "referenceDisagreementsTriaged": 24,
-    "proposedAbilityFieldCorrections": 6
+    "proposedAbilityFieldCorrections": 6,
+    "referenceDisagreementsNoChangeSuggested": 9,
+    "referenceDisagreementsRequireDecision": 15
   },
   "speciesLevelCrossCheck": {
     "source": "Showdown default species entries; form-specific differences are not proven errors",
