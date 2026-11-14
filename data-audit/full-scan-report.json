@@ -928,7 +928,8 @@
     "Pokemon/forms with ambiguous mappings excluded, not counted as mismatches.",
     "A source repository verified flag is not independent game verification.",
     "Evolution, experience, gender, cosmetic, and growth fields need versioned independent references.",
-    "Historical 66 'verified' records predate this batch audit and are not automatically accepted as edition-verified."
+    "Historical 66 'verified' records predate this batch audit and are not automatically accepted as edition-verified.",
+    "All 24 external disagreements are triaged, but the 6 Cosplay Pikachu suggested changes await user approval; 9 form-vs-encounter models require semantics clarification; 9 Mega forms have no approved Champions ability data."
   ],
   "validationNote": "Initial regex-based ability-slot normalization was corrected; nonstandard source slot 'S' is not assumed to be game bug. Showdown Minior default is form-ambiguous.",
   "sourceCommits": {
@@ -950,9 +951,11 @@
       "championsSeptemberMC": 42
     },
     "confirmedErrors": 0,
-    "referenceDisagreementsNeedReview": 24,
+    "referenceDisagreementsNeedReview": 0,
     "fieldEvidenceVerifiedAgainstAprilSnapshot": 2047,
-    "legacyProvenanceRecordsWithoutPinnedAprilCorroboration": 6
+    "legacyProvenanceRecordsWithoutPinnedAprilCorroboration": 6,
+    "referenceDisagreementsTriaged": 24,
+    "proposedAbilityFieldCorrections": 6
   },
   "speciesLevelCrossCheck": {
     "source": "Showdown default species entries; form-specific differences are not proven errors",
@@ -1111,5 +1114,14 @@
         "disagreements": []
       }
     ]
+  },
+  "candidateResolution": {
+    "path": "data-audit/candidate-resolution-2026-11-14.json",
+    "reviewed": 24,
+    "likelyCorrections": 6,
+    "formOrEncounterDataModel": 9,
+    "outsideChampionsWithNoActiveZAAbilities": 9,
+    "notAssessed": 0,
+    "gameDataModified": false
   }
 }
