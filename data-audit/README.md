@@ -15,7 +15,9 @@
 ## 필드 경로
 공통(폼=null): `name`, `dex`, `genderRate`, `growth`, `baseExp`, `evolvesFrom`, `evolutionChain`.
 각 폼: `types`, `base.hp`, `base.attack`, `base.defense`, `base.spAttack`, `base.spDefense`, `base.speed`, `abilities`, `baseExp`.
-원본 폼 항목: `form="cosmetic:<원본 폼 id>"`, `field="cosmetic.identifier"` 등의 필드를 사용한다.\n진화 상세 원본 행: `form="evolution:<진화 행 id>"`, `field="evolution.trigger"`, `field="evolution.minimum_level"` 등 해당 원본 행에 존재하는 필드별로 구분한다.\n기록에 없는 필드는 검증 완료로 추론하지 않는다.
+원본 폼 항목: `form="cosmetic:<원본 폼 id>"`, `field="cosmetic.identifier"` 등의 필드를 사용한다.
+진화 상세 원본 행: `form="evolution:<진화 행 id>"`, `field="evolution.trigger"`, `field="evolution.minimum_level"` 등 해당 원본 행에 존재하는 필드별로 구분한다.
+기록에 없는 필드는 검증 완료로 추론하지 않는다.
 
 ## 증거 입력
 레코드 필수값: `species`, `field`, `status`, `checked`, `source`, `version`, `reference`.
