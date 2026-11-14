@@ -941,7 +941,8 @@
       "champions": 2056,
       "showdown": 10336,
       "genderAndEvolution": 2050,
-      "total": 14442
+      "total": 14484,
+      "championsSeptemberMC": 42
     },
     "confirmedErrors": 0,
     "referenceDisagreementsNeedReview": 24
@@ -1049,6 +1050,58 @@
         "stored": "wooper",
         "reference": "Wooper-Paldea",
         "classification": "regional-form-versus-species"
+      }
+    ]
+  },
+  "championsSeptemberMC": {
+    "reference": "https://github.com/Seancheey/PokeDD/blob/145c75d28e5a13cc7d92d089747fdd22e75f9dda/prisma/data/champions-mc.json",
+    "checkedOn": "2026-09-16",
+    "formRows": 6,
+    "fieldsCompared": 42,
+    "matches": 6,
+    "disagreements": [],
+    "rows": [
+      {
+        "id": "absol",
+        "form": "mega-z",
+        "matched": true,
+        "fieldsCompared": 7,
+        "disagreements": []
+      },
+      {
+        "id": "salamence",
+        "form": "mega",
+        "matched": true,
+        "fieldsCompared": 7,
+        "disagreements": []
+      },
+      {
+        "id": "garchomp",
+        "form": "mega-z",
+        "matched": true,
+        "fieldsCompared": 7,
+        "disagreements": []
+      },
+      {
+        "id": "lucario",
+        "form": "mega-z",
+        "matched": true,
+        "fieldsCompared": 7,
+        "disagreements": []
+      },
+      {
+        "id": "golisopod",
+        "form": "mega",
+        "matched": true,
+        "fieldsCompared": 7,
+        "disagreements": []
+      },
+      {
+        "id": "baxcalibur",
+        "form": "mega",
+        "matched": true,
+        "fieldsCompared": 7,
+        "disagreements": []
       }
     ]
   }
