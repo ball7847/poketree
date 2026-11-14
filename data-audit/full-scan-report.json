@@ -939,9 +939,89 @@
     "championsRowsUnmappedOrPartial": 2,
     "sourceFieldComparisons": {
       "champions": 2056,
-      "showdown": 10336
+      "showdown": 10336,
+      "genderAndEvolution": 2050,
+      "total": 14442
     },
     "confirmedErrors": 0,
     "referenceDisagreementsNeedReview": 24
+  },
+  "speciesLevelCrossCheck": {
+    "source": "Showdown default species entries; form-specific differences are not proven errors",
+    "genderRateCompared": 1025,
+    "evolvesFromCompared": 1025,
+    "missingSpecies": 0,
+    "differences": [
+      {
+        "id": "meowstic",
+        "field": "genderRate",
+        "classification": "Showdown default is male form; source-model difference"
+      },
+      {
+        "id": "melmetal",
+        "field": "evolvesFrom",
+        "classification": "Showdown missing pre-evolution; not proof source is wrong"
+      },
+      {
+        "id": "obstagoon",
+        "field": "evolvesFrom",
+        "classification": "Showdown references Galarian Linoone form, catalog references species"
+      },
+      {
+        "id": "perrserker",
+        "field": "evolvesFrom",
+        "classification": "Showdown references Galarian Meowth form, catalog references species"
+      },
+      {
+        "id": "cursola",
+        "field": "evolvesFrom",
+        "classification": "Showdown references Galarian Corsola form, catalog references species"
+      },
+      {
+        "id": "sirfetchd",
+        "field": "evolvesFrom",
+        "classification": "Showdown references Galarian Farfetch'd form, catalog references species"
+      },
+      {
+        "id": "mr-rime",
+        "field": "evolvesFrom",
+        "classification": "Showdown references Galarian Mr. Mime form, catalog references species"
+      },
+      {
+        "id": "runerigus",
+        "field": "evolvesFrom",
+        "classification": "Showdown references Galarian Yamask form, catalog references species"
+      },
+      {
+        "id": "indeedee",
+        "field": "genderRate",
+        "classification": "Showdown default is male form; source-model difference"
+      },
+      {
+        "id": "basculegion",
+        "field": "genderRate",
+        "classification": "Showdown default is male form; source-model difference"
+      },
+      {
+        "id": "basculegion",
+        "field": "evolvesFrom",
+        "classification": "Showdown references White-Striped Basculin form, catalog references species"
+      },
+      {
+        "id": "sneasler",
+        "field": "evolvesFrom",
+        "classification": "Showdown references Hisuian Sneasel form, catalog references species"
+      },
+      {
+        "id": "overqwil",
+        "field": "evolvesFrom",
+        "classification": "Showdown references Hisuian Qwilfish form, catalog references species"
+      },
+      {
+        "id": "clodsire",
+        "field": "evolvesFrom",
+        "classification": "Showdown references Paldean Wooper form, catalog references species"
+      }
+    ]
   }
 }
