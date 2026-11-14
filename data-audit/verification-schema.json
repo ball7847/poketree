@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PokeTree field-level Pokémon verification records",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "records"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "species",
+          "field",
+          "status",
+          "checked",
+          "source",
+          "version",
+          "reference"
+        ],
+        "properties": {
+          "species": {
+            "type": "string",
+            "minLength": 1
+          },
+          "form": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "field": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "unverified",
+              "verified",
+              "mismatch",
+              "unavailable",
+              "not_applicable"
+            ]
+          },
+          "checked": {
+            "type": "boolean"
+          },
+          "source": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "version": {
+            "type": [
+              "string",
+              "integer",
+              "null"
+            ]
+          },
+          "reference": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uri"
+          },
+          "observedValue": {},
+          "expectedValue": {},
+          "note": {
+            "type": "string"
+          },
+          "checkedAt": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      }
+    }
+  }
+}
