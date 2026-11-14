@@ -11,6 +11,20 @@ const demoSpecies={
   pikachu:{name:"피카츄",dex:25,baseExp:112,genderRate:4,growth:"medium-fast",forms:{normal:{name:"기본형",types:["electric"],base:{hp:35,attack:55,defense:40,spAttack:50,spDefense:50,speed:90}}}},
   eevee:{name:"이브이",dex:133,baseExp:65,genderRate:1,growth:"medium-fast",forms:{normal:{name:"기본형",types:["normal"],base:{hp:55,attack:55,defense:50,spAttack:45,spDefense:65,speed:55}}}}
 };
+// ORAS Cosplay Pikachu is always given Lightning Rod, including when
+// wearing any of its five contest costumes. Preserve the pinned PokéAPI
+// catalog verbatim and override only these six playable form records.
+const cosplayForms=["rock-star","belle","pop-star","phd","libre","cosplay"];
+const cosplayAbility=Object.freeze([{id:"lightning-rod",hidden:false,slot:1}]);
+const applyCosplayAbilities=species=>({
+  ...species,
+  forms:{
+    ...species.forms,
+    ...Object.fromEntries(cosplayForms.map(id=>[
+      id,{...species.forms[id],abilities:cosplayAbility}
+    ]))
+  }
+});
 window.POKE_SPECIES=Object.freeze(Object.fromEntries(Object.entries(window.POKE_NATIONAL_CATALOG.species).map(([id,base])=>
- [id,demoSpecies[id]?{...base,...demoSpecies[id],forms:{...base.forms,...demoSpecies[id].forms}}:base]
+ [id,id==="pikachu"?applyCosplayAbilities({...base,...demoSpecies[id],forms:{...base.forms,...demoSpecies[id].forms}}):demoSpecies[id]?{...base,...demoSpecies[id],forms:{...base.forms,...demoSpecies[id].forms}}:base]
 )));
