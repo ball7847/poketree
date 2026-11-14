@@ -955,72 +955,100 @@
       {
         "id": "meowstic",
         "field": "genderRate",
-        "classification": "Showdown default is male form; source-model difference"
+        "stored": 4,
+        "reference": 0,
+        "classification": "default-male-form-not-species-gender"
       },
       {
         "id": "melmetal",
         "field": "evolvesFrom",
-        "classification": "Showdown missing pre-evolution; not proof source is wrong"
+        "stored": "meltan",
+        "reference": null,
+        "classification": "requires-review"
       },
       {
         "id": "obstagoon",
         "field": "evolvesFrom",
-        "classification": "Showdown references Galarian Linoone form, catalog references species"
+        "stored": "linoone",
+        "reference": "Linoone-Galar",
+        "classification": "regional-form-versus-species"
       },
       {
         "id": "perrserker",
         "field": "evolvesFrom",
-        "classification": "Showdown references Galarian Meowth form, catalog references species"
+        "stored": "meowth",
+        "reference": "Meowth-Galar",
+        "classification": "regional-form-versus-species"
       },
       {
         "id": "cursola",
         "field": "evolvesFrom",
-        "classification": "Showdown references Galarian Corsola form, catalog references species"
+        "stored": "corsola",
+        "reference": "Corsola-Galar",
+        "classification": "regional-form-versus-species"
       },
       {
         "id": "sirfetchd",
         "field": "evolvesFrom",
-        "classification": "Showdown references Galarian Farfetch'd form, catalog references species"
+        "stored": "farfetchd",
+        "reference": "Farfetch’d-Galar",
+        "classification": "regional-form-versus-species"
       },
       {
         "id": "mr-rime",
         "field": "evolvesFrom",
-        "classification": "Showdown references Galarian Mr. Mime form, catalog references species"
+        "stored": "mr-mime",
+        "reference": "Mr. Mime-Galar",
+        "classification": "regional-form-versus-species"
       },
       {
         "id": "runerigus",
         "field": "evolvesFrom",
-        "classification": "Showdown references Galarian Yamask form, catalog references species"
+        "stored": "yamask",
+        "reference": "Yamask-Galar",
+        "classification": "regional-form-versus-species"
       },
       {
         "id": "indeedee",
         "field": "genderRate",
-        "classification": "Showdown default is male form; source-model difference"
+        "stored": 4,
+        "reference": 0,
+        "classification": "default-male-form-not-species-gender"
       },
       {
         "id": "basculegion",
         "field": "genderRate",
-        "classification": "Showdown default is male form; source-model difference"
+        "stored": 4,
+        "reference": 0,
+        "classification": "default-male-form-not-species-gender"
       },
       {
         "id": "basculegion",
         "field": "evolvesFrom",
-        "classification": "Showdown references White-Striped Basculin form, catalog references species"
+        "stored": "basculin",
+        "reference": "Basculin-White-Striped",
+        "classification": "regional-form-versus-species"
       },
       {
         "id": "sneasler",
         "field": "evolvesFrom",
-        "classification": "Showdown references Hisuian Sneasel form, catalog references species"
+        "stored": "sneasel",
+        "reference": "Sneasel-Hisui",
+        "classification": "regional-form-versus-species"
       },
       {
         "id": "overqwil",
         "field": "evolvesFrom",
-        "classification": "Showdown references Hisuian Qwilfish form, catalog references species"
+        "stored": "qwilfish",
+        "reference": "Qwilfish-Hisui",
+        "classification": "regional-form-versus-species"
       },
       {
         "id": "clodsire",
         "field": "evolvesFrom",
-        "classification": "Showdown references Paldean Wooper form, catalog references species"
+        "stored": "wooper",
+        "reference": "Wooper-Paldea",
+        "classification": "regional-form-versus-species"
       }
     ]
   }
