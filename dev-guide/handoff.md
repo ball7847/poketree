@@ -1,4 +1,16 @@
-# 다음 대화 개발 인수인계 — 2026-11-13 최신
+# 다음 대화 개발 인수인계 — 2026-11-14 최신
+
+## 2026-11-14 확인된 오류 최소 수정: 코스프레 피카츄 특성 6폼 (최신)
+
+- 사용자 요청 "수정 필요한 거만 수정"에 따라 **확인된 6개 코스프레 피카츄 폼의 실제 적용 특성만** 교정. 대상: `rock-star`, `belle`, `pop-star`, `phd`, `libre`, `cosplay`.
+- 원작 오메가루비·알파사파이어 코스프레 피카츄의 특성: **Lightning Rod(피뢰침) 단일**, 숨겨진 슬롯이 아니라 실제 적용 가능한 한 특성. 출처: `https://bulbapedia.bulbagarden.net/wiki/Lightning_Rod_(Ability)`, `https://bulbapedia.bulbagarden.net/wiki/Contest_Hall`.
+- 원본 출처 보존: **`game/data/national-catalog.js`는 수정하지 않음.** 해당 파일은 고정 PokéAPI 스냅샷이고 재생성 스크립트와 일치해야 하므로 `game/data/species.js`의 최종 `POKE_SPECIES.pikachu.forms`에만 6폼 적용값을 덮어씀. 일반 피카츄는 변경 없음.
+- `tests/cosplay-pikachu.test.cjs`에 6폼 특성, 일반 피카츄 불변, 원본 스냅샷 불변, 1,025종 구조 확인 테스트 추가.
+- `data-audit/candidate-resolution-2026-11-14.json`에 6건 적용 기록, `data-audit/full-scan-report.json`에 소스 비교 값과 게임 적용값 구분. 원본 스냅샷과 Showdown을 비교하는 스크립트는 **여전히 6건 차이를 보고하는 것이 정상**. 런타임 `POKE_SPECIES`에는 정정 반영됨.
+- 나머지 18개 후보(주인 7, 달마모드 2, 챔피언스 미등장 메가폼 9)는 임의 수정하지 않음. 종족값, 경험치, 진화, 전투 공식, 저장 스키마 등 영향 없음.
+- GitHub Actions 전체 회귀 및 브라우저 테스트 성공 여부는 별도로 확인할 것. 코드 평가로 해당 6폼 적용 특성만 확인했으며 테스트 러너 전체 실행 증거는 아직 없음.
+
+
 
 ## 2026-11-14 승인 범위: 24개 불일치 출처 확인·분류 (최신)
 
