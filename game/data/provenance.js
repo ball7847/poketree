@@ -5,6 +5,12 @@
  */
 window.POKE_DATA_PROVENANCE = Object.freeze({
   priority:Object.freeze(["champions",9,8,7,6,5,4,3,2,1]),
+  // Verification details are deliberately kept out of the browser bundle.
+  // Sparse, field/form-specific evidence: data-audit/verification-records.json.
+  // Run node scripts/audit-pokemon-data.cjs --write to generate the report.
+  auditSchemaVersion:1,
+  auditRecordsPath:"data-audit/verification-records.json",
+  auditReportPath:"data-audit/verification-report.json",
   fields:Object.freeze(["base","types","genderRate","growth","baseExp"]),
   nationalSnapshot:Object.freeze({provider:"PokeAPI/pokeapi",revision:"8a92bfa7dab2f12b84b5d151562f9857c133ff30",verifiedAgainstChampions:false,scope:"PokeAPI snapshot; version priority unverified"}),
   sources:Object.freeze({
