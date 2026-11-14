@@ -87,6 +87,21 @@ async function run(){
   showdown.matchedForms++;showdown.comparedFields+=8;
   showdown.disagreements.push(...compareForm(f,candidate.baseStats,candidate.types,candidate.abilities,{id,form,dex:s.dex}));
  }
+ const species={matched:0,genderCompared:0,evolutionCompared:0,unmatched:[],differences:[]};
+ for(const [id,s] of Object.entries(catalog)){
+  const x=show[norm(id)];
+  if(!x || x.num!==s.dex){species.unmatched.push(id);continue;}
+  species.matched++;
+  const female=x.gender==="N"?-1:x.gender==="M"?0:x.gender==="F"?8:
+    x.genderRatio?Math.round(x.genderRatio.F*8):4;
+  species.genderCompared++;
+  if(s.genderRate!==female)species.differences.push({id,field:"genderRate",stored:s.genderRate,reference:female,
+    classification:["meowstic","indeedee","basculegion"].includes(id)?"gender-form-model-difference":"requires-manual-check"});
+  const prevo=x.prevo?norm(x.prevo):null,localPrevo=s.evolvesFrom?norm(s.evolvesFrom):null;
+  species.evolutionCompared++;
+  if(prevo!==localPrevo)species.differences.push({id,field:"evolvesFrom",stored:s.evolvesFrom,reference:x.prevo||null,
+    classification:prevo&&localPrevo&&prevo.startsWith(localPrevo)?"evolution-form-vs-species-model":"requires-manual-check"});
+ }
  return {runDate:new Date().toISOString().slice(0,10),scope:"full pass, partial source coverage; NOT full edition validation",
  sourceCommits:{showdown:SHOWDOWN,champions:CHAMPIONS},
  sourceUrls:{showdown:SURL,championsRoster:CURL+"roster.json",championsStats:CURL+"base-stats.json"},
