@@ -15,7 +15,7 @@
 ## 필드 경로
 공통(폼=null): `name`, `dex`, `genderRate`, `growth`, `baseExp`, `evolvesFrom`, `evolutionChain`.
 각 폼: `types`, `base.hp`, `base.attack`, `base.defense`, `base.spAttack`, `base.spDefense`, `base.speed`, `abilities`, `baseExp`.
-실제 진화 조건의 상세 경로와 원본 폼(능력치 변형과 별도)의 종류별 검증은 후속 검수 때 스키마 버전 갱신 후 추가한다. 기록에 없는 필드는 검증 완료로 추론하지 않는다.
+원본 폼 항목: `form="cosmetic:<원본 폼 id>"`, `field="cosmetic.identifier"` 등의 필드를 사용한다.\n진화 상세 원본 행: `form="evolution:<진화 행 id>"`, `field="evolution.trigger"`, `field="evolution.minimum_level"` 등 해당 원본 행에 존재하는 필드별로 구분한다.\n기록에 없는 필드는 검증 완료로 추론하지 않는다.
 
 ## 증거 입력
 레코드 필수값: `species`, `field`, `status`, `checked`, `source`, `version`, `reference`.
@@ -34,5 +34,5 @@ node scripts/audit-pokemon-data.cjs --write
 node --test tests/*.test.cjs
 ```
 결과 `errors`가 0이어야 구조 검증을 통과한다. `unverified`는 결함 숫자가 아니라 향후 검수 규모다.
-보고서의 `totalFields`는 현재 **종족 공통 + 등록된 능력치 폼** 검증 대상 수이지 원본 폼 항목 1,579개를 모두 독립 검증했다는 뜻이 아니다.
+보고서의 `totalFields`에는 **종족 공통 + 능력치 폼 1,351개 + 원본 폼 1,579개 + 진화 원본 행 676개**의 필드가 포함된다. 원본 폼과 능력치 폼은 별개의 식별자 공간이다.
 이 단계는 웹게임에 네트워크 호출이나 데이터를 추가하지 않으며 `poketree-save-v1`을 유지한다.
