@@ -1,0 +1,846 @@
+{
+  "auditDate": "2026-11-14",
+  "goal": "Resolve all 24 ability disagreements from full-scan report without modifying gameplay data",
+  "sourcePriority": [
+    "champions",
+    9,
+    8,
+    7,
+    6,
+    5,
+    4,
+    3,
+    2,
+    1
+  ],
+  "officialRegulation": "M-C (2026-09-09 to 2026-12-02)",
+  "sourceRegistry": [
+    {
+      "edition": "Champions",
+      "source": "official M-C regulations",
+      "url": "https://champions-news.pokemon-home.com/ko/page/816.html",
+      "role": "official eligibility and new mega list; not a machine-readable complete stat/ability feed"
+    },
+    {
+      "edition": "Champions",
+      "source": "Serebii Mega Evolution AbilityDex",
+      "url": "https://www.serebii.net/pokemonchampions/megaabilities.shtml",
+      "role": "current mega ability listing; does not imply absent entries have no past form"
+    },
+    {
+      "edition": "Champions",
+      "source": "DexDB regulation catalog",
+      "url": "https://dexdb.io/champions/regulations/",
+      "role": "third-party roster reconciliation, 2026 M-C"
+    },
+    {
+      "edition": "9",
+      "source": "Showdown current pokedex",
+      "url": "https://github.com/smogon/pokemon-showdown/blob/7e743761cd13cdb361fc0f58eb5a866284894f5b/data/pokedex.ts",
+      "role": "current generation baseline, not independently pinning every field to one 9th-generation title"
+    },
+    {
+      "edition": "8",
+      "source": "Showdown Gen 8 overrides",
+      "url": "https://github.com/smogon/pokemon-showdown/blob/7e743761cd13cdb361fc0f58eb5a866284894f5b/data/mods/gen8/pokedex.ts",
+      "role": "only sparse overrides; merge with base with proper generation semantics"
+    },
+    {
+      "edition": "7",
+      "source": "Showdown Gen 7 overrides and USUM historical references",
+      "url": "https://github.com/smogon/pokemon-showdown/blob/7e743761cd13cdb361fc0f58eb5a866284894f5b/data/mods/gen7/pokedex.ts",
+      "role": "only sparse overrides; use verified USUM pages for totem details"
+    },
+    {
+      "edition": "6",
+      "source": "Showdown Gen 6 overrides and ORAS historical references",
+      "url": "https://github.com/smogon/pokemon-showdown/blob/7e743761cd13cdb361fc0f58eb5a866284894f5b/data/mods/gen6/pokedex.ts",
+      "role": "only sparse overrides; Cosplay Pikachu actual held ability via historical ORAS references"
+    },
+    {
+      "edition": "5",
+      "source": "Showdown Gen 5 overrides",
+      "url": "https://github.com/smogon/pokemon-showdown/blob/7e743761cd13cdb361fc0f58eb5a866284894f5b/data/mods/gen5/pokedex.ts",
+      "role": "sparse override; not independently a full snapshot"
+    },
+    {
+      "edition": "4",
+      "source": "Showdown Gen 4 overrides",
+      "url": "https://github.com/smogon/pokemon-showdown/blob/7e743761cd13cdb361fc0f58eb5a866284894f5b/data/mods/gen4/pokedex.ts",
+      "role": "sparse override; not independently a full snapshot"
+    },
+    {
+      "edition": "3",
+      "source": "Showdown 3rd-generation sources require further validation",
+      "url": "https://github.com/smogon/pokemon-showdown/tree/master/data/mods/gen3",
+      "role": "no pokedex.ts at the tested path; cannot claim independently verified"
+    },
+    {
+      "edition": "2",
+      "source": "Showdown Gen 2 overrides",
+      "url": "https://github.com/smogon/pokemon-showdown/blob/7e743761cd13cdb361fc0f58eb5a866284894f5b/data/mods/gen2/pokedex.ts",
+      "role": "sparse override"
+    },
+    {
+      "edition": "1",
+      "source": "Showdown Gen 1 overrides",
+      "url": "https://github.com/smogon/pokemon-showdown/blob/7e743761cd13cdb361fc0f58eb5a866284894f5b/data/mods/gen1/pokedex.ts",
+      "role": "sparse override; abilities did not exist in Generation 1"
+    }
+  ],
+  "candidateCount": 24,
+  "groupCounts": {
+    "likely_game_field_correction": 6,
+    "outside_current_champions_no_ability_in_ZA": 9,
+    "form_effect_not_independent_ability_choice": 2,
+    "fixed_encounter_vs_species_ability_model": 7
+  },
+  "candidates": [
+    {
+      "species": "pikachu",
+      "form": "rock-star",
+      "field": "abilities",
+      "classification": "likely_game_field_correction",
+      "highestApplicableSource": "6 (Omega Ruby/Alpha Sapphire)",
+      "local": [
+        {
+          "id": "static",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "lightningrod",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "showdownCurrent": [
+        {
+          "id": "lightningrod",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "assessment": "코스프레 피카츄는 실제 지급·착용폼에서 피뢰침(Lightning Rod)만 가진다. 현재 저장된 일반 피카츄의 정전기/숨겨진 피뢰침 목록을 각 복장 폼에 그대로 복제한 것이 부정확하다.",
+      "proposedAction": "해당 코스프레 폼의 특성을 일반 특성 Lightning Rod 하나로 정리하는 수정안을 제시하되 승인 전 게임 데이터 변경 금지.",
+      "referenceUrls": [
+        "https://bulbapedia.bulbagarden.net/wiki/Lightning_Rod_(Ability)",
+        "https://bulbapedia.bulbagarden.net/wiki/Contest_Hall"
+      ],
+      "gameDataChanged": false
+    },
+    {
+      "species": "pikachu",
+      "form": "belle",
+      "field": "abilities",
+      "classification": "likely_game_field_correction",
+      "highestApplicableSource": "6 (Omega Ruby/Alpha Sapphire)",
+      "local": [
+        {
+          "id": "static",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "lightningrod",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "showdownCurrent": [
+        {
+          "id": "lightningrod",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "assessment": "코스프레 피카츄는 실제 지급·착용폼에서 피뢰침(Lightning Rod)만 가진다. 현재 저장된 일반 피카츄의 정전기/숨겨진 피뢰침 목록을 각 복장 폼에 그대로 복제한 것이 부정확하다.",
+      "proposedAction": "해당 코스프레 폼의 특성을 일반 특성 Lightning Rod 하나로 정리하는 수정안을 제시하되 승인 전 게임 데이터 변경 금지.",
+      "referenceUrls": [
+        "https://bulbapedia.bulbagarden.net/wiki/Lightning_Rod_(Ability)",
+        "https://bulbapedia.bulbagarden.net/wiki/Contest_Hall"
+      ],
+      "gameDataChanged": false
+    },
+    {
+      "species": "pikachu",
+      "form": "pop-star",
+      "field": "abilities",
+      "classification": "likely_game_field_correction",
+      "highestApplicableSource": "6 (Omega Ruby/Alpha Sapphire)",
+      "local": [
+        {
+          "id": "static",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "lightningrod",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "showdownCurrent": [
+        {
+          "id": "lightningrod",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "assessment": "코스프레 피카츄는 실제 지급·착용폼에서 피뢰침(Lightning Rod)만 가진다. 현재 저장된 일반 피카츄의 정전기/숨겨진 피뢰침 목록을 각 복장 폼에 그대로 복제한 것이 부정확하다.",
+      "proposedAction": "해당 코스프레 폼의 특성을 일반 특성 Lightning Rod 하나로 정리하는 수정안을 제시하되 승인 전 게임 데이터 변경 금지.",
+      "referenceUrls": [
+        "https://bulbapedia.bulbagarden.net/wiki/Lightning_Rod_(Ability)",
+        "https://bulbapedia.bulbagarden.net/wiki/Contest_Hall"
+      ],
+      "gameDataChanged": false
+    },
+    {
+      "species": "pikachu",
+      "form": "phd",
+      "field": "abilities",
+      "classification": "likely_game_field_correction",
+      "highestApplicableSource": "6 (Omega Ruby/Alpha Sapphire)",
+      "local": [
+        {
+          "id": "static",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "lightningrod",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "showdownCurrent": [
+        {
+          "id": "lightningrod",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "assessment": "코스프레 피카츄는 실제 지급·착용폼에서 피뢰침(Lightning Rod)만 가진다. 현재 저장된 일반 피카츄의 정전기/숨겨진 피뢰침 목록을 각 복장 폼에 그대로 복제한 것이 부정확하다.",
+      "proposedAction": "해당 코스프레 폼의 특성을 일반 특성 Lightning Rod 하나로 정리하는 수정안을 제시하되 승인 전 게임 데이터 변경 금지.",
+      "referenceUrls": [
+        "https://bulbapedia.bulbagarden.net/wiki/Lightning_Rod_(Ability)",
+        "https://bulbapedia.bulbagarden.net/wiki/Contest_Hall"
+      ],
+      "gameDataChanged": false
+    },
+    {
+      "species": "pikachu",
+      "form": "libre",
+      "field": "abilities",
+      "classification": "likely_game_field_correction",
+      "highestApplicableSource": "6 (Omega Ruby/Alpha Sapphire)",
+      "local": [
+        {
+          "id": "static",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "lightningrod",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "showdownCurrent": [
+        {
+          "id": "lightningrod",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "assessment": "코스프레 피카츄는 실제 지급·착용폼에서 피뢰침(Lightning Rod)만 가진다. 현재 저장된 일반 피카츄의 정전기/숨겨진 피뢰침 목록을 각 복장 폼에 그대로 복제한 것이 부정확하다.",
+      "proposedAction": "해당 코스프레 폼의 특성을 일반 특성 Lightning Rod 하나로 정리하는 수정안을 제시하되 승인 전 게임 데이터 변경 금지.",
+      "referenceUrls": [
+        "https://bulbapedia.bulbagarden.net/wiki/Lightning_Rod_(Ability)",
+        "https://bulbapedia.bulbagarden.net/wiki/Contest_Hall"
+      ],
+      "gameDataChanged": false
+    },
+    {
+      "species": "pikachu",
+      "form": "cosplay",
+      "field": "abilities",
+      "classification": "likely_game_field_correction",
+      "highestApplicableSource": "6 (Omega Ruby/Alpha Sapphire)",
+      "local": [
+        {
+          "id": "static",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "lightningrod",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "showdownCurrent": [
+        {
+          "id": "lightningrod",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "assessment": "코스프레 피카츄는 실제 지급·착용폼에서 피뢰침(Lightning Rod)만 가진다. 현재 저장된 일반 피카츄의 정전기/숨겨진 피뢰침 목록을 각 복장 폼에 그대로 복제한 것이 부정확하다.",
+      "proposedAction": "해당 코스프레 폼의 특성을 일반 특성 Lightning Rod 하나로 정리하는 수정안을 제시하되 승인 전 게임 데이터 변경 금지.",
+      "referenceUrls": [
+        "https://bulbapedia.bulbagarden.net/wiki/Lightning_Rod_(Ability)",
+        "https://bulbapedia.bulbagarden.net/wiki/Contest_Hall"
+      ],
+      "gameDataChanged": false
+    },
+    {
+      "species": "heatran",
+      "form": "mega",
+      "field": "abilities",
+      "classification": "outside_current_champions_no_ability_in_ZA",
+      "highestApplicableSource": "9 (Legends Z-A / Mega Dimension)",
+      "local": [],
+      "showdownCurrent": [
+        {
+          "id": "flashfire",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "flamebody",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "assessment": "2026년 11월 레귤레이션 M-C 챔피언스 등록 대상이 아닌 신규 메가폼으로, Z-A에서는 특성이 작동하지 않는다. Showdown의 가상/상속 특성 기록을 챔피언스의 실제 특성이라고 간주할 수 없다.",
+      "proposedAction": "현재 특성 목록 비어 있음 유지. 챔피언스 출시/도입 이후 검증된 데이터가 있으면 재검수.",
+      "referenceUrls": [
+        "https://champions-news.pokemon-home.com/ko/page/816.html",
+        "https://dexdb.io/champions/regulations/",
+        "https://bulbapedia.bulbagarden.net/wiki/Ability"
+      ],
+      "gameDataChanged": false
+    },
+    {
+      "species": "darkrai",
+      "form": "mega",
+      "field": "abilities",
+      "classification": "outside_current_champions_no_ability_in_ZA",
+      "highestApplicableSource": "9 (Legends Z-A / Mega Dimension)",
+      "local": [],
+      "showdownCurrent": [
+        {
+          "id": "baddreams",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "assessment": "2026년 11월 레귤레이션 M-C 챔피언스 등록 대상이 아닌 신규 메가폼으로, Z-A에서는 특성이 작동하지 않는다. Showdown의 가상/상속 특성 기록을 챔피언스의 실제 특성이라고 간주할 수 없다.",
+      "proposedAction": "현재 특성 목록 비어 있음 유지. 챔피언스 출시/도입 이후 검증된 데이터가 있으면 재검수.",
+      "referenceUrls": [
+        "https://champions-news.pokemon-home.com/ko/page/816.html",
+        "https://dexdb.io/champions/regulations/",
+        "https://bulbapedia.bulbagarden.net/wiki/Ability"
+      ],
+      "gameDataChanged": false
+    },
+    {
+      "species": "darmanitan",
+      "form": "zen",
+      "field": "abilities",
+      "classification": "form_effect_not_independent_ability_choice",
+      "highestApplicableSource": "5+",
+      "local": [
+        {
+          "id": "sheerforce",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "zenmode",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "showdownCurrent": [
+        {
+          "id": "zenmode",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "assessment": "달마모드는 숨겨진 특성에 따른 변신 결과다. 폼별 특성 리스트를 선택 가능한 특성 목록으로 해석하면 부정확하지만 종족의 잠재 특성 자료를 중복 보관한 경우일 수 있다.",
+      "proposedAction": "실제 변신 시 사용 중인 특성과 종족별 가용 특성 데이터의 의미를 분리. 수치 수정은 보류.",
+      "referenceUrls": [
+        "https://bulbapedia.bulbagarden.net/wiki/Zen_Mode_(Ability)"
+      ],
+      "gameDataChanged": false
+    },
+    {
+      "species": "darmanitan",
+      "form": "galar-zen",
+      "field": "abilities",
+      "classification": "form_effect_not_independent_ability_choice",
+      "highestApplicableSource": "8+",
+      "local": [
+        {
+          "id": "gorillatactics",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "zenmode",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "showdownCurrent": [
+        {
+          "id": "zenmode",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "assessment": "달마모드는 숨겨진 특성에 따른 변신 결과다. 폼별 특성 리스트를 선택 가능한 특성 목록으로 해석하면 부정확하지만 종족의 잠재 특성 자료를 중복 보관한 경우일 수 있다.",
+      "proposedAction": "실제 변신 시 사용 중인 특성과 종족별 가용 특성 데이터의 의미를 분리. 수치 수정은 보류.",
+      "referenceUrls": [
+        "https://bulbapedia.bulbagarden.net/wiki/Zen_Mode_(Ability)"
+      ],
+      "gameDataChanged": false
+    },
+    {
+      "species": "zygarde",
+      "form": "mega",
+      "field": "abilities",
+      "classification": "outside_current_champions_no_ability_in_ZA",
+      "highestApplicableSource": "9 (Legends Z-A / Mega Dimension)",
+      "local": [],
+      "showdownCurrent": [
+        {
+          "id": "aurabreak",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "assessment": "2026년 11월 레귤레이션 M-C 챔피언스 등록 대상이 아닌 신규 메가폼으로, Z-A에서는 특성이 작동하지 않는다. Showdown의 가상/상속 특성 기록을 챔피언스의 실제 특성이라고 간주할 수 없다.",
+      "proposedAction": "현재 특성 목록 비어 있음 유지. 챔피언스 출시/도입 이후 검증된 데이터가 있으면 재검수.",
+      "referenceUrls": [
+        "https://champions-news.pokemon-home.com/ko/page/816.html",
+        "https://dexdb.io/champions/regulations/",
+        "https://bulbapedia.bulbagarden.net/wiki/Ability"
+      ],
+      "gameDataChanged": false
+    },
+    {
+      "species": "gumshoos",
+      "form": "totem",
+      "field": "abilities",
+      "classification": "fixed_encounter_vs_species_ability_model",
+      "highestApplicableSource": "7 (Ultra Sun/Ultra Moon)",
+      "local": [
+        {
+          "id": "stakeout",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "strongjaw",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "adaptability",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "showdownCurrent": [
+        {
+          "id": "adaptability",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "assessment": "울트라썬/울트라문의 스티커로 받는 주인 크기 포켓몬의 특성은 종족 전체 특성 목록과 다르게 고정된다. 현재 PokeAPI 계열 폼 데이터는 종족 가용 특성을 나열한다.",
+      "proposedAction": "주인 폼의 획득형 고정 특성과 종족 전체 가능한 특성을 별도 필드로 구분할지 확정해야 함. 변경 미승인.",
+      "referenceUrls": [
+        "https://bulbapedia.bulbagarden.net/wiki/Totem_Pok%C3%A9mon"
+      ],
+      "gameDataChanged": false
+    },
+    {
+      "species": "ribombee",
+      "form": "totem",
+      "field": "abilities",
+      "classification": "fixed_encounter_vs_species_ability_model",
+      "highestApplicableSource": "7 (Ultra Sun/Ultra Moon)",
+      "local": [
+        {
+          "id": "honeygather",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "shielddust",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "sweetveil",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "showdownCurrent": [
+        {
+          "id": "sweetveil",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "assessment": "울트라썬/울트라문의 스티커로 받는 주인 크기 포켓몬의 특성은 종족 전체 특성 목록과 다르게 고정된다. 현재 PokeAPI 계열 폼 데이터는 종족 가용 특성을 나열한다.",
+      "proposedAction": "주인 폼의 획득형 고정 특성과 종족 전체 가능한 특성을 별도 필드로 구분할지 확정해야 함. 변경 미승인.",
+      "referenceUrls": [
+        "https://bulbapedia.bulbagarden.net/wiki/Totem_Pok%C3%A9mon"
+      ],
+      "gameDataChanged": false
+    },
+    {
+      "species": "araquanid",
+      "form": "totem",
+      "field": "abilities",
+      "classification": "fixed_encounter_vs_species_ability_model",
+      "highestApplicableSource": "7 (Ultra Sun/Ultra Moon)",
+      "local": [
+        {
+          "id": "waterbubble",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "waterabsorb",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "showdownCurrent": [
+        {
+          "id": "waterbubble",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "assessment": "울트라썬/울트라문의 스티커로 받는 주인 크기 포켓몬의 특성은 종족 전체 특성 목록과 다르게 고정된다. 현재 PokeAPI 계열 폼 데이터는 종족 가용 특성을 나열한다.",
+      "proposedAction": "주인 폼의 획득형 고정 특성과 종족 전체 가능한 특성을 별도 필드로 구분할지 확정해야 함. 변경 미승인.",
+      "referenceUrls": [
+        "https://bulbapedia.bulbagarden.net/wiki/Totem_Pok%C3%A9mon"
+      ],
+      "gameDataChanged": false
+    },
+    {
+      "species": "lurantis",
+      "form": "totem",
+      "field": "abilities",
+      "classification": "fixed_encounter_vs_species_ability_model",
+      "highestApplicableSource": "7 (Ultra Sun/Ultra Moon)",
+      "local": [
+        {
+          "id": "leafguard",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "contrary",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "showdownCurrent": [
+        {
+          "id": "leafguard",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "assessment": "울트라썬/울트라문의 스티커로 받는 주인 크기 포켓몬의 특성은 종족 전체 특성 목록과 다르게 고정된다. 현재 PokeAPI 계열 폼 데이터는 종족 가용 특성을 나열한다.",
+      "proposedAction": "주인 폼의 획득형 고정 특성과 종족 전체 가능한 특성을 별도 필드로 구분할지 확정해야 함. 변경 미승인.",
+      "referenceUrls": [
+        "https://bulbapedia.bulbagarden.net/wiki/Totem_Pok%C3%A9mon"
+      ],
+      "gameDataChanged": false
+    },
+    {
+      "species": "salazzle",
+      "form": "totem",
+      "field": "abilities",
+      "classification": "fixed_encounter_vs_species_ability_model",
+      "highestApplicableSource": "7 (Ultra Sun/Ultra Moon)",
+      "local": [
+        {
+          "id": "corrosion",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "oblivious",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "showdownCurrent": [
+        {
+          "id": "corrosion",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "assessment": "울트라썬/울트라문의 스티커로 받는 주인 크기 포켓몬의 특성은 종족 전체 특성 목록과 다르게 고정된다. 현재 PokeAPI 계열 폼 데이터는 종족 가용 특성을 나열한다.",
+      "proposedAction": "주인 폼의 획득형 고정 특성과 종족 전체 가능한 특성을 별도 필드로 구분할지 확정해야 함. 변경 미승인.",
+      "referenceUrls": [
+        "https://bulbapedia.bulbagarden.net/wiki/Totem_Pok%C3%A9mon"
+      ],
+      "gameDataChanged": false
+    },
+    {
+      "species": "togedemaru",
+      "form": "totem",
+      "field": "abilities",
+      "classification": "fixed_encounter_vs_species_ability_model",
+      "highestApplicableSource": "7 (Ultra Sun/Ultra Moon)",
+      "local": [
+        {
+          "id": "ironbarbs",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "lightningrod",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "sturdy",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "showdownCurrent": [
+        {
+          "id": "sturdy",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "assessment": "울트라썬/울트라문의 스티커로 받는 주인 크기 포켓몬의 특성은 종족 전체 특성 목록과 다르게 고정된다. 현재 PokeAPI 계열 폼 데이터는 종족 가용 특성을 나열한다.",
+      "proposedAction": "주인 폼의 획득형 고정 특성과 종족 전체 가능한 특성을 별도 필드로 구분할지 확정해야 함. 변경 미승인.",
+      "referenceUrls": [
+        "https://bulbapedia.bulbagarden.net/wiki/Totem_Pok%C3%A9mon"
+      ],
+      "gameDataChanged": false
+    },
+    {
+      "species": "kommo-o",
+      "form": "totem",
+      "field": "abilities",
+      "classification": "fixed_encounter_vs_species_ability_model",
+      "highestApplicableSource": "7 (Ultra Sun/Ultra Moon)",
+      "local": [
+        {
+          "id": "bulletproof",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "soundproof",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "overcoat",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "showdownCurrent": [
+        {
+          "id": "overcoat",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "assessment": "울트라썬/울트라문의 스티커로 받는 주인 크기 포켓몬의 특성은 종족 전체 특성 목록과 다르게 고정된다. 현재 PokeAPI 계열 폼 데이터는 종족 가용 특성을 나열한다.",
+      "proposedAction": "주인 폼의 획득형 고정 특성과 종족 전체 가능한 특성을 별도 필드로 구분할지 확정해야 함. 변경 미승인.",
+      "referenceUrls": [
+        "https://bulbapedia.bulbagarden.net/wiki/Totem_Pok%C3%A9mon"
+      ],
+      "gameDataChanged": false
+    },
+    {
+      "species": "magearna",
+      "form": "mega",
+      "field": "abilities",
+      "classification": "outside_current_champions_no_ability_in_ZA",
+      "highestApplicableSource": "9 (Legends Z-A / Mega Dimension)",
+      "local": [],
+      "showdownCurrent": [
+        {
+          "id": "soulheart",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "assessment": "2026년 11월 레귤레이션 M-C 챔피언스 등록 대상이 아닌 신규 메가폼으로, Z-A에서는 특성이 작동하지 않는다. Showdown의 가상/상속 특성 기록을 챔피언스의 실제 특성이라고 간주할 수 없다.",
+      "proposedAction": "현재 특성 목록 비어 있음 유지. 챔피언스 출시/도입 이후 검증된 데이터가 있으면 재검수.",
+      "referenceUrls": [
+        "https://champions-news.pokemon-home.com/ko/page/816.html",
+        "https://dexdb.io/champions/regulations/",
+        "https://bulbapedia.bulbagarden.net/wiki/Ability"
+      ],
+      "gameDataChanged": false
+    },
+    {
+      "species": "magearna",
+      "form": "original-mega",
+      "field": "abilities",
+      "classification": "outside_current_champions_no_ability_in_ZA",
+      "highestApplicableSource": "9 (Legends Z-A / Mega Dimension)",
+      "local": [],
+      "showdownCurrent": [
+        {
+          "id": "soulheart",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "assessment": "2026년 11월 레귤레이션 M-C 챔피언스 등록 대상이 아닌 신규 메가폼으로, Z-A에서는 특성이 작동하지 않는다. Showdown의 가상/상속 특성 기록을 챔피언스의 실제 특성이라고 간주할 수 없다.",
+      "proposedAction": "현재 특성 목록 비어 있음 유지. 챔피언스 출시/도입 이후 검증된 데이터가 있으면 재검수.",
+      "referenceUrls": [
+        "https://champions-news.pokemon-home.com/ko/page/816.html",
+        "https://dexdb.io/champions/regulations/",
+        "https://bulbapedia.bulbagarden.net/wiki/Ability"
+      ],
+      "gameDataChanged": false
+    },
+    {
+      "species": "zeraora",
+      "form": "mega",
+      "field": "abilities",
+      "classification": "outside_current_champions_no_ability_in_ZA",
+      "highestApplicableSource": "9 (Legends Z-A / Mega Dimension)",
+      "local": [],
+      "showdownCurrent": [
+        {
+          "id": "voltabsorb",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "assessment": "2026년 11월 레귤레이션 M-C 챔피언스 등록 대상이 아닌 신규 메가폼으로, Z-A에서는 특성이 작동하지 않는다. Showdown의 가상/상속 특성 기록을 챔피언스의 실제 특성이라고 간주할 수 없다.",
+      "proposedAction": "현재 특성 목록 비어 있음 유지. 챔피언스 출시/도입 이후 검증된 데이터가 있으면 재검수.",
+      "referenceUrls": [
+        "https://champions-news.pokemon-home.com/ko/page/816.html",
+        "https://dexdb.io/champions/regulations/",
+        "https://bulbapedia.bulbagarden.net/wiki/Ability"
+      ],
+      "gameDataChanged": false
+    },
+    {
+      "species": "tatsugiri",
+      "form": "curly-mega",
+      "field": "abilities",
+      "classification": "outside_current_champions_no_ability_in_ZA",
+      "highestApplicableSource": "9 (Legends Z-A / Mega Dimension)",
+      "local": [],
+      "showdownCurrent": [
+        {
+          "id": "commander",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "stormdrain",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "assessment": "2026년 11월 레귤레이션 M-C 챔피언스 등록 대상이 아닌 신규 메가폼으로, Z-A에서는 특성이 작동하지 않는다. Showdown의 가상/상속 특성 기록을 챔피언스의 실제 특성이라고 간주할 수 없다.",
+      "proposedAction": "현재 특성 목록 비어 있음 유지. 챔피언스 출시/도입 이후 검증된 데이터가 있으면 재검수.",
+      "referenceUrls": [
+        "https://champions-news.pokemon-home.com/ko/page/816.html",
+        "https://dexdb.io/champions/regulations/",
+        "https://bulbapedia.bulbagarden.net/wiki/Ability"
+      ],
+      "gameDataChanged": false
+    },
+    {
+      "species": "tatsugiri",
+      "form": "droopy-mega",
+      "field": "abilities",
+      "classification": "outside_current_champions_no_ability_in_ZA",
+      "highestApplicableSource": "9 (Legends Z-A / Mega Dimension)",
+      "local": [],
+      "showdownCurrent": [
+        {
+          "id": "commander",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "stormdrain",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "assessment": "2026년 11월 레귤레이션 M-C 챔피언스 등록 대상이 아닌 신규 메가폼으로, Z-A에서는 특성이 작동하지 않는다. Showdown의 가상/상속 특성 기록을 챔피언스의 실제 특성이라고 간주할 수 없다.",
+      "proposedAction": "현재 특성 목록 비어 있음 유지. 챔피언스 출시/도입 이후 검증된 데이터가 있으면 재검수.",
+      "referenceUrls": [
+        "https://champions-news.pokemon-home.com/ko/page/816.html",
+        "https://dexdb.io/champions/regulations/",
+        "https://bulbapedia.bulbagarden.net/wiki/Ability"
+      ],
+      "gameDataChanged": false
+    },
+    {
+      "species": "tatsugiri",
+      "form": "stretchy-mega",
+      "field": "abilities",
+      "classification": "outside_current_champions_no_ability_in_ZA",
+      "highestApplicableSource": "9 (Legends Z-A / Mega Dimension)",
+      "local": [],
+      "showdownCurrent": [
+        {
+          "id": "commander",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "stormdrain",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "assessment": "2026년 11월 레귤레이션 M-C 챔피언스 등록 대상이 아닌 신규 메가폼으로, Z-A에서는 특성이 작동하지 않는다. Showdown의 가상/상속 특성 기록을 챔피언스의 실제 특성이라고 간주할 수 없다.",
+      "proposedAction": "현재 특성 목록 비어 있음 유지. 챔피언스 출시/도입 이후 검증된 데이터가 있으면 재검수.",
+      "referenceUrls": [
+        "https://champions-news.pokemon-home.com/ko/page/816.html",
+        "https://dexdb.io/champions/regulations/",
+        "https://bulbapedia.bulbagarden.net/wiki/Ability"
+      ],
+      "gameDataChanged": false
+    }
+  ],
+  "relatedSpeciesDifference": {
+    "species": "melmetal",
+    "field": "evolvesFrom",
+    "result": "verified_correct",
+    "note": "Meltan evolves to Melmetal in Pokemon GO; Showdown null is not a basis for deleting the evolution reference.",
+    "reference": "https://www.pokemon.com/us/pokemon-video-games/pokemon-lets-go-pikachu-and-pokemon-lets-go-eevee"
+  },
+  "limitations": [
+    "Classifying 24 candidates does not validate all other 38,534 catalog fields.",
+    "Seven Totem-form cases concern encounter-specific fixed abilities versus species-wide potential abilities, not automatic errors.",
+    "Legends Z-A mechanics lack functioning abilities; Showdown's inherited speculative Mega form slots are not proof of Champions eligibility.",
+    "No game data values or ability engine changed."
+  ]
+}
