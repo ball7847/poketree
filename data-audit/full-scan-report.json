@@ -21,7 +21,7 @@
   },
   "champions": {
     "sourceEntries": 258,
-    "matchedRows": 257,
+    "matchedRows": 256,
     "unmatched": [
       {
         "name": "Paldean Tauros",
@@ -38,9 +38,14 @@
         "name": "Greninja",
         "dex": 658,
         "reason": "nonstandard source ability slot S requires manual classification; base stats and types matched"
+      },
+      {
+        "name": "Mega Meowstic",
+        "dex": 678,
+        "reason": "gendered Mega mapping ambiguous; withheld from source validation"
       }
     ],
-    "comparedFields": 2056,
+    "comparedFields": 2048,
     "disagreements": [],
     "disagreementsCount": 0,
     "confirmedErrors": 0,
@@ -935,17 +940,19 @@
     "totalBattleFormsScanned": 1351,
     "battleFormsWithShowdownReference": 1292,
     "battleFormsWithoutSafeShowdownMapping": 59,
-    "championsRowsCompared": 257,
-    "championsRowsUnmappedOrPartial": 2,
+    "championsRowsCompared": 256,
+    "championsRowsUnmappedOrPartial": 3,
     "sourceFieldComparisons": {
-      "champions": 2056,
+      "champions": 2048,
       "showdown": 10336,
       "genderAndEvolution": 2050,
-      "total": 14484,
+      "total": 14476,
       "championsSeptemberMC": 42
     },
     "confirmedErrors": 0,
-    "referenceDisagreementsNeedReview": 24
+    "referenceDisagreementsNeedReview": 24,
+    "fieldEvidenceVerifiedAgainstAprilSnapshot": 2047,
+    "legacyProvenanceRecordsWithoutPinnedAprilCorroboration": 6
   },
   "speciesLevelCrossCheck": {
     "source": "Showdown default species entries; form-specific differences are not proven errors",
