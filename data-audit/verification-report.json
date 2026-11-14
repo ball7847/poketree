@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "sourceRevision": "8a92bfa7dab2f12b84b5d151562f9857c133ff30",
+  "speciesCount": 1025,
+  "formCount": 1351,
+  "totalFields": 19334,
+  "verified": 0,
+  "mismatch": 0,
+  "unavailable": 0,
+  "notApplicable": 0,
+  "unverified": 19334,
+  "evidenceRecords": 0,
+  "errors": [],
+  "warnings": []
+}
