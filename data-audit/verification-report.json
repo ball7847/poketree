@@ -6,12 +6,17 @@
   "cosmeticFormCount": 1579,
   "evolutionRowCount": 676,
   "totalFields": 38534,
-  "verified": 66,
+  "verified": 2053,
   "mismatch": 0,
   "unavailable": 0,
   "notApplicable": 0,
-  "unverified": 38468,
-  "evidenceRecords": 66,
+  "unverified": 36481,
+  "evidenceRecords": 2053,
   "errors": [],
-  "warnings": []
+  "warnings": [],
+  "notes": [
+    "2053 cited records reflect April 2026 Champions community dataset, not necessarily complete November 2026 M-C edition.",
+    "Historical 6 fields retain their old sources; review their citations separately.",
+    "All 38,534 fields structurally enumerated, not all 38,534 independently source-verified."
+  ]
 }
