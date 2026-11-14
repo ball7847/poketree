@@ -23,6 +23,18 @@ function sourceRank(version) {
   const i = PRIORITY.indexOf(x);
   return i < 0 ? Infinity : i;
 }
+function getField(national,species,form,field) {
+  const item=national.species[species];
+  let source;
+  if(form===null || form===undefined) source=item;
+  else if(form.startsWith("cosmetic:")) source=(national.cosmeticForms?.[species]||[]).find(x=>String(x.id)===form.slice(9));
+  else if(form.startsWith("evolution:")) source=(national.evolution?.[species]||[]).find(x=>String(x.id)===form.slice(10));
+  else source=item.forms[form];
+  const parts=field.split(".");
+  if(parts[0]==="cosmetic" || parts[0]==="evolution") parts.shift();
+  return parts.reduce((v,k)=>v?.[k],source);
+}
+function stable(v) {return JSON.stringify(v);}
 function audit(data, evidence) {
   const errors = [], warnings = [], required = new Map(), validated = new Map();
   if (!data || data.schemaVersion !== 1 || !Array.isArray(data.records))
@@ -92,6 +104,18 @@ function audit(data, evidence) {
     }
     if (!rec.checked && rec.status === "unverified" && (rec.source || rec.reference))
       warnings.push("unverified with source hint: " + k);
+    if (rec.checked && (rec.status==="verified" || rec.status==="mismatch")) {
+      if(!Object.hasOwn(rec,"expectedValue") || !Object.hasOwn(rec,"observedValue")) {
+        errors.push("checked value comparison missing: " + k);continue;
+      }
+      const actual=getField(national,rec.species,rec.form ?? null,rec.field);
+      if(stable(actual)!==stable(rec.observedValue)) {
+        errors.push("snapshot changed since evidence: " + k);continue;
+      }
+      if((stable(actual)===stable(rec.expectedValue)) !== (rec.status==="verified")) {
+        errors.push("evidence value/status conflict: " + k);continue;
+      }
+    }
     validated.set(k,rec);
   }
   let verified=0,mismatch=0,unavailable=0,notApplicable=0;
