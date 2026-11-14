@@ -10,6 +10,8 @@ const SHOWDOWN="7e743761cd13cdb361fc0f58eb5a866284894f5b";
 const CHAMPIONS="cb874a3040174314f67642f382143cc8a401122a";
 const SURL="https://raw.githubusercontent.com/smogon/pokemon-showdown/"+SHOWDOWN+"/data/pokedex.ts";
 const CURL="https://raw.githubusercontent.com/otterlyclueless/pokemon-champions-data/"+CHAMPIONS+"/pokemon/";
+const MC="fe8e533402e45b25e27eddd7f05db6bbf9940608";
+const MCURL="https://raw.githubusercontent.com/Seancheey/PokeDD/"+MC+"/prisma/data/champions-mc.json";
 const map={hp:"hp",attack:"atk",defense:"def",spAttack:"spa",spDefense:"spd",speed:"spe"};
 const norm=s=>String(s).toLowerCase().replace(/[^a-z0-9]/g,"");
 async function json(url) {const r=await fetch(url,{signal:AbortSignal.timeout(45000)});if(!r.ok)throw Error(url+": HTTP "+r.status);return r.json();}
@@ -63,7 +65,7 @@ function compareForm(localForm,refStats,refTypes,refAbilities,who) {
  return changes;
 }
 async function run(){
- const [ts,roster,statRows]=await Promise.all([txt(SURL),json(CURL+"roster.json"),json(CURL+"base-stats.json")]);
+ const [ts,roster,statRows,mc]=await Promise.all([txt(SURL),json(CURL+"roster.json"),json(CURL+"base-stats.json"),json(MCURL)]);
  const catalog=local(),show=showdownObject(ts);
  const byDex=new Map(Object.entries(catalog).map(([id,s])=>[s.dex,{id,s}]));
  const byStat=new Map(statRows.map(x=>[x.dexNumber+"/"+x.name,x]));
@@ -87,6 +89,13 @@ async function run(){
   showdown.matchedForms++;showdown.comparedFields+=8;
   showdown.disagreements.push(...compareForm(f,candidate.baseStats,candidate.types,candidate.abilities,{id,form,dex:s.dex}));
  }
+ const championsSeptemberMC={sourceDate:"2026-09-16",comparedRows:0,comparedFields:0,disagreements:[],unmatched:[]};
+ for(const row of mc.forms||[]){
+  const f=catalog[row.baseSlug]?.forms?.[row.slug.slice(row.baseSlug.length+1)];
+  if(!f){championsSeptemberMC.unmatched.push(row.slug);continue;}
+  championsSeptemberMC.comparedRows++;championsSeptemberMC.comparedFields+=7;
+  championsSeptemberMC.disagreements.push(...compareForm(f,row,[row.type1,row.type2].filter(Boolean),null,{id:row.baseSlug,form:row.slug}));
+ }
  const species={matched:0,genderCompared:0,evolutionCompared:0,unmatched:[],differences:[]};
  for(const [id,s] of Object.entries(catalog)){
   const x=show[norm(id)];
@@ -103,8 +112,8 @@ async function run(){
     classification:prevo&&localPrevo&&prevo.startsWith(localPrevo)?"evolution-form-vs-species-model":"requires-manual-check"});
  }
  return {runDate:new Date().toISOString().slice(0,10),scope:"full pass, partial source coverage; NOT full edition validation",
- sourceCommits:{showdown:SHOWDOWN,champions:CHAMPIONS},
- sourceUrls:{showdown:SURL,championsRoster:CURL+"roster.json",championsStats:CURL+"base-stats.json"},
+ sourceCommits:{showdown:SHOWDOWN,champions:CHAMPIONS,championsSeptemberMC:MC},
+ sourceUrls:{showdown:SURL,championsRoster:CURL+"roster.json",championsStats:CURL+"base-stats.json",championsSeptemberMC:MCURL},
  champions,showdown,
  disclaimers:["April 2026 Champions roster is incomplete as of November 2026; absence is not proof of exclusion.",
  "Showdown main is a reference comparison, NOT pinned to Gen 9.",
