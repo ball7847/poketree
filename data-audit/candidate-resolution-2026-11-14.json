@@ -127,7 +127,17 @@
         "https://bulbapedia.bulbagarden.net/wiki/Lightning_Rod_(Ability)",
         "https://bulbapedia.bulbagarden.net/wiki/Contest_Hall"
       ],
-      "gameDataChanged": false
+      "gameDataChanged": true,
+      "resolution": "corrected_in_runtime_species_overlay",
+      "appliedValue": [
+        {
+          "id": "lightning-rod",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "appliedAt": "2026-11-14",
+      "note": "The pinned national-catalog.js source remains unchanged; effective POKE_SPECIES now applies the ORAS-specific corrected abilities."
     },
     {
       "species": "pikachu",
@@ -160,7 +170,17 @@
         "https://bulbapedia.bulbagarden.net/wiki/Lightning_Rod_(Ability)",
         "https://bulbapedia.bulbagarden.net/wiki/Contest_Hall"
       ],
-      "gameDataChanged": false
+      "gameDataChanged": true,
+      "resolution": "corrected_in_runtime_species_overlay",
+      "appliedValue": [
+        {
+          "id": "lightning-rod",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "appliedAt": "2026-11-14",
+      "note": "The pinned national-catalog.js source remains unchanged; effective POKE_SPECIES now applies the ORAS-specific corrected abilities."
     },
     {
       "species": "pikachu",
@@ -193,7 +213,17 @@
         "https://bulbapedia.bulbagarden.net/wiki/Lightning_Rod_(Ability)",
         "https://bulbapedia.bulbagarden.net/wiki/Contest_Hall"
       ],
-      "gameDataChanged": false
+      "gameDataChanged": true,
+      "resolution": "corrected_in_runtime_species_overlay",
+      "appliedValue": [
+        {
+          "id": "lightning-rod",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "appliedAt": "2026-11-14",
+      "note": "The pinned national-catalog.js source remains unchanged; effective POKE_SPECIES now applies the ORAS-specific corrected abilities."
     },
     {
       "species": "pikachu",
@@ -226,7 +256,17 @@
         "https://bulbapedia.bulbagarden.net/wiki/Lightning_Rod_(Ability)",
         "https://bulbapedia.bulbagarden.net/wiki/Contest_Hall"
       ],
-      "gameDataChanged": false
+      "gameDataChanged": true,
+      "resolution": "corrected_in_runtime_species_overlay",
+      "appliedValue": [
+        {
+          "id": "lightning-rod",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "appliedAt": "2026-11-14",
+      "note": "The pinned national-catalog.js source remains unchanged; effective POKE_SPECIES now applies the ORAS-specific corrected abilities."
     },
     {
       "species": "pikachu",
@@ -259,7 +299,17 @@
         "https://bulbapedia.bulbagarden.net/wiki/Lightning_Rod_(Ability)",
         "https://bulbapedia.bulbagarden.net/wiki/Contest_Hall"
       ],
-      "gameDataChanged": false
+      "gameDataChanged": true,
+      "resolution": "corrected_in_runtime_species_overlay",
+      "appliedValue": [
+        {
+          "id": "lightning-rod",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "appliedAt": "2026-11-14",
+      "note": "The pinned national-catalog.js source remains unchanged; effective POKE_SPECIES now applies the ORAS-specific corrected abilities."
     },
     {
       "species": "pikachu",
@@ -292,7 +342,17 @@
         "https://bulbapedia.bulbagarden.net/wiki/Lightning_Rod_(Ability)",
         "https://bulbapedia.bulbagarden.net/wiki/Contest_Hall"
       ],
-      "gameDataChanged": false
+      "gameDataChanged": true,
+      "resolution": "corrected_in_runtime_species_overlay",
+      "appliedValue": [
+        {
+          "id": "lightning-rod",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "appliedAt": "2026-11-14",
+      "note": "The pinned national-catalog.js source remains unchanged; effective POKE_SPECIES now applies the ORAS-specific corrected abilities."
     },
     {
       "species": "heatran",
@@ -842,5 +902,13 @@
     "Seven Totem-form cases concern encounter-specific fixed abilities versus species-wide potential abilities, not automatic errors.",
     "Legends Z-A mechanics lack functioning abilities; Showdown's inherited speculative Mega form slots are not proof of Champions eligibility.",
     "No game data values or ability engine changed."
-  ]
+  ],
+  "summaryAfterCorrection": {
+    "appliedEffectiveDataCorrections": 6,
+    "sourceSnapshotPreserved": true,
+    "otherCandidateChanges": 0,
+    "remainingModelDecisionCandidates": 9,
+    "retainedUnchangedCandidates": 9,
+    "correctionFile": "game/data/species.js"
+  }
 }
