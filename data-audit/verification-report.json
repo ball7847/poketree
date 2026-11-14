@@ -6,12 +6,12 @@
   "cosmeticFormCount": 1579,
   "evolutionRowCount": 676,
   "totalFields": 38534,
-  "verified": 0,
+  "verified": 18,
   "mismatch": 0,
   "unavailable": 0,
   "notApplicable": 0,
-  "unverified": 38534,
-  "evidenceRecords": 0,
+  "unverified": 38516,
+  "evidenceRecords": 18,
   "errors": [],
   "warnings": []
 }
