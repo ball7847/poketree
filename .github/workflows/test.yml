@@ -6,6 +6,7 @@ on:
       - 'game/**'
       - 'tests/**'
       - 'scripts/**'
+      - 'data-audit/**'
       - 'legacy/**'
       - 'index.html'
       - '.github/workflows/test.yml'
@@ -13,6 +14,8 @@ on:
     paths:
       - 'game/**'
       - 'tests/**'
+      - 'scripts/audit-pokemon-data.cjs'
+      - 'data-audit/**'
       - '.github/workflows/test.yml'
 permissions:
   contents: read
@@ -25,6 +28,7 @@ jobs:
         with:
           node-version: '22'
       - run: bash scripts/prepare-pages.sh
+      - run: node scripts/audit-pokemon-data.cjs --write
       - run: node --test tests/*.test.cjs
       - name: Install browser testing runtime
         run: npm install --no-save --no-package-lock playwright-core@1.58.2
