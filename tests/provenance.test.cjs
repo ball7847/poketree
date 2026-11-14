@@ -2,10 +2,10 @@ const test=require("node:test");
 const assert=require("node:assert/strict");
 const fs=require("node:fs");
 const path=require("node:path");
-const {audit,loadCatalog,key,sourceRank}=require("../scripts/audit-pokemon-data.cjs");
+const {audit,loadCatalog,loadRecords,key,sourceRank}=require("../scripts/audit-pokemon-data.cjs");
 const root=path.resolve(__dirname,"..");
 const catalog=loadCatalog();
-const evidence=JSON.parse(fs.readFileSync(path.join(root,"data-audit/verification-records.json"),"utf8"));
+const evidence=loadRecords(root);
 test("audit covers national species and each actual registered form",()=>{
  const report=audit(evidence,catalog);
  assert.equal(report.speciesCount,1025);
