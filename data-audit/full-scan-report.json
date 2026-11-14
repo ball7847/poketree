@@ -33,54 +33,22 @@
           "paldea-blaze-breed",
           "paldea-aqua-breed"
         ]
+      },
+      {
+        "name": "Greninja",
+        "dex": 658,
+        "reason": "nonstandard source ability slot S requires manual classification; base stats and types matched"
       }
     ],
     "comparedFields": 2056,
-    "disagreements": [
-      {
-        "source": "champions-2026-04",
-        "name": "Greninja",
-        "dex": 658,
-        "form": "normal",
-        "field": "abilities",
-        "stored": [
-          {
-            "id": "torrent",
-            "hidden": false,
-            "slot": 1
-          },
-          {
-            "id": "protean",
-            "hidden": true,
-            "slot": 3
-          }
-        ],
-        "reference": [
-          {
-            "id": "torrent",
-            "hidden": false,
-            "slot": 1
-          },
-          {
-            "id": "protean",
-            "hidden": true,
-            "slot": 3
-          },
-          {
-            "id": "battlebond",
-            "hidden": false,
-            "slot": null
-          }
-        ],
-        "reason": "nonstandard_ability_slot"
-      }
-    ],
-    "disagreementsCount": 1,
-    "confirmedErrors": 0
+    "disagreements": [],
+    "disagreementsCount": 0,
+    "confirmedErrors": 0,
+    "regulationCompleteness": "partial April 2026 snapshot; 2026-11 roster may have grown"
   },
   "showdown": {
     "sourceEntries": 1518,
-    "matchedForms": 1293,
+    "matchedForms": 1292,
     "unmatchedForms": [
       {
         "id": "raticate",
@@ -371,9 +339,14 @@
         "id": "ogerpon",
         "form": "cornerstone-mask",
         "reason": "no exact ID"
+      },
+      {
+        "id": "minior",
+        "form": "normal",
+        "reason": "Showdown default Minior form is not equivalent to PokeAPI default; withheld"
       }
     ],
-    "comparedFields": 10344,
+    "comparedFields": 10336,
     "disagreements": [
       {
         "id": "pikachu",
@@ -774,51 +747,6 @@
         "classification": "reference_disagreement"
       },
       {
-        "id": "minior",
-        "dex": 774,
-        "form": "normal",
-        "field": "base.attack",
-        "stored": 60,
-        "reference": 100,
-        "classification": "form_mapping_uncertain"
-      },
-      {
-        "id": "minior",
-        "dex": 774,
-        "form": "normal",
-        "field": "base.defense",
-        "stored": 100,
-        "reference": 60,
-        "classification": "form_mapping_uncertain"
-      },
-      {
-        "id": "minior",
-        "dex": 774,
-        "form": "normal",
-        "field": "base.spAttack",
-        "stored": 60,
-        "reference": 100,
-        "classification": "form_mapping_uncertain"
-      },
-      {
-        "id": "minior",
-        "dex": 774,
-        "form": "normal",
-        "field": "base.spDefense",
-        "stored": 100,
-        "reference": 60,
-        "classification": "form_mapping_uncertain"
-      },
-      {
-        "id": "minior",
-        "dex": 774,
-        "form": "normal",
-        "field": "base.speed",
-        "stored": 60,
-        "reference": 120,
-        "classification": "form_mapping_uncertain"
-      },
-      {
         "id": "togedemaru",
         "dex": 777,
         "form": "totem",
@@ -986,14 +914,34 @@
         "classification": "reference_disagreement"
       }
     ],
-    "confirmedErrors": 0
+    "confirmedErrors": 0,
+    "editionCompleteness": "current branch snapshot does not guarantee Gen 9"
   },
   "limitations": [
     "The April Champions dataset has 258 entries; newer source lists >300, so roster absence is not proof of absence.",
     "Showdown master is cross-source comparison, not a verified Gen IX snapshot.",
     "Pokemon/forms with ambiguous mappings excluded, not counted as mismatches.",
     "A source repository verified flag is not independent game verification.",
-    "Evolution, experience, gender, cosmetic, and growth fields need versioned independent references."
+    "Evolution, experience, gender, cosmetic, and growth fields need versioned independent references.",
+    "Historical 66 'verified' records predate this batch audit and are not automatically accepted as edition-verified."
   ],
-  "validationNote": "Initial regex-based ability-slot normalization was corrected; nonstandard source slot 'S' is not assumed to be game bug. Showdown Minior default is form-ambiguous."
+  "validationNote": "Initial regex-based ability-slot normalization was corrected; nonstandard source slot 'S' is not assumed to be game bug. Showdown Minior default is form-ambiguous.",
+  "sourceCommits": {
+    "showdown": "7e743761cd13cdb361fc0f58eb5a866284894f5b",
+    "champions": "cb874a3040174314f67642f382143cc8a401122a"
+  },
+  "progress": {
+    "catalogSpeciesScanned": 1025,
+    "totalBattleFormsScanned": 1351,
+    "battleFormsWithShowdownReference": 1292,
+    "battleFormsWithoutSafeShowdownMapping": 59,
+    "championsRowsCompared": 257,
+    "championsRowsUnmappedOrPartial": 2,
+    "sourceFieldComparisons": {
+      "champions": 2056,
+      "showdown": 10336
+    },
+    "confirmedErrors": 0,
+    "referenceDisagreementsNeedReview": 24
+  }
 }
