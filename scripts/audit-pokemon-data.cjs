@@ -136,8 +136,18 @@ function audit(data, evidence) {
     errors,warnings
   };
 }
+function loadRecords(root=ROOT) {
+  const main=JSON.parse(fs.readFileSync(path.join(root,"data-audit/verification-records.json"),"utf8"));
+  const dir=path.join(root,"data-audit/records");
+  if(fs.existsSync(dir))for(const file of fs.readdirSync(dir).filter(name=>name.endsWith(".json")).sort()) {
+    const shard=JSON.parse(fs.readFileSync(path.join(dir,file),"utf8"));
+    if(shard.schemaVersion!==main.schemaVersion || !Array.isArray(shard.records))throw Error("Invalid audit shard: "+file);
+    main.records.push(...shard.records);
+  }
+  return main;
+}
 function main() {
-  const records=JSON.parse(fs.readFileSync(path.join(ROOT,"data-audit/verification-records.json"),"utf8"));
+  const records=loadRecords();
   const report=audit(records,loadCatalog());
   if(process.argv.includes("--write")) {
     fs.writeFileSync(path.join(ROOT,"data-audit/verification-report.json"),JSON.stringify(report,null,2)+"\n");
@@ -146,4 +156,4 @@ function main() {
   if(report.errors.length) process.exitCode=1;
 }
 if(require.main===module) main();
-module.exports={audit,loadCatalog,key,sourceRank,PRIORITY};
+module.exports={audit,loadCatalog,loadRecords,key,sourceRank,PRIORITY};
