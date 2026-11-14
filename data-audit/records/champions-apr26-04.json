@@ -1,0 +1,3123 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "species": "venusaur",
+      "form": "mega",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 122,
+      "expectedValue": 122,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "charizard",
+      "form": "mega-x",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 130,
+      "expectedValue": 130,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "charizard",
+      "form": "mega-y",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "drought",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "drought",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "beedrill",
+      "form": "normal",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "swarm",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "sniper",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "swarm",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "sniper",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "pidgeot",
+      "form": "mega",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 135,
+      "expectedValue": 135,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "raichu",
+      "form": "alola",
+      "field": "base.attack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 85,
+      "expectedValue": 85,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "clefable",
+      "form": "normal",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 95,
+      "expectedValue": 95,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "clefable",
+      "form": "mega",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "magic-bounce",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "magic-bounce",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "ninetales",
+      "form": "normal",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 81,
+      "expectedValue": 81,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "arcanine",
+      "form": "normal",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "intimidate",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "flash-fire",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "justified",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "intimidate",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "flash-fire",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "justified",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "alakazam",
+      "form": "normal",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 135,
+      "expectedValue": 135,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "alakazam",
+      "form": "mega",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "trace",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "trace",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "victreebel",
+      "form": "mega",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 135,
+      "expectedValue": 135,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "victreebel",
+      "form": "normal",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "chlorophyll",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "gluttony",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "chlorophyll",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "gluttony",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "slowbro",
+      "form": "mega",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 130,
+      "expectedValue": 130,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "slowbro",
+      "form": "normal",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "oblivious",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "own-tempo",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "regenerator",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "oblivious",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "own-tempo",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "regenerator",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "gengar",
+      "form": "mega",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 170,
+      "expectedValue": 170,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "kangaskhan",
+      "form": "normal",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "early-bird",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "scrappy",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "inner-focus",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "early-bird",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "scrappy",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "inner-focus",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "starmie",
+      "form": "normal",
+      "field": "base.attack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 75,
+      "expectedValue": 75,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "pinsir",
+      "form": "mega",
+      "field": "base.speed",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 105,
+      "expectedValue": 105,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "tauros",
+      "form": "normal",
+      "field": "base.attack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 100,
+      "expectedValue": 100,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "gyarados",
+      "form": "normal",
+      "field": "base.speed",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 81,
+      "expectedValue": 81,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "ditto",
+      "form": "normal",
+      "field": "base.attack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 48,
+      "expectedValue": 48,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "vaporeon",
+      "form": "normal",
+      "field": "base.speed",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 65,
+      "expectedValue": 65,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "flareon",
+      "form": "normal",
+      "field": "base.attack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 130,
+      "expectedValue": 130,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "aerodactyl",
+      "form": "normal",
+      "field": "base.speed",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 130,
+      "expectedValue": 130,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "snorlax",
+      "form": "normal",
+      "field": "base.attack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 110,
+      "expectedValue": 110,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "dragonite",
+      "form": "normal",
+      "field": "base.speed",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 80,
+      "expectedValue": 80,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "meganium",
+      "form": "mega",
+      "field": "base.attack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 92,
+      "expectedValue": 92,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "meganium",
+      "form": "normal",
+      "field": "base.speed",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 80,
+      "expectedValue": 80,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "typhlosion",
+      "form": "normal",
+      "field": "base.attack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 84,
+      "expectedValue": 84,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "feraligatr",
+      "form": "normal",
+      "field": "base.speed",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 78,
+      "expectedValue": 78,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "ariados",
+      "form": "normal",
+      "field": "base.attack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 90,
+      "expectedValue": 90,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "ampharos",
+      "form": "normal",
+      "field": "base.speed",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 55,
+      "expectedValue": 55,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "azumarill",
+      "form": "normal",
+      "field": "base.attack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 50,
+      "expectedValue": 50,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "politoed",
+      "form": "normal",
+      "field": "base.speed",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 70,
+      "expectedValue": 70,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "umbreon",
+      "form": "normal",
+      "field": "base.attack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 65,
+      "expectedValue": 65,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "slowking",
+      "form": "galar",
+      "field": "base.speed",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 30,
+      "expectedValue": 30,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "forretress",
+      "form": "normal",
+      "field": "base.attack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 90,
+      "expectedValue": 90,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "steelix",
+      "form": "mega",
+      "field": "base.speed",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 30,
+      "expectedValue": 30,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "scizor",
+      "form": "mega",
+      "field": "base.attack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 150,
+      "expectedValue": 150,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "scizor",
+      "form": "normal",
+      "field": "base.speed",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 65,
+      "expectedValue": 65,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "heracross",
+      "form": "mega",
+      "field": "base.attack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 185,
+      "expectedValue": 185,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "skarmory",
+      "form": "mega",
+      "field": "base.speed",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 110,
+      "expectedValue": 110,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "houndoom",
+      "form": "normal",
+      "field": "base.attack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 90,
+      "expectedValue": 90,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "houndoom",
+      "form": "mega",
+      "field": "base.speed",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 115,
+      "expectedValue": 115,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "tyranitar",
+      "form": "normal",
+      "field": "base.attack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 134,
+      "expectedValue": 134,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "pelipper",
+      "form": "normal",
+      "field": "base.speed",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 65,
+      "expectedValue": 65,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "gardevoir",
+      "form": "mega",
+      "field": "base.attack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 85,
+      "expectedValue": 85,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "sableye",
+      "form": "mega",
+      "field": "base.speed",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 20,
+      "expectedValue": 20,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "aggron",
+      "form": "normal",
+      "field": "base.attack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 110,
+      "expectedValue": 110,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "aggron",
+      "form": "mega",
+      "field": "base.speed",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 50,
+      "expectedValue": 50,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "medicham",
+      "form": "mega",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "pure-power",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "pure-power",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "manectric",
+      "form": "mega",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 135,
+      "expectedValue": 135,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "sharpedo",
+      "form": "mega",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "strong-jaw",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "strong-jaw",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "camerupt",
+      "form": "normal",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 105,
+      "expectedValue": 105,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "camerupt",
+      "form": "mega",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "sheer-force",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "sheer-force",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "altaria",
+      "form": "normal",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 70,
+      "expectedValue": 70,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "altaria",
+      "form": "mega",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "pixilate",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "pixilate",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "castform",
+      "form": "normal",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 70,
+      "expectedValue": 70,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "banette",
+      "form": "normal",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "insomnia",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "frisk",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "cursed-body",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "insomnia",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "frisk",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "cursed-body",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "chimecho",
+      "form": "normal",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 95,
+      "expectedValue": 95,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "chimecho",
+      "form": "mega",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "levitate",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "levitate",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "absol",
+      "form": "mega",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 115,
+      "expectedValue": 115,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "glalie",
+      "form": "normal",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "inner-focus",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "ice-body",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "moody",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "inner-focus",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "ice-body",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "moody",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "torterra",
+      "form": "normal",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 75,
+      "expectedValue": 75,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "infernape",
+      "form": "normal",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "blaze",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "iron-fist",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "blaze",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "iron-fist",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "luxray",
+      "form": "normal",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 95,
+      "expectedValue": 95,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "roserade",
+      "form": "normal",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "natural-cure",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "poison-point",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "technician",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "natural-cure",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "poison-point",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "technician",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "bastiodon",
+      "form": "normal",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 47,
+      "expectedValue": 47,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "lopunny",
+      "form": "normal",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "cute-charm",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "klutz",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "limber",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "cute-charm",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "klutz",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "limber",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "spiritomb",
+      "form": "normal",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 92,
+      "expectedValue": 92,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "garchomp",
+      "form": "normal",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "sand-veil",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "rough-skin",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "sand-veil",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "rough-skin",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "lucario",
+      "form": "normal",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 115,
+      "expectedValue": 115,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "lucario",
+      "form": "mega",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "adaptability",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "adaptability",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "toxicroak",
+      "form": "normal",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 86,
+      "expectedValue": 86,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "abomasnow",
+      "form": "normal",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "snow-warning",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "soundproof",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "snow-warning",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "soundproof",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "weavile",
+      "form": "normal",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 45,
+      "expectedValue": 45,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "rhyperior",
+      "form": "normal",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "lightning-rod",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "solid-rock",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "reckless",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "lightning-rod",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "solid-rock",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "reckless",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "glaceon",
+      "form": "normal",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 130,
+      "expectedValue": 130,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "gliscor",
+      "form": "normal",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "hyper-cutter",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "sand-veil",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "poison-heal",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "hyper-cutter",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "sand-veil",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "poison-heal",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "gallade",
+      "form": "normal",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 65,
+      "expectedValue": 65,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "gallade",
+      "form": "mega",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "inner-focus",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "inner-focus",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "froslass",
+      "form": "mega",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 140,
+      "expectedValue": 140,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "rotom",
+      "form": "normal",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "levitate",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "levitate",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "emboar",
+      "form": "normal",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 100,
+      "expectedValue": 100,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "emboar",
+      "form": "mega",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "mold-breaker",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "mold-breaker",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "samurott",
+      "form": "normal",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 108,
+      "expectedValue": 108,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "watchog",
+      "form": "normal",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "illuminate",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "keen-eye",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "analytic",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "illuminate",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "keen-eye",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "analytic",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "simisage",
+      "form": "normal",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 98,
+      "expectedValue": 98,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "simisear",
+      "form": "normal",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "gluttony",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "blaze",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "gluttony",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "blaze",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "excadrill",
+      "form": "normal",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 50,
+      "expectedValue": 50,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "excadrill",
+      "form": "mega",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "piercing-drill",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "piercing-drill",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "audino",
+      "form": "mega",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 80,
+      "expectedValue": 80,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "conkeldurr",
+      "form": "normal",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "guts",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "sheer-force",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "iron-fist",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "guts",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "sheer-force",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "iron-fist",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "krookodile",
+      "form": "normal",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 65,
+      "expectedValue": 65,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "cofagrigus",
+      "form": "normal",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "mummy",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "mummy",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "zoroark",
+      "form": "hisui",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 125,
+      "expectedValue": 125,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "zoroark",
+      "form": "normal",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "illusion",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "illusion",
+          "hidden": false,
+          "slot": 1
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "vanilluxe",
+      "form": "normal",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 110,
+      "expectedValue": 110,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "emolga",
+      "form": "normal",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "static",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "motor-drive",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "static",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "motor-drive",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "chandelure",
+      "form": "mega",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 175,
+      "expectedValue": 175,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "beartic",
+      "form": "normal",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "snow-cloak",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "slush-rush",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "swift-swim",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "snow-cloak",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "slush-rush",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "swift-swim",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "stunfisk",
+      "form": "normal",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 81,
+      "expectedValue": 81,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "golurk",
+      "form": "normal",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "iron-fist",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "klutz",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "no-guard",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "iron-fist",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "klutz",
+          "hidden": false,
+          "slot": 2
+        },
+        {
+          "id": "no-guard",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "hydreigon",
+      "form": "normal",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 125,
+      "expectedValue": 125,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "volcarona",
+      "form": "normal",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "flame-body",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "swarm",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "flame-body",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "swarm",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "chesnaught",
+      "form": "mega",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 74,
+      "expectedValue": 74,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "delphox",
+      "form": "normal",
+      "field": "abilities",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/roster.json",
+      "observedValue": [
+        {
+          "id": "blaze",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "magician",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "expectedValue": [
+        {
+          "id": "blaze",
+          "hidden": false,
+          "slot": 1
+        },
+        {
+          "id": "magician",
+          "hidden": true,
+          "slot": 3
+        }
+      ],
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "greninja",
+      "form": "normal",
+      "field": "base.spAttack",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 103,
+      "expectedValue": 103,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "diggersby",
+      "form": "normal",
+      "field": "base.hp",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 85,
+      "expectedValue": 85,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "talonflame",
+      "form": "normal",
+      "field": "base.spDefense",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 69,
+      "expectedValue": 69,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "floette",
+      "form": "normal",
+      "field": "base.hp",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 54,
+      "expectedValue": 54,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "floette",
+      "form": "mega",
+      "field": "base.spDefense",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 148,
+      "expectedValue": 148,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "pangoro",
+      "form": "normal",
+      "field": "base.hp",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 95,
+      "expectedValue": 95,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "furfrou",
+      "form": "normal",
+      "field": "base.spDefense",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 90,
+      "expectedValue": 90,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "aegislash",
+      "form": "normal",
+      "field": "base.hp",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 60,
+      "expectedValue": 60,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "aromatisse",
+      "form": "normal",
+      "field": "base.spDefense",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 89,
+      "expectedValue": 89,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "clawitzer",
+      "form": "normal",
+      "field": "base.hp",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 71,
+      "expectedValue": 71,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "heliolisk",
+      "form": "normal",
+      "field": "base.spDefense",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 94,
+      "expectedValue": 94,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "aurorus",
+      "form": "normal",
+      "field": "base.hp",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 123,
+      "expectedValue": 123,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "sylveon",
+      "form": "normal",
+      "field": "base.spDefense",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 130,
+      "expectedValue": 130,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "hawlucha",
+      "form": "mega",
+      "field": "base.hp",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 78,
+      "expectedValue": 78,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "dedenne",
+      "form": "normal",
+      "field": "base.spDefense",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 67,
+      "expectedValue": 67,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "goodra",
+      "form": "hisui",
+      "field": "base.hp",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 80,
+      "expectedValue": 80,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "klefki",
+      "form": "normal",
+      "field": "base.spDefense",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 87,
+      "expectedValue": 87,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "gourgeist",
+      "form": "normal",
+      "field": "base.hp",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 65,
+      "expectedValue": 65,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "avalugg",
+      "form": "normal",
+      "field": "base.spDefense",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 46,
+      "expectedValue": 46,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "noivern",
+      "form": "normal",
+      "field": "base.hp",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 85,
+      "expectedValue": 85,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "decidueye",
+      "form": "normal",
+      "field": "base.spDefense",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 100,
+      "expectedValue": 100,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "incineroar",
+      "form": "normal",
+      "field": "base.hp",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 95,
+      "expectedValue": 95,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "primarina",
+      "form": "normal",
+      "field": "base.spDefense",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 116,
+      "expectedValue": 116,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "crabominable",
+      "form": "normal",
+      "field": "base.hp",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 97,
+      "expectedValue": 97,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "crabominable",
+      "form": "mega",
+      "field": "base.spDefense",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 107,
+      "expectedValue": 107,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "toxapex",
+      "form": "normal",
+      "field": "base.hp",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 50,
+      "expectedValue": 50,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "mudsdale",
+      "form": "normal",
+      "field": "base.spDefense",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 85,
+      "expectedValue": 85,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "salazzle",
+      "form": "normal",
+      "field": "base.hp",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 68,
+      "expectedValue": 68,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "tsareena",
+      "form": "normal",
+      "field": "base.spDefense",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 98,
+      "expectedValue": 98,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "passimian",
+      "form": "normal",
+      "field": "base.hp",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 100,
+      "expectedValue": 100,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "mimikyu",
+      "form": "normal",
+      "field": "base.spDefense",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 105,
+      "expectedValue": 105,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "drampa",
+      "form": "mega",
+      "field": "base.hp",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 78,
+      "expectedValue": 78,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "kommo-o",
+      "form": "normal",
+      "field": "base.spDefense",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 105,
+      "expectedValue": 105,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "flapple",
+      "form": "normal",
+      "field": "base.hp",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 70,
+      "expectedValue": 70,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "appletun",
+      "form": "normal",
+      "field": "base.spDefense",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 80,
+      "expectedValue": 80,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "polteageist",
+      "form": "normal",
+      "field": "base.hp",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 60,
+      "expectedValue": 60,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "hatterene",
+      "form": "normal",
+      "field": "base.spDefense",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 103,
+      "expectedValue": 103,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "runerigus",
+      "form": "normal",
+      "field": "base.hp",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 58,
+      "expectedValue": 58,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "alcremie",
+      "form": "normal",
+      "field": "base.spDefense",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 121,
+      "expectedValue": 121,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "dragapult",
+      "form": "normal",
+      "field": "base.hp",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 88,
+      "expectedValue": 88,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "wyrdeer",
+      "form": "normal",
+      "field": "base.spDefense",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 75,
+      "expectedValue": 75,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "basculegion",
+      "form": "normal",
+      "field": "base.hp",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 120,
+      "expectedValue": 120,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "sneasler",
+      "form": "normal",
+      "field": "base.spDefense",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 80,
+      "expectedValue": 80,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "skeledirge",
+      "form": "normal",
+      "field": "base.hp",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 104,
+      "expectedValue": 104,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "quaquaval",
+      "form": "normal",
+      "field": "base.spDefense",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 75,
+      "expectedValue": 75,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "garganacl",
+      "form": "normal",
+      "field": "base.hp",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 100,
+      "expectedValue": 100,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "armarouge",
+      "form": "normal",
+      "field": "base.spDefense",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 80,
+      "expectedValue": 80,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "bellibolt",
+      "form": "normal",
+      "field": "base.hp",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 109,
+      "expectedValue": 109,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "scovillain",
+      "form": "mega",
+      "field": "base.spDefense",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 85,
+      "expectedValue": 85,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "espathra",
+      "form": "normal",
+      "field": "base.hp",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 95,
+      "expectedValue": 95,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "tinkaton",
+      "form": "normal",
+      "field": "base.spDefense",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 105,
+      "expectedValue": 105,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "orthworm",
+      "form": "normal",
+      "field": "base.hp",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 70,
+      "expectedValue": 70,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "glimmora",
+      "form": "normal",
+      "field": "base.spDefense",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 81,
+      "expectedValue": 81,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "farigiraf",
+      "form": "normal",
+      "field": "base.hp",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 120,
+      "expectedValue": 120,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "kingambit",
+      "form": "normal",
+      "field": "base.spDefense",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 85,
+      "expectedValue": 85,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "archaludon",
+      "form": "normal",
+      "field": "base.hp",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 90,
+      "expectedValue": 90,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    },
+    {
+      "species": "hydrapple",
+      "form": "normal",
+      "field": "base.spDefense",
+      "status": "verified",
+      "checked": true,
+      "source": "champions-community-2026-04",
+      "version": "champions",
+      "reference": "https://github.com/otterlyclueless/pokemon-champions-data/blob/cb874a3040174314f67642f382143cc8a401122a/pokemon/base-stats.json",
+      "observedValue": 80,
+      "expectedValue": 80,
+      "note": "April 2026 community Champions dataset; November M-C completeness not established.",
+      "checkedAt": "2026-11-14"
+    }
+  ]
+}
