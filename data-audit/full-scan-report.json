@@ -955,9 +955,10 @@
     "fieldEvidenceVerifiedAgainstAprilSnapshot": 2047,
     "legacyProvenanceRecordsWithoutPinnedAprilCorroboration": 6,
     "referenceDisagreementsTriaged": 24,
-    "proposedAbilityFieldCorrections": 6,
+    "proposedAbilityFieldCorrections": 0,
     "referenceDisagreementsNoChangeSuggested": 9,
-    "referenceDisagreementsRequireDecision": 15
+    "referenceDisagreementsRequireDecision": 9,
+    "appliedAbilityFieldCorrections": 6
   },
   "speciesLevelCrossCheck": {
     "source": "Showdown default species entries; form-specific differences are not proven errors",
@@ -1125,5 +1126,30 @@
     "outsideChampionsWithNoActiveZAAbilities": 9,
     "notAssessed": 0,
     "gameDataModified": false
+  },
+  "appliedCorrections": {
+    "type": "effective-species-overlay",
+    "path": "game/data/species.js",
+    "species": "pikachu",
+    "forms": [
+      "rock-star",
+      "belle",
+      "pop-star",
+      "phd",
+      "libre",
+      "cosplay"
+    ],
+    "field": "abilities",
+    "value": [
+      {
+        "id": "lightning-rod",
+        "hidden": false,
+        "slot": 1
+      }
+    ],
+    "sourceSnapshotPreserved": true,
+    "reference": "https://bulbapedia.bulbagarden.net/wiki/Lightning_Rod_(Ability)",
+    "candidateCountResolved": 6,
+    "gameplayOtherChanges": 0
   }
 }
