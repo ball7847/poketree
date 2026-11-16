@@ -2,7 +2,7 @@
 // Lossless, non-runtime archive of every pokemon_moves.csv relation for all source versions.
 // No fallback inheritance or TM activation is performed here.
 const {parseCSV}=require("./pokemon-move-transform.cjs");
-const num=(value,label)=>{const n=Number(value);if(!Number.isSafeInteger(n)||n<0)throw Error("invalid "+label+": "+value);return n;};
+const num=(value,label)=>{if(value==="")throw Error("missing "+label);const n=Number(value);if(!Number.isSafeInteger(n)||n<0)throw Error("invalid "+label+": "+value);return n;};
 function buildFullHistory(csv){
  const groups=parseCSV(csv.version_groups).map(g=>({id:num(g.id,"group"),name:g.identifier,generation:num(g.generation_id,"generation"),order:num(g.order,"order")}));
  const groupById=new Map(groups.map(g=>[g.id,g]));
@@ -25,7 +25,8 @@ function buildFullHistory(csv){
   if(!line)continue;
   const v=line.split(",");
   if(v.length!==6)throw Error("malformed source row "+(stats.sourceRows+1));
-  const [pid,gid,move,method,level,order]=v.map((x,i)=>num(x,["pokemon","group","move","method","level","order"][i]));
+  const [pid,gid,move,method,level]=v.slice(0,5).map((x,i)=>num(x,["pokemon","group","move","method","level"][i]));
+  const order=v[5]===""?null:num(v[5],"order");
   stats.sourceRows++;
   stats.archivedRows++;
   const group=groupById.get(gid);
