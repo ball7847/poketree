@@ -1,0 +1,40 @@
+name: Import complete historical Pokémon learnsets
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-full-learnsets.yml'
+      - 'scripts/full-learnsets-transform.cjs'
+      - 'scripts/import-full-learnsets.cjs'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: full-learnset-import-main
+  cancel-in-progress: false
+jobs:
+  import-history:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Download and archive all pinned version groups
+        run: node scripts/import-full-learnsets.cjs
+      - name: Validate full archive and existing data
+        run: node --test tests/full-learnsets.test.cjs tests/pokemon-move-import.test.cjs
+      - name: Verify exact pinned-source reproducibility
+        run: node scripts/import-full-learnsets.cjs --check
+      - name: Commit only generated historical data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data-import/full-history/
+          if ! git diff --cached --quiet; then
+            git commit -m "data: archive all pinned historical Pokémon learnsets"
+            git push origin HEAD:main
+          fi
