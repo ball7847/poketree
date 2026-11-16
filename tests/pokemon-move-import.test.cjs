@@ -24,6 +24,8 @@ test("learnset import covers all 1025 species and all 1351 form rows without inv
  assert.equal(new Set(speciesIds).size,1025);
  assert.deepEqual([...speciesIds].sort((a,b)=>a-b),Array.from({length:1025},(_,i)=>i+1));
  assert.equal(pokemon.length,1351);
+ assert.equal(pokemon.filter(x=>x.isDefault).length,1025);
+ assert.equal(pokemon.filter(x=>x.isDefault&&x.champions===null&&x.fallback===null).length,0);
  assert.equal(new Set(pokemon.map(x=>x.pokemonId)).size,1351);
  assert.equal(pokemon.filter(x=>x.champions!==null).length,319);
  assert.equal(pokemon.filter(x=>x.fallback!==null).length,1268);
