@@ -6,7 +6,7 @@ const exists=fs.existsSync(path.join(base,"manifest.json"));
 const fixture={
  pokemon:"id,identifier,species_id,height,weight,base_experience,order,is_default\n1,bulbasaur,1,7,69,64,1,1\n2,ivysaur,2,10,130,142,2,1\n",
  version_groups:"id,identifier,generation_id,order\n1,red-blue,1,1\n25,scarlet-violet,9,25\n32,champions,9,32\n",
- pokemon_moves:"pokemon_id,version_group_id,move_id,pokemon_move_method_id,level,order\n1,1,10,1,5,1\n1,25,20,4,0,2\n1,32,30,12,0,3\n2,25,40,1,3,1\n99999,1,50,3,0,1\n"
+ pokemon_moves:"pokemon_id,version_group_id,move_id,pokemon_move_method_id,level,order\n1,1,10,1,5,1\n1,25,20,4,0,\n1,32,30,12,0,3\n2,25,40,1,3,1\n99999,1,50,3,0,1\n"
 };
 test("full import retains every source row, all versions, and unmapped rows",()=>{
  const d=buildFullHistory(fixture);
