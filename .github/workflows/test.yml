@@ -7,6 +7,7 @@ on:
       - 'tests/**'
       - 'scripts/**'
       - 'data-audit/**'
+      - 'data-import/**'
       - 'legacy/**'
       - 'index.html'
       - '.github/workflows/test.yml'
@@ -14,8 +15,9 @@ on:
     paths:
       - 'game/**'
       - 'tests/**'
-      - 'scripts/audit-pokemon-data.cjs'
+      - 'scripts/**'
       - 'data-audit/**'
+      - 'data-import/**'
       - '.github/workflows/test.yml'
 permissions:
   contents: read
