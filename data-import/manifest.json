@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "sourceProvider": "PokeAPI/pokeapi",
+  "sourceRevision": "8a92bfa7dab2f12b84b5d151562f9857c133ff30",
+  "sourceFiles": {
+    "moves.csv": "26f7a80341f1f1054d3c8c0f8e6f45ef7dc71bd7",
+    "move_names.csv": "141933acbac76b4a2656ef934aa7e7fae764fd84",
+    "move_meta.csv": "51bcc2af788bd0df50d15f23a714f182e86d8e49",
+    "types.csv": "d0ec10c324fb7d1529269ddbffac4778fdf99836",
+    "move_targets.csv": "a6dcc0b399ee9eaeeaabafea758c820c7287989a",
+    "move_damage_classes.csv": "8c4c15c355b0fab205e3e22b7a45c5930176e1e5",
+    "version_groups.csv": "b58cdc4d7f11d2dc663520b1a726b7ebf9118f15",
+    "pokemon_move_methods.csv": "f13b3b78b7260b60bfe0444babe4b8240a525199",
+    "pokemon.csv": "bb32b1763d2462160f49ce88b4a1d800e4f195e1",
+    "pokemon_moves.csv": "ce0fcd1f722477e1acb9be4cce54799d0fb86f63"
+  },
+  "files": {
+    "moves": [
+      "data-import/moves/moves-00001-00250.json",
+      "data-import/moves/moves-00251-00500.json",
+      "data-import/moves/moves-00501-00750.json",
+      "data-import/moves/moves-00751-10018.json"
+    ],
+    "learnsets": [
+      "data-import/learnsets/learnsets-0001-0050.json",
+      "data-import/learnsets/learnsets-0051-0100.json",
+      "data-import/learnsets/learnsets-0101-0150.json",
+      "data-import/learnsets/learnsets-0151-0200.json",
+      "data-import/learnsets/learnsets-0201-0250.json",
+      "data-import/learnsets/learnsets-0251-0300.json",
+      "data-import/learnsets/learnsets-0301-0350.json",
+      "data-import/learnsets/learnsets-0351-0400.json",
+      "data-import/learnsets/learnsets-0401-0450.json",
+      "data-import/learnsets/learnsets-0451-0500.json",
+      "data-import/learnsets/learnsets-0501-0550.json",
+      "data-import/learnsets/learnsets-0551-0600.json",
+      "data-import/learnsets/learnsets-0601-0650.json",
+      "data-import/learnsets/learnsets-0651-0700.json",
+      "data-import/learnsets/learnsets-0701-0750.json",
+      "data-import/learnsets/learnsets-0751-0800.json",
+      "data-import/learnsets/learnsets-0801-0850.json",
+      "data-import/learnsets/learnsets-0851-0900.json",
+      "data-import/learnsets/learnsets-0901-0950.json",
+      "data-import/learnsets/learnsets-0951-1000.json",
+      "data-import/learnsets/learnsets-1001-1025.json"
+    ]
+  },
+  "stats": {
+    "nationalSpecies": 1025,
+    "sourcePokemonForms": 1351,
+    "moves": 937,
+    "movesWithKoreanNames": 919,
+    "rawPokemonMoveRows": 638321,
+    "pokemonFormsWithAnyLearnsets": 1303,
+    "pokemonFormsWithoutLearnsets": 48,
+    "pokemonFormsWithChampionGroup32": 319,
+    "pokemonFormsWithFallbackVersion": 1268
+  },
+  "versionOrder": "Champions group 32 kept separately where present. Fallback is the highest source version-group order other than Champions for each Pokémon form.",
+  "rawRows": "Each [moveId, methodId, level] preserves the original version-group record; duplicate rows or method variants are not discarded.",
+  "moveMethods": {
+    "1": "level-up",
+    "2": "egg",
+    "3": "tutor",
+    "4": "machine",
+    "5": "stadium-surfing-pikachu",
+    "6": "light-ball-egg",
+    "7": "colosseum-purification",
+    "8": "xd-shadow",
+    "9": "xd-purification",
+    "10": "form-change",
+    "11": "zygarde-cube",
+    "12": "train"
+  },
+  "status": {
+    "imported": true,
+    "engineIntegrated": false,
+    "effectsImplemented": false,
+    "liveChampionsVerified": false
+  },
+  "limitations": [
+    "This retains the latest non-Champions group and optional Champions group per Pokémon form; all historic learnset groups are not saved.",
+    "PokeAPI Champions group 32 is provisional source data, not independent verification of current Champions.",
+    "48 form-specific rows have no published move entries in this source; do not fabricate learnsets or assume species default is form-specific without separate validation.",
+    "Some imported move effects are identified only by effectId and metadata; no combat behavior is added.",
+    "Existing game/data/moves.js and game/data/techniques.js are unchanged."
+  ]
+}
