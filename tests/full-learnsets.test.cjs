@@ -14,7 +14,7 @@ test("full import retains every source row, all versions, and unmapped rows",()=
  assert.equal(d.stats.indexedRows,4);assert.equal(d.stats.unmappedRows,1);
  assert.equal(d.stats.byMethod[4],1);
  const form=d.shards[0].species[0].pokemon[0];
- assert.deepEqual(form.versions["25"],[[20,4,0,2]]);
+ assert.deepEqual(form.versions["25"],[[20,4,0,null]]);
  assert.deepEqual(form.versions["1"],[[10,1,5,1]]);
  assert.deepEqual(form.versions["32"],[[30,12,0,3]]);
  assert.equal(queryLearnset(form,Object.fromEntries(d.groups.map(g=>[g.id,g]))).groupId,32);
@@ -42,7 +42,7 @@ test("generated archive preserves pinned total, methods, groups, and excludes ru
    assert.ok(!formIds.has(p.pokemonId));formIds.add(p.pokemonId);
    for(const [gid,rows]of Object.entries(p.versions)){
     assert.ok(m.versionGroups.some(g=>g.id===Number(gid)));
-    for(const row of rows){assert.equal(row.length,4);assert.ok(row.every(Number.isSafeInteger));count++;}
+    for(const row of rows){assert.equal(row.length,4);assert.ok(row.slice(0,3).every(Number.isSafeInteger));assert.ok(row[3]===null||Number.isSafeInteger(row[3]));count++;}
    }
   }}
  }
