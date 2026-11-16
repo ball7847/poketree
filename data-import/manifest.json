@@ -54,7 +54,9 @@
     "pokemonFormsWithAnyLearnsets": 1303,
     "pokemonFormsWithoutLearnsets": 48,
     "pokemonFormsWithChampionGroup32": 319,
-    "pokemonFormsWithFallbackVersion": 1268
+    "pokemonFormsWithFallbackVersion": 1268,
+    "nationalDefaultFormsWithLearnsets": 1025,
+    "nationalDefaultFormsMissingLearnsets": 0
   },
   "versionOrder": "Champions group 32 kept separately where present. Fallback is the highest source version-group order other than Champions for each Pokémon form.",
   "rawRows": "Each [moveId, methodId, level] preserves the original version-group record; duplicate rows or method variants are not discarded.",
