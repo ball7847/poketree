@@ -1,5 +1,16 @@
 # 다음 대화 개발 인수인계 — 2026-11-16 최신
 
+## 2026-11-16 전체 버전 기술·기술머신 습득표 아카이브 확장 (승인 작업)
+
+- 승인 범위는 원본 수집/구조/우선순위 조회/검수/인수인계. **game/ 엔진 및 기존 기술 데이터는 변경하지 않음**.
+- 추가 파일: `scripts/full-learnsets-transform.cjs`, `scripts/import-full-learnsets.cjs`, `tests/full-learnsets.test.cjs`, `.github/workflows/import-full-learnsets.yml`.
+- 데이터 저장 위치: `data-import/full-history/` (별도 아카이브; 기존 수집 데이터 유지). 고정 PokeAPI 원본 CSV 3개를 Git blob SHA로 확인한 뒤 **전체 638,321행**을 버전그룹/폼별로 순서(order)까지 보존하도록 구현. 전국도감 범위를 벗어난 원본 행은 `unmapped.json`에 손실 없이 보존.
+- 버전별 기술머신은 원본 `pokemon_move_method_id=4`, 레벨업은 `1`; 기타 방법도 그대로 유지. 기술/폼별 최신 데이터는 챔피언스 그룹32이 존재하면 우선, 아니면 **9세대 이하에서 세대 내 그룹 order 우선순위**로 조회하고 서로 다른 작품의 기술을 혼합하지 않는다.
+- **검증 상태:** 코드 및 GitHub Actions 자동 수집 설정을 커밋함. 실제 아카이브 파일 생성/CI 성공은 `data-import/full-history/manifest.json` 생성 및 워크플로 실행 결과가 확인되기 전까지 완료라고 주장하지 않는다.
+- 검증 명령: `node scripts/import-full-learnsets.cjs`, `node scripts/import-full-learnsets.cjs --check`, `node --test tests/full-learnsets.test.cjs tests/pokemon-move-import.test.cjs`.
+- 데이터 원본 자체의 결측 48폼 및 챔피언스 현행 정보에 대한 독립 검증은 이 작업의 수집 성공 여부와 별개로 남는다.
+
+
 ## 2026-11-16 기술 데이터 전체 원본 수집 완료 (최신)
 
 - 사용자 승인 "기술 데이터 일단 가져와봐": **기술 및 습득표 데이터만 추가 수집**. 기존 전투 기능·기술 13개·시연용 포켓몬 3종 습득표·저장 데이터는 수정하지 않음.
