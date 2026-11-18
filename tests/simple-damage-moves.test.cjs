@@ -16,7 +16,7 @@ test("937 effect classifications and 20 pinned ordinary damage moves reproduce e
  assert.equal(report.selectedIds.length,20);
  const w=load();
  assert.equal(Object.keys(w.POKE_SIMPLE_DAMAGE_MOVES).length,20);
- assert.equal(Object.keys(w.POKE_MOVES).length,33);
+ assert.equal(Object.keys(w.POKE_MOVES).length,43);
  for(const [id,m] of Object.entries(w.POKE_SIMPLE_DAMAGE_MOVES)){
   assert.ok(w.POKE_IMPORTED_TECHNIQUES.moves[id]);
   assert.equal(m.effect,"damage");
