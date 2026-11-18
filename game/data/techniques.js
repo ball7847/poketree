@@ -1,17 +1,8 @@
-/* DEMO ONLY: learnsets, TM compatibility and recipes are placeholders.
- * Move effects come exclusively from data/moves.js; no canonical learnsets claimed.
+/* Temporary crafting recipes/materials and demo discoveries only.
+ * Canonical learnsets and TM compatibility are in imported-techniques.js.
+ * Executable move effects remain in moves.js.
  */
 window.POKE_TECH_DATA=Object.freeze({
-  learnsets:{
-    pikachu:[{level:1,move:"quick-attack"},{level:5,move:"thunderbolt"}],
-    eevee:[{level:1,move:"quick-attack"},{level:5,move:"swift"}],
-    pidgey:[{level:1,move:"quick-attack"},{level:5,move:"gust"}]
-  },
-  tmCompatibility:{
-    pikachu:["thunderbolt","quick-attack"],
-    eevee:["swift","quick-attack"],
-    pidgey:["gust","quick-attack"]
-  },
   recipes:{
     "thunderbolt":{ore:3,leaf:2},
     "swift":{ore:2,leaf:3},
