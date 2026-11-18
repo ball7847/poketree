@@ -3,17 +3,35 @@
 (() => {
  "use strict";
  const G=window.PokeTree, data=window.POKE_TECH_DATA, moves=window.POKE_MOVES;
+ const source=window.POKE_IMPORTED_TECHNIQUES;
+ if(!source||source.schemaVersion!==1||source.stats?.moves!==937)throw Error("원본 기술 데이터 로딩 실패");
  const unique=ids=>[...new Set(ids)];
- function levelMoves(species,level){
-   return unique((data.learnsets[species]||[]).filter(x=>x.level<=level).map(x=>x.move));
+ const knownMove=id=>!!(source.moves[id]||moves[id]);
+ const executable=id=>!!moves[id];
+ function sourceForm(species,form="normal"){
+   const pokemonId=G.db.species[species]?.forms?.[form]?.sourcePokemonId;
+   return pokemonId==null?null:source.forms[pokemonId]||null;
+ }
+ function levelMoves(species,level,form="normal"){
+   const record=sourceForm(species,form);
+   return unique((record?.level||[]).filter(([id,at])=>at<=level).map(([id])=>id));
+ }
+ function tmCompatibility(species,form="normal"){
+   return sourceForm(species,form)?.machine||[];
+ }
+ function sourceInfo(species,form="normal"){
+   const r=sourceForm(species,form);
+   return r?{groupId:r.groupId,championsProvisional:r.championsProvisional,
+    missing:r.missing,available:r.groupId!==null}:{
+    groupId:null,championsProvisional:false,missing:true,available:false};
  }
  function initialize(unit){
    if(!Array.isArray(unit.learnedMoves))unit.learnedMoves=[];
-   unit.learnedMoves=unique([...levelMoves(unit.species,unit.level),...unit.learnedMoves,...unit.moves].filter(id=>!!moves[id]));
+   unit.learnedMoves=unique([...levelMoves(unit.species,unit.level,unit.form),...unit.learnedMoves,...unit.moves].filter(knownMove));
    return unit.learnedMoves;
  }
  function learn(unit,id){
-   if(!moves[id])return "존재하지 않는 기술입니다.";
+   if(!knownMove(id))return "존재하지 않는 기술입니다.";
    initialize(unit);
    if(unit.learnedMoves.includes(id))return null;
    unit.learnedMoves.push(id);G.change("roster");return null;
@@ -44,7 +62,8 @@
    if(!Number.isInteger(slot)||slot<0||slot>1)return "기술 슬롯은 1~2만 가능합니다.";
    const blocked=canEdit(unit);if(blocked)return blocked;
    initialize(unit);
-   if(id!==null&&(!moves[id]||!unit.learnedMoves.includes(id)))return "습득하지 않은 기술입니다.";
+   if(id!==null&&!unit.learnedMoves.includes(id))return "습득하지 않은 기술입니다.";
+   if(id!==null&&!executable(id))return "전투 효과가 구현되지 않은 기술입니다.";
    if(id!==null&&unit.moves.includes(id)&&unit.moves.indexOf(id)!==slot)return "같은 기술을 두 번 장착할 수 없습니다.";
    const next=[...unit.moves];while(next.length<=slot)next.push(null);
    next[slot]=id;
@@ -54,7 +73,9 @@
  function canUseTM(unit,move){
    if(unit.side!=="ally"||unit.expedition!==null)return "탐험에서 귀환한 포켓몬만 기술머신을 사용할 수 있습니다.";
    if(!G.state.technicalMachines.includes(move))return "해금되지 않은 기술머신입니다.";
-   if(!(data.tmCompatibility[unit.species]||[]).includes(move))return "이 포켓몬과 호환되지 않는 기술머신입니다.";
+   if(!knownMove(move))return "존재하지 않는 기술입니다.";
+   if(sourceInfo(unit.species,unit.form).missing)return "해당 폼의 기술 습득 자료가 없습니다.";
+   if(!tmCompatibility(unit.species,unit.form).includes(move))return "이 포켓몬과 호환되지 않는 기술머신입니다.";
    return null;
  }
  function useTM(unit,move){const err=canUseTM(unit,move);return err||learn(unit,move);}
@@ -102,7 +123,8 @@
    const pick=choices[exp.actions%choices.length];
    return pick.startsWith("tm:")||pick.startsWith("tool:")?pick:"material:"+pick;
  }
- G.techniques={initialize,levelMoves,learn,onLevel,evolve,canEdit,canEditTools,equip,canUseTM,useTM,
+ G.techniques={initialize,levelMoves,tmCompatibility,sourceInfo,knownMove,executable,imported:source,
+   learn,onLevel,evolve,canEdit,canEditTools,equip,canUseTM,useTM,
    materialStatus,recipeStatus,discover,unlock,craft,materialDisplay,collectLoot,demoFind,data};
  for(const u of G.state.roster)initialize(u);
 })();
