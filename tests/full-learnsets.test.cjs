@@ -36,18 +36,21 @@ test("generated archive preserves pinned total, methods, groups, and excludes ru
  assert.equal(m.stats.archivedRows,m.stats.indexedRows+m.stats.unmappedRows);
  assert.equal(m.stats.forms,1351);
  assert.equal(m.status.engineIntegrated,false);
- let count=0,formIds=new Set(),speciesIds=new Set();
+ let count=0,formIds=new Set(),speciesIds=new Set(),methods={},groups={},masteryCount=0,orderCount=0;
  for(const filename of m.files.filter(x=>x.includes("/learnsets-"))){
   const doc=JSON.parse(fs.readFileSync(path.join(root,filename),"utf8"));
   for(const s of doc.species){speciesIds.add(s.speciesId);for(const p of s.pokemon){
    assert.ok(!formIds.has(p.pokemonId));formIds.add(p.pokemonId);
    for(const [gid,rows]of Object.entries(p.versions)){
     assert.ok(m.versionGroups.some(g=>g.id===Number(gid)));
-    for(const row of rows){assert.equal(row.length,5);assert.ok(row.slice(0,3).every(Number.isSafeInteger));assert.ok(row[3]===null||Number.isSafeInteger(row[3]));assert.ok(row[4]===null||Number.isSafeInteger(row[4]));count++;}
+    groups[gid]=(groups[gid]||0)+rows.length;
+    for(const row of rows){assert.equal(row.length,5);assert.ok(row.slice(0,3).every(Number.isSafeInteger));assert.ok(row[3]===null||Number.isSafeInteger(row[3]));assert.ok(row[4]===null||Number.isSafeInteger(row[4]));methods[row[1]]=(methods[row[1]]||0)+1;if(row[3]!==null)orderCount++;if(row[4]!==null)masteryCount++;count++;}
    }
   }}
  }
  const overflow=JSON.parse(fs.readFileSync(path.join(base,"unmapped.json"),"utf8")).rows;
  assert.equal(count,m.stats.indexedRows);assert.equal(overflow.length,m.stats.unmappedRows);
  assert.equal(count+overflow.length,638321);assert.equal(formIds.size,1351);assert.equal(speciesIds.size,1025);
+ assert.deepEqual(methods,m.stats.byMethod);assert.deepEqual(groups,m.stats.byGroup);
+ assert.equal(masteryCount,1882);assert.equal(orderCount,40018);
 });
