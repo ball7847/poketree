@@ -26,6 +26,6 @@ test("ordinary Pikachu and all other species preserve original behavior",()=>{
  assert.equal(Object.keys(s).length,1025);
  for(const [key,value] of Object.entries(n.species)){
   if(key==="pikachu")continue;
-  assert.deepEqual(JSON.parse(JSON.stringify(s[key].forms)),JSON.parse(JSON.stringify(value.forms)),key);
+  assert.equal(JSON.stringify(s[key].forms),JSON.stringify(value.forms),key);
  }
 });
