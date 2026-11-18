@@ -1,5 +1,16 @@
 # PokeTree — 기술/습득표 원본 데이터 가져오기 (2026-11-16)
 
+## 2026-11-18 전체 버전별 기술/기술머신 습득표 아카이브 완료
+
+- 전체 자료는 `data-import/full-history/`에 **별도 저장**함. 기존 이 폴더의 `moves/`, `learnsets/`(챔피언스+최신 대체 버전) 및 게임 실행 데이터는 변경하지 않음.
+- 고정 PokeAPI `pokemon_moves.csv` **638,321행**을 전부 보존. 원본 7열 `pokemon_id,version_group_id,move_id,pokemon_move_method_id,level,order,mastery`를 올바르게 읽고, 결측 `order`/`mastery`를 `null`로 저장.
+- 1,025종 / 1,351폼 / 전체 관계 638,321행, 미연결 행 0, 원본 관계가 없는 폼 48개. 저장소에 21개 도감 샤드, `unmapped.json`, `manifest.json` 업로드 후 다시 읽어 행 수/폼 수/파일 유효성을 검증함.
+- 습득 방법별 원본 행: 레벨업 `1` = **161,805**, 기술머신 `4` = **371,571**, 그 외 방법도 원본 보존. 이는 중복 작품/버전이 포함된 *관계 행 수*이지 고유 기술 수나 기술머신 수가 아님.
+- 원본의 `order` 비결측 **40,018행**, `mastery` 비결측 **1,882행**. 각 버전그룹은 별도 보존하며 원작 기술 습득 가능 여부를 다른 작품과 섞지 않음.
+- 재생성/검증: `node scripts/import-full-learnsets.cjs --check`, `node --test tests/full-learnsets.test.cjs tests/pokemon-move-import.test.cjs`. 수집기 원본 7열 헤더 불일치 문제 수정. **GitHub Actions 최종 실행/통과 여부는 확인되지 않았으므로 별도 확인 필요**.
+- 이 원본에 존재한다는 의미와 2026-11 현행 챔피언스에 실제 등장·습득 가능하다는 의미는 다름. 48폼의 데이터 결측과 챔피언스 독립 검수는 남아 있음.
+
+
 본 디렉터리는 **게임 실행 코드와 분리된 원본 수집 저장소**이다. 기존 `game/data/moves.js` 기술 13개와 `game/data/techniques.js` 시연용 습득표, 전투 계산, 저장 구조를 수정하거나 확장하지 않는다.
 
 ## 현재 수집 내용
