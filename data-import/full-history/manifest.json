@@ -1,0 +1,310 @@
+{
+  "schemaVersion": 2,
+  "sourceProvider": "PokeAPI/pokeapi",
+  "sourceRevision": "8a92bfa7dab2f12b84b5d151562f9857c133ff30",
+  "sourceFileBlobs": {
+    "pokemon.csv": "bb32b1763d2462160f49ce88b4a1d800e4f195e1",
+    "version_groups.csv": "b58cdc4d7f11d2dc663520b1a726b7ebf9118f15",
+    "pokemon_moves.csv": "ce0fcd1f722477e1acb9be4cce54799d0fb86f63"
+  },
+  "status": {
+    "engineIntegrated": false,
+    "liveChampionsVerified": false,
+    "allSourceVersionsRetained": true
+  },
+  "format": {
+    "row": "[moveId,methodId,level,order,mastery]",
+    "group": "versions[versionGroupId]",
+    "nullableFields": [
+      "order",
+      "mastery"
+    ],
+    "methodMachine": 4,
+    "defaultSelection": "Champions group 32 if present; otherwise most recent <= generation 9 by group order; do not merge groups"
+  },
+  "versionGroups": [
+    {
+      "id": 1,
+      "name": "red-blue",
+      "generation": 1,
+      "order": 3
+    },
+    {
+      "id": 2,
+      "name": "yellow",
+      "generation": 1,
+      "order": 4
+    },
+    {
+      "id": 3,
+      "name": "gold-silver",
+      "generation": 2,
+      "order": 5
+    },
+    {
+      "id": 4,
+      "name": "crystal",
+      "generation": 2,
+      "order": 6
+    },
+    {
+      "id": 5,
+      "name": "ruby-sapphire",
+      "generation": 3,
+      "order": 7
+    },
+    {
+      "id": 6,
+      "name": "emerald",
+      "generation": 3,
+      "order": 8
+    },
+    {
+      "id": 7,
+      "name": "firered-leafgreen",
+      "generation": 3,
+      "order": 11
+    },
+    {
+      "id": 8,
+      "name": "diamond-pearl",
+      "generation": 4,
+      "order": 12
+    },
+    {
+      "id": 9,
+      "name": "platinum",
+      "generation": 4,
+      "order": 13
+    },
+    {
+      "id": 10,
+      "name": "heartgold-soulsilver",
+      "generation": 4,
+      "order": 14
+    },
+    {
+      "id": 11,
+      "name": "black-white",
+      "generation": 5,
+      "order": 15
+    },
+    {
+      "id": 12,
+      "name": "colosseum",
+      "generation": 3,
+      "order": 9
+    },
+    {
+      "id": 13,
+      "name": "xd",
+      "generation": 3,
+      "order": 10
+    },
+    {
+      "id": 14,
+      "name": "black-2-white-2",
+      "generation": 5,
+      "order": 16
+    },
+    {
+      "id": 15,
+      "name": "x-y",
+      "generation": 6,
+      "order": 17
+    },
+    {
+      "id": 16,
+      "name": "omega-ruby-alpha-sapphire",
+      "generation": 6,
+      "order": 18
+    },
+    {
+      "id": 17,
+      "name": "sun-moon",
+      "generation": 7,
+      "order": 19
+    },
+    {
+      "id": 18,
+      "name": "ultra-sun-ultra-moon",
+      "generation": 7,
+      "order": 20
+    },
+    {
+      "id": 19,
+      "name": "lets-go-pikachu-lets-go-eevee",
+      "generation": 7,
+      "order": 21
+    },
+    {
+      "id": 20,
+      "name": "sword-shield",
+      "generation": 8,
+      "order": 22
+    },
+    {
+      "id": 21,
+      "name": "the-isle-of-armor",
+      "generation": 8,
+      "order": 23
+    },
+    {
+      "id": 22,
+      "name": "the-crown-tundra",
+      "generation": 8,
+      "order": 24
+    },
+    {
+      "id": 23,
+      "name": "brilliant-diamond-shining-pearl",
+      "generation": 8,
+      "order": 25
+    },
+    {
+      "id": 24,
+      "name": "legends-arceus",
+      "generation": 8,
+      "order": 26
+    },
+    {
+      "id": 25,
+      "name": "scarlet-violet",
+      "generation": 9,
+      "order": 27
+    },
+    {
+      "id": 26,
+      "name": "the-teal-mask",
+      "generation": 9,
+      "order": 28
+    },
+    {
+      "id": 27,
+      "name": "the-indigo-disk",
+      "generation": 9,
+      "order": 29
+    },
+    {
+      "id": 28,
+      "name": "red-green-japan",
+      "generation": 1,
+      "order": 1
+    },
+    {
+      "id": 29,
+      "name": "blue-japan",
+      "generation": 1,
+      "order": 2
+    },
+    {
+      "id": 30,
+      "name": "legends-za",
+      "generation": 9,
+      "order": 30
+    },
+    {
+      "id": 31,
+      "name": "mega-dimension",
+      "generation": 9,
+      "order": 31
+    },
+    {
+      "id": 32,
+      "name": "champions",
+      "generation": 9,
+      "order": 32
+    }
+  ],
+  "files": [
+    "data-import/full-history/learnsets-0001-0050.json",
+    "data-import/full-history/learnsets-0051-0100.json",
+    "data-import/full-history/learnsets-0101-0150.json",
+    "data-import/full-history/learnsets-0151-0200.json",
+    "data-import/full-history/learnsets-0201-0250.json",
+    "data-import/full-history/learnsets-0251-0300.json",
+    "data-import/full-history/learnsets-0301-0350.json",
+    "data-import/full-history/learnsets-0351-0400.json",
+    "data-import/full-history/learnsets-0401-0450.json",
+    "data-import/full-history/learnsets-0451-0500.json",
+    "data-import/full-history/learnsets-0501-0550.json",
+    "data-import/full-history/learnsets-0551-0600.json",
+    "data-import/full-history/learnsets-0601-0650.json",
+    "data-import/full-history/learnsets-0651-0700.json",
+    "data-import/full-history/learnsets-0701-0750.json",
+    "data-import/full-history/learnsets-0751-0800.json",
+    "data-import/full-history/learnsets-0801-0850.json",
+    "data-import/full-history/learnsets-0851-0900.json",
+    "data-import/full-history/learnsets-0901-0950.json",
+    "data-import/full-history/learnsets-0951-1000.json",
+    "data-import/full-history/learnsets-1001-1025.json",
+    "data-import/full-history/unmapped.json"
+  ],
+  "stats": {
+    "sourceRows": 638321,
+    "archivedRows": 638321,
+    "indexedRows": 638321,
+    "unmappedRows": 0,
+    "byMethod": {
+      "1": 161805,
+      "2": 34600,
+      "3": 50075,
+      "4": 371571,
+      "5": 4,
+      "6": 10,
+      "9": 332,
+      "10": 64,
+      "11": 50,
+      "12": 19810
+    },
+    "byGroup": {
+      "1": 4128,
+      "2": 4152,
+      "3": 9056,
+      "4": 9286,
+      "5": 13955,
+      "6": 19304,
+      "7": 16486,
+      "8": 26301,
+      "9": 30897,
+      "10": 32216,
+      "11": 33756,
+      "12": 12976,
+      "13": 15694,
+      "14": 41544,
+      "15": 42886,
+      "16": 54392,
+      "17": 49542,
+      "18": 62019,
+      "19": 5776,
+      "20": 44204,
+      "23": 24797,
+      "24": 2230,
+      "25": 54658,
+      "28": 4128,
+      "29": 4128,
+      "32": 19810
+    },
+    "byGeneration": {
+      "1": 16536,
+      "2": 18342,
+      "3": 78415,
+      "4": 89414,
+      "5": 75300,
+      "6": 97278,
+      "7": 117337,
+      "8": 71231,
+      "9": 74468
+    },
+    "formsWithRows": 1303,
+    "formsWithoutRows": 48,
+    "forms": 1351,
+    "species": 1025
+  },
+  "limitations": [
+    "Complete only relative to pinned PokeAPI pokemon_moves.csv; not independent verification of every real game learnset.",
+    "Rows outside national Pokédex scope preserved in unmapped.json.",
+    "No inference of compatibility, absent source records, or current Champions validity.",
+    "Game runtime and existing move / technique demo data unchanged."
+  ]
+}
