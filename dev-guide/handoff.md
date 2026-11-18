@@ -1,5 +1,14 @@
 # 다음 대화 개발 인수인계 — 2026-11-16 최신
 
+### 2026-11-18 전체 습득표 수집 실패 원인 확인 및 교정
+- **확인된 직접 원인:** 원본 `pokemon_moves.csv` 실제 열은 `pokemon_id,version_group_id,move_id,pokemon_move_method_id,level,order,mastery` (7열). 기존 `scripts/full-learnsets-transform.cjs`는 `mastery`를 제외한 6열만 허용하여, 고정 원본 입력 시 헤더 검증 단계에서 실패하는 코드였음.
+- 고정 원본 Git blob `ce0fcd1f722477e1acb9be4cce54799d0fb86f63` 직접 조회: 관계 **638,321행**, 열 개수가 다른 행 **0**, `order` 값 존재 **40,018행**, `mastery` 값 존재 **1,882행**.
+- 수정: 7열 입력 검증 및 `[moveId,methodId,level,order,mastery]` 5필드 보존 (빈 `order`/`mastery`는 `null`), 범위 외 원본 행도 `mastery` 포함 7필드 보존.
+- 수집기 manifest의 스키마 설명을 7열에 맞춰 고침. 테스트 픽스처도 실제 7열로 갱신. 원본 `data-import/full-history/manifest.json`이 없으면 전체 정합성 테스트가 **skip**되지 않고 실패하도록 강화.
+- **아직 별도 확인할 것:** GitHub Actions 수집 실행 결과, 생성 파일 실제 커밋, 전체 테스트 통과. 원본 스키마 결함은 재현 가능한 원인이지만 이것이 유일한 운영 실패 원인이었는지는 로그 확인 필요.
+- `game/` 내부 코드 및 기존 전투 기술/저장 데이터는 수정하지 않음.
+
+
 ### 2026-11-16 추가 검증 기록
 - GitHub `main`에서 `data-import/full-history/manifest.json` 조회 결과 **404**: 전체 데이터 생성 및 아카이브 커밋은 아직 확인되지 않음. GitHub 워크플로 결과도 검증되지 않아 CI 성공 주장 금지.
 - 원본 CSV 빈 `order` 칸이 숫자 0으로 변환될 수 있는 문제 수정: `null` 보존, 필수 ID 빈값 거부. `tests/full-learnsets.test.cjs`의 해당 사례 수정.
