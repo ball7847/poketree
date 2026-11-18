@@ -4,6 +4,7 @@
  * PP in the PokeTree battle engine is a SHARED energy gauge, always costs 100.
  */
 window.POKE_MOVES=Object.freeze({
+  ...window.POKE_SIMPLE_DAMAGE_MOVES,
   "quick-attack":{name:"전광석화",type:"normal",category:"physical",power:40,accuracy:100,priority:1,target:"enemy",effect:"damage",source:"champions"},
   "thunderbolt":{name:"10만볼트",type:"electric",category:"special",power:90,accuracy:100,priority:0,target:"enemy",effect:"damage",secondary:{kind:"paralysis",chance:10},source:"champions"},
   "gust":{name:"바람일으키기",type:"flying",category:"special",power:40,accuracy:100,priority:0,target:"enemy",effect:"damage",source:"gen9"},
