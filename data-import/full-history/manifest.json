@@ -302,9 +302,9 @@
     "species": 1025
   },
   "limitations": [
-    "Complete only relative to pinned PokeAPI pokemon_moves.csv; not independent verification of every real game learnset.",
-    "Rows outside national Pokédex scope preserved in unmapped.json.",
-    "No inference of compatibility, absent source records, or current Champions validity.",
-    "Game runtime and existing move / technique demo data unchanged."
+    "This is an exhaustive archive only of the pinned PokeAPI pokemon_moves.csv, not an independently verified exhaustive list of all real game learnsets.",
+    "Rows without a national-dex Pokémon form are retained in unmapped.json.",
+    "No inference of compatibility, source omissions, or current Champions validity.",
+    "Game runtime and existing data-import/moves and data-import/learnsets are untouched."
   ]
 }
