@@ -6,7 +6,7 @@
 - `game/data/species.js`: `demoSpecies` 6개 레코드와 루트/폼 스프레드 병합 제거. `POKE_NATIONAL_CATALOG.species`를 기준으로 `POKE_SPECIES` 생성. ORAS 코스튬 피카츄 6폼의 피뢰침 보정만 유지. 전국도감 원본 파일은 변경하지 않음.
 - `tests/provenance.test.cjs`: 과거 시연용 값 보존 테스트를 전국도감 원본과의 비교(6종 기본 폼 + 피카츄 외 5종 전체 객체)로 교체. 기존 `tests/cosplay-pikachu.test.cjs`에서 일반 피카츄 특성 보존, 모든 타 종족 폼 유지, 코스튬 예외를 검증.
 - 변경 커밋: 종족 로더 `10c5bae`, 테스트 `e454467`. 게임 엔진/지역/파티/경제/저장/기술 습득표 코드 변경 없음.
-- 자동 테스트: GitHub Actions run `44252845434` 최종 결론 확인 필요. Chromium 스모크 테스트는 이 워크플로 테스트 성공 후에 실행됨. Pages 배포도 별개 실행 결과 확인 필요.
+- **자동 테스트 검증 완료:** GitHub Actions run `44252845434` (커밋 `e454467`) `PokeTree engine tests` 성공. Node 전체 테스트, 데이터 감사, Chromium 브라우저 스모크 테스트 모두 성공으로 표시됨. `10c5bae`에서도 테스트 run `44252829139`와 공식 Pages 배포 워크플로 run `44252829144` 성공 확인. `e454467`의 Pages 배포 워크플로 및 마지막 인수인계 커밋 `39f2864`의 Pages 상태는 별도 확인 필요. 동적 `pages build and deployment` 실패가 1건 존재하므로 배포 성공 여부를 이 기록만으로 일반화하지 않음.
 - 원본의 모든 필드 챔피언스 최신 자료 대조는 이 작업 범위 밖이며 완료로 해석하지 않음.
 
 
