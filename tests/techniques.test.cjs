@@ -15,14 +15,19 @@ test("individual learning and equipment do not share state or reset PP",()=>{
  assert.equal(T.equip(u,"quick-attack",0),null);
  assert.match(T.equip(u,"quick-attack",1),/같은 기술/);
 });
-test("levelup and new high level individual grant all eligible demo techniques",()=>{
- const {G}=boot(),u=G.Pokemon.create({id:"new",species:"pikachu",level:5});
- assert.equal(G.techniques.levelMoves(u.species,u.level).length,2);
- G.techniques.initialize(u);assert.ok(u.learnedMoves.includes("quick-attack"));assert.ok(u.learnedMoves.includes("thunderbolt"));
- const other=G.Pokemon.create({id:"low",species:"pikachu",level:1});
- G.techniques.initialize(other);assert.ok(!other.learnedMoves.includes("thunderbolt"));
- G.Pokemon.grantExperience(other,G.Experience.total(5,other.growth));
- assert.ok(other.learnedMoves.includes("thunderbolt"));
+test("levelup grants pinned source moves without demo learnset injection",()=>{
+ const {G}=boot(),T=G.techniques;
+ const beginner=T.levelMoves("bulbasaur",1),advanced=T.levelMoves("bulbasaur",15);
+ assert.ok(advanced.length>beginner.length,"original Bulbasaur level-up data must advance");
+ const newcomer=G.Pokemon.create({id:"new",species:"bulbasaur",level:15});
+ T.initialize(newcomer);
+ assert.deepEqual([...newcomer.learnedMoves].sort(),[...advanced].sort());
+ const other=G.Pokemon.create({id:"low",species:"bulbasaur",level:1});
+ T.initialize(other);
+ assert.deepEqual([...other.learnedMoves].sort(),[...beginner].sort());
+ G.Pokemon.grantExperience(other,G.Experience.total(15,other.growth));
+ for(const id of advanced)assert.ok(other.learnedMoves.includes(id),id);
+ assert.equal(T.sourceInfo("bulbasaur").missing,false);
 });
 test("expedition equipment allowed only in exploration, not combat/recovery; item TM needs recall",()=>{
  const {G}=boot(),T=G.techniques,u=G.state.roster[0];
@@ -32,7 +37,9 @@ test("expedition equipment allowed only in exploration, not combat/recovery; ite
  assert.match(T.useTM(u,"thunderbolt"),/귀환/);
  const exp=G.state.regions.windy;exp.mode="combat";assert.match(T.equip(u,"quick-attack",0),/전투/);
  exp.mode="recovery";assert.match(T.equip(u,"quick-attack",0),/회복/);
- G.exploration.recall("windy");assert.equal(T.useTM(u,"thunderbolt"),null);
+ G.exploration.recall("windy");
+ const compatible=T.tmCompatibility(u.species,u.form).includes("thunderbolt");
+ assert.equal(T.useTM(u,"thunderbolt"),compatible?null:"이 포켓몬과 호환되지 않는 기술머신입니다.");
 });
 test("material codex ???, recipe states, irreversible unlock and duplicate immunity",()=>{
  const {G}=boot(),T=G.techniques;
