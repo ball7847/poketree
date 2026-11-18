@@ -1,5 +1,17 @@
 # 다음 대화 개발 인수인계 — 2026-11-16 최신
 
+## 2026-11-18 전체 버전 기술 습득표 원본 보존 완료 — 최신 상태
+
+**실제 GitHub 저장 및 검증 완료:** `data-import/full-history/`에 21개 습득표 JSON, `unmapped.json`, `manifest.json` 커밋. 원본 PokeAPI 고정 커밋 `8a92bfa7dab2f12b84b5d151562f9857c133ff30`의 `pokemon_moves.csv` 638,321개 관계 **전부 보존**.
+
+- **핵심 원인 수정:** 기존 수집기가 `pokemon_moves.csv`를 6열로 가정했으나 원본은 `pokemon_id,version_group_id,move_id,pokemon_move_method_id,level,order,mastery`의 **7열**. 스크립트, 테스트, 설명을 수정해 원본의 `order`와 `mastery`까지 결측은 null로 보존. 빈 데이터면 필수 테스트를 skip하지 않고 실패 처리.
+- 원본 Git blob 직접 검사: 638,321행, 모든 행 7열. 저장소에 업로드된 **22개 데이터 파일을 다시 읽어** JSON 파싱, 종족 및 폼 수, 관계 수, 5필드 스키마를 확인. 도감 1,025종, 포켓몬 폼 1,351개, 원본 관계 638,321행, 범위 밖 원본 관계 0개, 습득 기록이 없는 폼 48개.
+- 원본 습득 방법별 행 수: **레벨업(1) 161,805**, **기술머신(4) 371,571**, 기타 방법도 보존. 원본 `order` 값 존재 40,018건, `mastery` 값 존재 1,882건. 두 절반의 파일에서 다시 합산한 결과 원본 통계와 일치.
+- 버전그룹은 독립 보존. 챔피언스 그룹32 우선, 없으면 가장 최근 확인된 9세대 이하 그룹을 조회하는 코드가 있지만 **게임에는 미연결**. 원작 자료의 48개 폼 결측을 임의로 채우지 않음. 챔피언스 2026년 현행 습득표 전수 독립 검증은 아직 하지 않음.
+- **검증 구분:** GitHub에 실제 업로드한 데이터 파일의 전수 행/폼/결측 원본 통계 대조는 완료. `node scripts/import-full-learnsets.cjs --check`와 GitHub Actions의 전체 테스트 **성공 여부는 접근 가능한 실행 로그가 없어서 확인되지 않음**. 성공이라고 주장하지 말 것.
+- 현행 게임 실행 코드 및 `game/data/moves.js`, `game/data/techniques.js`, 저장 스키마는 수정하지 않음. 추후 사용자 별도 승인 전 실제 기술 습득/기술머신 기능 자동 활성화 금지.
+
+
 ### 2026-11-18 전체 습득표 수집 실패 원인 확인 및 교정
 - **확인된 직접 원인:** 원본 `pokemon_moves.csv` 실제 열은 `pokemon_id,version_group_id,move_id,pokemon_move_method_id,level,order,mastery` (7열). 기존 `scripts/full-learnsets-transform.cjs`는 `mastery`를 제외한 6열만 허용하여, 고정 원본 입력 시 헤더 검증 단계에서 실패하는 코드였음.
 - 고정 원본 Git blob `ce0fcd1f722477e1acb9be4cce54799d0fb86f63` 직접 조회: 관계 **638,321행**, 열 개수가 다른 행 **0**, `order` 값 존재 **40,018행**, `mastery` 값 존재 **1,882행**.
