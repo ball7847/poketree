@@ -1,0 +1,35 @@
+name: Generate pinned runtime learnsets
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/generate-runtime-techniques.cjs'
+      - 'data-import/full-history/**'
+      - 'data-import/moves/**'
+      - 'data-import/manifest.json'
+      - '.github/workflows/generate-runtime-techniques.yml'
+permissions:
+  contents: write
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/generate-runtime-techniques.cjs
+      - name: Commit generated browser catalog
+        run: |
+          if git diff --quiet -- game/data/imported-techniques.js && [ -f game/data/imported-techniques.js ] && git ls-files --error-unmatch game/data/imported-techniques.js >/dev/null 2>&1; then
+            echo "Generated catalog unchanged"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add game/data/imported-techniques.js
+          git commit -m "Generate browser runtime technique catalog from pinned source"
+          git push origin HEAD:main
