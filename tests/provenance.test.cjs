@@ -9,7 +9,9 @@ const evidence=loadRecords(root);
 test("audit covers national species and each actual registered form",()=>{
  const report=audit(evidence,catalog);
  assert.equal(report.speciesCount,1025);
- assert.equal(report.formCount,1351);\n assert.equal(report.cosmeticFormCount,1579);\n assert.equal(report.evolutionRowCount,676);
+ assert.equal(report.formCount,1351);
+ assert.equal(report.cosmeticFormCount,1579);
+ assert.equal(report.evolutionRowCount,676);
  assert.equal(report.errors.length,0,report.errors.slice(0,10).join("\n"));
  assert.equal(report.totalFields,report.verified+report.mismatch+report.unavailable+report.notApplicable+report.unverified);
 });
