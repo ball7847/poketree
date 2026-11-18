@@ -4,7 +4,7 @@
  const G=window.PokeTree,$=G.$,T=G.techniques,moveData=window.POKE_MOVES;
  let activePokemon=null;
  const el=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e;};
- const name=id=>moveData[id]?.name||id;
+ const name=id=>moveData[id]?.name||T.imported.moves[id]?.name||id;
  function renderPokemon(unit){
    activePokemon=unit.id;T.initialize(unit);
    const root=$("pokemonMoveSlots"),list=$("pokemonLearnedMoves");
@@ -15,12 +15,12 @@
      const title=el("span","", "슬롯 "+(i+1));
      const select=el("select");select.setAttribute("aria-label","슬롯 "+(i+1)+" 기술");
      const empty=el("option","","미장착");empty.value="";select.append(empty);
-     for(const id of unit.learnedMoves){const opt=el("option","",name(id));opt.value=id;select.append(opt);}
+     for(const id of unit.learnedMoves){const opt=el("option","",name(id)+(T.executable(id)?"":" (효과 미구현)"));opt.value=id;opt.disabled=!T.executable(id);select.append(opt);}
      select.value=unit.moves[i]||"";select.disabled=!!blocked;
      select.addEventListener("change",()=>{const err=T.equip(unit,select.value||null,i);G.text("pokemonMoveMessage",err||"장착 변경 완료 · PP 유지");renderPokemon(unit);});
      line.append(title,select);root.append(line);
    }
-   for(const id of unit.learnedMoves)list.append(el("div","technique-row",name(id)));
+   for(const id of unit.learnedMoves)list.append(el("div","technique-row",name(id)+(T.executable(id)?"":" · 전투 효과 미구현")));
    if(!unit.learnedMoves.length)list.append(el("p","hint","습득 기술 없음"));
    G.text("pokemonMoveMessage",blocked||"");
  }
