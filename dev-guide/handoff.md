@@ -7,7 +7,7 @@
 - `tests/cosplay-pikachu.test.cjs`: 다른 종족 폼 비교에서 `undefined`의 JSON.parse 예외 방지. 일반 피카츄의 특성 비교도 안전한 문자열 비교로 바꾸되 **원본과 일치해야 한다는 검증 조건은 유지**.
 - GitHub Actions `ae241e7` 실행(44250126258): 전체 테스트 111개 중 110개 성공, 1개 실패; Chromium 설치 및 브라우저 스모크 테스트는 선행 실패로 실행되지 않음.
 - **남은 결함 (수정 승인 범위 밖):** `game/data/species.js`의 `demoSpecies.pikachu.forms.normal`에 `abilities`가 없고, 원본 `POKE_NATIONAL_CATALOG.species.pikachu.forms.normal.abilities`는 존재함. 일반 폼을 `{...base.forms,...demoSpecies[id].forms}`로 병합하면서 기본 폼 속성이 통째로 대체되는 코드 경로가 있어, 기존 테스트의 “일반 피카츄 특성은 원본과 일치해야 함” 조건이 실패. 실제 게임 데이터 수정 없이 테스트 기대 조건을 약화해 통과 처리하지 말 것. 후속 별도 승인 필요.
-- 명확한 결함 메시지를 위해 `34b51ec`에 일반 피카츄 검증을 `JSON.stringify` 비교로 교체. 해당 커밋의 CI 최종 결과는 별도로 확인해야 함.
+- 명확한 결함 메시지를 위해 `34b51ec`에 일반 피카츄 검증을 `JSON.stringify` 비교로 교체. 해당 커밋의 CI (44250194333) **110 통과/1 실패 확인**. 남은 실패는 `ordinary Pikachu abilities must match pinned snapshot`이며 실제 `undefined`, 기대 `static` 일반 특성 및 `lightning-rod` 숨겨진 특성. 신규 오류가 아니라 기존 데이터 병합 문제를 명확히 드러낸 것.
 - 원본 데이터 전수 재생성 및 Chromium 검증 성공은 현재 확인되지 않음. **전체 검증 완료 주장 금지**.
 
 
