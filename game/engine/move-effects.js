@@ -38,7 +38,10 @@
          (move.target==="enemy")&&S.grounded(target)){
         G.record(exp,target.name+" · 사이코필드로 우선도 기술 차단");continue;
       }
-      const probability=S.accuracy(move,user,target);
+      // Toxic used by a Poison-type Pokémon bypasses accuracy checks in the source rule.
+      // This is move-specific; all other PokeTree accuracy handling stays unchanged.
+      const poisonUser=move.poisonTypeNeverMiss&&window.PokePokemon.template(user.species,user.form).form.types.includes("poison");
+      const probability=poisonUser?1:S.accuracy(move,user,target);
       if(move.accuracyMode!=="per-hit"&&Math.random()>=probability){G.record(exp,move.name+" · "+target.name+"에게 빗나감");continue;}
       if(move.effect==="heal"){
         const actual=Math.min(target.maxHp-target.hp,healAmount(user,target,move.target==="allies"));
