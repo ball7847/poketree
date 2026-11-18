@@ -20,13 +20,14 @@ function buildFullHistory(csv){
  const overflow=[],stats={sourceRows:0,archivedRows:0,indexedRows:0,unmappedRows:0,byMethod:{},byGroup:{},byGeneration:{},formsWithRows:0,formsWithoutRows:0};
  const lines=csv.pokemon_moves.trimEnd().split(/\r?\n/);
  const header=lines.shift();
- if(header!=="pokemon_id,version_group_id,move_id,pokemon_move_method_id,level,order")throw Error("unexpected pokemon_moves header: "+header);
+ if(header!=="pokemon_id,version_group_id,move_id,pokemon_move_method_id,level,order,mastery")throw Error("unexpected pokemon_moves header: "+header);
  for(const line of lines){
   if(!line)continue;
   const v=line.split(",");
-  if(v.length!==6)throw Error("malformed source row "+(stats.sourceRows+1));
+  if(v.length!==7)throw Error("malformed source row "+(stats.sourceRows+1));
   const [pid,gid,move,method,level]=v.slice(0,5).map((x,i)=>num(x,["pokemon","group","move","method","level"][i]));
   const order=v[5]===""?null:num(v[5],"order");
+  const mastery=v[6]===""?null:num(v[6],"mastery");
   stats.sourceRows++;
   stats.archivedRows++;
   const group=groupById.get(gid);
@@ -36,8 +37,8 @@ function buildFullHistory(csv){
   stats.byGeneration[group.generation]=(stats.byGeneration[group.generation]||0)+1;
   const form=formById.get(pid);
   // Retain even rows outside the national dex scope, never silently discard.
-  if(!form){overflow.push([pid,gid,move,method,level,order]);stats.unmappedRows++;continue;}
-  (form.versions[gid]??=[]).push([move,method,level,order]);
+  if(!form){overflow.push([pid,gid,move,method,level,order,mastery]);stats.unmappedRows++;continue;}
+  (form.versions[gid]??=[]).push([move,method,level,order,mastery]);
   stats.indexedRows++;
  }
  const shards=[];
