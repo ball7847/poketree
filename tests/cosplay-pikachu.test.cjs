@@ -22,7 +22,7 @@ test("ORAS Cosplay Pikachu and five costume forms all have sole regular Lightnin
 });
 test("ordinary Pikachu and all other species preserve original behavior",()=>{
  const {POKE_NATIONAL_CATALOG:n,POKE_SPECIES:s}=load();
- assert.deepEqual(JSON.parse(JSON.stringify(s.pikachu.forms.normal.abilities)),JSON.parse(JSON.stringify(n.species.pikachu.forms.normal.abilities)));
+ assert.equal(JSON.stringify(s.pikachu.forms.normal.abilities),JSON.stringify(n.species.pikachu.forms.normal.abilities),"ordinary Pikachu abilities must match pinned snapshot");
  assert.equal(Object.keys(s).length,1025);
  for(const [key,value] of Object.entries(n.species)){
   if(key==="pikachu")continue;
