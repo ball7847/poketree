@@ -15,10 +15,14 @@ test("audit covers national species and each actual registered form",()=>{
  assert.equal(report.errors.length,0,report.errors.slice(0,10).join("\n"));
  assert.equal(report.totalFields,report.verified+report.mismatch+report.unavailable+report.notApplicable+report.unverified);
 });
-test("existing six demo overrides remain intact",()=>{
+test("former six demo species retain national catalog values",()=>{
  for(const id of ["rattata","pidgey","caterpie","weedle","pikachu","eevee"]){
-  assert.ok(catalog.POKE_SPECIES[id]);
-  assert.equal(catalog.POKE_SPECIES[id].dex,catalog.POKE_NATIONAL_CATALOG.species[id].dex);
+  const actual=catalog.POKE_SPECIES[id];
+  const source=catalog.POKE_NATIONAL_CATALOG.species[id];
+  assert.ok(actual,id);
+  assert.equal(actual.dex,source.dex,id);
+  assert.equal(JSON.stringify(actual.forms.normal),JSON.stringify(source.forms.normal),id+"/normal");
+  if(id!=="pikachu")assert.equal(JSON.stringify(actual),JSON.stringify(source),id);
  }
 });
 test("field and form evidence keys cannot collide",()=>{
