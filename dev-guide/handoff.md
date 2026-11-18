@@ -1,5 +1,16 @@
 # 다음 대화 개발 인수인계 — 2026-11-16 최신
 
+## 2026-11-18 테스트 오류 수정 및 CI 확인 (추가 기록)
+
+- 승인 범위: 실패한 테스트 파일 2개만 수정하고 전체 검증, 인수인계를 갱신. 게임 엔진·UI·원본 포켓몬 데이터·기술 습득 아카이브·저장 스키마는 변경하지 않음.
+- `tests/provenance.test.cjs`: 문장 사이에 문자 그대로 삽입된 `\\n` 2개를 실제 개행으로 교정. CI 재실행에서 문법 실패는 사라짐.
+- `tests/cosplay-pikachu.test.cjs`: 다른 종족 폼 비교에서 `undefined`의 JSON.parse 예외 방지. 일반 피카츄의 특성 비교도 안전한 문자열 비교로 바꾸되 **원본과 일치해야 한다는 검증 조건은 유지**.
+- GitHub Actions `ae241e7` 실행(44250126258): 전체 테스트 111개 중 110개 성공, 1개 실패; Chromium 설치 및 브라우저 스모크 테스트는 선행 실패로 실행되지 않음.
+- **남은 결함 (수정 승인 범위 밖):** `game/data/species.js`의 `demoSpecies.pikachu.forms.normal`에 `abilities`가 없고, 원본 `POKE_NATIONAL_CATALOG.species.pikachu.forms.normal.abilities`는 존재함. 일반 폼을 `{...base.forms,...demoSpecies[id].forms}`로 병합하면서 기본 폼 속성이 통째로 대체되는 코드 경로가 있어, 기존 테스트의 “일반 피카츄 특성은 원본과 일치해야 함” 조건이 실패. 실제 게임 데이터 수정 없이 테스트 기대 조건을 약화해 통과 처리하지 말 것. 후속 별도 승인 필요.
+- 명확한 결함 메시지를 위해 `34b51ec`에 일반 피카츄 검증을 `JSON.stringify` 비교로 교체. 해당 커밋의 CI 최종 결과는 별도로 확인해야 함.
+- 원본 데이터 전수 재생성 및 Chromium 검증 성공은 현재 확인되지 않음. **전체 검증 완료 주장 금지**.
+
+
 ## 2026-11-18 전체 버전 기술 습득표 원본 보존 완료 — 최신 상태
 
 **실제 GitHub 저장 및 검증 완료:** `data-import/full-history/`에 21개 습득표 JSON, `unmapped.json`, `manifest.json` 커밋. 원본 PokeAPI 고정 커밋 `8a92bfa7dab2f12b84b5d151562f9857c133ff30`의 `pokemon_moves.csv` 638,321개 관계 **전부 보존**.
