@@ -14,9 +14,9 @@ test("full import retains every source row, all versions, and unmapped rows",()=
  assert.equal(d.stats.indexedRows,4);assert.equal(d.stats.unmappedRows,1);
  assert.equal(d.stats.byMethod[4],1);
  const form=d.shards[0].species[0].pokemon[0];
- assert.deepEqual(form.versions["25"],[[20,4,0,null]]);
- assert.deepEqual(form.versions["1"],[[10,1,5,1]]);
- assert.deepEqual(form.versions["32"],[[30,12,0,3]]);
+ assert.deepEqual(form.versions["25"],[[20,4,0,null,null]]);
+ assert.deepEqual(form.versions["1"],[[10,1,5,1,null]]);
+ assert.deepEqual(form.versions["32"],[[30,12,0,3,9]]);
  assert.equal(queryLearnset(form,Object.fromEntries(d.groups.map(g=>[g.id,g]))).groupId,32);
  assert.deepEqual(queryLearnset(form,Object.fromEntries(d.groups.map(g=>[g.id,g])),4).rows,[]);
  const fallback=d.shards[0].species[1].pokemon[0];
@@ -29,7 +29,8 @@ test("selection does not treat missing moves as inheritance from older versions"
  assert.equal(selectVersion({1:[[10,4,0,1]],32:[[30,12,0,1]]},g).groupId,32);
  assert.equal(selectVersion({},g).groupId,null);
 });
-test("generated archive preserves pinned total, methods, groups, and excludes runtime", {skip:!exists},()=>{
+test("generated archive preserves pinned total, methods, groups, and excludes runtime", ()=>{
+ assert.ok(exists,"Full-history manifest missing: import has not completed");
  const m=JSON.parse(fs.readFileSync(path.join(base,"manifest.json"),"utf8"));
  assert.equal(m.stats.sourceRows,638321);
  assert.equal(m.stats.archivedRows,m.stats.indexedRows+m.stats.unmappedRows);
@@ -42,7 +43,7 @@ test("generated archive preserves pinned total, methods, groups, and excludes ru
    assert.ok(!formIds.has(p.pokemonId));formIds.add(p.pokemonId);
    for(const [gid,rows]of Object.entries(p.versions)){
     assert.ok(m.versionGroups.some(g=>g.id===Number(gid)));
-    for(const row of rows){assert.equal(row.length,4);assert.ok(row.slice(0,3).every(Number.isSafeInteger));assert.ok(row[3]===null||Number.isSafeInteger(row[3]));count++;}
+    for(const row of rows){assert.equal(row.length,5);assert.ok(row.slice(0,3).every(Number.isSafeInteger));assert.ok(row[3]===null||Number.isSafeInteger(row[3]));assert.ok(row[4]===null||Number.isSafeInteger(row[4]));count++;}
    }
   }}
  }
