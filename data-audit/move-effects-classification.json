@@ -1,0 +1,5659 @@
+{
+  "schemaVersion": 1,
+  "sourceRevision": "8a92bfa7dab2f12b84b5d151562f9857c133ff30",
+  "sourceMoveCount": 937,
+  "sourceRule": "effectId=1 and physical/special with positive power, finite accuracy, normal single-target, neutral meta, priority 0",
+  "verifiedEffectMeaning": "PokeAPI move effect 1: regular damage without additional effects",
+  "categories": {
+    "simple-damage-eligible": 36,
+    "damage-with-additional-or-unverified-effect": 558,
+    "status-or-support": 277,
+    "simple-effect-special-metadata-or-target": 66
+  },
+  "selectedIds": [
+    1,
+    5,
+    10,
+    11,
+    15,
+    17,
+    21,
+    22,
+    25,
+    30,
+    33,
+    55,
+    56,
+    64,
+    65,
+    70,
+    88,
+    121,
+    224,
+    337
+  ],
+  "entries": [
+    {
+      "id": 1,
+      "key": "pound",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 2,
+      "key": "karate-chop",
+      "effectId": 44,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 3,
+      "key": "double-slap",
+      "effectId": 30,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 4,
+      "key": "comet-punch",
+      "effectId": 30,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 5,
+      "key": "mega-punch",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 6,
+      "key": "pay-day",
+      "effectId": 35,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 7,
+      "key": "fire-punch",
+      "effectId": 5,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 8,
+      "key": "ice-punch",
+      "effectId": 6,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 9,
+      "key": "thunder-punch",
+      "effectId": 7,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 10,
+      "key": "scratch",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 11,
+      "key": "vice-grip",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 12,
+      "key": "guillotine",
+      "effectId": 39,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 13,
+      "key": "razor-wind",
+      "effectId": 40,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 14,
+      "key": "swords-dance",
+      "effectId": 51,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 15,
+      "key": "cut",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 16,
+      "key": "gust",
+      "effectId": 150,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 17,
+      "key": "wing-attack",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 18,
+      "key": "whirlwind",
+      "effectId": 29,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 19,
+      "key": "fly",
+      "effectId": 156,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 20,
+      "key": "bind",
+      "effectId": 43,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 21,
+      "key": "slam",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 22,
+      "key": "vine-whip",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 23,
+      "key": "stomp",
+      "effectId": 151,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 24,
+      "key": "double-kick",
+      "effectId": 45,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 25,
+      "key": "mega-kick",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 26,
+      "key": "jump-kick",
+      "effectId": 46,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 27,
+      "key": "rolling-kick",
+      "effectId": 32,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 28,
+      "key": "sand-attack",
+      "effectId": 24,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 29,
+      "key": "headbutt",
+      "effectId": 32,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 30,
+      "key": "horn-attack",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 31,
+      "key": "fury-attack",
+      "effectId": 30,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 32,
+      "key": "horn-drill",
+      "effectId": 39,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 33,
+      "key": "tackle",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 34,
+      "key": "body-slam",
+      "effectId": 7,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 35,
+      "key": "wrap",
+      "effectId": 43,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 36,
+      "key": "take-down",
+      "effectId": 49,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 37,
+      "key": "thrash",
+      "effectId": 28,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 38,
+      "key": "double-edge",
+      "effectId": 199,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 39,
+      "key": "tail-whip",
+      "effectId": 20,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 40,
+      "key": "poison-sting",
+      "effectId": 3,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 41,
+      "key": "twineedle",
+      "effectId": 78,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 42,
+      "key": "pin-missile",
+      "effectId": 30,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 43,
+      "key": "leer",
+      "effectId": 20,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 44,
+      "key": "bite",
+      "effectId": 32,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 45,
+      "key": "growl",
+      "effectId": 19,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 46,
+      "key": "roar",
+      "effectId": 29,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 47,
+      "key": "sing",
+      "effectId": 2,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 48,
+      "key": "supersonic",
+      "effectId": 50,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 49,
+      "key": "sonic-boom",
+      "effectId": 131,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 50,
+      "key": "disable",
+      "effectId": 87,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 51,
+      "key": "acid",
+      "effectId": 73,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 52,
+      "key": "ember",
+      "effectId": 5,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 53,
+      "key": "flamethrower",
+      "effectId": 5,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 54,
+      "key": "mist",
+      "effectId": 47,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 55,
+      "key": "water-gun",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 56,
+      "key": "hydro-pump",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 57,
+      "key": "surf",
+      "effectId": 258,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 58,
+      "key": "ice-beam",
+      "effectId": 6,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 59,
+      "key": "blizzard",
+      "effectId": 261,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 60,
+      "key": "psybeam",
+      "effectId": 77,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 61,
+      "key": "bubble-beam",
+      "effectId": 71,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 62,
+      "key": "aurora-beam",
+      "effectId": 69,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 63,
+      "key": "hyper-beam",
+      "effectId": 81,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 64,
+      "key": "peck",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 65,
+      "key": "drill-peck",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 66,
+      "key": "submission",
+      "effectId": 49,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 67,
+      "key": "low-kick",
+      "effectId": 197,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 68,
+      "key": "counter",
+      "effectId": 90,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 69,
+      "key": "seismic-toss",
+      "effectId": 88,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 70,
+      "key": "strength",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 71,
+      "key": "absorb",
+      "effectId": 4,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 72,
+      "key": "mega-drain",
+      "effectId": 4,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 73,
+      "key": "leech-seed",
+      "effectId": 85,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 74,
+      "key": "growth",
+      "effectId": 317,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 75,
+      "key": "razor-leaf",
+      "effectId": 44,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 76,
+      "key": "solar-beam",
+      "effectId": 152,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 77,
+      "key": "poison-powder",
+      "effectId": 67,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 78,
+      "key": "stun-spore",
+      "effectId": 68,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 79,
+      "key": "sleep-powder",
+      "effectId": 2,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 80,
+      "key": "petal-dance",
+      "effectId": 28,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 81,
+      "key": "string-shot",
+      "effectId": 61,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 82,
+      "key": "dragon-rage",
+      "effectId": 42,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 83,
+      "key": "fire-spin",
+      "effectId": 43,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 84,
+      "key": "thunder-shock",
+      "effectId": 7,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 85,
+      "key": "thunderbolt",
+      "effectId": 7,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 86,
+      "key": "thunder-wave",
+      "effectId": 68,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 87,
+      "key": "thunder",
+      "effectId": 153,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 88,
+      "key": "rock-throw",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 89,
+      "key": "earthquake",
+      "effectId": 148,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 90,
+      "key": "fissure",
+      "effectId": 39,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 91,
+      "key": "dig",
+      "effectId": 257,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 92,
+      "key": "toxic",
+      "effectId": 34,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 93,
+      "key": "confusion",
+      "effectId": 77,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 94,
+      "key": "psychic",
+      "effectId": 73,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 95,
+      "key": "hypnosis",
+      "effectId": 2,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 96,
+      "key": "meditate",
+      "effectId": 11,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 97,
+      "key": "agility",
+      "effectId": 53,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 98,
+      "key": "quick-attack",
+      "effectId": 104,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 99,
+      "key": "rage",
+      "effectId": 82,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 100,
+      "key": "teleport",
+      "effectId": 154,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 101,
+      "key": "night-shade",
+      "effectId": 88,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 102,
+      "key": "mimic",
+      "effectId": 83,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 103,
+      "key": "screech",
+      "effectId": 60,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 104,
+      "key": "double-team",
+      "effectId": 17,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 105,
+      "key": "recover",
+      "effectId": 33,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 106,
+      "key": "harden",
+      "effectId": 12,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 107,
+      "key": "minimize",
+      "effectId": 109,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 108,
+      "key": "smokescreen",
+      "effectId": 24,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 109,
+      "key": "confuse-ray",
+      "effectId": 50,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 110,
+      "key": "withdraw",
+      "effectId": 12,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 111,
+      "key": "defense-curl",
+      "effectId": 157,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 112,
+      "key": "barrier",
+      "effectId": 52,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 113,
+      "key": "light-screen",
+      "effectId": 36,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 114,
+      "key": "haze",
+      "effectId": 26,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 115,
+      "key": "reflect",
+      "effectId": 66,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 116,
+      "key": "focus-energy",
+      "effectId": 48,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 117,
+      "key": "bide",
+      "effectId": 27,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 118,
+      "key": "metronome",
+      "effectId": 84,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 119,
+      "key": "mirror-move",
+      "effectId": 10,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 120,
+      "key": "self-destruct",
+      "effectId": 8,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 121,
+      "key": "egg-bomb",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 122,
+      "key": "lick",
+      "effectId": 7,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 123,
+      "key": "smog",
+      "effectId": 3,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 124,
+      "key": "sludge",
+      "effectId": 3,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 125,
+      "key": "bone-club",
+      "effectId": 32,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 126,
+      "key": "fire-blast",
+      "effectId": 5,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 127,
+      "key": "waterfall",
+      "effectId": 32,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 128,
+      "key": "clamp",
+      "effectId": 43,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 129,
+      "key": "swift",
+      "effectId": 18,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 130,
+      "key": "skull-bash",
+      "effectId": 146,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 131,
+      "key": "spike-cannon",
+      "effectId": 30,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 132,
+      "key": "constrict",
+      "effectId": 71,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 133,
+      "key": "amnesia",
+      "effectId": 55,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 134,
+      "key": "kinesis",
+      "effectId": 24,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 135,
+      "key": "soft-boiled",
+      "effectId": 33,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 136,
+      "key": "high-jump-kick",
+      "effectId": 46,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 137,
+      "key": "glare",
+      "effectId": 68,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 138,
+      "key": "dream-eater",
+      "effectId": 9,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 139,
+      "key": "poison-gas",
+      "effectId": 67,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 140,
+      "key": "barrage",
+      "effectId": 30,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 141,
+      "key": "leech-life",
+      "effectId": 4,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 142,
+      "key": "lovely-kiss",
+      "effectId": 2,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 143,
+      "key": "sky-attack",
+      "effectId": 76,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 144,
+      "key": "transform",
+      "effectId": 58,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 145,
+      "key": "bubble",
+      "effectId": 71,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 146,
+      "key": "dizzy-punch",
+      "effectId": 77,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 147,
+      "key": "spore",
+      "effectId": 2,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 148,
+      "key": "flash",
+      "effectId": 24,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 149,
+      "key": "psywave",
+      "effectId": 89,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 150,
+      "key": "splash",
+      "effectId": 86,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 151,
+      "key": "acid-armor",
+      "effectId": 52,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 152,
+      "key": "crabhammer",
+      "effectId": 44,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 153,
+      "key": "explosion",
+      "effectId": 8,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 154,
+      "key": "fury-swipes",
+      "effectId": 30,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 155,
+      "key": "bonemerang",
+      "effectId": 45,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 156,
+      "key": "rest",
+      "effectId": 38,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 157,
+      "key": "rock-slide",
+      "effectId": 32,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 158,
+      "key": "hyper-fang",
+      "effectId": 32,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 159,
+      "key": "sharpen",
+      "effectId": 11,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 160,
+      "key": "conversion",
+      "effectId": 31,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 161,
+      "key": "tri-attack",
+      "effectId": 37,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 162,
+      "key": "super-fang",
+      "effectId": 41,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 163,
+      "key": "slash",
+      "effectId": 44,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 164,
+      "key": "substitute",
+      "effectId": 80,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 165,
+      "key": "struggle",
+      "effectId": 255,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 166,
+      "key": "sketch",
+      "effectId": 96,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 167,
+      "key": "triple-kick",
+      "effectId": 105,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 168,
+      "key": "thief",
+      "effectId": 106,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 169,
+      "key": "spider-web",
+      "effectId": 107,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 170,
+      "key": "mind-reader",
+      "effectId": 95,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 171,
+      "key": "nightmare",
+      "effectId": 108,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 172,
+      "key": "flame-wheel",
+      "effectId": 126,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 173,
+      "key": "snore",
+      "effectId": 93,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 174,
+      "key": "curse",
+      "effectId": 110,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 175,
+      "key": "flail",
+      "effectId": 100,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 176,
+      "key": "conversion-2",
+      "effectId": 94,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 177,
+      "key": "aeroblast",
+      "effectId": 44,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 178,
+      "key": "cotton-spore",
+      "effectId": 61,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 179,
+      "key": "reversal",
+      "effectId": 100,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 180,
+      "key": "spite",
+      "effectId": 101,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 181,
+      "key": "powder-snow",
+      "effectId": 6,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 182,
+      "key": "protect",
+      "effectId": 112,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 183,
+      "key": "mach-punch",
+      "effectId": 104,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 184,
+      "key": "scary-face",
+      "effectId": 61,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 185,
+      "key": "feint-attack",
+      "effectId": 18,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 186,
+      "key": "sweet-kiss",
+      "effectId": 50,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 187,
+      "key": "belly-drum",
+      "effectId": 143,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 188,
+      "key": "sludge-bomb",
+      "effectId": 3,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 189,
+      "key": "mud-slap",
+      "effectId": 74,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 190,
+      "key": "octazooka",
+      "effectId": 74,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 191,
+      "key": "spikes",
+      "effectId": 113,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 192,
+      "key": "zap-cannon",
+      "effectId": 7,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 193,
+      "key": "foresight",
+      "effectId": 114,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 194,
+      "key": "destiny-bond",
+      "effectId": 99,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 195,
+      "key": "perish-song",
+      "effectId": 115,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 196,
+      "key": "icy-wind",
+      "effectId": 71,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 197,
+      "key": "detect",
+      "effectId": 112,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 198,
+      "key": "bone-rush",
+      "effectId": 30,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 199,
+      "key": "lock-on",
+      "effectId": 95,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 200,
+      "key": "outrage",
+      "effectId": 28,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 201,
+      "key": "sandstorm",
+      "effectId": 116,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 202,
+      "key": "giga-drain",
+      "effectId": 4,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 203,
+      "key": "endure",
+      "effectId": 117,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 204,
+      "key": "charm",
+      "effectId": 59,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 205,
+      "key": "rollout",
+      "effectId": 118,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 206,
+      "key": "false-swipe",
+      "effectId": 102,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 207,
+      "key": "swagger",
+      "effectId": 119,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 208,
+      "key": "milk-drink",
+      "effectId": 33,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 209,
+      "key": "spark",
+      "effectId": 7,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 210,
+      "key": "fury-cutter",
+      "effectId": 120,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 211,
+      "key": "steel-wing",
+      "effectId": 139,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 212,
+      "key": "mean-look",
+      "effectId": 107,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 213,
+      "key": "attract",
+      "effectId": 121,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 214,
+      "key": "sleep-talk",
+      "effectId": 98,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 215,
+      "key": "heal-bell",
+      "effectId": 103,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 216,
+      "key": "return",
+      "effectId": 122,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 217,
+      "key": "present",
+      "effectId": 123,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 218,
+      "key": "frustration",
+      "effectId": 124,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 219,
+      "key": "safeguard",
+      "effectId": 125,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 220,
+      "key": "pain-split",
+      "effectId": 92,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 221,
+      "key": "sacred-fire",
+      "effectId": 126,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 222,
+      "key": "magnitude",
+      "effectId": 127,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 223,
+      "key": "dynamic-punch",
+      "effectId": 77,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 224,
+      "key": "megahorn",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 225,
+      "key": "dragon-breath",
+      "effectId": 7,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 226,
+      "key": "baton-pass",
+      "effectId": 128,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 227,
+      "key": "encore",
+      "effectId": 91,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 228,
+      "key": "pursuit",
+      "effectId": 129,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 229,
+      "key": "rapid-spin",
+      "effectId": 130,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 230,
+      "key": "sweet-scent",
+      "effectId": 25,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 231,
+      "key": "iron-tail",
+      "effectId": 70,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 232,
+      "key": "metal-claw",
+      "effectId": 140,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 233,
+      "key": "vital-throw",
+      "effectId": 79,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 234,
+      "key": "morning-sun",
+      "effectId": 133,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 235,
+      "key": "synthesis",
+      "effectId": 133,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 236,
+      "key": "moonlight",
+      "effectId": 133,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 237,
+      "key": "hidden-power",
+      "effectId": 136,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 238,
+      "key": "cross-chop",
+      "effectId": 44,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 239,
+      "key": "twister",
+      "effectId": 147,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 240,
+      "key": "rain-dance",
+      "effectId": 137,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 241,
+      "key": "sunny-day",
+      "effectId": 138,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 242,
+      "key": "crunch",
+      "effectId": 70,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 243,
+      "key": "mirror-coat",
+      "effectId": 145,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 244,
+      "key": "psych-up",
+      "effectId": 144,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 245,
+      "key": "extreme-speed",
+      "effectId": 104,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 246,
+      "key": "ancient-power",
+      "effectId": 141,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 247,
+      "key": "shadow-ball",
+      "effectId": 73,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 248,
+      "key": "future-sight",
+      "effectId": 149,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 249,
+      "key": "rock-smash",
+      "effectId": 70,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 250,
+      "key": "whirlpool",
+      "effectId": 262,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 251,
+      "key": "beat-up",
+      "effectId": 155,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 252,
+      "key": "fake-out",
+      "effectId": 159,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 253,
+      "key": "uproar",
+      "effectId": 160,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 254,
+      "key": "stockpile",
+      "effectId": 161,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 255,
+      "key": "spit-up",
+      "effectId": 162,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 256,
+      "key": "swallow",
+      "effectId": 163,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 257,
+      "key": "heat-wave",
+      "effectId": 5,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 258,
+      "key": "hail",
+      "effectId": 165,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 259,
+      "key": "torment",
+      "effectId": 166,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 260,
+      "key": "flatter",
+      "effectId": 167,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 261,
+      "key": "will-o-wisp",
+      "effectId": 168,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 262,
+      "key": "memento",
+      "effectId": 169,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 263,
+      "key": "facade",
+      "effectId": 170,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 264,
+      "key": "focus-punch",
+      "effectId": 171,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 265,
+      "key": "smelling-salts",
+      "effectId": 172,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 266,
+      "key": "follow-me",
+      "effectId": 173,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 267,
+      "key": "nature-power",
+      "effectId": 174,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 268,
+      "key": "charge",
+      "effectId": 175,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 269,
+      "key": "taunt",
+      "effectId": 176,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 270,
+      "key": "helping-hand",
+      "effectId": 177,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 271,
+      "key": "trick",
+      "effectId": 178,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 272,
+      "key": "role-play",
+      "effectId": 179,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 273,
+      "key": "wish",
+      "effectId": 180,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 274,
+      "key": "assist",
+      "effectId": 181,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 275,
+      "key": "ingrain",
+      "effectId": 182,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 276,
+      "key": "superpower",
+      "effectId": 183,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 277,
+      "key": "magic-coat",
+      "effectId": 184,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 278,
+      "key": "recycle",
+      "effectId": 185,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 279,
+      "key": "revenge",
+      "effectId": 186,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 280,
+      "key": "brick-break",
+      "effectId": 187,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 281,
+      "key": "yawn",
+      "effectId": 188,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 282,
+      "key": "knock-off",
+      "effectId": 189,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 283,
+      "key": "endeavor",
+      "effectId": 190,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 284,
+      "key": "eruption",
+      "effectId": 191,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 285,
+      "key": "skill-swap",
+      "effectId": 192,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 286,
+      "key": "imprison",
+      "effectId": 193,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 287,
+      "key": "refresh",
+      "effectId": 194,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 288,
+      "key": "grudge",
+      "effectId": 195,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 289,
+      "key": "snatch",
+      "effectId": 196,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 290,
+      "key": "secret-power",
+      "effectId": 198,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 291,
+      "key": "dive",
+      "effectId": 256,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 292,
+      "key": "arm-thrust",
+      "effectId": 30,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 293,
+      "key": "camouflage",
+      "effectId": 214,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 294,
+      "key": "tail-glow",
+      "effectId": 322,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 295,
+      "key": "luster-purge",
+      "effectId": 73,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 296,
+      "key": "mist-ball",
+      "effectId": 72,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 297,
+      "key": "feather-dance",
+      "effectId": 59,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 298,
+      "key": "teeter-dance",
+      "effectId": 200,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 299,
+      "key": "blaze-kick",
+      "effectId": 201,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 300,
+      "key": "mud-sport",
+      "effectId": 202,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 301,
+      "key": "ice-ball",
+      "effectId": 118,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 302,
+      "key": "needle-arm",
+      "effectId": 32,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 303,
+      "key": "slack-off",
+      "effectId": 33,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 304,
+      "key": "hyper-voice",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 305,
+      "key": "poison-fang",
+      "effectId": 203,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 306,
+      "key": "crush-claw",
+      "effectId": 70,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 307,
+      "key": "blast-burn",
+      "effectId": 81,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 308,
+      "key": "hydro-cannon",
+      "effectId": 81,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 309,
+      "key": "meteor-mash",
+      "effectId": 140,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 310,
+      "key": "astonish",
+      "effectId": 32,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 311,
+      "key": "weather-ball",
+      "effectId": 204,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 312,
+      "key": "aromatherapy",
+      "effectId": 103,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 313,
+      "key": "fake-tears",
+      "effectId": 63,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 314,
+      "key": "air-cutter",
+      "effectId": 44,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 315,
+      "key": "overheat",
+      "effectId": 205,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 316,
+      "key": "odor-sleuth",
+      "effectId": 114,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 317,
+      "key": "rock-tomb",
+      "effectId": 71,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 318,
+      "key": "silver-wind",
+      "effectId": 141,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 319,
+      "key": "metal-sound",
+      "effectId": 63,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 320,
+      "key": "grass-whistle",
+      "effectId": 2,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 321,
+      "key": "tickle",
+      "effectId": 206,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 322,
+      "key": "cosmic-power",
+      "effectId": 207,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 323,
+      "key": "water-spout",
+      "effectId": 191,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 324,
+      "key": "signal-beam",
+      "effectId": 77,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 325,
+      "key": "shadow-punch",
+      "effectId": 18,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 326,
+      "key": "extrasensory",
+      "effectId": 32,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 327,
+      "key": "sky-uppercut",
+      "effectId": 208,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 328,
+      "key": "sand-tomb",
+      "effectId": 43,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 329,
+      "key": "sheer-cold",
+      "effectId": 39,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 330,
+      "key": "muddy-water",
+      "effectId": 74,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 331,
+      "key": "bullet-seed",
+      "effectId": 30,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 332,
+      "key": "aerial-ace",
+      "effectId": 18,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 333,
+      "key": "icicle-spear",
+      "effectId": 30,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 334,
+      "key": "iron-defense",
+      "effectId": 52,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 335,
+      "key": "block",
+      "effectId": 107,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 336,
+      "key": "howl",
+      "effectId": 11,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 337,
+      "key": "dragon-claw",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 338,
+      "key": "frenzy-plant",
+      "effectId": 81,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 339,
+      "key": "bulk-up",
+      "effectId": 209,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 340,
+      "key": "bounce",
+      "effectId": 264,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 341,
+      "key": "mud-shot",
+      "effectId": 71,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 342,
+      "key": "poison-tail",
+      "effectId": 210,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 343,
+      "key": "covet",
+      "effectId": 106,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 344,
+      "key": "volt-tackle",
+      "effectId": 263,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 345,
+      "key": "magical-leaf",
+      "effectId": 18,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 346,
+      "key": "water-sport",
+      "effectId": 211,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 347,
+      "key": "calm-mind",
+      "effectId": 212,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 348,
+      "key": "leaf-blade",
+      "effectId": 44,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 349,
+      "key": "dragon-dance",
+      "effectId": 213,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 350,
+      "key": "rock-blast",
+      "effectId": 30,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 351,
+      "key": "shock-wave",
+      "effectId": 18,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 352,
+      "key": "water-pulse",
+      "effectId": 77,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 353,
+      "key": "doom-desire",
+      "effectId": 149,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 354,
+      "key": "psycho-boost",
+      "effectId": 205,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 355,
+      "key": "roost",
+      "effectId": 215,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 356,
+      "key": "gravity",
+      "effectId": 216,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 357,
+      "key": "miracle-eye",
+      "effectId": 217,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 358,
+      "key": "wake-up-slap",
+      "effectId": 218,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 359,
+      "key": "hammer-arm",
+      "effectId": 219,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 360,
+      "key": "gyro-ball",
+      "effectId": 220,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 361,
+      "key": "healing-wish",
+      "effectId": 221,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 362,
+      "key": "brine",
+      "effectId": 222,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 363,
+      "key": "natural-gift",
+      "effectId": 223,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 364,
+      "key": "feint",
+      "effectId": 224,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 365,
+      "key": "pluck",
+      "effectId": 225,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 366,
+      "key": "tailwind",
+      "effectId": 226,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 367,
+      "key": "acupressure",
+      "effectId": 227,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 368,
+      "key": "metal-burst",
+      "effectId": 228,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 369,
+      "key": "u-turn",
+      "effectId": 229,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 370,
+      "key": "close-combat",
+      "effectId": 230,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 371,
+      "key": "payback",
+      "effectId": 231,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 372,
+      "key": "assurance",
+      "effectId": 232,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 373,
+      "key": "embargo",
+      "effectId": 233,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 374,
+      "key": "fling",
+      "effectId": 234,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 375,
+      "key": "psycho-shift",
+      "effectId": 235,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 376,
+      "key": "trump-card",
+      "effectId": 236,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 377,
+      "key": "heal-block",
+      "effectId": 237,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 378,
+      "key": "wring-out",
+      "effectId": 238,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 379,
+      "key": "power-trick",
+      "effectId": 239,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 380,
+      "key": "gastro-acid",
+      "effectId": 240,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 381,
+      "key": "lucky-chant",
+      "effectId": 241,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 382,
+      "key": "me-first",
+      "effectId": 242,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 383,
+      "key": "copycat",
+      "effectId": 243,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 384,
+      "key": "power-swap",
+      "effectId": 244,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 385,
+      "key": "guard-swap",
+      "effectId": 245,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 386,
+      "key": "punishment",
+      "effectId": 246,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 387,
+      "key": "last-resort",
+      "effectId": 247,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 388,
+      "key": "worry-seed",
+      "effectId": 248,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 389,
+      "key": "sucker-punch",
+      "effectId": 249,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 390,
+      "key": "toxic-spikes",
+      "effectId": 250,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 391,
+      "key": "heart-swap",
+      "effectId": 251,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 392,
+      "key": "aqua-ring",
+      "effectId": 252,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 393,
+      "key": "magnet-rise",
+      "effectId": 253,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 394,
+      "key": "flare-blitz",
+      "effectId": 254,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 395,
+      "key": "force-palm",
+      "effectId": 7,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 396,
+      "key": "aura-sphere",
+      "effectId": 18,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 397,
+      "key": "rock-polish",
+      "effectId": 53,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 398,
+      "key": "poison-jab",
+      "effectId": 3,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 399,
+      "key": "dark-pulse",
+      "effectId": 32,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 400,
+      "key": "night-slash",
+      "effectId": 44,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 401,
+      "key": "aqua-tail",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 402,
+      "key": "seed-bomb",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 403,
+      "key": "air-slash",
+      "effectId": 32,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 404,
+      "key": "x-scissor",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 405,
+      "key": "bug-buzz",
+      "effectId": 73,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 406,
+      "key": "dragon-pulse",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 407,
+      "key": "dragon-rush",
+      "effectId": 32,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 408,
+      "key": "power-gem",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 409,
+      "key": "drain-punch",
+      "effectId": 4,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 410,
+      "key": "vacuum-wave",
+      "effectId": 104,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 411,
+      "key": "focus-blast",
+      "effectId": 73,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 412,
+      "key": "energy-ball",
+      "effectId": 73,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 413,
+      "key": "brave-bird",
+      "effectId": 199,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 414,
+      "key": "earth-power",
+      "effectId": 73,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 415,
+      "key": "switcheroo",
+      "effectId": 178,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 416,
+      "key": "giga-impact",
+      "effectId": 81,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 417,
+      "key": "nasty-plot",
+      "effectId": 54,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 418,
+      "key": "bullet-punch",
+      "effectId": 104,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 419,
+      "key": "avalanche",
+      "effectId": 186,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 420,
+      "key": "ice-shard",
+      "effectId": 104,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 421,
+      "key": "shadow-claw",
+      "effectId": 44,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 422,
+      "key": "thunder-fang",
+      "effectId": 276,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 423,
+      "key": "ice-fang",
+      "effectId": 275,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 424,
+      "key": "fire-fang",
+      "effectId": 274,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 425,
+      "key": "shadow-sneak",
+      "effectId": 104,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 426,
+      "key": "mud-bomb",
+      "effectId": 74,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 427,
+      "key": "psycho-cut",
+      "effectId": 44,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 428,
+      "key": "zen-headbutt",
+      "effectId": 32,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 429,
+      "key": "mirror-shot",
+      "effectId": 74,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 430,
+      "key": "flash-cannon",
+      "effectId": 73,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 431,
+      "key": "rock-climb",
+      "effectId": 77,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 432,
+      "key": "defog",
+      "effectId": 259,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 433,
+      "key": "trick-room",
+      "effectId": 260,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 434,
+      "key": "draco-meteor",
+      "effectId": 205,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 435,
+      "key": "discharge",
+      "effectId": 7,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 436,
+      "key": "lava-plume",
+      "effectId": 5,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 437,
+      "key": "leaf-storm",
+      "effectId": 205,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 438,
+      "key": "power-whip",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 439,
+      "key": "rock-wrecker",
+      "effectId": 81,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 440,
+      "key": "cross-poison",
+      "effectId": 210,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 441,
+      "key": "gunk-shot",
+      "effectId": 3,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 442,
+      "key": "iron-head",
+      "effectId": 32,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 443,
+      "key": "magnet-bomb",
+      "effectId": 18,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 444,
+      "key": "stone-edge",
+      "effectId": 44,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 445,
+      "key": "captivate",
+      "effectId": 266,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 446,
+      "key": "stealth-rock",
+      "effectId": 267,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 447,
+      "key": "grass-knot",
+      "effectId": 197,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 448,
+      "key": "chatter",
+      "effectId": 268,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 449,
+      "key": "judgment",
+      "effectId": 269,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 450,
+      "key": "bug-bite",
+      "effectId": 225,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 451,
+      "key": "charge-beam",
+      "effectId": 277,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 452,
+      "key": "wood-hammer",
+      "effectId": 199,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 453,
+      "key": "aqua-jet",
+      "effectId": 104,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 454,
+      "key": "attack-order",
+      "effectId": 44,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 455,
+      "key": "defend-order",
+      "effectId": 207,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 456,
+      "key": "heal-order",
+      "effectId": 33,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 457,
+      "key": "head-smash",
+      "effectId": 270,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 458,
+      "key": "double-hit",
+      "effectId": 45,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 459,
+      "key": "roar-of-time",
+      "effectId": 81,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 460,
+      "key": "spacial-rend",
+      "effectId": 44,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 461,
+      "key": "lunar-dance",
+      "effectId": 271,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 462,
+      "key": "crush-grip",
+      "effectId": 238,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 463,
+      "key": "magma-storm",
+      "effectId": 43,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 464,
+      "key": "dark-void",
+      "effectId": 2,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 465,
+      "key": "seed-flare",
+      "effectId": 272,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 466,
+      "key": "ominous-wind",
+      "effectId": 141,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 467,
+      "key": "shadow-force",
+      "effectId": 273,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 468,
+      "key": "hone-claws",
+      "effectId": 278,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 469,
+      "key": "wide-guard",
+      "effectId": 279,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 470,
+      "key": "guard-split",
+      "effectId": 280,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 471,
+      "key": "power-split",
+      "effectId": 281,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 472,
+      "key": "wonder-room",
+      "effectId": 282,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 473,
+      "key": "psyshock",
+      "effectId": 283,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 474,
+      "key": "venoshock",
+      "effectId": 284,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 475,
+      "key": "autotomize",
+      "effectId": 285,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 476,
+      "key": "rage-powder",
+      "effectId": 173,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 477,
+      "key": "telekinesis",
+      "effectId": 286,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 478,
+      "key": "magic-room",
+      "effectId": 287,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 479,
+      "key": "smack-down",
+      "effectId": 288,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 480,
+      "key": "storm-throw",
+      "effectId": 289,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 481,
+      "key": "flame-burst",
+      "effectId": 290,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 482,
+      "key": "sludge-wave",
+      "effectId": 3,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 483,
+      "key": "quiver-dance",
+      "effectId": 291,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 484,
+      "key": "heavy-slam",
+      "effectId": 292,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 485,
+      "key": "synchronoise",
+      "effectId": 293,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 486,
+      "key": "electro-ball",
+      "effectId": 294,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 487,
+      "key": "soak",
+      "effectId": 295,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 488,
+      "key": "flame-charge",
+      "effectId": 296,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 489,
+      "key": "coil",
+      "effectId": 323,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 490,
+      "key": "low-sweep",
+      "effectId": 21,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 491,
+      "key": "acid-spray",
+      "effectId": 297,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 492,
+      "key": "foul-play",
+      "effectId": 298,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 493,
+      "key": "simple-beam",
+      "effectId": 299,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 494,
+      "key": "entrainment",
+      "effectId": 300,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 495,
+      "key": "after-you",
+      "effectId": 301,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 496,
+      "key": "round",
+      "effectId": 302,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 497,
+      "key": "echoed-voice",
+      "effectId": 303,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 498,
+      "key": "chip-away",
+      "effectId": 304,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 499,
+      "key": "clear-smog",
+      "effectId": 305,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 500,
+      "key": "stored-power",
+      "effectId": 306,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 501,
+      "key": "quick-guard",
+      "effectId": 307,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 502,
+      "key": "ally-switch",
+      "effectId": 308,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 503,
+      "key": "scald",
+      "effectId": 5,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 504,
+      "key": "shell-smash",
+      "effectId": 309,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 505,
+      "key": "heal-pulse",
+      "effectId": 310,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 506,
+      "key": "hex",
+      "effectId": 311,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 507,
+      "key": "sky-drop",
+      "effectId": 312,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 508,
+      "key": "shift-gear",
+      "effectId": 313,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 509,
+      "key": "circle-throw",
+      "effectId": 314,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 510,
+      "key": "incinerate",
+      "effectId": 315,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 511,
+      "key": "quash",
+      "effectId": 316,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 512,
+      "key": "acrobatics",
+      "effectId": 318,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 513,
+      "key": "reflect-type",
+      "effectId": 319,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 514,
+      "key": "retaliate",
+      "effectId": 320,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 515,
+      "key": "final-gambit",
+      "effectId": 321,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 516,
+      "key": "bestow",
+      "effectId": 324,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 517,
+      "key": "inferno",
+      "effectId": 5,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 518,
+      "key": "water-pledge",
+      "effectId": 325,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 519,
+      "key": "fire-pledge",
+      "effectId": 326,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 520,
+      "key": "grass-pledge",
+      "effectId": 327,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 521,
+      "key": "volt-switch",
+      "effectId": 229,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 522,
+      "key": "struggle-bug",
+      "effectId": 72,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 523,
+      "key": "bulldoze",
+      "effectId": 71,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 524,
+      "key": "frost-breath",
+      "effectId": 289,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 525,
+      "key": "dragon-tail",
+      "effectId": 314,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 526,
+      "key": "work-up",
+      "effectId": 328,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 527,
+      "key": "electroweb",
+      "effectId": 21,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 528,
+      "key": "wild-charge",
+      "effectId": 49,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 529,
+      "key": "drill-run",
+      "effectId": 44,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 530,
+      "key": "dual-chop",
+      "effectId": 45,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 531,
+      "key": "heart-stamp",
+      "effectId": 32,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 532,
+      "key": "horn-leech",
+      "effectId": 4,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 533,
+      "key": "sacred-sword",
+      "effectId": 304,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 534,
+      "key": "razor-shell",
+      "effectId": 70,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 535,
+      "key": "heat-crash",
+      "effectId": 292,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 536,
+      "key": "leaf-tornado",
+      "effectId": 74,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 537,
+      "key": "steamroller",
+      "effectId": 151,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 538,
+      "key": "cotton-guard",
+      "effectId": 329,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 539,
+      "key": "night-daze",
+      "effectId": 74,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 540,
+      "key": "psystrike",
+      "effectId": 283,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 541,
+      "key": "tail-slap",
+      "effectId": 30,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 542,
+      "key": "hurricane",
+      "effectId": 334,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 543,
+      "key": "head-charge",
+      "effectId": 49,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 544,
+      "key": "gear-grind",
+      "effectId": 45,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 545,
+      "key": "searing-shot",
+      "effectId": 5,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 546,
+      "key": "techno-blast",
+      "effectId": 269,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 547,
+      "key": "relic-song",
+      "effectId": 330,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 548,
+      "key": "secret-sword",
+      "effectId": 283,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 549,
+      "key": "glaciate",
+      "effectId": 331,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 550,
+      "key": "bolt-strike",
+      "effectId": 7,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 551,
+      "key": "blue-flare",
+      "effectId": 5,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 552,
+      "key": "fiery-dance",
+      "effectId": 277,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 553,
+      "key": "freeze-shock",
+      "effectId": 332,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 554,
+      "key": "ice-burn",
+      "effectId": 333,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 555,
+      "key": "snarl",
+      "effectId": 72,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 556,
+      "key": "icicle-crash",
+      "effectId": 32,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 557,
+      "key": "v-create",
+      "effectId": 335,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 558,
+      "key": "fusion-flare",
+      "effectId": 336,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 559,
+      "key": "fusion-bolt",
+      "effectId": 337,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 560,
+      "key": "flying-press",
+      "effectId": 338,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 561,
+      "key": "mat-block",
+      "effectId": 377,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 562,
+      "key": "belch",
+      "effectId": 339,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 563,
+      "key": "rototiller",
+      "effectId": 340,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 564,
+      "key": "sticky-web",
+      "effectId": 341,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 565,
+      "key": "fell-stinger",
+      "effectId": 342,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 566,
+      "key": "phantom-force",
+      "effectId": 273,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 567,
+      "key": "trick-or-treat",
+      "effectId": 343,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 568,
+      "key": "noble-roar",
+      "effectId": 344,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 569,
+      "key": "ion-deluge",
+      "effectId": 345,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 570,
+      "key": "parabolic-charge",
+      "effectId": 346,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 571,
+      "key": "forests-curse",
+      "effectId": 376,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 572,
+      "key": "petal-blizzard",
+      "effectId": 379,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 573,
+      "key": "freeze-dry",
+      "effectId": 380,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 574,
+      "key": "disarming-voice",
+      "effectId": 381,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 575,
+      "key": "parting-shot",
+      "effectId": 347,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 576,
+      "key": "topsy-turvy",
+      "effectId": 348,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 577,
+      "key": "draining-kiss",
+      "effectId": 349,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 578,
+      "key": "crafty-shield",
+      "effectId": 350,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 579,
+      "key": "flower-shield",
+      "effectId": 351,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 580,
+      "key": "grassy-terrain",
+      "effectId": 352,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 581,
+      "key": "misty-terrain",
+      "effectId": 353,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 582,
+      "key": "electrify",
+      "effectId": 354,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 583,
+      "key": "play-rough",
+      "effectId": 69,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 584,
+      "key": "fairy-wind",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 585,
+      "key": "moonblast",
+      "effectId": 72,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 586,
+      "key": "boomburst",
+      "effectId": 379,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 587,
+      "key": "fairy-lock",
+      "effectId": 355,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 588,
+      "key": "kings-shield",
+      "effectId": 356,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 589,
+      "key": "play-nice",
+      "effectId": 357,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 590,
+      "key": "confide",
+      "effectId": 358,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 591,
+      "key": "diamond-storm",
+      "effectId": 359,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 592,
+      "key": "steam-eruption",
+      "effectId": 5,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 593,
+      "key": "hyperspace-hole",
+      "effectId": 360,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 594,
+      "key": "water-shuriken",
+      "effectId": 361,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 595,
+      "key": "mystical-fire",
+      "effectId": 72,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 596,
+      "key": "spiky-shield",
+      "effectId": 362,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 597,
+      "key": "aromatic-mist",
+      "effectId": 363,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 598,
+      "key": "eerie-impulse",
+      "effectId": 62,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 599,
+      "key": "venom-drench",
+      "effectId": 364,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 600,
+      "key": "powder",
+      "effectId": 378,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 601,
+      "key": "geomancy",
+      "effectId": 366,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 602,
+      "key": "magnetic-flux",
+      "effectId": 367,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 603,
+      "key": "happy-hour",
+      "effectId": 368,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 604,
+      "key": "electric-terrain",
+      "effectId": 369,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 605,
+      "key": "dazzling-gleam",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 606,
+      "key": "celebrate",
+      "effectId": 370,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 607,
+      "key": "hold-hands",
+      "effectId": 371,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 608,
+      "key": "baby-doll-eyes",
+      "effectId": 365,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 609,
+      "key": "nuzzle",
+      "effectId": 372,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 610,
+      "key": "hold-back",
+      "effectId": 102,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 611,
+      "key": "infestation",
+      "effectId": 43,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 612,
+      "key": "power-up-punch",
+      "effectId": 375,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 613,
+      "key": "oblivion-wing",
+      "effectId": 349,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 614,
+      "key": "thousand-arrows",
+      "effectId": 373,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 615,
+      "key": "thousand-waves",
+      "effectId": 374,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 616,
+      "key": "lands-wrath",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 617,
+      "key": "light-of-ruin",
+      "effectId": 270,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 618,
+      "key": "origin-pulse",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 619,
+      "key": "precipice-blades",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 620,
+      "key": "dragon-ascent",
+      "effectId": 230,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 621,
+      "key": "hyperspace-fury",
+      "effectId": 360,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 622,
+      "key": "breakneck-blitz--physical",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 623,
+      "key": "breakneck-blitz--special",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 624,
+      "key": "all-out-pummeling--physical",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 625,
+      "key": "all-out-pummeling--special",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 626,
+      "key": "supersonic-skystrike--physical",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 627,
+      "key": "supersonic-skystrike--special",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 628,
+      "key": "acid-downpour--physical",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 629,
+      "key": "acid-downpour--special",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 630,
+      "key": "tectonic-rage--physical",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 631,
+      "key": "tectonic-rage--special",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 632,
+      "key": "continental-crush--physical",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 633,
+      "key": "continental-crush--special",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 634,
+      "key": "savage-spin-out--physical",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 635,
+      "key": "savage-spin-out--special",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 636,
+      "key": "never-ending-nightmare--physical",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 637,
+      "key": "never-ending-nightmare--special",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 638,
+      "key": "corkscrew-crash--physical",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 639,
+      "key": "corkscrew-crash--special",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 640,
+      "key": "inferno-overdrive--physical",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 641,
+      "key": "inferno-overdrive--special",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 642,
+      "key": "hydro-vortex--physical",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 643,
+      "key": "hydro-vortex--special",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 644,
+      "key": "bloom-doom--physical",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 645,
+      "key": "bloom-doom--special",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 646,
+      "key": "gigavolt-havoc--physical",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 647,
+      "key": "gigavolt-havoc--special",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 648,
+      "key": "shattered-psyche--physical",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 649,
+      "key": "shattered-psyche--special",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 650,
+      "key": "subzero-slammer--physical",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 651,
+      "key": "subzero-slammer--special",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 652,
+      "key": "devastating-drake--physical",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 653,
+      "key": "devastating-drake--special",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 654,
+      "key": "black-hole-eclipse--physical",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 655,
+      "key": "black-hole-eclipse--special",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 656,
+      "key": "twinkle-tackle--physical",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 657,
+      "key": "twinkle-tackle--special",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 658,
+      "key": "catastropika",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 659,
+      "key": "shore-up",
+      "effectId": 382,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 660,
+      "key": "first-impression",
+      "effectId": 383,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 661,
+      "key": "baneful-bunker",
+      "effectId": 384,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 662,
+      "key": "spirit-shackle",
+      "effectId": 385,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 663,
+      "key": "darkest-lariat",
+      "effectId": 304,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 664,
+      "key": "sparkling-aria",
+      "effectId": 386,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 665,
+      "key": "ice-hammer",
+      "effectId": 219,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 666,
+      "key": "floral-healing",
+      "effectId": 387,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 667,
+      "key": "high-horsepower",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 668,
+      "key": "strength-sap",
+      "effectId": 388,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 669,
+      "key": "solar-blade",
+      "effectId": 152,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 670,
+      "key": "leafage",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 671,
+      "key": "spotlight",
+      "effectId": 389,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 672,
+      "key": "toxic-thread",
+      "effectId": 390,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 673,
+      "key": "laser-focus",
+      "effectId": 391,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 674,
+      "key": "gear-up",
+      "effectId": 392,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 675,
+      "key": "throat-chop",
+      "effectId": 393,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 676,
+      "key": "pollen-puff",
+      "effectId": 394,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 677,
+      "key": "anchor-shot",
+      "effectId": 385,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 678,
+      "key": "psychic-terrain",
+      "effectId": 395,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 679,
+      "key": "lunge",
+      "effectId": 396,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 680,
+      "key": "fire-lash",
+      "effectId": 397,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 681,
+      "key": "power-trip",
+      "effectId": 306,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 682,
+      "key": "burn-up",
+      "effectId": 398,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 683,
+      "key": "speed-swap",
+      "effectId": 399,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 684,
+      "key": "smart-strike",
+      "effectId": 18,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 685,
+      "key": "purify",
+      "effectId": 400,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 686,
+      "key": "revelation-dance",
+      "effectId": 401,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 687,
+      "key": "core-enforcer",
+      "effectId": 402,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 688,
+      "key": "trop-kick",
+      "effectId": 396,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 689,
+      "key": "instruct",
+      "effectId": 403,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 690,
+      "key": "beak-blast",
+      "effectId": 404,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 691,
+      "key": "clanging-scales",
+      "effectId": 405,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 692,
+      "key": "dragon-hammer",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 693,
+      "key": "brutal-swing",
+      "effectId": 406,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 694,
+      "key": "aurora-veil",
+      "effectId": 407,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 695,
+      "key": "sinister-arrow-raid",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 696,
+      "key": "malicious-moonsault",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 697,
+      "key": "oceanic-operetta",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 698,
+      "key": "guardian-of-alola",
+      "effectId": 413,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 699,
+      "key": "soul-stealing-7-star-strike",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 700,
+      "key": "stoked-sparksurfer",
+      "effectId": 7,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 701,
+      "key": "pulverizing-pancake",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 702,
+      "key": "extreme-evoboost",
+      "effectId": 414,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 703,
+      "key": "genesis-supernova",
+      "effectId": 415,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 704,
+      "key": "shell-trap",
+      "effectId": 408,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 705,
+      "key": "fleur-cannon",
+      "effectId": 205,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 706,
+      "key": "psychic-fangs",
+      "effectId": 187,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 707,
+      "key": "stomping-tantrum",
+      "effectId": 409,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 708,
+      "key": "shadow-bone",
+      "effectId": 70,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 709,
+      "key": "accelerock",
+      "effectId": 104,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 710,
+      "key": "liquidation",
+      "effectId": 70,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 711,
+      "key": "prismatic-laser",
+      "effectId": 81,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 712,
+      "key": "spectral-thief",
+      "effectId": 410,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 713,
+      "key": "sunsteel-strike",
+      "effectId": 411,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 714,
+      "key": "moongeist-beam",
+      "effectId": 411,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 715,
+      "key": "tearful-look",
+      "effectId": 412,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 716,
+      "key": "zing-zap",
+      "effectId": 32,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 717,
+      "key": "natures-madness",
+      "effectId": 41,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 718,
+      "key": "multi-attack",
+      "effectId": 269,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 719,
+      "key": "10-000-000-volt-thunderbolt",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 720,
+      "key": "mind-blown",
+      "effectId": 420,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 721,
+      "key": "plasma-fists",
+      "effectId": 417,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 722,
+      "key": "photon-geyser",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 723,
+      "key": "light-that-burns-the-sky",
+      "effectId": 416,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 724,
+      "key": "searing-sunraze-smash",
+      "effectId": 411,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 725,
+      "key": "menacing-moonraze-maelstrom",
+      "effectId": 411,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 726,
+      "key": "lets-snuggle-forever",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 727,
+      "key": "splintered-stormshards",
+      "effectId": 418,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 728,
+      "key": "clangorous-soulblaze",
+      "effectId": 419,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 729,
+      "key": "zippy-zap",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 730,
+      "key": "splishy-splash",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 731,
+      "key": "floaty-fall",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 732,
+      "key": "pika-papow",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 733,
+      "key": "bouncy-bubble",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 734,
+      "key": "buzzy-buzz",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 735,
+      "key": "sizzly-slide",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 736,
+      "key": "glitzy-glow",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 737,
+      "key": "baddy-bad",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 738,
+      "key": "sappy-seed",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 739,
+      "key": "freezy-frost",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 740,
+      "key": "sparkly-swirl",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 741,
+      "key": "veevee-volley",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 742,
+      "key": "double-iron-bash",
+      "effectId": 45,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 743,
+      "key": "max-guard",
+      "effectId": 112,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 744,
+      "key": "dynamax-cannon",
+      "effectId": 421,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 745,
+      "key": "snipe-shot",
+      "effectId": 422,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 746,
+      "key": "jaw-lock",
+      "effectId": 445,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 747,
+      "key": "stuff-cheeks",
+      "effectId": 446,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 748,
+      "key": "no-retreat",
+      "effectId": 447,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 749,
+      "key": "tar-shot",
+      "effectId": 448,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 750,
+      "key": "magic-powder",
+      "effectId": 449,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 751,
+      "key": "dragon-darts",
+      "effectId": 450,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 752,
+      "key": "teatime",
+      "effectId": 451,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 753,
+      "key": "octolock",
+      "effectId": 452,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 754,
+      "key": "bolt-beak",
+      "effectId": 453,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 755,
+      "key": "fishious-rend",
+      "effectId": 453,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 756,
+      "key": "court-change",
+      "effectId": 454,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 757,
+      "key": "max-flare",
+      "effectId": 138,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 758,
+      "key": "max-flutterby",
+      "effectId": 455,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 759,
+      "key": "max-lightning",
+      "effectId": 369,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 760,
+      "key": "max-strike",
+      "effectId": 456,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 761,
+      "key": "max-knuckle",
+      "effectId": 457,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 762,
+      "key": "max-phantasm",
+      "effectId": 458,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 763,
+      "key": "max-hailstorm",
+      "effectId": 165,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 764,
+      "key": "max-ooze",
+      "effectId": 459,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 765,
+      "key": "max-geyser",
+      "effectId": 137,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 766,
+      "key": "max-airstream",
+      "effectId": 460,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 767,
+      "key": "max-starfall",
+      "effectId": 353,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 768,
+      "key": "max-wyrmwind",
+      "effectId": 461,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 769,
+      "key": "max-mindstorm",
+      "effectId": 395,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 770,
+      "key": "max-rockfall",
+      "effectId": 116,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 771,
+      "key": "max-quake",
+      "effectId": 462,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 772,
+      "key": "max-darkness",
+      "effectId": 463,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 773,
+      "key": "max-overgrowth",
+      "effectId": 352,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 774,
+      "key": "max-steelspike",
+      "effectId": 464,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 775,
+      "key": "clangorous-soul",
+      "effectId": 465,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 776,
+      "key": "body-press",
+      "effectId": 466,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 777,
+      "key": "decorate",
+      "effectId": 467,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 778,
+      "key": "drum-beating",
+      "effectId": 71,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 779,
+      "key": "snap-trap",
+      "effectId": 43,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 780,
+      "key": "pyro-ball",
+      "effectId": 5,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 781,
+      "key": "behemoth-blade",
+      "effectId": 421,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 782,
+      "key": "behemoth-bash",
+      "effectId": 421,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 783,
+      "key": "aura-wheel",
+      "effectId": 468,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 784,
+      "key": "breaking-swipe",
+      "effectId": 396,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 785,
+      "key": "branch-poke",
+      "effectId": 1,
+      "classification": "simple-damage-eligible"
+    },
+    {
+      "id": 786,
+      "key": "overdrive",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 787,
+      "key": "apple-acid",
+      "effectId": 469,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 788,
+      "key": "grav-apple",
+      "effectId": 470,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 789,
+      "key": "spirit-break",
+      "effectId": 72,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 790,
+      "key": "strange-steam",
+      "effectId": 77,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 791,
+      "key": "life-dew",
+      "effectId": 471,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 792,
+      "key": "obstruct",
+      "effectId": 472,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 793,
+      "key": "false-surrender",
+      "effectId": 18,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 794,
+      "key": "meteor-assault",
+      "effectId": 81,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 795,
+      "key": "eternabeam",
+      "effectId": 81,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 796,
+      "key": "steel-beam",
+      "effectId": 420,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 797,
+      "key": "expanding-force",
+      "effectId": 473,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 798,
+      "key": "steel-roller",
+      "effectId": 474,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 799,
+      "key": "scale-shot",
+      "effectId": 443,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 800,
+      "key": "meteor-beam",
+      "effectId": 475,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 801,
+      "key": "shell-side-arm",
+      "effectId": 476,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 802,
+      "key": "misty-explosion",
+      "effectId": 477,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 803,
+      "key": "grassy-glide",
+      "effectId": 478,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 804,
+      "key": "rising-voltage",
+      "effectId": 479,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 805,
+      "key": "terrain-pulse",
+      "effectId": 480,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 806,
+      "key": "skitter-smack",
+      "effectId": 358,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 807,
+      "key": "burning-jealousy",
+      "effectId": 481,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 808,
+      "key": "lash-out",
+      "effectId": 482,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 809,
+      "key": "poltergeist",
+      "effectId": 483,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 810,
+      "key": "corrosive-gas",
+      "effectId": 189,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 811,
+      "key": "coaching",
+      "effectId": 484,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 812,
+      "key": "flip-turn",
+      "effectId": 229,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 813,
+      "key": "triple-axel",
+      "effectId": 105,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 814,
+      "key": "dual-wingbeat",
+      "effectId": 45,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 815,
+      "key": "scorching-sands",
+      "effectId": 5,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 816,
+      "key": "jungle-healing",
+      "effectId": 485,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 817,
+      "key": "wicked-blow",
+      "effectId": 289,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 818,
+      "key": "surging-strikes",
+      "effectId": 486,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 819,
+      "key": "thunder-cage",
+      "effectId": 43,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 820,
+      "key": "dragon-energy",
+      "effectId": 191,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 821,
+      "key": "freezing-glare",
+      "effectId": 261,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 822,
+      "key": "fiery-wrath",
+      "effectId": 32,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 823,
+      "key": "thunderous-kick",
+      "effectId": 397,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 824,
+      "key": "glacial-lance",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 825,
+      "key": "astral-barrage",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 826,
+      "key": "eerie-spell",
+      "effectId": 487,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 827,
+      "key": "dire-claw",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 828,
+      "key": "psyshield-bash",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 829,
+      "key": "power-shift",
+      "effectId": null,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 830,
+      "key": "stone-axe",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 831,
+      "key": "springtide-storm",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 832,
+      "key": "mystical-power",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 833,
+      "key": "raging-fury",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 834,
+      "key": "wave-crash",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 835,
+      "key": "chloroblast",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 836,
+      "key": "mountain-gale",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 837,
+      "key": "victory-dance",
+      "effectId": null,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 838,
+      "key": "headlong-rush",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 839,
+      "key": "barb-barrage",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 840,
+      "key": "esper-wing",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 841,
+      "key": "bitter-malice",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 842,
+      "key": "shelter",
+      "effectId": null,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 843,
+      "key": "triple-arrows",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 844,
+      "key": "infernal-parade",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 845,
+      "key": "ceaseless-edge",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 846,
+      "key": "bleakwind-storm",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 847,
+      "key": "wildbolt-storm",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 848,
+      "key": "sandsear-storm",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 849,
+      "key": "lunar-blessing",
+      "effectId": null,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 850,
+      "key": "take-heart",
+      "effectId": null,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 851,
+      "key": "tera-blast",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 852,
+      "key": "silk-trap",
+      "effectId": null,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 853,
+      "key": "axe-kick",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 854,
+      "key": "last-respects",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 855,
+      "key": "lumina-crash",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 856,
+      "key": "order-up",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 857,
+      "key": "jet-punch",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 858,
+      "key": "spicy-extract",
+      "effectId": null,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 859,
+      "key": "spin-out",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 860,
+      "key": "population-bomb",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 861,
+      "key": "ice-spinner",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 862,
+      "key": "glaive-rush",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 863,
+      "key": "revival-blessing",
+      "effectId": null,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 864,
+      "key": "salt-cure",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 865,
+      "key": "triple-dive",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 866,
+      "key": "mortal-spin",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 867,
+      "key": "doodle",
+      "effectId": null,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 868,
+      "key": "fillet-away",
+      "effectId": null,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 869,
+      "key": "kowtow-cleave",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 870,
+      "key": "flower-trick",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 871,
+      "key": "torch-song",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 872,
+      "key": "aqua-step",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 873,
+      "key": "raging-bull",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 874,
+      "key": "make-it-rain",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 875,
+      "key": "psyblade",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 876,
+      "key": "hydro-steam",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 877,
+      "key": "ruination",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 878,
+      "key": "collision-course",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 879,
+      "key": "electro-drift",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 880,
+      "key": "shed-tail",
+      "effectId": null,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 881,
+      "key": "chilly-reception",
+      "effectId": null,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 882,
+      "key": "tidy-up",
+      "effectId": null,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 883,
+      "key": "snowscape",
+      "effectId": null,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 884,
+      "key": "pounce",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 885,
+      "key": "trailblaze",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 886,
+      "key": "chilling-water",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 887,
+      "key": "hyper-drill",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 888,
+      "key": "twin-beam",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 889,
+      "key": "rage-fist",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 890,
+      "key": "armor-cannon",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 891,
+      "key": "bitter-blade",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 892,
+      "key": "double-shock",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 893,
+      "key": "gigaton-hammer",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 894,
+      "key": "comeuppance",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 895,
+      "key": "aqua-cutter",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 896,
+      "key": "blazing-torque",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 897,
+      "key": "wicked-torque",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 898,
+      "key": "noxious-torque",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 899,
+      "key": "combat-torque",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 900,
+      "key": "magical-torque",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 901,
+      "key": "blood-moon",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 902,
+      "key": "matcha-gotcha",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 903,
+      "key": "syrup-bomb",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 904,
+      "key": "ivy-cudgel",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 905,
+      "key": "electro-shot",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 906,
+      "key": "tera-starstorm",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 907,
+      "key": "fickle-beam",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 908,
+      "key": "burning-bulwark",
+      "effectId": null,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 909,
+      "key": "thunderclap",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 910,
+      "key": "mighty-cleave",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 911,
+      "key": "tachyon-cutter",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 912,
+      "key": "hard-press",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 913,
+      "key": "dragon-cheer",
+      "effectId": null,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 914,
+      "key": "alluring-voice",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 915,
+      "key": "temper-flare",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 916,
+      "key": "supercell-slam",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 917,
+      "key": "psychic-noise",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 918,
+      "key": "upper-hand",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 919,
+      "key": "malignant-chain",
+      "effectId": null,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 10001,
+      "key": "shadow-rush",
+      "effectId": 10001,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 10002,
+      "key": "shadow-blast",
+      "effectId": 44,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 10003,
+      "key": "shadow-blitz",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 10004,
+      "key": "shadow-bolt",
+      "effectId": 7,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 10005,
+      "key": "shadow-break",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 10006,
+      "key": "shadow-chill",
+      "effectId": 6,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 10007,
+      "key": "shadow-end",
+      "effectId": 10002,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 10008,
+      "key": "shadow-fire",
+      "effectId": 5,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 10009,
+      "key": "shadow-rave",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 10010,
+      "key": "shadow-storm",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 10011,
+      "key": "shadow-wave",
+      "effectId": 1,
+      "classification": "simple-effect-special-metadata-or-target"
+    },
+    {
+      "id": 10012,
+      "key": "shadow-down",
+      "effectId": 60,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 10013,
+      "key": "shadow-half",
+      "effectId": 10003,
+      "classification": "damage-with-additional-or-unverified-effect"
+    },
+    {
+      "id": 10014,
+      "key": "shadow-hold",
+      "effectId": 107,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 10015,
+      "key": "shadow-mist",
+      "effectId": 10004,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 10016,
+      "key": "shadow-panic",
+      "effectId": 50,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 10017,
+      "key": "shadow-shed",
+      "effectId": 10005,
+      "classification": "status-or-support"
+    },
+    {
+      "id": 10018,
+      "key": "shadow-sky",
+      "effectId": 10006,
+      "classification": "status-or-support"
+    }
+  ]
+}
