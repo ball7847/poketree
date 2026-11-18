@@ -94,3 +94,18 @@ test("save restore does not add null entries to learned moves; duplicate TM pend
  G.state.roster[0].bag.push("tm:gust");
  const choice=T.demoFind({actions:2,party:[]});assert.notEqual(choice,"tm:gust");
 });
+
+test("unimplemented original moves may be learned and saved, but never equipped",()=>{
+ const {G}=boot(),T=G.techniques,u=G.state.roster[0];
+ const id=Object.keys(T.imported.moves).find(key=>!T.executable(key));
+ assert.ok(id,"test requires at least one original move without an engine effect");
+ const oldMoves=[...u.moves];
+ assert.equal(T.learn(u,id),null);
+ assert.ok(u.learnedMoves.includes(id));
+ assert.match(T.equip(u,id,0),/전투 효과가 구현되지 않은/);
+ assert.deepEqual([...u.moves],oldMoves);
+ const snapshot=JSON.parse(JSON.stringify(G.saveGame.snapshot()));
+ assert.equal(G.saveGame.restore(snapshot),true);
+ assert.ok(G.state.roster[0].learnedMoves.includes(id));
+ assert.deepEqual([...G.state.roster[0].moves],oldMoves);
+});
