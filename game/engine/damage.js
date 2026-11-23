@@ -31,6 +31,10 @@
       const boost=stats.reduce((n,k)=>n+Math.max(0,attacker.battleStatus?.ranks?.[k]??0),0);
       return move.power+20*boost;
     }
+    if(mode==="target-acted-double")return move.power*(attacker._battleRound?.acted?.has(defender.id)?2:1);
+    if(mode==="target-not-acted-double")return move.power*(attacker._battleRound?.acted?.has(defender.id)?1:2);
+    if(mode==="target-damaged-double")return move.power*(attacker._battleRound?.damaged?.has(defender.id)?2:1);
+    if(mode==="user-hit-by-target-double")return move.power*(attacker._battleRound?.hitBy?.get(attacker.id)?.has(defender.id)?2:1);
     if(mode==="low-hp-tier"){
       const p=Math.floor(48*attacker.hp/attacker.maxHp);
       return p<2?200:p<4?150:p<10?100:p<16?80:p<33?40:20;
@@ -95,7 +99,7 @@
   function roll(attacker,defender,options={}){
     const rng=options.rng||Math.random;
     // Stage +1 critical-rate moves use 1/8; ordinary PokeTree moves retain 5%.
-    const critical=rng()<(options.move?.critRate===1?.125:.05);
+    const critical=options.move?.alwaysCrit===true||rng()<(options.move?.critRate===1?.125:.05);
     const random=85+Math.floor(rng()*16);
     return compute(attacker,defender,{...options,critical,random});
   }
