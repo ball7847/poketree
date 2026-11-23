@@ -27,7 +27,7 @@ test("10 rank-only moves match pinned source stats and independently checked ran
  const byKey=new Map(originals.map(x=>[x.key,x]));
  const {w}=boot();
  assert.equal(Object.keys(w.POKE_RANK_MOVES).length,10);
- assert.equal(Object.keys(w.POKE_MOVES).length,63);
+ assert.equal(Object.keys(w.POKE_MOVES).length,74);
  for(const [key,rule] of Object.entries(expected)){
   const src=byKey.get(key),actual=w.POKE_RANK_MOVES[key];
   assert.ok(src&&actual,key);
