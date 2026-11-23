@@ -15,7 +15,7 @@
   }
   function accuracy(move,attacker,defender){
     if(move.accuracy===null)return 1;
-    const a=ensure(attacker).ranks.accuracy,d=ensure(defender).ranks.evasion;
+    const a=ensure(attacker).ranks.accuracy,d=move.ignoreEvasionRank?0:ensure(defender).ranks.evasion;
     return Math.max(0,Math.min(1,move.accuracy/100*stage(a-d)));
   }
   function grounded(u){
