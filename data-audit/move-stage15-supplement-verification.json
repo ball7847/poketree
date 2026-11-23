@@ -1,0 +1,5667 @@
+{
+  "schemaVersion": 1,
+  "sourceRevision": "8a92bfa7dab2f12b84b5d151562f9857c133ff30",
+  "sourceCount": 937,
+  "stage15PreviouslyAdded": 11,
+  "added": 23,
+  "total": 331,
+  "families": {
+    "weather": 3,
+    "terrain": 3,
+    "clear-ranks": 1,
+    "rank": 1,
+    "multi-rank": 1,
+    "attack-secondary": 8,
+    "target-acted-double": 1,
+    "target-damaged-double": 1,
+    "user-hit-by-target-double": 2,
+    "target-not-acted-double": 2
+  },
+  "rows": [
+    {
+      "id": 1,
+      "key": "pound",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 2,
+      "key": "karate-chop",
+      "effectId": 44,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 3,
+      "key": "double-slap",
+      "effectId": 30,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 4,
+      "key": "comet-punch",
+      "effectId": 30,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 5,
+      "key": "mega-punch",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 6,
+      "key": "pay-day",
+      "effectId": 35,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 7,
+      "key": "fire-punch",
+      "effectId": 5,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 8,
+      "key": "ice-punch",
+      "effectId": 6,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 9,
+      "key": "thunder-punch",
+      "effectId": 7,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 10,
+      "key": "scratch",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 11,
+      "key": "vice-grip",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 12,
+      "key": "guillotine",
+      "effectId": 39,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 13,
+      "key": "razor-wind",
+      "effectId": 40,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 14,
+      "key": "swords-dance",
+      "effectId": 51,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 15,
+      "key": "cut",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 16,
+      "key": "gust",
+      "effectId": 150,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 17,
+      "key": "wing-attack",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 18,
+      "key": "whirlwind",
+      "effectId": 29,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 19,
+      "key": "fly",
+      "effectId": 156,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 20,
+      "key": "bind",
+      "effectId": 43,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 21,
+      "key": "slam",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 22,
+      "key": "vine-whip",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 23,
+      "key": "stomp",
+      "effectId": 151,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 24,
+      "key": "double-kick",
+      "effectId": 45,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 25,
+      "key": "mega-kick",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 26,
+      "key": "jump-kick",
+      "effectId": 46,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 27,
+      "key": "rolling-kick",
+      "effectId": 32,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 28,
+      "key": "sand-attack",
+      "effectId": 24,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 29,
+      "key": "headbutt",
+      "effectId": 32,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 30,
+      "key": "horn-attack",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 31,
+      "key": "fury-attack",
+      "effectId": 30,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 32,
+      "key": "horn-drill",
+      "effectId": 39,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 33,
+      "key": "tackle",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 34,
+      "key": "body-slam",
+      "effectId": 7,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 35,
+      "key": "wrap",
+      "effectId": 43,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 36,
+      "key": "take-down",
+      "effectId": 49,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 37,
+      "key": "thrash",
+      "effectId": 28,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 38,
+      "key": "double-edge",
+      "effectId": 199,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 39,
+      "key": "tail-whip",
+      "effectId": 20,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 40,
+      "key": "poison-sting",
+      "effectId": 3,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 41,
+      "key": "twineedle",
+      "effectId": 78,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 42,
+      "key": "pin-missile",
+      "effectId": 30,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 43,
+      "key": "leer",
+      "effectId": 20,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 44,
+      "key": "bite",
+      "effectId": 32,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 45,
+      "key": "growl",
+      "effectId": 19,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 46,
+      "key": "roar",
+      "effectId": 29,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 47,
+      "key": "sing",
+      "effectId": 2,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 48,
+      "key": "supersonic",
+      "effectId": 50,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 49,
+      "key": "sonic-boom",
+      "effectId": 131,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 50,
+      "key": "disable",
+      "effectId": 87,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 51,
+      "key": "acid",
+      "effectId": 73,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 52,
+      "key": "ember",
+      "effectId": 5,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 53,
+      "key": "flamethrower",
+      "effectId": 5,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 54,
+      "key": "mist",
+      "effectId": 47,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 55,
+      "key": "water-gun",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 56,
+      "key": "hydro-pump",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 57,
+      "key": "surf",
+      "effectId": 258,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 58,
+      "key": "ice-beam",
+      "effectId": 6,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 59,
+      "key": "blizzard",
+      "effectId": 261,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 60,
+      "key": "psybeam",
+      "effectId": 77,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 61,
+      "key": "bubble-beam",
+      "effectId": 71,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 62,
+      "key": "aurora-beam",
+      "effectId": 69,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 63,
+      "key": "hyper-beam",
+      "effectId": 81,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 64,
+      "key": "peck",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 65,
+      "key": "drill-peck",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 66,
+      "key": "submission",
+      "effectId": 49,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 67,
+      "key": "low-kick",
+      "effectId": 197,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 68,
+      "key": "counter",
+      "effectId": 90,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 69,
+      "key": "seismic-toss",
+      "effectId": 88,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 70,
+      "key": "strength",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 71,
+      "key": "absorb",
+      "effectId": 4,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 72,
+      "key": "mega-drain",
+      "effectId": 4,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 73,
+      "key": "leech-seed",
+      "effectId": 85,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 74,
+      "key": "growth",
+      "effectId": 317,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 75,
+      "key": "razor-leaf",
+      "effectId": 44,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 76,
+      "key": "solar-beam",
+      "effectId": 152,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 77,
+      "key": "poison-powder",
+      "effectId": 67,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 78,
+      "key": "stun-spore",
+      "effectId": 68,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 79,
+      "key": "sleep-powder",
+      "effectId": 2,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 80,
+      "key": "petal-dance",
+      "effectId": 28,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 81,
+      "key": "string-shot",
+      "effectId": 61,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 82,
+      "key": "dragon-rage",
+      "effectId": 42,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 83,
+      "key": "fire-spin",
+      "effectId": 43,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 84,
+      "key": "thunder-shock",
+      "effectId": 7,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 85,
+      "key": "thunderbolt",
+      "effectId": 7,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 86,
+      "key": "thunder-wave",
+      "effectId": 68,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 87,
+      "key": "thunder",
+      "effectId": 153,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 88,
+      "key": "rock-throw",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 89,
+      "key": "earthquake",
+      "effectId": 148,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 90,
+      "key": "fissure",
+      "effectId": 39,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 91,
+      "key": "dig",
+      "effectId": 257,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 92,
+      "key": "toxic",
+      "effectId": 34,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 93,
+      "key": "confusion",
+      "effectId": 77,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 94,
+      "key": "psychic",
+      "effectId": 73,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 95,
+      "key": "hypnosis",
+      "effectId": 2,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 96,
+      "key": "meditate",
+      "effectId": 11,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 97,
+      "key": "agility",
+      "effectId": 53,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 98,
+      "key": "quick-attack",
+      "effectId": 104,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 99,
+      "key": "rage",
+      "effectId": 82,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 100,
+      "key": "teleport",
+      "effectId": 154,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 101,
+      "key": "night-shade",
+      "effectId": 88,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 102,
+      "key": "mimic",
+      "effectId": 83,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 103,
+      "key": "screech",
+      "effectId": 60,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 104,
+      "key": "double-team",
+      "effectId": 17,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 105,
+      "key": "recover",
+      "effectId": 33,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 106,
+      "key": "harden",
+      "effectId": 12,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 107,
+      "key": "minimize",
+      "effectId": 109,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 108,
+      "key": "smokescreen",
+      "effectId": 24,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 109,
+      "key": "confuse-ray",
+      "effectId": 50,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 110,
+      "key": "withdraw",
+      "effectId": 12,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 111,
+      "key": "defense-curl",
+      "effectId": 157,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 112,
+      "key": "barrier",
+      "effectId": 52,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 113,
+      "key": "light-screen",
+      "effectId": 36,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 114,
+      "key": "haze",
+      "effectId": 26,
+      "state": "verified",
+      "family": "clear-ranks"
+    },
+    {
+      "id": 115,
+      "key": "reflect",
+      "effectId": 66,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 116,
+      "key": "focus-energy",
+      "effectId": 48,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 117,
+      "key": "bide",
+      "effectId": 27,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 118,
+      "key": "metronome",
+      "effectId": 84,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 119,
+      "key": "mirror-move",
+      "effectId": 10,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 120,
+      "key": "self-destruct",
+      "effectId": 8,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 121,
+      "key": "egg-bomb",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 122,
+      "key": "lick",
+      "effectId": 7,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 123,
+      "key": "smog",
+      "effectId": 3,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 124,
+      "key": "sludge",
+      "effectId": 3,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 125,
+      "key": "bone-club",
+      "effectId": 32,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 126,
+      "key": "fire-blast",
+      "effectId": 5,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 127,
+      "key": "waterfall",
+      "effectId": 32,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 128,
+      "key": "clamp",
+      "effectId": 43,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 129,
+      "key": "swift",
+      "effectId": 18,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 130,
+      "key": "skull-bash",
+      "effectId": 146,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 131,
+      "key": "spike-cannon",
+      "effectId": 30,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 132,
+      "key": "constrict",
+      "effectId": 71,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 133,
+      "key": "amnesia",
+      "effectId": 55,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 134,
+      "key": "kinesis",
+      "effectId": 24,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 135,
+      "key": "soft-boiled",
+      "effectId": 33,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 136,
+      "key": "high-jump-kick",
+      "effectId": 46,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 137,
+      "key": "glare",
+      "effectId": 68,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 138,
+      "key": "dream-eater",
+      "effectId": 9,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 139,
+      "key": "poison-gas",
+      "effectId": 67,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 140,
+      "key": "barrage",
+      "effectId": 30,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 141,
+      "key": "leech-life",
+      "effectId": 4,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 142,
+      "key": "lovely-kiss",
+      "effectId": 2,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 143,
+      "key": "sky-attack",
+      "effectId": 76,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 144,
+      "key": "transform",
+      "effectId": 58,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 145,
+      "key": "bubble",
+      "effectId": 71,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 146,
+      "key": "dizzy-punch",
+      "effectId": 77,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 147,
+      "key": "spore",
+      "effectId": 2,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 148,
+      "key": "flash",
+      "effectId": 24,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 149,
+      "key": "psywave",
+      "effectId": 89,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 150,
+      "key": "splash",
+      "effectId": 86,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 151,
+      "key": "acid-armor",
+      "effectId": 52,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 152,
+      "key": "crabhammer",
+      "effectId": 44,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 153,
+      "key": "explosion",
+      "effectId": 8,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 154,
+      "key": "fury-swipes",
+      "effectId": 30,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 155,
+      "key": "bonemerang",
+      "effectId": 45,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 156,
+      "key": "rest",
+      "effectId": 38,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 157,
+      "key": "rock-slide",
+      "effectId": 32,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 158,
+      "key": "hyper-fang",
+      "effectId": 32,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 159,
+      "key": "sharpen",
+      "effectId": 11,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 160,
+      "key": "conversion",
+      "effectId": 31,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 161,
+      "key": "tri-attack",
+      "effectId": 37,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 162,
+      "key": "super-fang",
+      "effectId": 41,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 163,
+      "key": "slash",
+      "effectId": 44,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 164,
+      "key": "substitute",
+      "effectId": 80,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 165,
+      "key": "struggle",
+      "effectId": 255,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 166,
+      "key": "sketch",
+      "effectId": 96,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 167,
+      "key": "triple-kick",
+      "effectId": 105,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 168,
+      "key": "thief",
+      "effectId": 106,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 169,
+      "key": "spider-web",
+      "effectId": 107,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 170,
+      "key": "mind-reader",
+      "effectId": 95,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 171,
+      "key": "nightmare",
+      "effectId": 108,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 172,
+      "key": "flame-wheel",
+      "effectId": 126,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 173,
+      "key": "snore",
+      "effectId": 93,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 174,
+      "key": "curse",
+      "effectId": 110,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 175,
+      "key": "flail",
+      "effectId": 100,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 176,
+      "key": "conversion-2",
+      "effectId": 94,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 177,
+      "key": "aeroblast",
+      "effectId": 44,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 178,
+      "key": "cotton-spore",
+      "effectId": 61,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 179,
+      "key": "reversal",
+      "effectId": 100,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 180,
+      "key": "spite",
+      "effectId": 101,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 181,
+      "key": "powder-snow",
+      "effectId": 6,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 182,
+      "key": "protect",
+      "effectId": 112,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 183,
+      "key": "mach-punch",
+      "effectId": 104,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 184,
+      "key": "scary-face",
+      "effectId": 61,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 185,
+      "key": "feint-attack",
+      "effectId": 18,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 186,
+      "key": "sweet-kiss",
+      "effectId": 50,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 187,
+      "key": "belly-drum",
+      "effectId": 143,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 188,
+      "key": "sludge-bomb",
+      "effectId": 3,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 189,
+      "key": "mud-slap",
+      "effectId": 74,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 190,
+      "key": "octazooka",
+      "effectId": 74,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 191,
+      "key": "spikes",
+      "effectId": 113,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 192,
+      "key": "zap-cannon",
+      "effectId": 7,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 193,
+      "key": "foresight",
+      "effectId": 114,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 194,
+      "key": "destiny-bond",
+      "effectId": 99,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 195,
+      "key": "perish-song",
+      "effectId": 115,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 196,
+      "key": "icy-wind",
+      "effectId": 71,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 197,
+      "key": "detect",
+      "effectId": 112,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 198,
+      "key": "bone-rush",
+      "effectId": 30,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 199,
+      "key": "lock-on",
+      "effectId": 95,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 200,
+      "key": "outrage",
+      "effectId": 28,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 201,
+      "key": "sandstorm",
+      "effectId": 116,
+      "state": "verified",
+      "family": "weather"
+    },
+    {
+      "id": 202,
+      "key": "giga-drain",
+      "effectId": 4,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 203,
+      "key": "endure",
+      "effectId": 117,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 204,
+      "key": "charm",
+      "effectId": 59,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 205,
+      "key": "rollout",
+      "effectId": 118,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 206,
+      "key": "false-swipe",
+      "effectId": 102,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 207,
+      "key": "swagger",
+      "effectId": 119,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 208,
+      "key": "milk-drink",
+      "effectId": 33,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 209,
+      "key": "spark",
+      "effectId": 7,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 210,
+      "key": "fury-cutter",
+      "effectId": 120,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 211,
+      "key": "steel-wing",
+      "effectId": 139,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 212,
+      "key": "mean-look",
+      "effectId": 107,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 213,
+      "key": "attract",
+      "effectId": 121,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 214,
+      "key": "sleep-talk",
+      "effectId": 98,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 215,
+      "key": "heal-bell",
+      "effectId": 103,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 216,
+      "key": "return",
+      "effectId": 122,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 217,
+      "key": "present",
+      "effectId": 123,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 218,
+      "key": "frustration",
+      "effectId": 124,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 219,
+      "key": "safeguard",
+      "effectId": 125,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 220,
+      "key": "pain-split",
+      "effectId": 92,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 221,
+      "key": "sacred-fire",
+      "effectId": 126,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 222,
+      "key": "magnitude",
+      "effectId": 127,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 223,
+      "key": "dynamic-punch",
+      "effectId": 77,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 224,
+      "key": "megahorn",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 225,
+      "key": "dragon-breath",
+      "effectId": 7,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 226,
+      "key": "baton-pass",
+      "effectId": 128,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 227,
+      "key": "encore",
+      "effectId": 91,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 228,
+      "key": "pursuit",
+      "effectId": 129,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 229,
+      "key": "rapid-spin",
+      "effectId": 130,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 230,
+      "key": "sweet-scent",
+      "effectId": 25,
+      "state": "verified",
+      "family": "rank"
+    },
+    {
+      "id": 231,
+      "key": "iron-tail",
+      "effectId": 70,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 232,
+      "key": "metal-claw",
+      "effectId": 140,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 233,
+      "key": "vital-throw",
+      "effectId": 79,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 234,
+      "key": "morning-sun",
+      "effectId": 133,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 235,
+      "key": "synthesis",
+      "effectId": 133,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 236,
+      "key": "moonlight",
+      "effectId": 133,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 237,
+      "key": "hidden-power",
+      "effectId": 136,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 238,
+      "key": "cross-chop",
+      "effectId": 44,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 239,
+      "key": "twister",
+      "effectId": 147,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 240,
+      "key": "rain-dance",
+      "effectId": 137,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 241,
+      "key": "sunny-day",
+      "effectId": 138,
+      "state": "verified",
+      "family": "weather"
+    },
+    {
+      "id": 242,
+      "key": "crunch",
+      "effectId": 70,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 243,
+      "key": "mirror-coat",
+      "effectId": 145,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 244,
+      "key": "psych-up",
+      "effectId": 144,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 245,
+      "key": "extreme-speed",
+      "effectId": 104,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 246,
+      "key": "ancient-power",
+      "effectId": 141,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 247,
+      "key": "shadow-ball",
+      "effectId": 73,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 248,
+      "key": "future-sight",
+      "effectId": 149,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 249,
+      "key": "rock-smash",
+      "effectId": 70,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 250,
+      "key": "whirlpool",
+      "effectId": 262,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 251,
+      "key": "beat-up",
+      "effectId": 155,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 252,
+      "key": "fake-out",
+      "effectId": 159,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 253,
+      "key": "uproar",
+      "effectId": 160,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 254,
+      "key": "stockpile",
+      "effectId": 161,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 255,
+      "key": "spit-up",
+      "effectId": 162,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 256,
+      "key": "swallow",
+      "effectId": 163,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 257,
+      "key": "heat-wave",
+      "effectId": 5,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 258,
+      "key": "hail",
+      "effectId": 165,
+      "state": "verified",
+      "family": "weather"
+    },
+    {
+      "id": 259,
+      "key": "torment",
+      "effectId": 166,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 260,
+      "key": "flatter",
+      "effectId": 167,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 261,
+      "key": "will-o-wisp",
+      "effectId": 168,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 262,
+      "key": "memento",
+      "effectId": 169,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 263,
+      "key": "facade",
+      "effectId": 170,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 264,
+      "key": "focus-punch",
+      "effectId": 171,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 265,
+      "key": "smelling-salts",
+      "effectId": 172,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 266,
+      "key": "follow-me",
+      "effectId": 173,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 267,
+      "key": "nature-power",
+      "effectId": 174,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 268,
+      "key": "charge",
+      "effectId": 175,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 269,
+      "key": "taunt",
+      "effectId": 176,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 270,
+      "key": "helping-hand",
+      "effectId": 177,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 271,
+      "key": "trick",
+      "effectId": 178,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 272,
+      "key": "role-play",
+      "effectId": 179,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 273,
+      "key": "wish",
+      "effectId": 180,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 274,
+      "key": "assist",
+      "effectId": 181,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 275,
+      "key": "ingrain",
+      "effectId": 182,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 276,
+      "key": "superpower",
+      "effectId": 183,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 277,
+      "key": "magic-coat",
+      "effectId": 184,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 278,
+      "key": "recycle",
+      "effectId": 185,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 279,
+      "key": "revenge",
+      "effectId": 186,
+      "state": "verified",
+      "family": "user-hit-by-target-double"
+    },
+    {
+      "id": 280,
+      "key": "brick-break",
+      "effectId": 187,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 281,
+      "key": "yawn",
+      "effectId": 188,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 282,
+      "key": "knock-off",
+      "effectId": 189,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 283,
+      "key": "endeavor",
+      "effectId": 190,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 284,
+      "key": "eruption",
+      "effectId": 191,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 285,
+      "key": "skill-swap",
+      "effectId": 192,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 286,
+      "key": "imprison",
+      "effectId": 193,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 287,
+      "key": "refresh",
+      "effectId": 194,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 288,
+      "key": "grudge",
+      "effectId": 195,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 289,
+      "key": "snatch",
+      "effectId": 196,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 290,
+      "key": "secret-power",
+      "effectId": 198,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 291,
+      "key": "dive",
+      "effectId": 256,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 292,
+      "key": "arm-thrust",
+      "effectId": 30,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 293,
+      "key": "camouflage",
+      "effectId": 214,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 294,
+      "key": "tail-glow",
+      "effectId": 322,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 295,
+      "key": "luster-purge",
+      "effectId": 73,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 296,
+      "key": "mist-ball",
+      "effectId": 72,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 297,
+      "key": "feather-dance",
+      "effectId": 59,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 298,
+      "key": "teeter-dance",
+      "effectId": 200,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 299,
+      "key": "blaze-kick",
+      "effectId": 201,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 300,
+      "key": "mud-sport",
+      "effectId": 202,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 301,
+      "key": "ice-ball",
+      "effectId": 118,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 302,
+      "key": "needle-arm",
+      "effectId": 32,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 303,
+      "key": "slack-off",
+      "effectId": 33,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 304,
+      "key": "hyper-voice",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 305,
+      "key": "poison-fang",
+      "effectId": 203,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 306,
+      "key": "crush-claw",
+      "effectId": 70,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 307,
+      "key": "blast-burn",
+      "effectId": 81,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 308,
+      "key": "hydro-cannon",
+      "effectId": 81,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 309,
+      "key": "meteor-mash",
+      "effectId": 140,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 310,
+      "key": "astonish",
+      "effectId": 32,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 311,
+      "key": "weather-ball",
+      "effectId": 204,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 312,
+      "key": "aromatherapy",
+      "effectId": 103,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 313,
+      "key": "fake-tears",
+      "effectId": 63,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 314,
+      "key": "air-cutter",
+      "effectId": 44,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 315,
+      "key": "overheat",
+      "effectId": 205,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 316,
+      "key": "odor-sleuth",
+      "effectId": 114,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 317,
+      "key": "rock-tomb",
+      "effectId": 71,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 318,
+      "key": "silver-wind",
+      "effectId": 141,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 319,
+      "key": "metal-sound",
+      "effectId": 63,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 320,
+      "key": "grass-whistle",
+      "effectId": 2,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 321,
+      "key": "tickle",
+      "effectId": 206,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 322,
+      "key": "cosmic-power",
+      "effectId": 207,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 323,
+      "key": "water-spout",
+      "effectId": 191,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 324,
+      "key": "signal-beam",
+      "effectId": 77,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 325,
+      "key": "shadow-punch",
+      "effectId": 18,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 326,
+      "key": "extrasensory",
+      "effectId": 32,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 327,
+      "key": "sky-uppercut",
+      "effectId": 208,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 328,
+      "key": "sand-tomb",
+      "effectId": 43,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 329,
+      "key": "sheer-cold",
+      "effectId": 39,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 330,
+      "key": "muddy-water",
+      "effectId": 74,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 331,
+      "key": "bullet-seed",
+      "effectId": 30,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 332,
+      "key": "aerial-ace",
+      "effectId": 18,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 333,
+      "key": "icicle-spear",
+      "effectId": 30,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 334,
+      "key": "iron-defense",
+      "effectId": 52,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 335,
+      "key": "block",
+      "effectId": 107,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 336,
+      "key": "howl",
+      "effectId": 11,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 337,
+      "key": "dragon-claw",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 338,
+      "key": "frenzy-plant",
+      "effectId": 81,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 339,
+      "key": "bulk-up",
+      "effectId": 209,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 340,
+      "key": "bounce",
+      "effectId": 264,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 341,
+      "key": "mud-shot",
+      "effectId": 71,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 342,
+      "key": "poison-tail",
+      "effectId": 210,
+      "state": "verified",
+      "family": "attack-secondary"
+    },
+    {
+      "id": 343,
+      "key": "covet",
+      "effectId": 106,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 344,
+      "key": "volt-tackle",
+      "effectId": 263,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 345,
+      "key": "magical-leaf",
+      "effectId": 18,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 346,
+      "key": "water-sport",
+      "effectId": 211,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 347,
+      "key": "calm-mind",
+      "effectId": 212,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 348,
+      "key": "leaf-blade",
+      "effectId": 44,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 349,
+      "key": "dragon-dance",
+      "effectId": 213,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 350,
+      "key": "rock-blast",
+      "effectId": 30,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 351,
+      "key": "shock-wave",
+      "effectId": 18,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 352,
+      "key": "water-pulse",
+      "effectId": 77,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 353,
+      "key": "doom-desire",
+      "effectId": 149,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 354,
+      "key": "psycho-boost",
+      "effectId": 205,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 355,
+      "key": "roost",
+      "effectId": 215,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 356,
+      "key": "gravity",
+      "effectId": 216,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 357,
+      "key": "miracle-eye",
+      "effectId": 217,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 358,
+      "key": "wake-up-slap",
+      "effectId": 218,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 359,
+      "key": "hammer-arm",
+      "effectId": 219,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 360,
+      "key": "gyro-ball",
+      "effectId": 220,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 361,
+      "key": "healing-wish",
+      "effectId": 221,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 362,
+      "key": "brine",
+      "effectId": 222,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 363,
+      "key": "natural-gift",
+      "effectId": 223,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 364,
+      "key": "feint",
+      "effectId": 224,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 365,
+      "key": "pluck",
+      "effectId": 225,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 366,
+      "key": "tailwind",
+      "effectId": 226,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 367,
+      "key": "acupressure",
+      "effectId": 227,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 368,
+      "key": "metal-burst",
+      "effectId": 228,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 369,
+      "key": "u-turn",
+      "effectId": 229,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 370,
+      "key": "close-combat",
+      "effectId": 230,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 371,
+      "key": "payback",
+      "effectId": 231,
+      "state": "verified",
+      "family": "target-acted-double"
+    },
+    {
+      "id": 372,
+      "key": "assurance",
+      "effectId": 232,
+      "state": "verified",
+      "family": "target-damaged-double"
+    },
+    {
+      "id": 373,
+      "key": "embargo",
+      "effectId": 233,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 374,
+      "key": "fling",
+      "effectId": 234,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 375,
+      "key": "psycho-shift",
+      "effectId": 235,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 376,
+      "key": "trump-card",
+      "effectId": 236,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 377,
+      "key": "heal-block",
+      "effectId": 237,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 378,
+      "key": "wring-out",
+      "effectId": 238,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 379,
+      "key": "power-trick",
+      "effectId": 239,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 380,
+      "key": "gastro-acid",
+      "effectId": 240,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 381,
+      "key": "lucky-chant",
+      "effectId": 241,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 382,
+      "key": "me-first",
+      "effectId": 242,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 383,
+      "key": "copycat",
+      "effectId": 243,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 384,
+      "key": "power-swap",
+      "effectId": 244,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 385,
+      "key": "guard-swap",
+      "effectId": 245,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 386,
+      "key": "punishment",
+      "effectId": 246,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 387,
+      "key": "last-resort",
+      "effectId": 247,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 388,
+      "key": "worry-seed",
+      "effectId": 248,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 389,
+      "key": "sucker-punch",
+      "effectId": 249,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 390,
+      "key": "toxic-spikes",
+      "effectId": 250,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 391,
+      "key": "heart-swap",
+      "effectId": 251,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 392,
+      "key": "aqua-ring",
+      "effectId": 252,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 393,
+      "key": "magnet-rise",
+      "effectId": 253,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 394,
+      "key": "flare-blitz",
+      "effectId": 254,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 395,
+      "key": "force-palm",
+      "effectId": 7,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 396,
+      "key": "aura-sphere",
+      "effectId": 18,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 397,
+      "key": "rock-polish",
+      "effectId": 53,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 398,
+      "key": "poison-jab",
+      "effectId": 3,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 399,
+      "key": "dark-pulse",
+      "effectId": 32,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 400,
+      "key": "night-slash",
+      "effectId": 44,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 401,
+      "key": "aqua-tail",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 402,
+      "key": "seed-bomb",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 403,
+      "key": "air-slash",
+      "effectId": 32,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 404,
+      "key": "x-scissor",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 405,
+      "key": "bug-buzz",
+      "effectId": 73,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 406,
+      "key": "dragon-pulse",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 407,
+      "key": "dragon-rush",
+      "effectId": 32,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 408,
+      "key": "power-gem",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 409,
+      "key": "drain-punch",
+      "effectId": 4,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 410,
+      "key": "vacuum-wave",
+      "effectId": 104,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 411,
+      "key": "focus-blast",
+      "effectId": 73,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 412,
+      "key": "energy-ball",
+      "effectId": 73,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 413,
+      "key": "brave-bird",
+      "effectId": 199,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 414,
+      "key": "earth-power",
+      "effectId": 73,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 415,
+      "key": "switcheroo",
+      "effectId": 178,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 416,
+      "key": "giga-impact",
+      "effectId": 81,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 417,
+      "key": "nasty-plot",
+      "effectId": 54,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 418,
+      "key": "bullet-punch",
+      "effectId": 104,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 419,
+      "key": "avalanche",
+      "effectId": 186,
+      "state": "verified",
+      "family": "user-hit-by-target-double"
+    },
+    {
+      "id": 420,
+      "key": "ice-shard",
+      "effectId": 104,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 421,
+      "key": "shadow-claw",
+      "effectId": 44,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 422,
+      "key": "thunder-fang",
+      "effectId": 276,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 423,
+      "key": "ice-fang",
+      "effectId": 275,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 424,
+      "key": "fire-fang",
+      "effectId": 274,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 425,
+      "key": "shadow-sneak",
+      "effectId": 104,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 426,
+      "key": "mud-bomb",
+      "effectId": 74,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 427,
+      "key": "psycho-cut",
+      "effectId": 44,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 428,
+      "key": "zen-headbutt",
+      "effectId": 32,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 429,
+      "key": "mirror-shot",
+      "effectId": 74,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 430,
+      "key": "flash-cannon",
+      "effectId": 73,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 431,
+      "key": "rock-climb",
+      "effectId": 77,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 432,
+      "key": "defog",
+      "effectId": 259,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 433,
+      "key": "trick-room",
+      "effectId": 260,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 434,
+      "key": "draco-meteor",
+      "effectId": 205,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 435,
+      "key": "discharge",
+      "effectId": 7,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 436,
+      "key": "lava-plume",
+      "effectId": 5,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 437,
+      "key": "leaf-storm",
+      "effectId": 205,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 438,
+      "key": "power-whip",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 439,
+      "key": "rock-wrecker",
+      "effectId": 81,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 440,
+      "key": "cross-poison",
+      "effectId": 210,
+      "state": "verified",
+      "family": "attack-secondary"
+    },
+    {
+      "id": 441,
+      "key": "gunk-shot",
+      "effectId": 3,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 442,
+      "key": "iron-head",
+      "effectId": 32,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 443,
+      "key": "magnet-bomb",
+      "effectId": 18,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 444,
+      "key": "stone-edge",
+      "effectId": 44,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 445,
+      "key": "captivate",
+      "effectId": 266,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 446,
+      "key": "stealth-rock",
+      "effectId": 267,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 447,
+      "key": "grass-knot",
+      "effectId": 197,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 448,
+      "key": "chatter",
+      "effectId": 268,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 449,
+      "key": "judgment",
+      "effectId": 269,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 450,
+      "key": "bug-bite",
+      "effectId": 225,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 451,
+      "key": "charge-beam",
+      "effectId": 277,
+      "state": "verified",
+      "family": "attack-secondary"
+    },
+    {
+      "id": 452,
+      "key": "wood-hammer",
+      "effectId": 199,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 453,
+      "key": "aqua-jet",
+      "effectId": 104,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 454,
+      "key": "attack-order",
+      "effectId": 44,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 455,
+      "key": "defend-order",
+      "effectId": 207,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 456,
+      "key": "heal-order",
+      "effectId": 33,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 457,
+      "key": "head-smash",
+      "effectId": 270,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 458,
+      "key": "double-hit",
+      "effectId": 45,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 459,
+      "key": "roar-of-time",
+      "effectId": 81,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 460,
+      "key": "spacial-rend",
+      "effectId": 44,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 461,
+      "key": "lunar-dance",
+      "effectId": 271,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 462,
+      "key": "crush-grip",
+      "effectId": 238,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 463,
+      "key": "magma-storm",
+      "effectId": 43,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 464,
+      "key": "dark-void",
+      "effectId": 2,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 465,
+      "key": "seed-flare",
+      "effectId": 272,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 466,
+      "key": "ominous-wind",
+      "effectId": 141,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 467,
+      "key": "shadow-force",
+      "effectId": 273,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 468,
+      "key": "hone-claws",
+      "effectId": 278,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 469,
+      "key": "wide-guard",
+      "effectId": 279,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 470,
+      "key": "guard-split",
+      "effectId": 280,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 471,
+      "key": "power-split",
+      "effectId": 281,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 472,
+      "key": "wonder-room",
+      "effectId": 282,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 473,
+      "key": "psyshock",
+      "effectId": 283,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 474,
+      "key": "venoshock",
+      "effectId": 284,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 475,
+      "key": "autotomize",
+      "effectId": 285,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 476,
+      "key": "rage-powder",
+      "effectId": 173,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 477,
+      "key": "telekinesis",
+      "effectId": 286,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 478,
+      "key": "magic-room",
+      "effectId": 287,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 479,
+      "key": "smack-down",
+      "effectId": 288,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 480,
+      "key": "storm-throw",
+      "effectId": 289,
+      "state": "verified",
+      "family": "attack-secondary"
+    },
+    {
+      "id": 481,
+      "key": "flame-burst",
+      "effectId": 290,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 482,
+      "key": "sludge-wave",
+      "effectId": 3,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 483,
+      "key": "quiver-dance",
+      "effectId": 291,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 484,
+      "key": "heavy-slam",
+      "effectId": 292,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 485,
+      "key": "synchronoise",
+      "effectId": 293,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 486,
+      "key": "electro-ball",
+      "effectId": 294,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 487,
+      "key": "soak",
+      "effectId": 295,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 488,
+      "key": "flame-charge",
+      "effectId": 296,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 489,
+      "key": "coil",
+      "effectId": 323,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 490,
+      "key": "low-sweep",
+      "effectId": 21,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 491,
+      "key": "acid-spray",
+      "effectId": 297,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 492,
+      "key": "foul-play",
+      "effectId": 298,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 493,
+      "key": "simple-beam",
+      "effectId": 299,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 494,
+      "key": "entrainment",
+      "effectId": 300,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 495,
+      "key": "after-you",
+      "effectId": 301,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 496,
+      "key": "round",
+      "effectId": 302,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 497,
+      "key": "echoed-voice",
+      "effectId": 303,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 498,
+      "key": "chip-away",
+      "effectId": 304,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 499,
+      "key": "clear-smog",
+      "effectId": 305,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 500,
+      "key": "stored-power",
+      "effectId": 306,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 501,
+      "key": "quick-guard",
+      "effectId": 307,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 502,
+      "key": "ally-switch",
+      "effectId": 308,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 503,
+      "key": "scald",
+      "effectId": 5,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 504,
+      "key": "shell-smash",
+      "effectId": 309,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 505,
+      "key": "heal-pulse",
+      "effectId": 310,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 506,
+      "key": "hex",
+      "effectId": 311,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 507,
+      "key": "sky-drop",
+      "effectId": 312,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 508,
+      "key": "shift-gear",
+      "effectId": 313,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 509,
+      "key": "circle-throw",
+      "effectId": 314,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 510,
+      "key": "incinerate",
+      "effectId": 315,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 511,
+      "key": "quash",
+      "effectId": 316,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 512,
+      "key": "acrobatics",
+      "effectId": 318,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 513,
+      "key": "reflect-type",
+      "effectId": 319,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 514,
+      "key": "retaliate",
+      "effectId": 320,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 515,
+      "key": "final-gambit",
+      "effectId": 321,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 516,
+      "key": "bestow",
+      "effectId": 324,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 517,
+      "key": "inferno",
+      "effectId": 5,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 518,
+      "key": "water-pledge",
+      "effectId": 325,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 519,
+      "key": "fire-pledge",
+      "effectId": 326,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 520,
+      "key": "grass-pledge",
+      "effectId": 327,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 521,
+      "key": "volt-switch",
+      "effectId": 229,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 522,
+      "key": "struggle-bug",
+      "effectId": 72,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 523,
+      "key": "bulldoze",
+      "effectId": 71,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 524,
+      "key": "frost-breath",
+      "effectId": 289,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 525,
+      "key": "dragon-tail",
+      "effectId": 314,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 526,
+      "key": "work-up",
+      "effectId": 328,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 527,
+      "key": "electroweb",
+      "effectId": 21,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 528,
+      "key": "wild-charge",
+      "effectId": 49,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 529,
+      "key": "drill-run",
+      "effectId": 44,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 530,
+      "key": "dual-chop",
+      "effectId": 45,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 531,
+      "key": "heart-stamp",
+      "effectId": 32,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 532,
+      "key": "horn-leech",
+      "effectId": 4,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 533,
+      "key": "sacred-sword",
+      "effectId": 304,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 534,
+      "key": "razor-shell",
+      "effectId": 70,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 535,
+      "key": "heat-crash",
+      "effectId": 292,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 536,
+      "key": "leaf-tornado",
+      "effectId": 74,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 537,
+      "key": "steamroller",
+      "effectId": 151,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 538,
+      "key": "cotton-guard",
+      "effectId": 329,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 539,
+      "key": "night-daze",
+      "effectId": 74,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 540,
+      "key": "psystrike",
+      "effectId": 283,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 541,
+      "key": "tail-slap",
+      "effectId": 30,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 542,
+      "key": "hurricane",
+      "effectId": 334,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 543,
+      "key": "head-charge",
+      "effectId": 49,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 544,
+      "key": "gear-grind",
+      "effectId": 45,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 545,
+      "key": "searing-shot",
+      "effectId": 5,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 546,
+      "key": "techno-blast",
+      "effectId": 269,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 547,
+      "key": "relic-song",
+      "effectId": 330,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 548,
+      "key": "secret-sword",
+      "effectId": 283,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 549,
+      "key": "glaciate",
+      "effectId": 331,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 550,
+      "key": "bolt-strike",
+      "effectId": 7,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 551,
+      "key": "blue-flare",
+      "effectId": 5,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 552,
+      "key": "fiery-dance",
+      "effectId": 277,
+      "state": "verified",
+      "family": "attack-secondary"
+    },
+    {
+      "id": 553,
+      "key": "freeze-shock",
+      "effectId": 332,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 554,
+      "key": "ice-burn",
+      "effectId": 333,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 555,
+      "key": "snarl",
+      "effectId": 72,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 556,
+      "key": "icicle-crash",
+      "effectId": 32,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 557,
+      "key": "v-create",
+      "effectId": 335,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 558,
+      "key": "fusion-flare",
+      "effectId": 336,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 559,
+      "key": "fusion-bolt",
+      "effectId": 337,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 560,
+      "key": "flying-press",
+      "effectId": 338,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 561,
+      "key": "mat-block",
+      "effectId": 377,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 562,
+      "key": "belch",
+      "effectId": 339,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 563,
+      "key": "rototiller",
+      "effectId": 340,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 564,
+      "key": "sticky-web",
+      "effectId": 341,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 565,
+      "key": "fell-stinger",
+      "effectId": 342,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 566,
+      "key": "phantom-force",
+      "effectId": 273,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 567,
+      "key": "trick-or-treat",
+      "effectId": 343,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 568,
+      "key": "noble-roar",
+      "effectId": 344,
+      "state": "verified",
+      "family": "multi-rank"
+    },
+    {
+      "id": 569,
+      "key": "ion-deluge",
+      "effectId": 345,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 570,
+      "key": "parabolic-charge",
+      "effectId": 346,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 571,
+      "key": "forests-curse",
+      "effectId": 376,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 572,
+      "key": "petal-blizzard",
+      "effectId": 379,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 573,
+      "key": "freeze-dry",
+      "effectId": 380,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 574,
+      "key": "disarming-voice",
+      "effectId": 381,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 575,
+      "key": "parting-shot",
+      "effectId": 347,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 576,
+      "key": "topsy-turvy",
+      "effectId": 348,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 577,
+      "key": "draining-kiss",
+      "effectId": 349,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 578,
+      "key": "crafty-shield",
+      "effectId": 350,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 579,
+      "key": "flower-shield",
+      "effectId": 351,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 580,
+      "key": "grassy-terrain",
+      "effectId": 352,
+      "state": "verified",
+      "family": "terrain"
+    },
+    {
+      "id": 581,
+      "key": "misty-terrain",
+      "effectId": 353,
+      "state": "verified",
+      "family": "terrain"
+    },
+    {
+      "id": 582,
+      "key": "electrify",
+      "effectId": 354,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 583,
+      "key": "play-rough",
+      "effectId": 69,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 584,
+      "key": "fairy-wind",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 585,
+      "key": "moonblast",
+      "effectId": 72,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 586,
+      "key": "boomburst",
+      "effectId": 379,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 587,
+      "key": "fairy-lock",
+      "effectId": 355,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 588,
+      "key": "kings-shield",
+      "effectId": 356,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 589,
+      "key": "play-nice",
+      "effectId": 357,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 590,
+      "key": "confide",
+      "effectId": 358,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 591,
+      "key": "diamond-storm",
+      "effectId": 359,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 592,
+      "key": "steam-eruption",
+      "effectId": 5,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 593,
+      "key": "hyperspace-hole",
+      "effectId": 360,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 594,
+      "key": "water-shuriken",
+      "effectId": 361,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 595,
+      "key": "mystical-fire",
+      "effectId": 72,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 596,
+      "key": "spiky-shield",
+      "effectId": 362,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 597,
+      "key": "aromatic-mist",
+      "effectId": 363,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 598,
+      "key": "eerie-impulse",
+      "effectId": 62,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 599,
+      "key": "venom-drench",
+      "effectId": 364,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 600,
+      "key": "powder",
+      "effectId": 378,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 601,
+      "key": "geomancy",
+      "effectId": 366,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 602,
+      "key": "magnetic-flux",
+      "effectId": 367,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 603,
+      "key": "happy-hour",
+      "effectId": 368,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 604,
+      "key": "electric-terrain",
+      "effectId": 369,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 605,
+      "key": "dazzling-gleam",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 606,
+      "key": "celebrate",
+      "effectId": 370,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 607,
+      "key": "hold-hands",
+      "effectId": 371,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 608,
+      "key": "baby-doll-eyes",
+      "effectId": 365,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 609,
+      "key": "nuzzle",
+      "effectId": 372,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 610,
+      "key": "hold-back",
+      "effectId": 102,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 611,
+      "key": "infestation",
+      "effectId": 43,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 612,
+      "key": "power-up-punch",
+      "effectId": 375,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 613,
+      "key": "oblivion-wing",
+      "effectId": 349,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 614,
+      "key": "thousand-arrows",
+      "effectId": 373,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 615,
+      "key": "thousand-waves",
+      "effectId": 374,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 616,
+      "key": "lands-wrath",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 617,
+      "key": "light-of-ruin",
+      "effectId": 270,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 618,
+      "key": "origin-pulse",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 619,
+      "key": "precipice-blades",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 620,
+      "key": "dragon-ascent",
+      "effectId": 230,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 621,
+      "key": "hyperspace-fury",
+      "effectId": 360,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 622,
+      "key": "breakneck-blitz--physical",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 623,
+      "key": "breakneck-blitz--special",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 624,
+      "key": "all-out-pummeling--physical",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 625,
+      "key": "all-out-pummeling--special",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 626,
+      "key": "supersonic-skystrike--physical",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 627,
+      "key": "supersonic-skystrike--special",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 628,
+      "key": "acid-downpour--physical",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 629,
+      "key": "acid-downpour--special",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 630,
+      "key": "tectonic-rage--physical",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 631,
+      "key": "tectonic-rage--special",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 632,
+      "key": "continental-crush--physical",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 633,
+      "key": "continental-crush--special",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 634,
+      "key": "savage-spin-out--physical",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 635,
+      "key": "savage-spin-out--special",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 636,
+      "key": "never-ending-nightmare--physical",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 637,
+      "key": "never-ending-nightmare--special",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 638,
+      "key": "corkscrew-crash--physical",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 639,
+      "key": "corkscrew-crash--special",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 640,
+      "key": "inferno-overdrive--physical",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 641,
+      "key": "inferno-overdrive--special",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 642,
+      "key": "hydro-vortex--physical",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 643,
+      "key": "hydro-vortex--special",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 644,
+      "key": "bloom-doom--physical",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 645,
+      "key": "bloom-doom--special",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 646,
+      "key": "gigavolt-havoc--physical",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 647,
+      "key": "gigavolt-havoc--special",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 648,
+      "key": "shattered-psyche--physical",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 649,
+      "key": "shattered-psyche--special",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 650,
+      "key": "subzero-slammer--physical",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 651,
+      "key": "subzero-slammer--special",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 652,
+      "key": "devastating-drake--physical",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 653,
+      "key": "devastating-drake--special",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 654,
+      "key": "black-hole-eclipse--physical",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 655,
+      "key": "black-hole-eclipse--special",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 656,
+      "key": "twinkle-tackle--physical",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 657,
+      "key": "twinkle-tackle--special",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 658,
+      "key": "catastropika",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 659,
+      "key": "shore-up",
+      "effectId": 382,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 660,
+      "key": "first-impression",
+      "effectId": 383,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 661,
+      "key": "baneful-bunker",
+      "effectId": 384,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 662,
+      "key": "spirit-shackle",
+      "effectId": 385,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 663,
+      "key": "darkest-lariat",
+      "effectId": 304,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 664,
+      "key": "sparkling-aria",
+      "effectId": 386,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 665,
+      "key": "ice-hammer",
+      "effectId": 219,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 666,
+      "key": "floral-healing",
+      "effectId": 387,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 667,
+      "key": "high-horsepower",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 668,
+      "key": "strength-sap",
+      "effectId": 388,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 669,
+      "key": "solar-blade",
+      "effectId": 152,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 670,
+      "key": "leafage",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 671,
+      "key": "spotlight",
+      "effectId": 389,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 672,
+      "key": "toxic-thread",
+      "effectId": 390,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 673,
+      "key": "laser-focus",
+      "effectId": 391,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 674,
+      "key": "gear-up",
+      "effectId": 392,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 675,
+      "key": "throat-chop",
+      "effectId": 393,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 676,
+      "key": "pollen-puff",
+      "effectId": 394,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 677,
+      "key": "anchor-shot",
+      "effectId": 385,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 678,
+      "key": "psychic-terrain",
+      "effectId": 395,
+      "state": "verified",
+      "family": "terrain"
+    },
+    {
+      "id": 679,
+      "key": "lunge",
+      "effectId": 396,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 680,
+      "key": "fire-lash",
+      "effectId": 397,
+      "state": "verified",
+      "family": "attack-secondary"
+    },
+    {
+      "id": 681,
+      "key": "power-trip",
+      "effectId": 306,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 682,
+      "key": "burn-up",
+      "effectId": 398,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 683,
+      "key": "speed-swap",
+      "effectId": 399,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 684,
+      "key": "smart-strike",
+      "effectId": 18,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 685,
+      "key": "purify",
+      "effectId": 400,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 686,
+      "key": "revelation-dance",
+      "effectId": 401,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 687,
+      "key": "core-enforcer",
+      "effectId": 402,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 688,
+      "key": "trop-kick",
+      "effectId": 396,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 689,
+      "key": "instruct",
+      "effectId": 403,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 690,
+      "key": "beak-blast",
+      "effectId": 404,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 691,
+      "key": "clanging-scales",
+      "effectId": 405,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 692,
+      "key": "dragon-hammer",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 693,
+      "key": "brutal-swing",
+      "effectId": 406,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 694,
+      "key": "aurora-veil",
+      "effectId": 407,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 695,
+      "key": "sinister-arrow-raid",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 696,
+      "key": "malicious-moonsault",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 697,
+      "key": "oceanic-operetta",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 698,
+      "key": "guardian-of-alola",
+      "effectId": 413,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 699,
+      "key": "soul-stealing-7-star-strike",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 700,
+      "key": "stoked-sparksurfer",
+      "effectId": 7,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 701,
+      "key": "pulverizing-pancake",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 702,
+      "key": "extreme-evoboost",
+      "effectId": 414,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 703,
+      "key": "genesis-supernova",
+      "effectId": 415,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 704,
+      "key": "shell-trap",
+      "effectId": 408,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 705,
+      "key": "fleur-cannon",
+      "effectId": 205,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 706,
+      "key": "psychic-fangs",
+      "effectId": 187,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 707,
+      "key": "stomping-tantrum",
+      "effectId": 409,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 708,
+      "key": "shadow-bone",
+      "effectId": 70,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 709,
+      "key": "accelerock",
+      "effectId": 104,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 710,
+      "key": "liquidation",
+      "effectId": 70,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 711,
+      "key": "prismatic-laser",
+      "effectId": 81,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 712,
+      "key": "spectral-thief",
+      "effectId": 410,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 713,
+      "key": "sunsteel-strike",
+      "effectId": 411,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 714,
+      "key": "moongeist-beam",
+      "effectId": 411,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 715,
+      "key": "tearful-look",
+      "effectId": 412,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 716,
+      "key": "zing-zap",
+      "effectId": 32,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 717,
+      "key": "natures-madness",
+      "effectId": 41,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 718,
+      "key": "multi-attack",
+      "effectId": 269,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 719,
+      "key": "10-000-000-volt-thunderbolt",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 720,
+      "key": "mind-blown",
+      "effectId": 420,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 721,
+      "key": "plasma-fists",
+      "effectId": 417,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 722,
+      "key": "photon-geyser",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 723,
+      "key": "light-that-burns-the-sky",
+      "effectId": 416,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 724,
+      "key": "searing-sunraze-smash",
+      "effectId": 411,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 725,
+      "key": "menacing-moonraze-maelstrom",
+      "effectId": 411,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 726,
+      "key": "lets-snuggle-forever",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 727,
+      "key": "splintered-stormshards",
+      "effectId": 418,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 728,
+      "key": "clangorous-soulblaze",
+      "effectId": 419,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 729,
+      "key": "zippy-zap",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 730,
+      "key": "splishy-splash",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 731,
+      "key": "floaty-fall",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 732,
+      "key": "pika-papow",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 733,
+      "key": "bouncy-bubble",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 734,
+      "key": "buzzy-buzz",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 735,
+      "key": "sizzly-slide",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 736,
+      "key": "glitzy-glow",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 737,
+      "key": "baddy-bad",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 738,
+      "key": "sappy-seed",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 739,
+      "key": "freezy-frost",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 740,
+      "key": "sparkly-swirl",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 741,
+      "key": "veevee-volley",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 742,
+      "key": "double-iron-bash",
+      "effectId": 45,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 743,
+      "key": "max-guard",
+      "effectId": 112,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 744,
+      "key": "dynamax-cannon",
+      "effectId": 421,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 745,
+      "key": "snipe-shot",
+      "effectId": 422,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 746,
+      "key": "jaw-lock",
+      "effectId": 445,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 747,
+      "key": "stuff-cheeks",
+      "effectId": 446,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 748,
+      "key": "no-retreat",
+      "effectId": 447,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 749,
+      "key": "tar-shot",
+      "effectId": 448,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 750,
+      "key": "magic-powder",
+      "effectId": 449,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 751,
+      "key": "dragon-darts",
+      "effectId": 450,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 752,
+      "key": "teatime",
+      "effectId": 451,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 753,
+      "key": "octolock",
+      "effectId": 452,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 754,
+      "key": "bolt-beak",
+      "effectId": 453,
+      "state": "verified",
+      "family": "target-not-acted-double"
+    },
+    {
+      "id": 755,
+      "key": "fishious-rend",
+      "effectId": 453,
+      "state": "verified",
+      "family": "target-not-acted-double"
+    },
+    {
+      "id": 756,
+      "key": "court-change",
+      "effectId": 454,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 757,
+      "key": "max-flare",
+      "effectId": 138,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 758,
+      "key": "max-flutterby",
+      "effectId": 455,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 759,
+      "key": "max-lightning",
+      "effectId": 369,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 760,
+      "key": "max-strike",
+      "effectId": 456,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 761,
+      "key": "max-knuckle",
+      "effectId": 457,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 762,
+      "key": "max-phantasm",
+      "effectId": 458,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 763,
+      "key": "max-hailstorm",
+      "effectId": 165,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 764,
+      "key": "max-ooze",
+      "effectId": 459,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 765,
+      "key": "max-geyser",
+      "effectId": 137,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 766,
+      "key": "max-airstream",
+      "effectId": 460,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 767,
+      "key": "max-starfall",
+      "effectId": 353,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 768,
+      "key": "max-wyrmwind",
+      "effectId": 461,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 769,
+      "key": "max-mindstorm",
+      "effectId": 395,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 770,
+      "key": "max-rockfall",
+      "effectId": 116,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 771,
+      "key": "max-quake",
+      "effectId": 462,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 772,
+      "key": "max-darkness",
+      "effectId": 463,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 773,
+      "key": "max-overgrowth",
+      "effectId": 352,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 774,
+      "key": "max-steelspike",
+      "effectId": 464,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 775,
+      "key": "clangorous-soul",
+      "effectId": 465,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 776,
+      "key": "body-press",
+      "effectId": 466,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 777,
+      "key": "decorate",
+      "effectId": 467,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 778,
+      "key": "drum-beating",
+      "effectId": 71,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 779,
+      "key": "snap-trap",
+      "effectId": 43,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 780,
+      "key": "pyro-ball",
+      "effectId": 5,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 781,
+      "key": "behemoth-blade",
+      "effectId": 421,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 782,
+      "key": "behemoth-bash",
+      "effectId": 421,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 783,
+      "key": "aura-wheel",
+      "effectId": 468,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 784,
+      "key": "breaking-swipe",
+      "effectId": 396,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 785,
+      "key": "branch-poke",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 786,
+      "key": "overdrive",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 787,
+      "key": "apple-acid",
+      "effectId": 469,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 788,
+      "key": "grav-apple",
+      "effectId": 470,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 789,
+      "key": "spirit-break",
+      "effectId": 72,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 790,
+      "key": "strange-steam",
+      "effectId": 77,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 791,
+      "key": "life-dew",
+      "effectId": 471,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 792,
+      "key": "obstruct",
+      "effectId": 472,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 793,
+      "key": "false-surrender",
+      "effectId": 18,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 794,
+      "key": "meteor-assault",
+      "effectId": 81,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 795,
+      "key": "eternabeam",
+      "effectId": 81,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 796,
+      "key": "steel-beam",
+      "effectId": 420,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 797,
+      "key": "expanding-force",
+      "effectId": 473,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 798,
+      "key": "steel-roller",
+      "effectId": 474,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 799,
+      "key": "scale-shot",
+      "effectId": 443,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 800,
+      "key": "meteor-beam",
+      "effectId": 475,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 801,
+      "key": "shell-side-arm",
+      "effectId": 476,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 802,
+      "key": "misty-explosion",
+      "effectId": 477,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 803,
+      "key": "grassy-glide",
+      "effectId": 478,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 804,
+      "key": "rising-voltage",
+      "effectId": 479,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 805,
+      "key": "terrain-pulse",
+      "effectId": 480,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 806,
+      "key": "skitter-smack",
+      "effectId": 358,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 807,
+      "key": "burning-jealousy",
+      "effectId": 481,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 808,
+      "key": "lash-out",
+      "effectId": 482,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 809,
+      "key": "poltergeist",
+      "effectId": 483,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 810,
+      "key": "corrosive-gas",
+      "effectId": 189,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 811,
+      "key": "coaching",
+      "effectId": 484,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 812,
+      "key": "flip-turn",
+      "effectId": 229,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 813,
+      "key": "triple-axel",
+      "effectId": 105,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 814,
+      "key": "dual-wingbeat",
+      "effectId": 45,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 815,
+      "key": "scorching-sands",
+      "effectId": 5,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 816,
+      "key": "jungle-healing",
+      "effectId": 485,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 817,
+      "key": "wicked-blow",
+      "effectId": 289,
+      "state": "verified",
+      "family": "attack-secondary"
+    },
+    {
+      "id": 818,
+      "key": "surging-strikes",
+      "effectId": 486,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 819,
+      "key": "thunder-cage",
+      "effectId": 43,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 820,
+      "key": "dragon-energy",
+      "effectId": 191,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 821,
+      "key": "freezing-glare",
+      "effectId": 261,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 822,
+      "key": "fiery-wrath",
+      "effectId": 32,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 823,
+      "key": "thunderous-kick",
+      "effectId": 397,
+      "state": "verified",
+      "family": "attack-secondary"
+    },
+    {
+      "id": 824,
+      "key": "glacial-lance",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 825,
+      "key": "astral-barrage",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 826,
+      "key": "eerie-spell",
+      "effectId": 487,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 827,
+      "key": "dire-claw",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 828,
+      "key": "psyshield-bash",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 829,
+      "key": "power-shift",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 830,
+      "key": "stone-axe",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 831,
+      "key": "springtide-storm",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 832,
+      "key": "mystical-power",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 833,
+      "key": "raging-fury",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 834,
+      "key": "wave-crash",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 835,
+      "key": "chloroblast",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 836,
+      "key": "mountain-gale",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 837,
+      "key": "victory-dance",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 838,
+      "key": "headlong-rush",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 839,
+      "key": "barb-barrage",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 840,
+      "key": "esper-wing",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 841,
+      "key": "bitter-malice",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 842,
+      "key": "shelter",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 843,
+      "key": "triple-arrows",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 844,
+      "key": "infernal-parade",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 845,
+      "key": "ceaseless-edge",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 846,
+      "key": "bleakwind-storm",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 847,
+      "key": "wildbolt-storm",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 848,
+      "key": "sandsear-storm",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 849,
+      "key": "lunar-blessing",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 850,
+      "key": "take-heart",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 851,
+      "key": "tera-blast",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 852,
+      "key": "silk-trap",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 853,
+      "key": "axe-kick",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 854,
+      "key": "last-respects",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 855,
+      "key": "lumina-crash",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 856,
+      "key": "order-up",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 857,
+      "key": "jet-punch",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 858,
+      "key": "spicy-extract",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 859,
+      "key": "spin-out",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 860,
+      "key": "population-bomb",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 861,
+      "key": "ice-spinner",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 862,
+      "key": "glaive-rush",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 863,
+      "key": "revival-blessing",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 864,
+      "key": "salt-cure",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 865,
+      "key": "triple-dive",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 866,
+      "key": "mortal-spin",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 867,
+      "key": "doodle",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 868,
+      "key": "fillet-away",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 869,
+      "key": "kowtow-cleave",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 870,
+      "key": "flower-trick",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 871,
+      "key": "torch-song",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 872,
+      "key": "aqua-step",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 873,
+      "key": "raging-bull",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 874,
+      "key": "make-it-rain",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 875,
+      "key": "psyblade",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 876,
+      "key": "hydro-steam",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 877,
+      "key": "ruination",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 878,
+      "key": "collision-course",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 879,
+      "key": "electro-drift",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 880,
+      "key": "shed-tail",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 881,
+      "key": "chilly-reception",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 882,
+      "key": "tidy-up",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 883,
+      "key": "snowscape",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 884,
+      "key": "pounce",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 885,
+      "key": "trailblaze",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 886,
+      "key": "chilling-water",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 887,
+      "key": "hyper-drill",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 888,
+      "key": "twin-beam",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 889,
+      "key": "rage-fist",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 890,
+      "key": "armor-cannon",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 891,
+      "key": "bitter-blade",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 892,
+      "key": "double-shock",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 893,
+      "key": "gigaton-hammer",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 894,
+      "key": "comeuppance",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 895,
+      "key": "aqua-cutter",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 896,
+      "key": "blazing-torque",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 897,
+      "key": "wicked-torque",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 898,
+      "key": "noxious-torque",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 899,
+      "key": "combat-torque",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 900,
+      "key": "magical-torque",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 901,
+      "key": "blood-moon",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 902,
+      "key": "matcha-gotcha",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 903,
+      "key": "syrup-bomb",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 904,
+      "key": "ivy-cudgel",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 905,
+      "key": "electro-shot",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 906,
+      "key": "tera-starstorm",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 907,
+      "key": "fickle-beam",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 908,
+      "key": "burning-bulwark",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 909,
+      "key": "thunderclap",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 910,
+      "key": "mighty-cleave",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 911,
+      "key": "tachyon-cutter",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 912,
+      "key": "hard-press",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 913,
+      "key": "dragon-cheer",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 914,
+      "key": "alluring-voice",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 915,
+      "key": "temper-flare",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 916,
+      "key": "supercell-slam",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 917,
+      "key": "psychic-noise",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 918,
+      "key": "upper-hand",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 919,
+      "key": "malignant-chain",
+      "effectId": null,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 10001,
+      "key": "shadow-rush",
+      "effectId": 10001,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 10002,
+      "key": "shadow-blast",
+      "effectId": 44,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 10003,
+      "key": "shadow-blitz",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 10004,
+      "key": "shadow-bolt",
+      "effectId": 7,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 10005,
+      "key": "shadow-break",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 10006,
+      "key": "shadow-chill",
+      "effectId": 6,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 10007,
+      "key": "shadow-end",
+      "effectId": 10002,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 10008,
+      "key": "shadow-fire",
+      "effectId": 5,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 10009,
+      "key": "shadow-rave",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 10010,
+      "key": "shadow-storm",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 10011,
+      "key": "shadow-wave",
+      "effectId": 1,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 10012,
+      "key": "shadow-down",
+      "effectId": 60,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 10013,
+      "key": "shadow-half",
+      "effectId": 10003,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 10014,
+      "key": "shadow-hold",
+      "effectId": 107,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 10015,
+      "key": "shadow-mist",
+      "effectId": 10004,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 10016,
+      "key": "shadow-panic",
+      "effectId": 50,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 10017,
+      "key": "shadow-shed",
+      "effectId": 10005,
+      "state": "outside-supplement-scope"
+    },
+    {
+      "id": 10018,
+      "key": "shadow-sky",
+      "effectId": 10006,
+      "state": "outside-supplement-scope"
+    }
+  ]
+}
