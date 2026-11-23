@@ -79,3 +79,13 @@ test("full browser move registry contains the previous 297 plus stage15 11",()=>
  assert.ok(ctx.window.POKE_MOVES["quick-attack"]);
  assert.ok(ctx.window.POKE_MOVES["self-destruct"]);
 });
+
+test("Flail and Reversal preserve all six exact 48-step HP bands",()=>{
+ const a=unit(100,480),b=unit();
+ const cases=[[10,200],[20,150],[40,100],[100,80],[200,40],[400,20]];
+ for(const [hp,want] of cases){
+   a.hp=hp;
+   assert.equal(damage.resolvePower(moves["flail"],a,b),want,"flail hp "+hp);
+   assert.equal(damage.resolvePower(moves["reversal"],a,b),want,"reversal hp "+hp);
+ }
+});
