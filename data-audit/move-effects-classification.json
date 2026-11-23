@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "sourceRevision": "8a92bfa7dab2f12b84b5d151562f9857c133ff30",
   "sourceMoveCount": 937,
-  "sourceRule": "effectId=1 and physical/special with positive power, finite accuracy, normal single-target, neutral meta, priority 0",
+  "sourceRule": "effectId=1 and physical/special with positive power, finite accuracy, normal single-target, neutral meta, priority 0; excludes five independently verified special effects",
   "verifiedEffectMeaning": "PokeAPI move effect 1: regular damage without additional effects",
   "categories": {
-    "simple-damage-eligible": 36,
-    "damage-with-additional-or-unverified-effect": 558,
+    "simple-damage-eligible": 31,
+    "damage-with-additional-or-unverified-effect": 563,
     "status-or-support": 277,
     "simple-effect-special-metadata-or-target": 66
   },
@@ -30,7 +30,18 @@
     88,
     121,
     224,
-    337
+    337,
+    401,
+    402,
+    404,
+    406,
+    408,
+    438,
+    584,
+    667,
+    670,
+    692,
+    785
   ],
   "entries": [
     {
@@ -4363,7 +4374,7 @@
       "id": 722,
       "key": "photon-geyser",
       "effectId": 1,
-      "classification": "simple-damage-eligible"
+      "classification": "damage-with-additional-or-unverified-effect"
     },
     {
       "id": 723,
@@ -4447,13 +4458,13 @@
       "id": 736,
       "key": "glitzy-glow",
       "effectId": 1,
-      "classification": "simple-damage-eligible"
+      "classification": "damage-with-additional-or-unverified-effect"
     },
     {
       "id": 737,
       "key": "baddy-bad",
       "effectId": 1,
-      "classification": "simple-damage-eligible"
+      "classification": "damage-with-additional-or-unverified-effect"
     },
     {
       "id": 738,
@@ -4465,13 +4476,13 @@
       "id": 739,
       "key": "freezy-frost",
       "effectId": 1,
-      "classification": "simple-damage-eligible"
+      "classification": "damage-with-additional-or-unverified-effect"
     },
     {
       "id": 740,
       "key": "sparkly-swirl",
       "effectId": 1,
-      "classification": "simple-damage-eligible"
+      "classification": "damage-with-additional-or-unverified-effect"
     },
     {
       "id": 741,
