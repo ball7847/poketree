@@ -1,5 +1,16 @@
 # 다음 대화 개발 인수인계 — 2026-11-23 최신
 
+## 2026-11-23 기술 시스템 9차 — 75% 흡수 공격 2개
+
+- **사용자 승인 범위:** 드레인키스·데스윙 2개만 원본 검증 후 75% HP 흡수 공격 구현, 50% 흡수 및 기존 피해/PP/타겟팅/습득표/저장/다른 효과 전부 유지, 테스트·Pages 배포 및 인수인계.
+- **원본 검증:** `data-import/manifest.json`에 고정된 PokeAPI 원본 revision `8a92bfa7dab2f12b84b5d151562f9857c133ff30`, `data-import/moves/*.json`. `draining-kiss`(드레인키스, ID 577, 페어리 특수/위력 50/명중률 100/우선도 0), `oblivion-wing`(데스윙, ID 613, 비행 특수/위력 80/명중률 100/우선도 0). 모두 원본 effectId 349, selected-pokemon, meta.drain 75, 부가 상태이상/추가 확률 0. 고정 PokeAPI 자료 검증이지 현행 Pokémon Champions 별도 독립 검증을 의미하지 않음.
+- 신규 `game/data/drain-75-moves.js`에 해당 2개를 `effect:"drain",drain:0.75,target:"enemy"`로 등록; `game/data/moves.js`에 신규 묶음 병합하여 전투 등록 기술 **61→63개**. `game/index.html`과 기존 12개 Node VM 테스트 부트스트랩에서 새 파일을 `moves.js` 이전에 불러오도록 등록하고 총 기술 수 기대값 61→63 반영.
+- **게임 전투 엔진은 수정하지 않음:** 기존 `game/engine/move-effects.js`의 피해량 기반 `Math.max(1,Math.floor(actual*move.drain))`, 최대 HP 상한, PP 100 소모, 명중·타입 계산을 그대로 사용. 기존 50% 흡수 6개(기가드레인 포함)의 비율 및 전투 규칙은 유지.
+- 신규 `tests/drain-75-moves.test.cjs`: 두 기술 메타데이터(ID, effectId, 타입, 위력, 명중률, 우선도, 단일 대상, 부가 효과 없음) 원본 대조; 습득/장착/실제 전투 및 PP 사용; 실제 피해량 × 0.75의 소수점 버림과 최소 회복; 적 남은 HP 3일 때 2 회복; 사용자 HP 최대 제한/만피; 명중 랭크 -6 상태 빗나감·회복 없음; PP 부족 시 미실행; 기존 50% 흡수 기술 전수 등록 비율 및 기가드레인 실전 회복량 확인.
+- 기능/테스트 커밋 `6dd3df3c1`: GitHub Actions `PokeTree engine tests` run `45091478395` **성공** (원본 데이터 감사, 전체 Node 테스트, Chromium 사용자 흐름 스모크). GitHub Pages 별도 배포 워크플로 run `45091478437` 및 `pages build and deployment` run `45091478220` 최종 결론은 별도 확인 필요. 본 문서 갱신 뒤 최신 문서 커밋에 대한 Pages 빌드가 따로 발생할 수 있음.
+- **미구현·범위 제외:** 다중 대상 50% 흡수 `parabolic-charge`, 특성/도구의 흡수 변조 및 다른 복합 기술. 9차 승인 대상 이외의 기술은 구현하지 않음.
+
+
 ## 2026-11-23 기술 시스템 8차 — 반동 공격 5개
 
 - **사용자 승인 범위:** 돌진·지옥의바퀴·와일드볼트·브레이브버드·우드해머 최대 5개, 검증된 단일 적 대상 반동 공격만 추가. 전투 엔진, 피해량 공식, 기존 반동(플레어드라이브), PP 100 소모, 타겟팅, 기술 습득표·TM, 저장 구조, 그 외 효과 미변경.
