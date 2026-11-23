@@ -19,7 +19,7 @@
     exp.speeds=new Map(members.map(u=>[u,speed(u)])); // fixed for this round
     for(const u of members){
       // Select the move by its current best TP; do not reserve a target.
-      exp.plans.set(u,u.pp>=100&&u.moves?.length?T.selectMove(exp,u):null);
+      exp.plans.set(u,!S.ensure(u).volatile.recharge&&u.pp>=100&&u.moves?.length?T.selectMove(exp,u):null);
     }
     exp.order=members;sortRemaining(exp);exp.turnIndex=0;exp.round++;
     record(exp,exp.round+"라운드 시작");
@@ -136,6 +136,15 @@
         record(exp,member.name+" 상태이상 피해 "+residual);
         if(member.hp===0)handleFaint(exp,member,member.side==="enemy");
       }
+    }
+    // Trapping residual damage resolves once per round, separately from major
+    // status damage; source fainting and end-of-battle clear the binding.
+    for(const member of [...exp.party,...exp.enemies].filter(alive)){
+      const damage=S.bindingAfterRound(member,exp);
+      if(!damage)continue;
+      member.hp=Math.max(0,member.hp-damage);
+      record(exp,member.name+" · 속박 피해 "+damage);
+      if(member.hp===0)handleFaint(exp,member,member.side==="enemy");
     }
     // The terrain/weather effects resolve before their duration decreases.
     for(const effect of S.fieldEndRound(exp)){
