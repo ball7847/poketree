@@ -99,7 +99,7 @@ test("binding is a separate per-target volatile condition, deals end-of-round da
  const {w,math}=boot(),c=setup(w);
  c.user.pp=100;run(w,c,"wrap");
  const binding=w.PokeBattleStatus.ensure(c.foe).volatile.binding;
- assert.ok(binding);assert.equal(binding.sourceId,c.user.id);assert.ok(binding.remaining>=2&&binding.remaining<=4);
+ assert.ok(binding);assert.equal(binding.sourceId,c.user.id);assert.ok(binding.remaining>=4&&binding.remaining<=5);
  let rounds=0;
  while(w.PokeBattleStatus.ensure(c.foe).volatile.binding&&rounds<5){
   const before=c.foe.hp;
@@ -107,7 +107,7 @@ test("binding is a separate per-target volatile condition, deals end-of-round da
   assert.equal(damage,Math.min(before,Math.max(1,Math.floor(c.foe.maxHp/8))));
   rounds++;
  }
- assert.equal(rounds,2);
+ assert.equal(rounds,4);
  assert.equal(w.PokeBattleStatus.ensure(c.foe).volatile.binding,undefined);
  c.user.pp=100;run(w,c,"wrap");
  c.user.hp=0;assert.equal(w.PokeBattleStatus.bindingAfterRound(c.foe,c.exp),0);
