@@ -17,6 +17,26 @@
     if(weather?.kind==="snow"&&category==="physical"&&defenderTypes.includes("ice"))return 1.5;
     return 1;
   }
+  // Stage15 conditional power runs before the unchanged ordinary damage formula.
+  function resolvePower(move,attacker,defender){
+    if(!move?.conditionalPower)return move?.power??10;
+    const mode=move.conditionalPower,major=attacker.battleStatus?.major?.kind,enemyStatus=defender.battleStatus?.major?.kind;
+    if(mode==="status-double")return move.power*(["burn","paralysis","poison","toxic"].includes(major)?2:1);
+    if(mode==="target-poison-double")return move.power*(["poison","toxic"].includes(enemyStatus)?2:1);
+    if(mode==="target-status-double")return move.power*(enemyStatus?2:1);
+    if(mode==="target-half-hp-double")return move.power*(defender.hp*2<=defender.maxHp?2:1);
+    if(mode==="user-hp-scale")return Math.max(1,Math.floor(move.power*attacker.hp/attacker.maxHp));
+    if(mode==="positive-ranks"){
+      const stats=["attack","defense","spAttack","spDefense","speed","accuracy","evasion"];
+      const boost=stats.reduce((n,k)=>n+Math.max(0,attacker.battleStatus?.ranks?.[k]??0),0);
+      return move.power+20*boost;
+    }
+    if(mode==="low-hp-tier"){
+      const p=Math.floor(48*attacker.hp/attacker.maxHp);
+      return p<=1?200:p<=4?150:p<=9?100:p<=16?80:p<=32?40:20;
+    }
+    throw Error("Unsupported conditional damage effect: "+mode);
+  }
   function compute(attacker,defender,{random=100,critical=false,rankAttack,rankDefense,move=null,weather=null,terrain=null}={}){
     if(!Number.isInteger(random)||random<85||random>100)throw Error("난수는 85~100 사이 정수");
     const category=move?.category||P.attackCategory(attacker);
@@ -26,7 +46,7 @@
     const atkRank=critical&&aRank<0?0:aRank;
     const defRank=critical&&dRank>0?0:dRank;
     let attack=Math.max(1,Math.floor(attacker[aKey]*rankFactor(atkRank)));
-    if(category==="physical"&&attacker.battleStatus?.major?.kind==="burn")attack=Math.max(1,Math.floor(attack*.5));
+    if(category==="physical"&&!move?.ignoreBurnAttackDrop&&attacker.battleStatus?.major?.kind==="burn")attack=Math.max(1,Math.floor(attack*.5));
     let defense=Math.max(1,Math.floor(defender[dKey]*rankFactor(defRank)));
     const defendingTypes=P.template(defender.species,defender.form).form.types;
     defense=Math.max(1,Math.floor(defense*weatherDefenseMultiplier(weather,category,defendingTypes)));
@@ -36,7 +56,7 @@
     // Basic attacks are always typeless: 1x effectiveness and no STAB.
     const stab=isBasicAttack?1:types.includes(type)?1.5:1;
     const eff=isBasicAttack?1:effectiveness(type,defender);
-    const power=move?.power??10;
+    const power=resolvePower(move,attacker,defender);
     if(!move?.fixedDamage&&(!Number.isSafeInteger(power)||power<=0))throw Error("위력 정보 오류");
     const levelTerm=Math.floor(2*attacker.level/5)+2;
     const base=Math.floor(Math.floor(levelTerm*power*attack/defense)/50)+2;
@@ -87,5 +107,5 @@
     const base=Math.floor(Math.floor(lvl*40*atk/def)/50)+2;
     return Math.max(1,Math.floor(base*(85+Math.floor(rng()*16))/100));
   }
-  window.PokeDamage=Object.freeze({compute,roll,effectiveness,confusionDamage,weatherDefenseMultiplier});
+  window.PokeDamage=Object.freeze({compute,roll,effectiveness,confusionDamage,weatherDefenseMultiplier,resolvePower});
 })();
