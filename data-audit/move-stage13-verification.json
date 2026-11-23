@@ -1,0 +1,383 @@
+{
+  "schemaVersion": 1,
+  "sourceRevision": "8a92bfa7dab2f12b84b5d151562f9857c133ff30",
+  "sourceCount": 937,
+  "previous": 217,
+  "added": 41,
+  "total": 258,
+  "families": {
+    "binding": 9,
+    "rank": 14,
+    "sleep-status": 5,
+    "confusion-status": 2,
+    "recharge": 8,
+    "weather-heal": 3
+  },
+  "excluded": {
+    "dark-void": "restricted special user and spread sleep mechanics",
+    "meteor-assault": "effectChance=100 despite no effect meta; source/version needs verification",
+    "eternabeam": "effectChance=100 despite no effect meta; source/version needs verification"
+  },
+  "rows": [
+    {
+      "id": 20,
+      "key": "bind",
+      "effectId": 43,
+      "state": "registered",
+      "family": "binding",
+      "reason": null
+    },
+    {
+      "id": 35,
+      "key": "wrap",
+      "effectId": 43,
+      "state": "registered",
+      "family": "binding",
+      "reason": null
+    },
+    {
+      "id": 43,
+      "key": "leer",
+      "effectId": 20,
+      "state": "registered",
+      "family": "rank",
+      "reason": null
+    },
+    {
+      "id": 47,
+      "key": "sing",
+      "effectId": 2,
+      "state": "registered",
+      "family": "sleep-status",
+      "reason": null
+    },
+    {
+      "id": 48,
+      "key": "supersonic",
+      "effectId": 50,
+      "state": "registered",
+      "family": "confusion-status",
+      "reason": null
+    },
+    {
+      "id": 63,
+      "key": "hyper-beam",
+      "effectId": 81,
+      "state": "registered",
+      "family": "recharge",
+      "reason": null
+    },
+    {
+      "id": 79,
+      "key": "sleep-powder",
+      "effectId": 2,
+      "state": "registered",
+      "family": "sleep-status",
+      "reason": null
+    },
+    {
+      "id": 81,
+      "key": "string-shot",
+      "effectId": 61,
+      "state": "registered",
+      "family": "rank",
+      "reason": null
+    },
+    {
+      "id": 83,
+      "key": "fire-spin",
+      "effectId": 43,
+      "state": "registered",
+      "family": "binding",
+      "reason": null
+    },
+    {
+      "id": 96,
+      "key": "meditate",
+      "effectId": 11,
+      "state": "registered",
+      "family": "rank",
+      "reason": null
+    },
+    {
+      "id": 106,
+      "key": "harden",
+      "effectId": 12,
+      "state": "registered",
+      "family": "rank",
+      "reason": null
+    },
+    {
+      "id": 110,
+      "key": "withdraw",
+      "effectId": 12,
+      "state": "registered",
+      "family": "rank",
+      "reason": null
+    },
+    {
+      "id": 112,
+      "key": "barrier",
+      "effectId": 52,
+      "state": "registered",
+      "family": "rank",
+      "reason": null
+    },
+    {
+      "id": 128,
+      "key": "clamp",
+      "effectId": 43,
+      "state": "registered",
+      "family": "binding",
+      "reason": null
+    },
+    {
+      "id": 134,
+      "key": "kinesis",
+      "effectId": 24,
+      "state": "registered",
+      "family": "rank",
+      "reason": null
+    },
+    {
+      "id": 142,
+      "key": "lovely-kiss",
+      "effectId": 2,
+      "state": "registered",
+      "family": "sleep-status",
+      "reason": null
+    },
+    {
+      "id": 147,
+      "key": "spore",
+      "effectId": 2,
+      "state": "registered",
+      "family": "sleep-status",
+      "reason": null
+    },
+    {
+      "id": 148,
+      "key": "flash",
+      "effectId": 24,
+      "state": "registered",
+      "family": "rank",
+      "reason": null
+    },
+    {
+      "id": 151,
+      "key": "acid-armor",
+      "effectId": 52,
+      "state": "registered",
+      "family": "rank",
+      "reason": null
+    },
+    {
+      "id": 159,
+      "key": "sharpen",
+      "effectId": 11,
+      "state": "registered",
+      "family": "rank",
+      "reason": null
+    },
+    {
+      "id": 178,
+      "key": "cotton-spore",
+      "effectId": 61,
+      "state": "registered",
+      "family": "rank",
+      "reason": null
+    },
+    {
+      "id": 184,
+      "key": "scary-face",
+      "effectId": 61,
+      "state": "registered",
+      "family": "rank",
+      "reason": null
+    },
+    {
+      "id": 186,
+      "key": "sweet-kiss",
+      "effectId": 50,
+      "state": "registered",
+      "family": "confusion-status",
+      "reason": null
+    },
+    {
+      "id": 234,
+      "key": "morning-sun",
+      "effectId": 133,
+      "state": "registered",
+      "family": "weather-heal",
+      "reason": null
+    },
+    {
+      "id": 235,
+      "key": "synthesis",
+      "effectId": 133,
+      "state": "registered",
+      "family": "weather-heal",
+      "reason": null
+    },
+    {
+      "id": 236,
+      "key": "moonlight",
+      "effectId": 133,
+      "state": "registered",
+      "family": "weather-heal",
+      "reason": null
+    },
+    {
+      "id": 307,
+      "key": "blast-burn",
+      "effectId": 81,
+      "state": "registered",
+      "family": "recharge",
+      "reason": null
+    },
+    {
+      "id": 308,
+      "key": "hydro-cannon",
+      "effectId": 81,
+      "state": "registered",
+      "family": "recharge",
+      "reason": null
+    },
+    {
+      "id": 313,
+      "key": "fake-tears",
+      "effectId": 63,
+      "state": "registered",
+      "family": "rank",
+      "reason": null
+    },
+    {
+      "id": 320,
+      "key": "grass-whistle",
+      "effectId": 2,
+      "state": "registered",
+      "family": "sleep-status",
+      "reason": null
+    },
+    {
+      "id": 328,
+      "key": "sand-tomb",
+      "effectId": 43,
+      "state": "registered",
+      "family": "binding",
+      "reason": null
+    },
+    {
+      "id": 336,
+      "key": "howl",
+      "effectId": 11,
+      "state": "registered",
+      "family": "rank",
+      "reason": null
+    },
+    {
+      "id": 338,
+      "key": "frenzy-plant",
+      "effectId": 81,
+      "state": "registered",
+      "family": "recharge",
+      "reason": null
+    },
+    {
+      "id": 416,
+      "key": "giga-impact",
+      "effectId": 81,
+      "state": "registered",
+      "family": "recharge",
+      "reason": null
+    },
+    {
+      "id": 439,
+      "key": "rock-wrecker",
+      "effectId": 81,
+      "state": "registered",
+      "family": "recharge",
+      "reason": null
+    },
+    {
+      "id": 459,
+      "key": "roar-of-time",
+      "effectId": 81,
+      "state": "registered",
+      "family": "recharge",
+      "reason": null
+    },
+    {
+      "id": 463,
+      "key": "magma-storm",
+      "effectId": 43,
+      "state": "registered",
+      "family": "binding",
+      "reason": null
+    },
+    {
+      "id": 464,
+      "key": "dark-void",
+      "effectId": 2,
+      "state": "excluded",
+      "family": null,
+      "reason": "restricted special user and spread sleep mechanics"
+    },
+    {
+      "id": 611,
+      "key": "infestation",
+      "effectId": 43,
+      "state": "registered",
+      "family": "binding",
+      "reason": null
+    },
+    {
+      "id": 711,
+      "key": "prismatic-laser",
+      "effectId": 81,
+      "state": "registered",
+      "family": "recharge",
+      "reason": null
+    },
+    {
+      "id": 779,
+      "key": "snap-trap",
+      "effectId": 43,
+      "state": "registered",
+      "family": "binding",
+      "reason": null
+    },
+    {
+      "id": 794,
+      "key": "meteor-assault",
+      "effectId": 81,
+      "state": "excluded",
+      "family": null,
+      "reason": "effectChance=100 despite no effect meta; source/version needs verification"
+    },
+    {
+      "id": 795,
+      "key": "eternabeam",
+      "effectId": 81,
+      "state": "excluded",
+      "family": null,
+      "reason": "effectChance=100 despite no effect meta; source/version needs verification"
+    },
+    {
+      "id": 819,
+      "key": "thunder-cage",
+      "effectId": 43,
+      "state": "registered",
+      "family": "binding",
+      "reason": null
+    },
+    {
+      "id": 10016,
+      "key": "shadow-panic",
+      "effectId": 50,
+      "state": "incomplete",
+      "family": null,
+      "reason": null
+    }
+  ]
+}
