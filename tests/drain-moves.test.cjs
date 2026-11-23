@@ -24,7 +24,7 @@ test("five drain techniques exactly match pinned source metadata and registry co
  const original=new Map(manifest.files.moves.flatMap(f=>JSON.parse(read(f)).moves).map(m=>[m.key,m]));
  const {w}=boot();
  assert.equal(Object.keys(w.POKE_DRAIN_MOVES).length,5);
- assert.equal(Object.keys(w.POKE_MOVES).length,63);
+ assert.equal(Object.keys(w.POKE_MOVES).length,74);
  for(const [key,id] of Object.entries(IDs)){
   const source=original.get(key),move=w.POKE_DRAIN_MOVES[key];
   assert.ok(source&&move,key);
