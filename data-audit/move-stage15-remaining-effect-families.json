@@ -1,0 +1,4360 @@
+{
+  "schemaVersion": 1,
+  "sourceRevision": "8a92bfa7dab2f12b84b5d151562f9857c133ff30",
+  "sourceCount": 937,
+  "previousRegistered": 308,
+  "stage15SupplementRegistered": 23,
+  "registeredAfterSupplement": 331,
+  "remainingCount": 606,
+  "effectFamilyCount": 392,
+  "groups": [
+    {
+      "effectId": null,
+      "count": 93,
+      "moveIds": [
+        827,
+        828,
+        829,
+        830,
+        831,
+        832,
+        833,
+        834,
+        835,
+        836,
+        837,
+        838,
+        839,
+        840,
+        841,
+        842,
+        843,
+        844,
+        845,
+        846,
+        847,
+        848,
+        849,
+        850,
+        851,
+        852,
+        853,
+        854,
+        855,
+        856,
+        857,
+        858,
+        859,
+        860,
+        861,
+        862,
+        863,
+        864,
+        865,
+        866,
+        867,
+        868,
+        869,
+        870,
+        871,
+        872,
+        873,
+        874,
+        875,
+        876,
+        877,
+        878,
+        879,
+        880,
+        881,
+        882,
+        883,
+        884,
+        885,
+        886,
+        887,
+        888,
+        889,
+        890,
+        891,
+        892,
+        893,
+        894,
+        895,
+        896,
+        897,
+        898,
+        899,
+        900,
+        901,
+        902,
+        903,
+        904,
+        905,
+        906,
+        907,
+        908,
+        909,
+        910,
+        911,
+        912,
+        913,
+        914,
+        915,
+        916,
+        917,
+        918,
+        919
+      ],
+      "keys": [
+        "dire-claw",
+        "psyshield-bash",
+        "power-shift",
+        "stone-axe",
+        "springtide-storm",
+        "mystical-power",
+        "raging-fury",
+        "wave-crash",
+        "chloroblast",
+        "mountain-gale",
+        "victory-dance",
+        "headlong-rush",
+        "barb-barrage",
+        "esper-wing",
+        "bitter-malice",
+        "shelter",
+        "triple-arrows",
+        "infernal-parade",
+        "ceaseless-edge",
+        "bleakwind-storm",
+        "wildbolt-storm",
+        "sandsear-storm",
+        "lunar-blessing",
+        "take-heart",
+        "tera-blast",
+        "silk-trap",
+        "axe-kick",
+        "last-respects",
+        "lumina-crash",
+        "order-up",
+        "jet-punch",
+        "spicy-extract",
+        "spin-out",
+        "population-bomb",
+        "ice-spinner",
+        "glaive-rush",
+        "revival-blessing",
+        "salt-cure",
+        "triple-dive",
+        "mortal-spin",
+        "doodle",
+        "fillet-away",
+        "kowtow-cleave",
+        "flower-trick",
+        "torch-song",
+        "aqua-step",
+        "raging-bull",
+        "make-it-rain",
+        "psyblade",
+        "hydro-steam",
+        "ruination",
+        "collision-course",
+        "electro-drift",
+        "shed-tail",
+        "chilly-reception",
+        "tidy-up",
+        "snowscape",
+        "pounce",
+        "trailblaze",
+        "chilling-water",
+        "hyper-drill",
+        "twin-beam",
+        "rage-fist",
+        "armor-cannon",
+        "bitter-blade",
+        "double-shock",
+        "gigaton-hammer",
+        "comeuppance",
+        "aqua-cutter",
+        "blazing-torque",
+        "wicked-torque",
+        "noxious-torque",
+        "combat-torque",
+        "magical-torque",
+        "blood-moon",
+        "matcha-gotcha",
+        "syrup-bomb",
+        "ivy-cudgel",
+        "electro-shot",
+        "tera-starstorm",
+        "fickle-beam",
+        "burning-bulwark",
+        "thunderclap",
+        "mighty-cleave",
+        "tachyon-cutter",
+        "hard-press",
+        "dragon-cheer",
+        "alluring-voice",
+        "temper-flare",
+        "supercell-slam",
+        "psychic-noise",
+        "upper-hand",
+        "malignant-chain"
+      ]
+    },
+    {
+      "effectId": 1,
+      "count": 63,
+      "moveIds": [
+        622,
+        623,
+        624,
+        625,
+        626,
+        627,
+        628,
+        629,
+        630,
+        631,
+        632,
+        633,
+        634,
+        635,
+        636,
+        637,
+        638,
+        639,
+        640,
+        641,
+        642,
+        643,
+        644,
+        645,
+        646,
+        647,
+        648,
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        695,
+        696,
+        697,
+        699,
+        701,
+        719,
+        722,
+        726,
+        729,
+        730,
+        731,
+        732,
+        733,
+        734,
+        735,
+        736,
+        737,
+        738,
+        739,
+        740,
+        741,
+        10003,
+        10005,
+        10009,
+        10010,
+        10011
+      ],
+      "keys": [
+        "breakneck-blitz--physical",
+        "breakneck-blitz--special",
+        "all-out-pummeling--physical",
+        "all-out-pummeling--special",
+        "supersonic-skystrike--physical",
+        "supersonic-skystrike--special",
+        "acid-downpour--physical",
+        "acid-downpour--special",
+        "tectonic-rage--physical",
+        "tectonic-rage--special",
+        "continental-crush--physical",
+        "continental-crush--special",
+        "savage-spin-out--physical",
+        "savage-spin-out--special",
+        "never-ending-nightmare--physical",
+        "never-ending-nightmare--special",
+        "corkscrew-crash--physical",
+        "corkscrew-crash--special",
+        "inferno-overdrive--physical",
+        "inferno-overdrive--special",
+        "hydro-vortex--physical",
+        "hydro-vortex--special",
+        "bloom-doom--physical",
+        "bloom-doom--special",
+        "gigavolt-havoc--physical",
+        "gigavolt-havoc--special",
+        "shattered-psyche--physical",
+        "shattered-psyche--special",
+        "subzero-slammer--physical",
+        "subzero-slammer--special",
+        "devastating-drake--physical",
+        "devastating-drake--special",
+        "black-hole-eclipse--physical",
+        "black-hole-eclipse--special",
+        "twinkle-tackle--physical",
+        "twinkle-tackle--special",
+        "catastropika",
+        "sinister-arrow-raid",
+        "malicious-moonsault",
+        "oceanic-operetta",
+        "soul-stealing-7-star-strike",
+        "pulverizing-pancake",
+        "10-000-000-volt-thunderbolt",
+        "photon-geyser",
+        "lets-snuggle-forever",
+        "zippy-zap",
+        "splishy-splash",
+        "floaty-fall",
+        "pika-papow",
+        "bouncy-bubble",
+        "buzzy-buzz",
+        "sizzly-slide",
+        "glitzy-glow",
+        "baddy-bad",
+        "sappy-seed",
+        "freezy-frost",
+        "sparkly-swirl",
+        "veevee-volley",
+        "shadow-blitz",
+        "shadow-break",
+        "shadow-rave",
+        "shadow-storm",
+        "shadow-wave"
+      ]
+    },
+    {
+      "effectId": 5,
+      "count": 8,
+      "moveIds": [
+        257,
+        436,
+        503,
+        545,
+        592,
+        780,
+        815,
+        10008
+      ],
+      "keys": [
+        "heat-wave",
+        "lava-plume",
+        "scald",
+        "searing-shot",
+        "steam-eruption",
+        "pyro-ball",
+        "scorching-sands",
+        "shadow-fire"
+      ]
+    },
+    {
+      "effectId": 7,
+      "count": 4,
+      "moveIds": [
+        34,
+        435,
+        700,
+        10004
+      ],
+      "keys": [
+        "body-slam",
+        "discharge",
+        "stoked-sparksurfer",
+        "shadow-bolt"
+      ]
+    },
+    {
+      "effectId": 39,
+      "count": 4,
+      "moveIds": [
+        12,
+        32,
+        90,
+        329
+      ],
+      "keys": [
+        "guillotine",
+        "horn-drill",
+        "fissure",
+        "sheer-cold"
+      ]
+    },
+    {
+      "effectId": 107,
+      "count": 4,
+      "moveIds": [
+        169,
+        212,
+        335,
+        10014
+      ],
+      "keys": [
+        "spider-web",
+        "mean-look",
+        "block",
+        "shadow-hold"
+      ]
+    },
+    {
+      "effectId": 411,
+      "count": 4,
+      "moveIds": [
+        713,
+        714,
+        724,
+        725
+      ],
+      "keys": [
+        "sunsteel-strike",
+        "moongeist-beam",
+        "searing-sunraze-smash",
+        "menacing-moonraze-maelstrom"
+      ]
+    },
+    {
+      "effectId": 28,
+      "count": 3,
+      "moveIds": [
+        37,
+        80,
+        200
+      ],
+      "keys": [
+        "thrash",
+        "petal-dance",
+        "outrage"
+      ]
+    },
+    {
+      "effectId": 112,
+      "count": 3,
+      "moveIds": [
+        182,
+        197,
+        743
+      ],
+      "keys": [
+        "protect",
+        "detect",
+        "max-guard"
+      ]
+    },
+    {
+      "effectId": 229,
+      "count": 3,
+      "moveIds": [
+        369,
+        521,
+        812
+      ],
+      "keys": [
+        "u-turn",
+        "volt-switch",
+        "flip-turn"
+      ]
+    },
+    {
+      "effectId": 269,
+      "count": 3,
+      "moveIds": [
+        449,
+        546,
+        718
+      ],
+      "keys": [
+        "judgment",
+        "techno-blast",
+        "multi-attack"
+      ]
+    },
+    {
+      "effectId": 421,
+      "count": 3,
+      "moveIds": [
+        744,
+        781,
+        782
+      ],
+      "keys": [
+        "dynamax-cannon",
+        "behemoth-blade",
+        "behemoth-bash"
+      ]
+    },
+    {
+      "effectId": 6,
+      "count": 2,
+      "moveIds": [
+        181,
+        10006
+      ],
+      "keys": [
+        "powder-snow",
+        "shadow-chill"
+      ]
+    },
+    {
+      "effectId": 29,
+      "count": 2,
+      "moveIds": [
+        18,
+        46
+      ],
+      "keys": [
+        "whirlwind",
+        "roar"
+      ]
+    },
+    {
+      "effectId": 45,
+      "count": 2,
+      "moveIds": [
+        742,
+        814
+      ],
+      "keys": [
+        "double-iron-bash",
+        "dual-wingbeat"
+      ]
+    },
+    {
+      "effectId": 46,
+      "count": 2,
+      "moveIds": [
+        26,
+        136
+      ],
+      "keys": [
+        "jump-kick",
+        "high-jump-kick"
+      ]
+    },
+    {
+      "effectId": 81,
+      "count": 2,
+      "moveIds": [
+        794,
+        795
+      ],
+      "keys": [
+        "meteor-assault",
+        "eternabeam"
+      ]
+    },
+    {
+      "effectId": 95,
+      "count": 2,
+      "moveIds": [
+        170,
+        199
+      ],
+      "keys": [
+        "mind-reader",
+        "lock-on"
+      ]
+    },
+    {
+      "effectId": 105,
+      "count": 2,
+      "moveIds": [
+        167,
+        813
+      ],
+      "keys": [
+        "triple-kick",
+        "triple-axel"
+      ]
+    },
+    {
+      "effectId": 106,
+      "count": 2,
+      "moveIds": [
+        168,
+        343
+      ],
+      "keys": [
+        "thief",
+        "covet"
+      ]
+    },
+    {
+      "effectId": 114,
+      "count": 2,
+      "moveIds": [
+        193,
+        316
+      ],
+      "keys": [
+        "foresight",
+        "odor-sleuth"
+      ]
+    },
+    {
+      "effectId": 118,
+      "count": 2,
+      "moveIds": [
+        205,
+        301
+      ],
+      "keys": [
+        "rollout",
+        "ice-ball"
+      ]
+    },
+    {
+      "effectId": 126,
+      "count": 2,
+      "moveIds": [
+        172,
+        221
+      ],
+      "keys": [
+        "flame-wheel",
+        "sacred-fire"
+      ]
+    },
+    {
+      "effectId": 149,
+      "count": 2,
+      "moveIds": [
+        248,
+        353
+      ],
+      "keys": [
+        "future-sight",
+        "doom-desire"
+      ]
+    },
+    {
+      "effectId": 151,
+      "count": 2,
+      "moveIds": [
+        23,
+        537
+      ],
+      "keys": [
+        "stomp",
+        "steamroller"
+      ]
+    },
+    {
+      "effectId": 152,
+      "count": 2,
+      "moveIds": [
+        76,
+        669
+      ],
+      "keys": [
+        "solar-beam",
+        "solar-blade"
+      ]
+    },
+    {
+      "effectId": 173,
+      "count": 2,
+      "moveIds": [
+        266,
+        476
+      ],
+      "keys": [
+        "follow-me",
+        "rage-powder"
+      ]
+    },
+    {
+      "effectId": 178,
+      "count": 2,
+      "moveIds": [
+        271,
+        415
+      ],
+      "keys": [
+        "trick",
+        "switcheroo"
+      ]
+    },
+    {
+      "effectId": 187,
+      "count": 2,
+      "moveIds": [
+        280,
+        706
+      ],
+      "keys": [
+        "brick-break",
+        "psychic-fangs"
+      ]
+    },
+    {
+      "effectId": 189,
+      "count": 2,
+      "moveIds": [
+        282,
+        810
+      ],
+      "keys": [
+        "knock-off",
+        "corrosive-gas"
+      ]
+    },
+    {
+      "effectId": 197,
+      "count": 2,
+      "moveIds": [
+        67,
+        447
+      ],
+      "keys": [
+        "low-kick",
+        "grass-knot"
+      ]
+    },
+    {
+      "effectId": 225,
+      "count": 2,
+      "moveIds": [
+        365,
+        450
+      ],
+      "keys": [
+        "pluck",
+        "bug-bite"
+      ]
+    },
+    {
+      "effectId": 238,
+      "count": 2,
+      "moveIds": [
+        378,
+        462
+      ],
+      "keys": [
+        "wring-out",
+        "crush-grip"
+      ]
+    },
+    {
+      "effectId": 261,
+      "count": 2,
+      "moveIds": [
+        59,
+        821
+      ],
+      "keys": [
+        "blizzard",
+        "freezing-glare"
+      ]
+    },
+    {
+      "effectId": 270,
+      "count": 2,
+      "moveIds": [
+        457,
+        617
+      ],
+      "keys": [
+        "head-smash",
+        "light-of-ruin"
+      ]
+    },
+    {
+      "effectId": 273,
+      "count": 2,
+      "moveIds": [
+        467,
+        566
+      ],
+      "keys": [
+        "shadow-force",
+        "phantom-force"
+      ]
+    },
+    {
+      "effectId": 292,
+      "count": 2,
+      "moveIds": [
+        484,
+        535
+      ],
+      "keys": [
+        "heavy-slam",
+        "heat-crash"
+      ]
+    },
+    {
+      "effectId": 314,
+      "count": 2,
+      "moveIds": [
+        509,
+        525
+      ],
+      "keys": [
+        "circle-throw",
+        "dragon-tail"
+      ]
+    },
+    {
+      "effectId": 358,
+      "count": 2,
+      "moveIds": [
+        590,
+        806
+      ],
+      "keys": [
+        "confide",
+        "skitter-smack"
+      ]
+    },
+    {
+      "effectId": 360,
+      "count": 2,
+      "moveIds": [
+        593,
+        621
+      ],
+      "keys": [
+        "hyperspace-hole",
+        "hyperspace-fury"
+      ]
+    },
+    {
+      "effectId": 379,
+      "count": 2,
+      "moveIds": [
+        572,
+        586
+      ],
+      "keys": [
+        "petal-blizzard",
+        "boomburst"
+      ]
+    },
+    {
+      "effectId": 385,
+      "count": 2,
+      "moveIds": [
+        662,
+        677
+      ],
+      "keys": [
+        "spirit-shackle",
+        "anchor-shot"
+      ]
+    },
+    {
+      "effectId": 420,
+      "count": 2,
+      "moveIds": [
+        720,
+        796
+      ],
+      "keys": [
+        "mind-blown",
+        "steel-beam"
+      ]
+    },
+    {
+      "effectId": 2,
+      "count": 1,
+      "moveIds": [
+        464
+      ],
+      "keys": [
+        "dark-void"
+      ]
+    },
+    {
+      "effectId": 3,
+      "count": 1,
+      "moveIds": [
+        482
+      ],
+      "keys": [
+        "sludge-wave"
+      ]
+    },
+    {
+      "effectId": 8,
+      "count": 1,
+      "moveIds": [
+        153
+      ],
+      "keys": [
+        "explosion"
+      ]
+    },
+    {
+      "effectId": 9,
+      "count": 1,
+      "moveIds": [
+        138
+      ],
+      "keys": [
+        "dream-eater"
+      ]
+    },
+    {
+      "effectId": 10,
+      "count": 1,
+      "moveIds": [
+        119
+      ],
+      "keys": [
+        "mirror-move"
+      ]
+    },
+    {
+      "effectId": 18,
+      "count": 1,
+      "moveIds": [
+        793
+      ],
+      "keys": [
+        "false-surrender"
+      ]
+    },
+    {
+      "effectId": 27,
+      "count": 1,
+      "moveIds": [
+        117
+      ],
+      "keys": [
+        "bide"
+      ]
+    },
+    {
+      "effectId": 31,
+      "count": 1,
+      "moveIds": [
+        160
+      ],
+      "keys": [
+        "conversion"
+      ]
+    },
+    {
+      "effectId": 35,
+      "count": 1,
+      "moveIds": [
+        6
+      ],
+      "keys": [
+        "pay-day"
+      ]
+    },
+    {
+      "effectId": 36,
+      "count": 1,
+      "moveIds": [
+        113
+      ],
+      "keys": [
+        "light-screen"
+      ]
+    },
+    {
+      "effectId": 37,
+      "count": 1,
+      "moveIds": [
+        161
+      ],
+      "keys": [
+        "tri-attack"
+      ]
+    },
+    {
+      "effectId": 38,
+      "count": 1,
+      "moveIds": [
+        156
+      ],
+      "keys": [
+        "rest"
+      ]
+    },
+    {
+      "effectId": 40,
+      "count": 1,
+      "moveIds": [
+        13
+      ],
+      "keys": [
+        "razor-wind"
+      ]
+    },
+    {
+      "effectId": 42,
+      "count": 1,
+      "moveIds": [
+        82
+      ],
+      "keys": [
+        "dragon-rage"
+      ]
+    },
+    {
+      "effectId": 44,
+      "count": 1,
+      "moveIds": [
+        10002
+      ],
+      "keys": [
+        "shadow-blast"
+      ]
+    },
+    {
+      "effectId": 47,
+      "count": 1,
+      "moveIds": [
+        54
+      ],
+      "keys": [
+        "mist"
+      ]
+    },
+    {
+      "effectId": 48,
+      "count": 1,
+      "moveIds": [
+        116
+      ],
+      "keys": [
+        "focus-energy"
+      ]
+    },
+    {
+      "effectId": 50,
+      "count": 1,
+      "moveIds": [
+        10016
+      ],
+      "keys": [
+        "shadow-panic"
+      ]
+    },
+    {
+      "effectId": 53,
+      "count": 1,
+      "moveIds": [
+        397
+      ],
+      "keys": [
+        "rock-polish"
+      ]
+    },
+    {
+      "effectId": 55,
+      "count": 1,
+      "moveIds": [
+        133
+      ],
+      "keys": [
+        "amnesia"
+      ]
+    },
+    {
+      "effectId": 58,
+      "count": 1,
+      "moveIds": [
+        144
+      ],
+      "keys": [
+        "transform"
+      ]
+    },
+    {
+      "effectId": 60,
+      "count": 1,
+      "moveIds": [
+        10012
+      ],
+      "keys": [
+        "shadow-down"
+      ]
+    },
+    {
+      "effectId": 62,
+      "count": 1,
+      "moveIds": [
+        598
+      ],
+      "keys": [
+        "eerie-impulse"
+      ]
+    },
+    {
+      "effectId": 66,
+      "count": 1,
+      "moveIds": [
+        115
+      ],
+      "keys": [
+        "reflect"
+      ]
+    },
+    {
+      "effectId": 68,
+      "count": 1,
+      "moveIds": [
+        78
+      ],
+      "keys": [
+        "stun-spore"
+      ]
+    },
+    {
+      "effectId": 71,
+      "count": 1,
+      "moveIds": [
+        523
+      ],
+      "keys": [
+        "bulldoze"
+      ]
+    },
+    {
+      "effectId": 73,
+      "count": 1,
+      "moveIds": [
+        51
+      ],
+      "keys": [
+        "acid"
+      ]
+    },
+    {
+      "effectId": 74,
+      "count": 1,
+      "moveIds": [
+        330
+      ],
+      "keys": [
+        "muddy-water"
+      ]
+    },
+    {
+      "effectId": 76,
+      "count": 1,
+      "moveIds": [
+        143
+      ],
+      "keys": [
+        "sky-attack"
+      ]
+    },
+    {
+      "effectId": 78,
+      "count": 1,
+      "moveIds": [
+        41
+      ],
+      "keys": [
+        "twineedle"
+      ]
+    },
+    {
+      "effectId": 79,
+      "count": 1,
+      "moveIds": [
+        233
+      ],
+      "keys": [
+        "vital-throw"
+      ]
+    },
+    {
+      "effectId": 80,
+      "count": 1,
+      "moveIds": [
+        164
+      ],
+      "keys": [
+        "substitute"
+      ]
+    },
+    {
+      "effectId": 82,
+      "count": 1,
+      "moveIds": [
+        99
+      ],
+      "keys": [
+        "rage"
+      ]
+    },
+    {
+      "effectId": 83,
+      "count": 1,
+      "moveIds": [
+        102
+      ],
+      "keys": [
+        "mimic"
+      ]
+    },
+    {
+      "effectId": 84,
+      "count": 1,
+      "moveIds": [
+        118
+      ],
+      "keys": [
+        "metronome"
+      ]
+    },
+    {
+      "effectId": 85,
+      "count": 1,
+      "moveIds": [
+        73
+      ],
+      "keys": [
+        "leech-seed"
+      ]
+    },
+    {
+      "effectId": 86,
+      "count": 1,
+      "moveIds": [
+        150
+      ],
+      "keys": [
+        "splash"
+      ]
+    },
+    {
+      "effectId": 87,
+      "count": 1,
+      "moveIds": [
+        50
+      ],
+      "keys": [
+        "disable"
+      ]
+    },
+    {
+      "effectId": 89,
+      "count": 1,
+      "moveIds": [
+        149
+      ],
+      "keys": [
+        "psywave"
+      ]
+    },
+    {
+      "effectId": 90,
+      "count": 1,
+      "moveIds": [
+        68
+      ],
+      "keys": [
+        "counter"
+      ]
+    },
+    {
+      "effectId": 91,
+      "count": 1,
+      "moveIds": [
+        227
+      ],
+      "keys": [
+        "encore"
+      ]
+    },
+    {
+      "effectId": 92,
+      "count": 1,
+      "moveIds": [
+        220
+      ],
+      "keys": [
+        "pain-split"
+      ]
+    },
+    {
+      "effectId": 93,
+      "count": 1,
+      "moveIds": [
+        173
+      ],
+      "keys": [
+        "snore"
+      ]
+    },
+    {
+      "effectId": 94,
+      "count": 1,
+      "moveIds": [
+        176
+      ],
+      "keys": [
+        "conversion-2"
+      ]
+    },
+    {
+      "effectId": 96,
+      "count": 1,
+      "moveIds": [
+        166
+      ],
+      "keys": [
+        "sketch"
+      ]
+    },
+    {
+      "effectId": 98,
+      "count": 1,
+      "moveIds": [
+        214
+      ],
+      "keys": [
+        "sleep-talk"
+      ]
+    },
+    {
+      "effectId": 99,
+      "count": 1,
+      "moveIds": [
+        194
+      ],
+      "keys": [
+        "destiny-bond"
+      ]
+    },
+    {
+      "effectId": 101,
+      "count": 1,
+      "moveIds": [
+        180
+      ],
+      "keys": [
+        "spite"
+      ]
+    },
+    {
+      "effectId": 108,
+      "count": 1,
+      "moveIds": [
+        171
+      ],
+      "keys": [
+        "nightmare"
+      ]
+    },
+    {
+      "effectId": 109,
+      "count": 1,
+      "moveIds": [
+        107
+      ],
+      "keys": [
+        "minimize"
+      ]
+    },
+    {
+      "effectId": 110,
+      "count": 1,
+      "moveIds": [
+        174
+      ],
+      "keys": [
+        "curse"
+      ]
+    },
+    {
+      "effectId": 113,
+      "count": 1,
+      "moveIds": [
+        191
+      ],
+      "keys": [
+        "spikes"
+      ]
+    },
+    {
+      "effectId": 115,
+      "count": 1,
+      "moveIds": [
+        195
+      ],
+      "keys": [
+        "perish-song"
+      ]
+    },
+    {
+      "effectId": 116,
+      "count": 1,
+      "moveIds": [
+        770
+      ],
+      "keys": [
+        "max-rockfall"
+      ]
+    },
+    {
+      "effectId": 117,
+      "count": 1,
+      "moveIds": [
+        203
+      ],
+      "keys": [
+        "endure"
+      ]
+    },
+    {
+      "effectId": 119,
+      "count": 1,
+      "moveIds": [
+        207
+      ],
+      "keys": [
+        "swagger"
+      ]
+    },
+    {
+      "effectId": 120,
+      "count": 1,
+      "moveIds": [
+        210
+      ],
+      "keys": [
+        "fury-cutter"
+      ]
+    },
+    {
+      "effectId": 121,
+      "count": 1,
+      "moveIds": [
+        213
+      ],
+      "keys": [
+        "attract"
+      ]
+    },
+    {
+      "effectId": 122,
+      "count": 1,
+      "moveIds": [
+        216
+      ],
+      "keys": [
+        "return"
+      ]
+    },
+    {
+      "effectId": 123,
+      "count": 1,
+      "moveIds": [
+        217
+      ],
+      "keys": [
+        "present"
+      ]
+    },
+    {
+      "effectId": 124,
+      "count": 1,
+      "moveIds": [
+        218
+      ],
+      "keys": [
+        "frustration"
+      ]
+    },
+    {
+      "effectId": 125,
+      "count": 1,
+      "moveIds": [
+        219
+      ],
+      "keys": [
+        "safeguard"
+      ]
+    },
+    {
+      "effectId": 127,
+      "count": 1,
+      "moveIds": [
+        222
+      ],
+      "keys": [
+        "magnitude"
+      ]
+    },
+    {
+      "effectId": 128,
+      "count": 1,
+      "moveIds": [
+        226
+      ],
+      "keys": [
+        "baton-pass"
+      ]
+    },
+    {
+      "effectId": 129,
+      "count": 1,
+      "moveIds": [
+        228
+      ],
+      "keys": [
+        "pursuit"
+      ]
+    },
+    {
+      "effectId": 130,
+      "count": 1,
+      "moveIds": [
+        229
+      ],
+      "keys": [
+        "rapid-spin"
+      ]
+    },
+    {
+      "effectId": 131,
+      "count": 1,
+      "moveIds": [
+        49
+      ],
+      "keys": [
+        "sonic-boom"
+      ]
+    },
+    {
+      "effectId": 136,
+      "count": 1,
+      "moveIds": [
+        237
+      ],
+      "keys": [
+        "hidden-power"
+      ]
+    },
+    {
+      "effectId": 137,
+      "count": 1,
+      "moveIds": [
+        765
+      ],
+      "keys": [
+        "max-geyser"
+      ]
+    },
+    {
+      "effectId": 138,
+      "count": 1,
+      "moveIds": [
+        757
+      ],
+      "keys": [
+        "max-flare"
+      ]
+    },
+    {
+      "effectId": 139,
+      "count": 1,
+      "moveIds": [
+        211
+      ],
+      "keys": [
+        "steel-wing"
+      ]
+    },
+    {
+      "effectId": 141,
+      "count": 1,
+      "moveIds": [
+        466
+      ],
+      "keys": [
+        "ominous-wind"
+      ]
+    },
+    {
+      "effectId": 143,
+      "count": 1,
+      "moveIds": [
+        187
+      ],
+      "keys": [
+        "belly-drum"
+      ]
+    },
+    {
+      "effectId": 144,
+      "count": 1,
+      "moveIds": [
+        244
+      ],
+      "keys": [
+        "psych-up"
+      ]
+    },
+    {
+      "effectId": 145,
+      "count": 1,
+      "moveIds": [
+        243
+      ],
+      "keys": [
+        "mirror-coat"
+      ]
+    },
+    {
+      "effectId": 146,
+      "count": 1,
+      "moveIds": [
+        130
+      ],
+      "keys": [
+        "skull-bash"
+      ]
+    },
+    {
+      "effectId": 147,
+      "count": 1,
+      "moveIds": [
+        239
+      ],
+      "keys": [
+        "twister"
+      ]
+    },
+    {
+      "effectId": 148,
+      "count": 1,
+      "moveIds": [
+        89
+      ],
+      "keys": [
+        "earthquake"
+      ]
+    },
+    {
+      "effectId": 153,
+      "count": 1,
+      "moveIds": [
+        87
+      ],
+      "keys": [
+        "thunder"
+      ]
+    },
+    {
+      "effectId": 154,
+      "count": 1,
+      "moveIds": [
+        100
+      ],
+      "keys": [
+        "teleport"
+      ]
+    },
+    {
+      "effectId": 155,
+      "count": 1,
+      "moveIds": [
+        251
+      ],
+      "keys": [
+        "beat-up"
+      ]
+    },
+    {
+      "effectId": 156,
+      "count": 1,
+      "moveIds": [
+        19
+      ],
+      "keys": [
+        "fly"
+      ]
+    },
+    {
+      "effectId": 157,
+      "count": 1,
+      "moveIds": [
+        111
+      ],
+      "keys": [
+        "defense-curl"
+      ]
+    },
+    {
+      "effectId": 159,
+      "count": 1,
+      "moveIds": [
+        252
+      ],
+      "keys": [
+        "fake-out"
+      ]
+    },
+    {
+      "effectId": 160,
+      "count": 1,
+      "moveIds": [
+        253
+      ],
+      "keys": [
+        "uproar"
+      ]
+    },
+    {
+      "effectId": 161,
+      "count": 1,
+      "moveIds": [
+        254
+      ],
+      "keys": [
+        "stockpile"
+      ]
+    },
+    {
+      "effectId": 162,
+      "count": 1,
+      "moveIds": [
+        255
+      ],
+      "keys": [
+        "spit-up"
+      ]
+    },
+    {
+      "effectId": 163,
+      "count": 1,
+      "moveIds": [
+        256
+      ],
+      "keys": [
+        "swallow"
+      ]
+    },
+    {
+      "effectId": 165,
+      "count": 1,
+      "moveIds": [
+        763
+      ],
+      "keys": [
+        "max-hailstorm"
+      ]
+    },
+    {
+      "effectId": 166,
+      "count": 1,
+      "moveIds": [
+        259
+      ],
+      "keys": [
+        "torment"
+      ]
+    },
+    {
+      "effectId": 167,
+      "count": 1,
+      "moveIds": [
+        260
+      ],
+      "keys": [
+        "flatter"
+      ]
+    },
+    {
+      "effectId": 169,
+      "count": 1,
+      "moveIds": [
+        262
+      ],
+      "keys": [
+        "memento"
+      ]
+    },
+    {
+      "effectId": 171,
+      "count": 1,
+      "moveIds": [
+        264
+      ],
+      "keys": [
+        "focus-punch"
+      ]
+    },
+    {
+      "effectId": 172,
+      "count": 1,
+      "moveIds": [
+        265
+      ],
+      "keys": [
+        "smelling-salts"
+      ]
+    },
+    {
+      "effectId": 174,
+      "count": 1,
+      "moveIds": [
+        267
+      ],
+      "keys": [
+        "nature-power"
+      ]
+    },
+    {
+      "effectId": 175,
+      "count": 1,
+      "moveIds": [
+        268
+      ],
+      "keys": [
+        "charge"
+      ]
+    },
+    {
+      "effectId": 176,
+      "count": 1,
+      "moveIds": [
+        269
+      ],
+      "keys": [
+        "taunt"
+      ]
+    },
+    {
+      "effectId": 177,
+      "count": 1,
+      "moveIds": [
+        270
+      ],
+      "keys": [
+        "helping-hand"
+      ]
+    },
+    {
+      "effectId": 179,
+      "count": 1,
+      "moveIds": [
+        272
+      ],
+      "keys": [
+        "role-play"
+      ]
+    },
+    {
+      "effectId": 180,
+      "count": 1,
+      "moveIds": [
+        273
+      ],
+      "keys": [
+        "wish"
+      ]
+    },
+    {
+      "effectId": 181,
+      "count": 1,
+      "moveIds": [
+        274
+      ],
+      "keys": [
+        "assist"
+      ]
+    },
+    {
+      "effectId": 182,
+      "count": 1,
+      "moveIds": [
+        275
+      ],
+      "keys": [
+        "ingrain"
+      ]
+    },
+    {
+      "effectId": 183,
+      "count": 1,
+      "moveIds": [
+        276
+      ],
+      "keys": [
+        "superpower"
+      ]
+    },
+    {
+      "effectId": 184,
+      "count": 1,
+      "moveIds": [
+        277
+      ],
+      "keys": [
+        "magic-coat"
+      ]
+    },
+    {
+      "effectId": 185,
+      "count": 1,
+      "moveIds": [
+        278
+      ],
+      "keys": [
+        "recycle"
+      ]
+    },
+    {
+      "effectId": 188,
+      "count": 1,
+      "moveIds": [
+        281
+      ],
+      "keys": [
+        "yawn"
+      ]
+    },
+    {
+      "effectId": 190,
+      "count": 1,
+      "moveIds": [
+        283
+      ],
+      "keys": [
+        "endeavor"
+      ]
+    },
+    {
+      "effectId": 192,
+      "count": 1,
+      "moveIds": [
+        285
+      ],
+      "keys": [
+        "skill-swap"
+      ]
+    },
+    {
+      "effectId": 193,
+      "count": 1,
+      "moveIds": [
+        286
+      ],
+      "keys": [
+        "imprison"
+      ]
+    },
+    {
+      "effectId": 194,
+      "count": 1,
+      "moveIds": [
+        287
+      ],
+      "keys": [
+        "refresh"
+      ]
+    },
+    {
+      "effectId": 195,
+      "count": 1,
+      "moveIds": [
+        288
+      ],
+      "keys": [
+        "grudge"
+      ]
+    },
+    {
+      "effectId": 196,
+      "count": 1,
+      "moveIds": [
+        289
+      ],
+      "keys": [
+        "snatch"
+      ]
+    },
+    {
+      "effectId": 198,
+      "count": 1,
+      "moveIds": [
+        290
+      ],
+      "keys": [
+        "secret-power"
+      ]
+    },
+    {
+      "effectId": 200,
+      "count": 1,
+      "moveIds": [
+        298
+      ],
+      "keys": [
+        "teeter-dance"
+      ]
+    },
+    {
+      "effectId": 201,
+      "count": 1,
+      "moveIds": [
+        299
+      ],
+      "keys": [
+        "blaze-kick"
+      ]
+    },
+    {
+      "effectId": 202,
+      "count": 1,
+      "moveIds": [
+        300
+      ],
+      "keys": [
+        "mud-sport"
+      ]
+    },
+    {
+      "effectId": 203,
+      "count": 1,
+      "moveIds": [
+        305
+      ],
+      "keys": [
+        "poison-fang"
+      ]
+    },
+    {
+      "effectId": 204,
+      "count": 1,
+      "moveIds": [
+        311
+      ],
+      "keys": [
+        "weather-ball"
+      ]
+    },
+    {
+      "effectId": 206,
+      "count": 1,
+      "moveIds": [
+        321
+      ],
+      "keys": [
+        "tickle"
+      ]
+    },
+    {
+      "effectId": 208,
+      "count": 1,
+      "moveIds": [
+        327
+      ],
+      "keys": [
+        "sky-uppercut"
+      ]
+    },
+    {
+      "effectId": 209,
+      "count": 1,
+      "moveIds": [
+        339
+      ],
+      "keys": [
+        "bulk-up"
+      ]
+    },
+    {
+      "effectId": 211,
+      "count": 1,
+      "moveIds": [
+        346
+      ],
+      "keys": [
+        "water-sport"
+      ]
+    },
+    {
+      "effectId": 212,
+      "count": 1,
+      "moveIds": [
+        347
+      ],
+      "keys": [
+        "calm-mind"
+      ]
+    },
+    {
+      "effectId": 213,
+      "count": 1,
+      "moveIds": [
+        349
+      ],
+      "keys": [
+        "dragon-dance"
+      ]
+    },
+    {
+      "effectId": 214,
+      "count": 1,
+      "moveIds": [
+        293
+      ],
+      "keys": [
+        "camouflage"
+      ]
+    },
+    {
+      "effectId": 215,
+      "count": 1,
+      "moveIds": [
+        355
+      ],
+      "keys": [
+        "roost"
+      ]
+    },
+    {
+      "effectId": 216,
+      "count": 1,
+      "moveIds": [
+        356
+      ],
+      "keys": [
+        "gravity"
+      ]
+    },
+    {
+      "effectId": 217,
+      "count": 1,
+      "moveIds": [
+        357
+      ],
+      "keys": [
+        "miracle-eye"
+      ]
+    },
+    {
+      "effectId": 218,
+      "count": 1,
+      "moveIds": [
+        358
+      ],
+      "keys": [
+        "wake-up-slap"
+      ]
+    },
+    {
+      "effectId": 220,
+      "count": 1,
+      "moveIds": [
+        360
+      ],
+      "keys": [
+        "gyro-ball"
+      ]
+    },
+    {
+      "effectId": 221,
+      "count": 1,
+      "moveIds": [
+        361
+      ],
+      "keys": [
+        "healing-wish"
+      ]
+    },
+    {
+      "effectId": 223,
+      "count": 1,
+      "moveIds": [
+        363
+      ],
+      "keys": [
+        "natural-gift"
+      ]
+    },
+    {
+      "effectId": 224,
+      "count": 1,
+      "moveIds": [
+        364
+      ],
+      "keys": [
+        "feint"
+      ]
+    },
+    {
+      "effectId": 226,
+      "count": 1,
+      "moveIds": [
+        366
+      ],
+      "keys": [
+        "tailwind"
+      ]
+    },
+    {
+      "effectId": 227,
+      "count": 1,
+      "moveIds": [
+        367
+      ],
+      "keys": [
+        "acupressure"
+      ]
+    },
+    {
+      "effectId": 228,
+      "count": 1,
+      "moveIds": [
+        368
+      ],
+      "keys": [
+        "metal-burst"
+      ]
+    },
+    {
+      "effectId": 233,
+      "count": 1,
+      "moveIds": [
+        373
+      ],
+      "keys": [
+        "embargo"
+      ]
+    },
+    {
+      "effectId": 234,
+      "count": 1,
+      "moveIds": [
+        374
+      ],
+      "keys": [
+        "fling"
+      ]
+    },
+    {
+      "effectId": 235,
+      "count": 1,
+      "moveIds": [
+        375
+      ],
+      "keys": [
+        "psycho-shift"
+      ]
+    },
+    {
+      "effectId": 236,
+      "count": 1,
+      "moveIds": [
+        376
+      ],
+      "keys": [
+        "trump-card"
+      ]
+    },
+    {
+      "effectId": 237,
+      "count": 1,
+      "moveIds": [
+        377
+      ],
+      "keys": [
+        "heal-block"
+      ]
+    },
+    {
+      "effectId": 239,
+      "count": 1,
+      "moveIds": [
+        379
+      ],
+      "keys": [
+        "power-trick"
+      ]
+    },
+    {
+      "effectId": 240,
+      "count": 1,
+      "moveIds": [
+        380
+      ],
+      "keys": [
+        "gastro-acid"
+      ]
+    },
+    {
+      "effectId": 241,
+      "count": 1,
+      "moveIds": [
+        381
+      ],
+      "keys": [
+        "lucky-chant"
+      ]
+    },
+    {
+      "effectId": 242,
+      "count": 1,
+      "moveIds": [
+        382
+      ],
+      "keys": [
+        "me-first"
+      ]
+    },
+    {
+      "effectId": 243,
+      "count": 1,
+      "moveIds": [
+        383
+      ],
+      "keys": [
+        "copycat"
+      ]
+    },
+    {
+      "effectId": 244,
+      "count": 1,
+      "moveIds": [
+        384
+      ],
+      "keys": [
+        "power-swap"
+      ]
+    },
+    {
+      "effectId": 245,
+      "count": 1,
+      "moveIds": [
+        385
+      ],
+      "keys": [
+        "guard-swap"
+      ]
+    },
+    {
+      "effectId": 246,
+      "count": 1,
+      "moveIds": [
+        386
+      ],
+      "keys": [
+        "punishment"
+      ]
+    },
+    {
+      "effectId": 247,
+      "count": 1,
+      "moveIds": [
+        387
+      ],
+      "keys": [
+        "last-resort"
+      ]
+    },
+    {
+      "effectId": 248,
+      "count": 1,
+      "moveIds": [
+        388
+      ],
+      "keys": [
+        "worry-seed"
+      ]
+    },
+    {
+      "effectId": 249,
+      "count": 1,
+      "moveIds": [
+        389
+      ],
+      "keys": [
+        "sucker-punch"
+      ]
+    },
+    {
+      "effectId": 250,
+      "count": 1,
+      "moveIds": [
+        390
+      ],
+      "keys": [
+        "toxic-spikes"
+      ]
+    },
+    {
+      "effectId": 251,
+      "count": 1,
+      "moveIds": [
+        391
+      ],
+      "keys": [
+        "heart-swap"
+      ]
+    },
+    {
+      "effectId": 252,
+      "count": 1,
+      "moveIds": [
+        392
+      ],
+      "keys": [
+        "aqua-ring"
+      ]
+    },
+    {
+      "effectId": 253,
+      "count": 1,
+      "moveIds": [
+        393
+      ],
+      "keys": [
+        "magnet-rise"
+      ]
+    },
+    {
+      "effectId": 255,
+      "count": 1,
+      "moveIds": [
+        165
+      ],
+      "keys": [
+        "struggle"
+      ]
+    },
+    {
+      "effectId": 256,
+      "count": 1,
+      "moveIds": [
+        291
+      ],
+      "keys": [
+        "dive"
+      ]
+    },
+    {
+      "effectId": 257,
+      "count": 1,
+      "moveIds": [
+        91
+      ],
+      "keys": [
+        "dig"
+      ]
+    },
+    {
+      "effectId": 258,
+      "count": 1,
+      "moveIds": [
+        57
+      ],
+      "keys": [
+        "surf"
+      ]
+    },
+    {
+      "effectId": 259,
+      "count": 1,
+      "moveIds": [
+        432
+      ],
+      "keys": [
+        "defog"
+      ]
+    },
+    {
+      "effectId": 260,
+      "count": 1,
+      "moveIds": [
+        433
+      ],
+      "keys": [
+        "trick-room"
+      ]
+    },
+    {
+      "effectId": 262,
+      "count": 1,
+      "moveIds": [
+        250
+      ],
+      "keys": [
+        "whirlpool"
+      ]
+    },
+    {
+      "effectId": 263,
+      "count": 1,
+      "moveIds": [
+        344
+      ],
+      "keys": [
+        "volt-tackle"
+      ]
+    },
+    {
+      "effectId": 264,
+      "count": 1,
+      "moveIds": [
+        340
+      ],
+      "keys": [
+        "bounce"
+      ]
+    },
+    {
+      "effectId": 266,
+      "count": 1,
+      "moveIds": [
+        445
+      ],
+      "keys": [
+        "captivate"
+      ]
+    },
+    {
+      "effectId": 267,
+      "count": 1,
+      "moveIds": [
+        446
+      ],
+      "keys": [
+        "stealth-rock"
+      ]
+    },
+    {
+      "effectId": 268,
+      "count": 1,
+      "moveIds": [
+        448
+      ],
+      "keys": [
+        "chatter"
+      ]
+    },
+    {
+      "effectId": 271,
+      "count": 1,
+      "moveIds": [
+        461
+      ],
+      "keys": [
+        "lunar-dance"
+      ]
+    },
+    {
+      "effectId": 272,
+      "count": 1,
+      "moveIds": [
+        465
+      ],
+      "keys": [
+        "seed-flare"
+      ]
+    },
+    {
+      "effectId": 274,
+      "count": 1,
+      "moveIds": [
+        424
+      ],
+      "keys": [
+        "fire-fang"
+      ]
+    },
+    {
+      "effectId": 275,
+      "count": 1,
+      "moveIds": [
+        423
+      ],
+      "keys": [
+        "ice-fang"
+      ]
+    },
+    {
+      "effectId": 276,
+      "count": 1,
+      "moveIds": [
+        422
+      ],
+      "keys": [
+        "thunder-fang"
+      ]
+    },
+    {
+      "effectId": 278,
+      "count": 1,
+      "moveIds": [
+        468
+      ],
+      "keys": [
+        "hone-claws"
+      ]
+    },
+    {
+      "effectId": 279,
+      "count": 1,
+      "moveIds": [
+        469
+      ],
+      "keys": [
+        "wide-guard"
+      ]
+    },
+    {
+      "effectId": 280,
+      "count": 1,
+      "moveIds": [
+        470
+      ],
+      "keys": [
+        "guard-split"
+      ]
+    },
+    {
+      "effectId": 281,
+      "count": 1,
+      "moveIds": [
+        471
+      ],
+      "keys": [
+        "power-split"
+      ]
+    },
+    {
+      "effectId": 282,
+      "count": 1,
+      "moveIds": [
+        472
+      ],
+      "keys": [
+        "wonder-room"
+      ]
+    },
+    {
+      "effectId": 285,
+      "count": 1,
+      "moveIds": [
+        475
+      ],
+      "keys": [
+        "autotomize"
+      ]
+    },
+    {
+      "effectId": 286,
+      "count": 1,
+      "moveIds": [
+        477
+      ],
+      "keys": [
+        "telekinesis"
+      ]
+    },
+    {
+      "effectId": 287,
+      "count": 1,
+      "moveIds": [
+        478
+      ],
+      "keys": [
+        "magic-room"
+      ]
+    },
+    {
+      "effectId": 288,
+      "count": 1,
+      "moveIds": [
+        479
+      ],
+      "keys": [
+        "smack-down"
+      ]
+    },
+    {
+      "effectId": 289,
+      "count": 1,
+      "moveIds": [
+        524
+      ],
+      "keys": [
+        "frost-breath"
+      ]
+    },
+    {
+      "effectId": 290,
+      "count": 1,
+      "moveIds": [
+        481
+      ],
+      "keys": [
+        "flame-burst"
+      ]
+    },
+    {
+      "effectId": 291,
+      "count": 1,
+      "moveIds": [
+        483
+      ],
+      "keys": [
+        "quiver-dance"
+      ]
+    },
+    {
+      "effectId": 293,
+      "count": 1,
+      "moveIds": [
+        485
+      ],
+      "keys": [
+        "synchronoise"
+      ]
+    },
+    {
+      "effectId": 294,
+      "count": 1,
+      "moveIds": [
+        486
+      ],
+      "keys": [
+        "electro-ball"
+      ]
+    },
+    {
+      "effectId": 295,
+      "count": 1,
+      "moveIds": [
+        487
+      ],
+      "keys": [
+        "soak"
+      ]
+    },
+    {
+      "effectId": 296,
+      "count": 1,
+      "moveIds": [
+        488
+      ],
+      "keys": [
+        "flame-charge"
+      ]
+    },
+    {
+      "effectId": 297,
+      "count": 1,
+      "moveIds": [
+        491
+      ],
+      "keys": [
+        "acid-spray"
+      ]
+    },
+    {
+      "effectId": 298,
+      "count": 1,
+      "moveIds": [
+        492
+      ],
+      "keys": [
+        "foul-play"
+      ]
+    },
+    {
+      "effectId": 299,
+      "count": 1,
+      "moveIds": [
+        493
+      ],
+      "keys": [
+        "simple-beam"
+      ]
+    },
+    {
+      "effectId": 300,
+      "count": 1,
+      "moveIds": [
+        494
+      ],
+      "keys": [
+        "entrainment"
+      ]
+    },
+    {
+      "effectId": 301,
+      "count": 1,
+      "moveIds": [
+        495
+      ],
+      "keys": [
+        "after-you"
+      ]
+    },
+    {
+      "effectId": 302,
+      "count": 1,
+      "moveIds": [
+        496
+      ],
+      "keys": [
+        "round"
+      ]
+    },
+    {
+      "effectId": 303,
+      "count": 1,
+      "moveIds": [
+        497
+      ],
+      "keys": [
+        "echoed-voice"
+      ]
+    },
+    {
+      "effectId": 305,
+      "count": 1,
+      "moveIds": [
+        499
+      ],
+      "keys": [
+        "clear-smog"
+      ]
+    },
+    {
+      "effectId": 307,
+      "count": 1,
+      "moveIds": [
+        501
+      ],
+      "keys": [
+        "quick-guard"
+      ]
+    },
+    {
+      "effectId": 308,
+      "count": 1,
+      "moveIds": [
+        502
+      ],
+      "keys": [
+        "ally-switch"
+      ]
+    },
+    {
+      "effectId": 309,
+      "count": 1,
+      "moveIds": [
+        504
+      ],
+      "keys": [
+        "shell-smash"
+      ]
+    },
+    {
+      "effectId": 310,
+      "count": 1,
+      "moveIds": [
+        505
+      ],
+      "keys": [
+        "heal-pulse"
+      ]
+    },
+    {
+      "effectId": 312,
+      "count": 1,
+      "moveIds": [
+        507
+      ],
+      "keys": [
+        "sky-drop"
+      ]
+    },
+    {
+      "effectId": 313,
+      "count": 1,
+      "moveIds": [
+        508
+      ],
+      "keys": [
+        "shift-gear"
+      ]
+    },
+    {
+      "effectId": 315,
+      "count": 1,
+      "moveIds": [
+        510
+      ],
+      "keys": [
+        "incinerate"
+      ]
+    },
+    {
+      "effectId": 316,
+      "count": 1,
+      "moveIds": [
+        511
+      ],
+      "keys": [
+        "quash"
+      ]
+    },
+    {
+      "effectId": 317,
+      "count": 1,
+      "moveIds": [
+        74
+      ],
+      "keys": [
+        "growth"
+      ]
+    },
+    {
+      "effectId": 318,
+      "count": 1,
+      "moveIds": [
+        512
+      ],
+      "keys": [
+        "acrobatics"
+      ]
+    },
+    {
+      "effectId": 319,
+      "count": 1,
+      "moveIds": [
+        513
+      ],
+      "keys": [
+        "reflect-type"
+      ]
+    },
+    {
+      "effectId": 320,
+      "count": 1,
+      "moveIds": [
+        514
+      ],
+      "keys": [
+        "retaliate"
+      ]
+    },
+    {
+      "effectId": 321,
+      "count": 1,
+      "moveIds": [
+        515
+      ],
+      "keys": [
+        "final-gambit"
+      ]
+    },
+    {
+      "effectId": 322,
+      "count": 1,
+      "moveIds": [
+        294
+      ],
+      "keys": [
+        "tail-glow"
+      ]
+    },
+    {
+      "effectId": 323,
+      "count": 1,
+      "moveIds": [
+        489
+      ],
+      "keys": [
+        "coil"
+      ]
+    },
+    {
+      "effectId": 324,
+      "count": 1,
+      "moveIds": [
+        516
+      ],
+      "keys": [
+        "bestow"
+      ]
+    },
+    {
+      "effectId": 325,
+      "count": 1,
+      "moveIds": [
+        518
+      ],
+      "keys": [
+        "water-pledge"
+      ]
+    },
+    {
+      "effectId": 326,
+      "count": 1,
+      "moveIds": [
+        519
+      ],
+      "keys": [
+        "fire-pledge"
+      ]
+    },
+    {
+      "effectId": 327,
+      "count": 1,
+      "moveIds": [
+        520
+      ],
+      "keys": [
+        "grass-pledge"
+      ]
+    },
+    {
+      "effectId": 328,
+      "count": 1,
+      "moveIds": [
+        526
+      ],
+      "keys": [
+        "work-up"
+      ]
+    },
+    {
+      "effectId": 329,
+      "count": 1,
+      "moveIds": [
+        538
+      ],
+      "keys": [
+        "cotton-guard"
+      ]
+    },
+    {
+      "effectId": 330,
+      "count": 1,
+      "moveIds": [
+        547
+      ],
+      "keys": [
+        "relic-song"
+      ]
+    },
+    {
+      "effectId": 331,
+      "count": 1,
+      "moveIds": [
+        549
+      ],
+      "keys": [
+        "glaciate"
+      ]
+    },
+    {
+      "effectId": 332,
+      "count": 1,
+      "moveIds": [
+        553
+      ],
+      "keys": [
+        "freeze-shock"
+      ]
+    },
+    {
+      "effectId": 333,
+      "count": 1,
+      "moveIds": [
+        554
+      ],
+      "keys": [
+        "ice-burn"
+      ]
+    },
+    {
+      "effectId": 334,
+      "count": 1,
+      "moveIds": [
+        542
+      ],
+      "keys": [
+        "hurricane"
+      ]
+    },
+    {
+      "effectId": 335,
+      "count": 1,
+      "moveIds": [
+        557
+      ],
+      "keys": [
+        "v-create"
+      ]
+    },
+    {
+      "effectId": 336,
+      "count": 1,
+      "moveIds": [
+        558
+      ],
+      "keys": [
+        "fusion-flare"
+      ]
+    },
+    {
+      "effectId": 337,
+      "count": 1,
+      "moveIds": [
+        559
+      ],
+      "keys": [
+        "fusion-bolt"
+      ]
+    },
+    {
+      "effectId": 338,
+      "count": 1,
+      "moveIds": [
+        560
+      ],
+      "keys": [
+        "flying-press"
+      ]
+    },
+    {
+      "effectId": 339,
+      "count": 1,
+      "moveIds": [
+        562
+      ],
+      "keys": [
+        "belch"
+      ]
+    },
+    {
+      "effectId": 340,
+      "count": 1,
+      "moveIds": [
+        563
+      ],
+      "keys": [
+        "rototiller"
+      ]
+    },
+    {
+      "effectId": 341,
+      "count": 1,
+      "moveIds": [
+        564
+      ],
+      "keys": [
+        "sticky-web"
+      ]
+    },
+    {
+      "effectId": 342,
+      "count": 1,
+      "moveIds": [
+        565
+      ],
+      "keys": [
+        "fell-stinger"
+      ]
+    },
+    {
+      "effectId": 343,
+      "count": 1,
+      "moveIds": [
+        567
+      ],
+      "keys": [
+        "trick-or-treat"
+      ]
+    },
+    {
+      "effectId": 345,
+      "count": 1,
+      "moveIds": [
+        569
+      ],
+      "keys": [
+        "ion-deluge"
+      ]
+    },
+    {
+      "effectId": 346,
+      "count": 1,
+      "moveIds": [
+        570
+      ],
+      "keys": [
+        "parabolic-charge"
+      ]
+    },
+    {
+      "effectId": 347,
+      "count": 1,
+      "moveIds": [
+        575
+      ],
+      "keys": [
+        "parting-shot"
+      ]
+    },
+    {
+      "effectId": 348,
+      "count": 1,
+      "moveIds": [
+        576
+      ],
+      "keys": [
+        "topsy-turvy"
+      ]
+    },
+    {
+      "effectId": 350,
+      "count": 1,
+      "moveIds": [
+        578
+      ],
+      "keys": [
+        "crafty-shield"
+      ]
+    },
+    {
+      "effectId": 351,
+      "count": 1,
+      "moveIds": [
+        579
+      ],
+      "keys": [
+        "flower-shield"
+      ]
+    },
+    {
+      "effectId": 352,
+      "count": 1,
+      "moveIds": [
+        773
+      ],
+      "keys": [
+        "max-overgrowth"
+      ]
+    },
+    {
+      "effectId": 353,
+      "count": 1,
+      "moveIds": [
+        767
+      ],
+      "keys": [
+        "max-starfall"
+      ]
+    },
+    {
+      "effectId": 354,
+      "count": 1,
+      "moveIds": [
+        582
+      ],
+      "keys": [
+        "electrify"
+      ]
+    },
+    {
+      "effectId": 355,
+      "count": 1,
+      "moveIds": [
+        587
+      ],
+      "keys": [
+        "fairy-lock"
+      ]
+    },
+    {
+      "effectId": 356,
+      "count": 1,
+      "moveIds": [
+        588
+      ],
+      "keys": [
+        "kings-shield"
+      ]
+    },
+    {
+      "effectId": 357,
+      "count": 1,
+      "moveIds": [
+        589
+      ],
+      "keys": [
+        "play-nice"
+      ]
+    },
+    {
+      "effectId": 359,
+      "count": 1,
+      "moveIds": [
+        591
+      ],
+      "keys": [
+        "diamond-storm"
+      ]
+    },
+    {
+      "effectId": 361,
+      "count": 1,
+      "moveIds": [
+        594
+      ],
+      "keys": [
+        "water-shuriken"
+      ]
+    },
+    {
+      "effectId": 362,
+      "count": 1,
+      "moveIds": [
+        596
+      ],
+      "keys": [
+        "spiky-shield"
+      ]
+    },
+    {
+      "effectId": 363,
+      "count": 1,
+      "moveIds": [
+        597
+      ],
+      "keys": [
+        "aromatic-mist"
+      ]
+    },
+    {
+      "effectId": 364,
+      "count": 1,
+      "moveIds": [
+        599
+      ],
+      "keys": [
+        "venom-drench"
+      ]
+    },
+    {
+      "effectId": 365,
+      "count": 1,
+      "moveIds": [
+        608
+      ],
+      "keys": [
+        "baby-doll-eyes"
+      ]
+    },
+    {
+      "effectId": 366,
+      "count": 1,
+      "moveIds": [
+        601
+      ],
+      "keys": [
+        "geomancy"
+      ]
+    },
+    {
+      "effectId": 367,
+      "count": 1,
+      "moveIds": [
+        602
+      ],
+      "keys": [
+        "magnetic-flux"
+      ]
+    },
+    {
+      "effectId": 368,
+      "count": 1,
+      "moveIds": [
+        603
+      ],
+      "keys": [
+        "happy-hour"
+      ]
+    },
+    {
+      "effectId": 369,
+      "count": 1,
+      "moveIds": [
+        759
+      ],
+      "keys": [
+        "max-lightning"
+      ]
+    },
+    {
+      "effectId": 370,
+      "count": 1,
+      "moveIds": [
+        606
+      ],
+      "keys": [
+        "celebrate"
+      ]
+    },
+    {
+      "effectId": 371,
+      "count": 1,
+      "moveIds": [
+        607
+      ],
+      "keys": [
+        "hold-hands"
+      ]
+    },
+    {
+      "effectId": 372,
+      "count": 1,
+      "moveIds": [
+        609
+      ],
+      "keys": [
+        "nuzzle"
+      ]
+    },
+    {
+      "effectId": 373,
+      "count": 1,
+      "moveIds": [
+        614
+      ],
+      "keys": [
+        "thousand-arrows"
+      ]
+    },
+    {
+      "effectId": 374,
+      "count": 1,
+      "moveIds": [
+        615
+      ],
+      "keys": [
+        "thousand-waves"
+      ]
+    },
+    {
+      "effectId": 375,
+      "count": 1,
+      "moveIds": [
+        612
+      ],
+      "keys": [
+        "power-up-punch"
+      ]
+    },
+    {
+      "effectId": 376,
+      "count": 1,
+      "moveIds": [
+        571
+      ],
+      "keys": [
+        "forests-curse"
+      ]
+    },
+    {
+      "effectId": 377,
+      "count": 1,
+      "moveIds": [
+        561
+      ],
+      "keys": [
+        "mat-block"
+      ]
+    },
+    {
+      "effectId": 378,
+      "count": 1,
+      "moveIds": [
+        600
+      ],
+      "keys": [
+        "powder"
+      ]
+    },
+    {
+      "effectId": 380,
+      "count": 1,
+      "moveIds": [
+        573
+      ],
+      "keys": [
+        "freeze-dry"
+      ]
+    },
+    {
+      "effectId": 381,
+      "count": 1,
+      "moveIds": [
+        574
+      ],
+      "keys": [
+        "disarming-voice"
+      ]
+    },
+    {
+      "effectId": 382,
+      "count": 1,
+      "moveIds": [
+        659
+      ],
+      "keys": [
+        "shore-up"
+      ]
+    },
+    {
+      "effectId": 383,
+      "count": 1,
+      "moveIds": [
+        660
+      ],
+      "keys": [
+        "first-impression"
+      ]
+    },
+    {
+      "effectId": 384,
+      "count": 1,
+      "moveIds": [
+        661
+      ],
+      "keys": [
+        "baneful-bunker"
+      ]
+    },
+    {
+      "effectId": 386,
+      "count": 1,
+      "moveIds": [
+        664
+      ],
+      "keys": [
+        "sparkling-aria"
+      ]
+    },
+    {
+      "effectId": 387,
+      "count": 1,
+      "moveIds": [
+        666
+      ],
+      "keys": [
+        "floral-healing"
+      ]
+    },
+    {
+      "effectId": 388,
+      "count": 1,
+      "moveIds": [
+        668
+      ],
+      "keys": [
+        "strength-sap"
+      ]
+    },
+    {
+      "effectId": 389,
+      "count": 1,
+      "moveIds": [
+        671
+      ],
+      "keys": [
+        "spotlight"
+      ]
+    },
+    {
+      "effectId": 390,
+      "count": 1,
+      "moveIds": [
+        672
+      ],
+      "keys": [
+        "toxic-thread"
+      ]
+    },
+    {
+      "effectId": 391,
+      "count": 1,
+      "moveIds": [
+        673
+      ],
+      "keys": [
+        "laser-focus"
+      ]
+    },
+    {
+      "effectId": 392,
+      "count": 1,
+      "moveIds": [
+        674
+      ],
+      "keys": [
+        "gear-up"
+      ]
+    },
+    {
+      "effectId": 393,
+      "count": 1,
+      "moveIds": [
+        675
+      ],
+      "keys": [
+        "throat-chop"
+      ]
+    },
+    {
+      "effectId": 394,
+      "count": 1,
+      "moveIds": [
+        676
+      ],
+      "keys": [
+        "pollen-puff"
+      ]
+    },
+    {
+      "effectId": 395,
+      "count": 1,
+      "moveIds": [
+        769
+      ],
+      "keys": [
+        "max-mindstorm"
+      ]
+    },
+    {
+      "effectId": 398,
+      "count": 1,
+      "moveIds": [
+        682
+      ],
+      "keys": [
+        "burn-up"
+      ]
+    },
+    {
+      "effectId": 399,
+      "count": 1,
+      "moveIds": [
+        683
+      ],
+      "keys": [
+        "speed-swap"
+      ]
+    },
+    {
+      "effectId": 400,
+      "count": 1,
+      "moveIds": [
+        685
+      ],
+      "keys": [
+        "purify"
+      ]
+    },
+    {
+      "effectId": 401,
+      "count": 1,
+      "moveIds": [
+        686
+      ],
+      "keys": [
+        "revelation-dance"
+      ]
+    },
+    {
+      "effectId": 402,
+      "count": 1,
+      "moveIds": [
+        687
+      ],
+      "keys": [
+        "core-enforcer"
+      ]
+    },
+    {
+      "effectId": 403,
+      "count": 1,
+      "moveIds": [
+        689
+      ],
+      "keys": [
+        "instruct"
+      ]
+    },
+    {
+      "effectId": 404,
+      "count": 1,
+      "moveIds": [
+        690
+      ],
+      "keys": [
+        "beak-blast"
+      ]
+    },
+    {
+      "effectId": 405,
+      "count": 1,
+      "moveIds": [
+        691
+      ],
+      "keys": [
+        "clanging-scales"
+      ]
+    },
+    {
+      "effectId": 406,
+      "count": 1,
+      "moveIds": [
+        693
+      ],
+      "keys": [
+        "brutal-swing"
+      ]
+    },
+    {
+      "effectId": 407,
+      "count": 1,
+      "moveIds": [
+        694
+      ],
+      "keys": [
+        "aurora-veil"
+      ]
+    },
+    {
+      "effectId": 408,
+      "count": 1,
+      "moveIds": [
+        704
+      ],
+      "keys": [
+        "shell-trap"
+      ]
+    },
+    {
+      "effectId": 409,
+      "count": 1,
+      "moveIds": [
+        707
+      ],
+      "keys": [
+        "stomping-tantrum"
+      ]
+    },
+    {
+      "effectId": 410,
+      "count": 1,
+      "moveIds": [
+        712
+      ],
+      "keys": [
+        "spectral-thief"
+      ]
+    },
+    {
+      "effectId": 412,
+      "count": 1,
+      "moveIds": [
+        715
+      ],
+      "keys": [
+        "tearful-look"
+      ]
+    },
+    {
+      "effectId": 413,
+      "count": 1,
+      "moveIds": [
+        698
+      ],
+      "keys": [
+        "guardian-of-alola"
+      ]
+    },
+    {
+      "effectId": 414,
+      "count": 1,
+      "moveIds": [
+        702
+      ],
+      "keys": [
+        "extreme-evoboost"
+      ]
+    },
+    {
+      "effectId": 415,
+      "count": 1,
+      "moveIds": [
+        703
+      ],
+      "keys": [
+        "genesis-supernova"
+      ]
+    },
+    {
+      "effectId": 416,
+      "count": 1,
+      "moveIds": [
+        723
+      ],
+      "keys": [
+        "light-that-burns-the-sky"
+      ]
+    },
+    {
+      "effectId": 417,
+      "count": 1,
+      "moveIds": [
+        721
+      ],
+      "keys": [
+        "plasma-fists"
+      ]
+    },
+    {
+      "effectId": 418,
+      "count": 1,
+      "moveIds": [
+        727
+      ],
+      "keys": [
+        "splintered-stormshards"
+      ]
+    },
+    {
+      "effectId": 419,
+      "count": 1,
+      "moveIds": [
+        728
+      ],
+      "keys": [
+        "clangorous-soulblaze"
+      ]
+    },
+    {
+      "effectId": 422,
+      "count": 1,
+      "moveIds": [
+        745
+      ],
+      "keys": [
+        "snipe-shot"
+      ]
+    },
+    {
+      "effectId": 443,
+      "count": 1,
+      "moveIds": [
+        799
+      ],
+      "keys": [
+        "scale-shot"
+      ]
+    },
+    {
+      "effectId": 445,
+      "count": 1,
+      "moveIds": [
+        746
+      ],
+      "keys": [
+        "jaw-lock"
+      ]
+    },
+    {
+      "effectId": 446,
+      "count": 1,
+      "moveIds": [
+        747
+      ],
+      "keys": [
+        "stuff-cheeks"
+      ]
+    },
+    {
+      "effectId": 447,
+      "count": 1,
+      "moveIds": [
+        748
+      ],
+      "keys": [
+        "no-retreat"
+      ]
+    },
+    {
+      "effectId": 448,
+      "count": 1,
+      "moveIds": [
+        749
+      ],
+      "keys": [
+        "tar-shot"
+      ]
+    },
+    {
+      "effectId": 449,
+      "count": 1,
+      "moveIds": [
+        750
+      ],
+      "keys": [
+        "magic-powder"
+      ]
+    },
+    {
+      "effectId": 450,
+      "count": 1,
+      "moveIds": [
+        751
+      ],
+      "keys": [
+        "dragon-darts"
+      ]
+    },
+    {
+      "effectId": 451,
+      "count": 1,
+      "moveIds": [
+        752
+      ],
+      "keys": [
+        "teatime"
+      ]
+    },
+    {
+      "effectId": 452,
+      "count": 1,
+      "moveIds": [
+        753
+      ],
+      "keys": [
+        "octolock"
+      ]
+    },
+    {
+      "effectId": 454,
+      "count": 1,
+      "moveIds": [
+        756
+      ],
+      "keys": [
+        "court-change"
+      ]
+    },
+    {
+      "effectId": 455,
+      "count": 1,
+      "moveIds": [
+        758
+      ],
+      "keys": [
+        "max-flutterby"
+      ]
+    },
+    {
+      "effectId": 456,
+      "count": 1,
+      "moveIds": [
+        760
+      ],
+      "keys": [
+        "max-strike"
+      ]
+    },
+    {
+      "effectId": 457,
+      "count": 1,
+      "moveIds": [
+        761
+      ],
+      "keys": [
+        "max-knuckle"
+      ]
+    },
+    {
+      "effectId": 458,
+      "count": 1,
+      "moveIds": [
+        762
+      ],
+      "keys": [
+        "max-phantasm"
+      ]
+    },
+    {
+      "effectId": 459,
+      "count": 1,
+      "moveIds": [
+        764
+      ],
+      "keys": [
+        "max-ooze"
+      ]
+    },
+    {
+      "effectId": 460,
+      "count": 1,
+      "moveIds": [
+        766
+      ],
+      "keys": [
+        "max-airstream"
+      ]
+    },
+    {
+      "effectId": 461,
+      "count": 1,
+      "moveIds": [
+        768
+      ],
+      "keys": [
+        "max-wyrmwind"
+      ]
+    },
+    {
+      "effectId": 462,
+      "count": 1,
+      "moveIds": [
+        771
+      ],
+      "keys": [
+        "max-quake"
+      ]
+    },
+    {
+      "effectId": 463,
+      "count": 1,
+      "moveIds": [
+        772
+      ],
+      "keys": [
+        "max-darkness"
+      ]
+    },
+    {
+      "effectId": 464,
+      "count": 1,
+      "moveIds": [
+        774
+      ],
+      "keys": [
+        "max-steelspike"
+      ]
+    },
+    {
+      "effectId": 465,
+      "count": 1,
+      "moveIds": [
+        775
+      ],
+      "keys": [
+        "clangorous-soul"
+      ]
+    },
+    {
+      "effectId": 466,
+      "count": 1,
+      "moveIds": [
+        776
+      ],
+      "keys": [
+        "body-press"
+      ]
+    },
+    {
+      "effectId": 467,
+      "count": 1,
+      "moveIds": [
+        777
+      ],
+      "keys": [
+        "decorate"
+      ]
+    },
+    {
+      "effectId": 468,
+      "count": 1,
+      "moveIds": [
+        783
+      ],
+      "keys": [
+        "aura-wheel"
+      ]
+    },
+    {
+      "effectId": 469,
+      "count": 1,
+      "moveIds": [
+        787
+      ],
+      "keys": [
+        "apple-acid"
+      ]
+    },
+    {
+      "effectId": 470,
+      "count": 1,
+      "moveIds": [
+        788
+      ],
+      "keys": [
+        "grav-apple"
+      ]
+    },
+    {
+      "effectId": 471,
+      "count": 1,
+      "moveIds": [
+        791
+      ],
+      "keys": [
+        "life-dew"
+      ]
+    },
+    {
+      "effectId": 472,
+      "count": 1,
+      "moveIds": [
+        792
+      ],
+      "keys": [
+        "obstruct"
+      ]
+    },
+    {
+      "effectId": 473,
+      "count": 1,
+      "moveIds": [
+        797
+      ],
+      "keys": [
+        "expanding-force"
+      ]
+    },
+    {
+      "effectId": 474,
+      "count": 1,
+      "moveIds": [
+        798
+      ],
+      "keys": [
+        "steel-roller"
+      ]
+    },
+    {
+      "effectId": 475,
+      "count": 1,
+      "moveIds": [
+        800
+      ],
+      "keys": [
+        "meteor-beam"
+      ]
+    },
+    {
+      "effectId": 476,
+      "count": 1,
+      "moveIds": [
+        801
+      ],
+      "keys": [
+        "shell-side-arm"
+      ]
+    },
+    {
+      "effectId": 477,
+      "count": 1,
+      "moveIds": [
+        802
+      ],
+      "keys": [
+        "misty-explosion"
+      ]
+    },
+    {
+      "effectId": 478,
+      "count": 1,
+      "moveIds": [
+        803
+      ],
+      "keys": [
+        "grassy-glide"
+      ]
+    },
+    {
+      "effectId": 479,
+      "count": 1,
+      "moveIds": [
+        804
+      ],
+      "keys": [
+        "rising-voltage"
+      ]
+    },
+    {
+      "effectId": 480,
+      "count": 1,
+      "moveIds": [
+        805
+      ],
+      "keys": [
+        "terrain-pulse"
+      ]
+    },
+    {
+      "effectId": 481,
+      "count": 1,
+      "moveIds": [
+        807
+      ],
+      "keys": [
+        "burning-jealousy"
+      ]
+    },
+    {
+      "effectId": 482,
+      "count": 1,
+      "moveIds": [
+        808
+      ],
+      "keys": [
+        "lash-out"
+      ]
+    },
+    {
+      "effectId": 483,
+      "count": 1,
+      "moveIds": [
+        809
+      ],
+      "keys": [
+        "poltergeist"
+      ]
+    },
+    {
+      "effectId": 484,
+      "count": 1,
+      "moveIds": [
+        811
+      ],
+      "keys": [
+        "coaching"
+      ]
+    },
+    {
+      "effectId": 485,
+      "count": 1,
+      "moveIds": [
+        816
+      ],
+      "keys": [
+        "jungle-healing"
+      ]
+    },
+    {
+      "effectId": 486,
+      "count": 1,
+      "moveIds": [
+        818
+      ],
+      "keys": [
+        "surging-strikes"
+      ]
+    },
+    {
+      "effectId": 487,
+      "count": 1,
+      "moveIds": [
+        826
+      ],
+      "keys": [
+        "eerie-spell"
+      ]
+    },
+    {
+      "effectId": 10001,
+      "count": 1,
+      "moveIds": [
+        10001
+      ],
+      "keys": [
+        "shadow-rush"
+      ]
+    },
+    {
+      "effectId": 10002,
+      "count": 1,
+      "moveIds": [
+        10007
+      ],
+      "keys": [
+        "shadow-end"
+      ]
+    },
+    {
+      "effectId": 10003,
+      "count": 1,
+      "moveIds": [
+        10013
+      ],
+      "keys": [
+        "shadow-half"
+      ]
+    },
+    {
+      "effectId": 10004,
+      "count": 1,
+      "moveIds": [
+        10015
+      ],
+      "keys": [
+        "shadow-mist"
+      ]
+    },
+    {
+      "effectId": 10005,
+      "count": 1,
+      "moveIds": [
+        10017
+      ],
+      "keys": [
+        "shadow-shed"
+      ]
+    },
+    {
+      "effectId": 10006,
+      "count": 1,
+      "moveIds": [
+        10018
+      ],
+      "keys": [
+        "shadow-sky"
+      ]
+    }
+  ]
+}
