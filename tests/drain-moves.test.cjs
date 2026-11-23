@@ -86,6 +86,7 @@ test("zero-damage type immunity and a miss never heal, although PP is consumed",
  assert.equal(immune.user.pp,0);
  random.random=()=>0.999;
  const miss=battle(w),oldHP=miss.user.maxHp-15;
+ w.PokeBattleStatus.rank(miss.user,"accuracy",-6);
  miss.user.hp=oldHP;
  const oldTarget=miss.target.hp;
  const result=execute(w,miss,"absorb");
