@@ -9,7 +9,7 @@ const root=path.resolve(__dirname,".."),read=p=>JSON.parse(fs.readFileSync(path.
 const manifest=read("data-import/manifest.json");
 const moves=manifest.files.moves.flatMap(p=>read(p).moves).sort((a,b)=>a.id-b.id);
 const registryFiles=["simple-damage-moves.js","rank-moves.js","status-moves.js","drain-moves.js","heal-moves.js","recoil-moves.js","drain-75-moves.js","moves.js"];
-const existing=new Set(registryFiles.flatMap(f=>[...fs.readFileSync(path.join(root,"game/data",f),"utf8").matchAll(/"([a-z0-9-]+)"\s*:\s*\\{/g)].map(x=>x[1])));
+const existing=new Set(registryFiles.flatMap(f=>[...fs.readFileSync(path.join(root,"game/data",f),"utf8").matchAll(/"([a-z0-9-]+)"\s*:\s*\{/g)].map(x=>x[1])));
 const HIDDEN_EXTRA=new Set([34,503,592,780,815,700,793]);
 // Special move logic not yet expressible without dropping a condition:
 // Body Slam vs Minimize; thawing moves; Z-Move; False Surrender always-hit extra.
