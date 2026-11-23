@@ -129,6 +129,10 @@
         const amount=Math.min(u.hp,Math.max(1,Math.floor(u.maxHp/16)));
         u.hp-=amount;effects.push({unit:u,amount,kind:"sandstorm"});
       }
+      if(u.hp>0&&exp.weather?.kind==="hail"&&!types.includes("ice")){
+        const amount=Math.min(u.hp,Math.max(1,Math.floor(u.maxHp/16)));
+        u.hp-=amount;effects.push({unit:u,amount,kind:"hail"});
+      }
       if(u.hp>0&&exp.terrain?.kind==="grassy"&&grounded(u)){
         const amount=Math.min(u.maxHp-u.hp,Math.max(1,Math.floor(u.maxHp/16)));
         u.hp+=amount;if(amount)effects.push({unit:u,amount,kind:"grassy"});
