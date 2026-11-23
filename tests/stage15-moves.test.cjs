@@ -72,9 +72,9 @@ test("type immunity and current existing ordinary power still behave as before",
 
 test("full browser move registry contains the previous 297 plus stage15 11",()=>{
  const ctx={window:{}};vm.createContext(ctx);
- const files=["simple-damage-moves.js","rank-moves.js","status-moves.js","drain-moves.js","heal-moves.js","recoil-moves.js","drain-75-moves.js","bulk-moves.js","stage12-moves.js","stage13-moves.js","stage14-moves.js","stage15-moves.js","moves.js"];
+ const files=["simple-damage-moves.js","rank-moves.js","status-moves.js","drain-moves.js","heal-moves.js","recoil-moves.js","drain-75-moves.js","bulk-moves.js","stage12-moves.js","stage13-moves.js","stage14-moves.js","stage15-moves.js","stage15-supplement-moves.js","moves.js"];
  for(const file of files)vm.runInContext(load("game/data/"+file),ctx,{filename:file});
- assert.equal(Object.keys(ctx.window.POKE_MOVES).length,308);
+ assert.equal(Object.keys(ctx.window.POKE_MOVES).length,331);
  for(const key of Object.keys(moves))assert.ok(ctx.window.POKE_MOVES[key],key);
  assert.ok(ctx.window.POKE_MOVES["quick-attack"]);
  assert.ok(ctx.window.POKE_MOVES["self-destruct"]);
