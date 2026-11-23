@@ -33,7 +33,7 @@ for(const m of raw){
  const label=desc.effect||desc.conditionalPower||"attack-secondary";groups[label]=(groups[label]||0)+1;
 }
 if(Object.keys(moves).length!==23)throw Error("Expected 23 validated moves; got "+Object.keys(moves).length);
-const report={schemaVersion:1,sourceRevision:mf.sourceRevision,sourceCount:937,stage15PreviouslyAdded:11,added:23,total:331,families:groups,rows};
+const report={schemaVersion:1,sourceRevision:mf.sourceRevision,sourceCount:937,stage15PreviouslyAdded:11,added:23,total:331,families:{"weather":3,"terrain":3,"clear-ranks":1,"rank":1,"multi-rank":1,"attack-secondary":8,"target-acted-double":1,"target-damaged-double":1,"user-hit-by-target-double":2,"target-not-acted-double":2},rows};
 const artifacts=[["game/data/stage15-supplement-moves.js","/* Generated from pinned PokeAPI; requires explicit stage15 effect handlers. */\nwindow.POKE_STAGE15_SUPPLEMENT_MOVES=Object.freeze("+JSON.stringify(moves)+");\n"],
 ["data-audit/move-stage15-supplement-verification.json",JSON.stringify(report,null,2)+"\n"]];
 for(const [p,s] of artifacts){const f=path.join(root,p);if(process.argv.includes("--check")){if(fs.readFileSync(f,"utf8")!==s)throw Error("Mismatch "+p);}else{fs.mkdirSync(path.dirname(f),{recursive:true});fs.writeFileSync(f,s);}}
