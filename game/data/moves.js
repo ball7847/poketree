@@ -16,7 +16,7 @@ window.POKE_MOVES=Object.freeze({
   "rain-dance":{name:"비바라기",type:"water",category:"status",power:null,accuracy:null,priority:0,target:"field",effect:"weather",weather:"rain",duration:5,source:"champions"},
   "electric-terrain":{name:"일렉트릭필드",type:"electric",category:"status",power:null,accuracy:null,priority:0,target:"field",effect:"terrain",terrain:"electric",duration:5,source:"champions"},
   "recover":{name:"HP회복",type:"normal",category:"status",power:null,accuracy:null,priority:0,target:"self",effect:"heal",source:"champions"},
-  "bullet-seed":{name:"기관총",type:"grass",category:"physical",power:25,accuracy:100,priority:0,target:"enemy",effect:"multi",hits:[2,3,4,5],source:"champions"}
+  "bullet-seed":{name:"기관총",type:"grass",category:"physical",power:25,accuracy:100,priority:0,target:"enemy",effect:"multi",hits:[2,3,4,5],source:"champions"},
   // Player-authored PokeTree move IDs; source learnset aliases are mapped below.
   "M010101":{name:"몸통박치기",type:"normal",category:"physical",power:40,accuracy:100,priority:0,target:"enemy",effect:"damage",tags:["접촉"],source:"poketree"},
   "M010102":{name:"막치기",type:"normal",category:"physical",power:40,accuracy:100,priority:0,target:"enemy",effect:"damage",tags:["접촉"],source:"poketree"},
