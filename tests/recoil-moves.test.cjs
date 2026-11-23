@@ -28,7 +28,7 @@ test("five new recoil moves match the pinned original 937-move snapshot and tota
  const originals=new Map(manifest.files.moves.flatMap(f=>JSON.parse(read(f)).moves).map(m=>[m.key,m]));
  const {w}=boot();
  assert.equal(Object.keys(w.POKE_RECOIL_MOVES).length,5);
- assert.equal(Object.keys(w.POKE_MOVES).length,63);
+ assert.equal(Object.keys(w.POKE_MOVES).length,74);
  for(const [key,e] of Object.entries(specs)){
   const source=originals.get(key),move=w.POKE_MOVES[key];
   assert.ok(source&&move,key);
