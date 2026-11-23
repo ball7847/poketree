@@ -33,7 +33,7 @@
     }
     if(mode==="low-hp-tier"){
       const p=Math.floor(48*attacker.hp/attacker.maxHp);
-      return p<=1?200:p<=4?150:p<=9?100:p<=16?80:p<=32?40:20;
+      return p<2?200:p<4?150:p<10?100:p<16?80:p<33?40:20;
     }
     throw Error("Unsupported conditional damage effect: "+mode);
   }
