@@ -1,0 +1,4706 @@
+{
+  "schemaVersion": 1,
+  "sourceRevision": "8a92bfa7dab2f12b84b5d151562f9857c133ff30",
+  "sourceCount": 937,
+  "existingCount": 297,
+  "added": 11,
+  "total": 308,
+  "rows": [
+    {
+      "id": 1,
+      "key": "pound",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 2,
+      "key": "karate-chop",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 3,
+      "key": "double-slap",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 4,
+      "key": "comet-punch",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 5,
+      "key": "mega-punch",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 6,
+      "key": "pay-day",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 7,
+      "key": "fire-punch",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 8,
+      "key": "ice-punch",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 9,
+      "key": "thunder-punch",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 10,
+      "key": "scratch",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 11,
+      "key": "vice-grip",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 12,
+      "key": "guillotine",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 13,
+      "key": "razor-wind",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 14,
+      "key": "swords-dance",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 15,
+      "key": "cut",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 16,
+      "key": "gust",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 17,
+      "key": "wing-attack",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 18,
+      "key": "whirlwind",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 19,
+      "key": "fly",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 20,
+      "key": "bind",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 21,
+      "key": "slam",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 22,
+      "key": "vine-whip",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 23,
+      "key": "stomp",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 24,
+      "key": "double-kick",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 25,
+      "key": "mega-kick",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 26,
+      "key": "jump-kick",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 27,
+      "key": "rolling-kick",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 28,
+      "key": "sand-attack",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 29,
+      "key": "headbutt",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 30,
+      "key": "horn-attack",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 31,
+      "key": "fury-attack",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 32,
+      "key": "horn-drill",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 33,
+      "key": "tackle",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 34,
+      "key": "body-slam",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 35,
+      "key": "wrap",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 36,
+      "key": "take-down",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 37,
+      "key": "thrash",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 38,
+      "key": "double-edge",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 39,
+      "key": "tail-whip",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 40,
+      "key": "poison-sting",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 41,
+      "key": "twineedle",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 42,
+      "key": "pin-missile",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 43,
+      "key": "leer",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 44,
+      "key": "bite",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 45,
+      "key": "growl",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 46,
+      "key": "roar",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 47,
+      "key": "sing",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 48,
+      "key": "supersonic",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 49,
+      "key": "sonic-boom",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 50,
+      "key": "disable",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 51,
+      "key": "acid",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 52,
+      "key": "ember",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 53,
+      "key": "flamethrower",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 54,
+      "key": "mist",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 55,
+      "key": "water-gun",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 56,
+      "key": "hydro-pump",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 57,
+      "key": "surf",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 58,
+      "key": "ice-beam",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 59,
+      "key": "blizzard",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 60,
+      "key": "psybeam",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 61,
+      "key": "bubble-beam",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 62,
+      "key": "aurora-beam",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 63,
+      "key": "hyper-beam",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 64,
+      "key": "peck",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 65,
+      "key": "drill-peck",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 66,
+      "key": "submission",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 67,
+      "key": "low-kick",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 68,
+      "key": "counter",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 69,
+      "key": "seismic-toss",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 70,
+      "key": "strength",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 71,
+      "key": "absorb",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 72,
+      "key": "mega-drain",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 73,
+      "key": "leech-seed",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 74,
+      "key": "growth",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 75,
+      "key": "razor-leaf",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 76,
+      "key": "solar-beam",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 77,
+      "key": "poison-powder",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 78,
+      "key": "stun-spore",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 79,
+      "key": "sleep-powder",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 80,
+      "key": "petal-dance",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 81,
+      "key": "string-shot",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 82,
+      "key": "dragon-rage",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 83,
+      "key": "fire-spin",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 84,
+      "key": "thunder-shock",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 85,
+      "key": "thunderbolt",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 86,
+      "key": "thunder-wave",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 87,
+      "key": "thunder",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 88,
+      "key": "rock-throw",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 89,
+      "key": "earthquake",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 90,
+      "key": "fissure",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 91,
+      "key": "dig",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 92,
+      "key": "toxic",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 93,
+      "key": "confusion",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 94,
+      "key": "psychic",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 95,
+      "key": "hypnosis",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 96,
+      "key": "meditate",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 97,
+      "key": "agility",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 98,
+      "key": "quick-attack",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 99,
+      "key": "rage",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 100,
+      "key": "teleport",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 101,
+      "key": "night-shade",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 102,
+      "key": "mimic",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 103,
+      "key": "screech",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 104,
+      "key": "double-team",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 105,
+      "key": "recover",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 106,
+      "key": "harden",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 107,
+      "key": "minimize",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 108,
+      "key": "smokescreen",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 109,
+      "key": "confuse-ray",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 110,
+      "key": "withdraw",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 111,
+      "key": "defense-curl",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 112,
+      "key": "barrier",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 113,
+      "key": "light-screen",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 114,
+      "key": "haze",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 115,
+      "key": "reflect",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 116,
+      "key": "focus-energy",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 117,
+      "key": "bide",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 118,
+      "key": "metronome",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 119,
+      "key": "mirror-move",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 120,
+      "key": "self-destruct",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 121,
+      "key": "egg-bomb",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 122,
+      "key": "lick",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 123,
+      "key": "smog",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 124,
+      "key": "sludge",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 125,
+      "key": "bone-club",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 126,
+      "key": "fire-blast",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 127,
+      "key": "waterfall",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 128,
+      "key": "clamp",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 129,
+      "key": "swift",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 130,
+      "key": "skull-bash",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 131,
+      "key": "spike-cannon",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 132,
+      "key": "constrict",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 133,
+      "key": "amnesia",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 134,
+      "key": "kinesis",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 135,
+      "key": "soft-boiled",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 136,
+      "key": "high-jump-kick",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 137,
+      "key": "glare",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 138,
+      "key": "dream-eater",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 139,
+      "key": "poison-gas",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 140,
+      "key": "barrage",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 141,
+      "key": "leech-life",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 142,
+      "key": "lovely-kiss",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 143,
+      "key": "sky-attack",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 144,
+      "key": "transform",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 145,
+      "key": "bubble",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 146,
+      "key": "dizzy-punch",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 147,
+      "key": "spore",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 148,
+      "key": "flash",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 149,
+      "key": "psywave",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 150,
+      "key": "splash",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 151,
+      "key": "acid-armor",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 152,
+      "key": "crabhammer",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 153,
+      "key": "explosion",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 154,
+      "key": "fury-swipes",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 155,
+      "key": "bonemerang",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 156,
+      "key": "rest",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 157,
+      "key": "rock-slide",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 158,
+      "key": "hyper-fang",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 159,
+      "key": "sharpen",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 160,
+      "key": "conversion",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 161,
+      "key": "tri-attack",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 162,
+      "key": "super-fang",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 163,
+      "key": "slash",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 164,
+      "key": "substitute",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 165,
+      "key": "struggle",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 166,
+      "key": "sketch",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 167,
+      "key": "triple-kick",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 168,
+      "key": "thief",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 169,
+      "key": "spider-web",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 170,
+      "key": "mind-reader",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 171,
+      "key": "nightmare",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 172,
+      "key": "flame-wheel",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 173,
+      "key": "snore",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 174,
+      "key": "curse",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 175,
+      "key": "flail",
+      "state": "verified",
+      "family": "low-hp-tier"
+    },
+    {
+      "id": 176,
+      "key": "conversion-2",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 177,
+      "key": "aeroblast",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 178,
+      "key": "cotton-spore",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 179,
+      "key": "reversal",
+      "state": "verified",
+      "family": "low-hp-tier"
+    },
+    {
+      "id": 180,
+      "key": "spite",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 181,
+      "key": "powder-snow",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 182,
+      "key": "protect",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 183,
+      "key": "mach-punch",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 184,
+      "key": "scary-face",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 185,
+      "key": "feint-attack",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 186,
+      "key": "sweet-kiss",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 187,
+      "key": "belly-drum",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 188,
+      "key": "sludge-bomb",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 189,
+      "key": "mud-slap",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 190,
+      "key": "octazooka",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 191,
+      "key": "spikes",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 192,
+      "key": "zap-cannon",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 193,
+      "key": "foresight",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 194,
+      "key": "destiny-bond",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 195,
+      "key": "perish-song",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 196,
+      "key": "icy-wind",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 197,
+      "key": "detect",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 198,
+      "key": "bone-rush",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 199,
+      "key": "lock-on",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 200,
+      "key": "outrage",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 201,
+      "key": "sandstorm",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 202,
+      "key": "giga-drain",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 203,
+      "key": "endure",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 204,
+      "key": "charm",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 205,
+      "key": "rollout",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 206,
+      "key": "false-swipe",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 207,
+      "key": "swagger",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 208,
+      "key": "milk-drink",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 209,
+      "key": "spark",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 210,
+      "key": "fury-cutter",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 211,
+      "key": "steel-wing",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 212,
+      "key": "mean-look",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 213,
+      "key": "attract",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 214,
+      "key": "sleep-talk",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 215,
+      "key": "heal-bell",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 216,
+      "key": "return",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 217,
+      "key": "present",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 218,
+      "key": "frustration",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 219,
+      "key": "safeguard",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 220,
+      "key": "pain-split",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 221,
+      "key": "sacred-fire",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 222,
+      "key": "magnitude",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 223,
+      "key": "dynamic-punch",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 224,
+      "key": "megahorn",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 225,
+      "key": "dragon-breath",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 226,
+      "key": "baton-pass",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 227,
+      "key": "encore",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 228,
+      "key": "pursuit",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 229,
+      "key": "rapid-spin",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 230,
+      "key": "sweet-scent",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 231,
+      "key": "iron-tail",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 232,
+      "key": "metal-claw",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 233,
+      "key": "vital-throw",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 234,
+      "key": "morning-sun",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 235,
+      "key": "synthesis",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 236,
+      "key": "moonlight",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 237,
+      "key": "hidden-power",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 238,
+      "key": "cross-chop",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 239,
+      "key": "twister",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 240,
+      "key": "rain-dance",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 241,
+      "key": "sunny-day",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 242,
+      "key": "crunch",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 243,
+      "key": "mirror-coat",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 244,
+      "key": "psych-up",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 245,
+      "key": "extreme-speed",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 246,
+      "key": "ancient-power",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 247,
+      "key": "shadow-ball",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 248,
+      "key": "future-sight",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 249,
+      "key": "rock-smash",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 250,
+      "key": "whirlpool",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 251,
+      "key": "beat-up",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 252,
+      "key": "fake-out",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 253,
+      "key": "uproar",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 254,
+      "key": "stockpile",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 255,
+      "key": "spit-up",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 256,
+      "key": "swallow",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 257,
+      "key": "heat-wave",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 258,
+      "key": "hail",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 259,
+      "key": "torment",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 260,
+      "key": "flatter",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 261,
+      "key": "will-o-wisp",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 262,
+      "key": "memento",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 263,
+      "key": "facade",
+      "state": "verified",
+      "family": "status-double"
+    },
+    {
+      "id": 264,
+      "key": "focus-punch",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 265,
+      "key": "smelling-salts",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 266,
+      "key": "follow-me",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 267,
+      "key": "nature-power",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 268,
+      "key": "charge",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 269,
+      "key": "taunt",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 270,
+      "key": "helping-hand",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 271,
+      "key": "trick",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 272,
+      "key": "role-play",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 273,
+      "key": "wish",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 274,
+      "key": "assist",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 275,
+      "key": "ingrain",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 276,
+      "key": "superpower",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 277,
+      "key": "magic-coat",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 278,
+      "key": "recycle",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 279,
+      "key": "revenge",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 280,
+      "key": "brick-break",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 281,
+      "key": "yawn",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 282,
+      "key": "knock-off",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 283,
+      "key": "endeavor",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 284,
+      "key": "eruption",
+      "state": "verified",
+      "family": "user-hp-scale"
+    },
+    {
+      "id": 285,
+      "key": "skill-swap",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 286,
+      "key": "imprison",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 287,
+      "key": "refresh",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 288,
+      "key": "grudge",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 289,
+      "key": "snatch",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 290,
+      "key": "secret-power",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 291,
+      "key": "dive",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 292,
+      "key": "arm-thrust",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 293,
+      "key": "camouflage",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 294,
+      "key": "tail-glow",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 295,
+      "key": "luster-purge",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 296,
+      "key": "mist-ball",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 297,
+      "key": "feather-dance",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 298,
+      "key": "teeter-dance",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 299,
+      "key": "blaze-kick",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 300,
+      "key": "mud-sport",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 301,
+      "key": "ice-ball",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 302,
+      "key": "needle-arm",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 303,
+      "key": "slack-off",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 304,
+      "key": "hyper-voice",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 305,
+      "key": "poison-fang",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 306,
+      "key": "crush-claw",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 307,
+      "key": "blast-burn",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 308,
+      "key": "hydro-cannon",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 309,
+      "key": "meteor-mash",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 310,
+      "key": "astonish",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 311,
+      "key": "weather-ball",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 312,
+      "key": "aromatherapy",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 313,
+      "key": "fake-tears",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 314,
+      "key": "air-cutter",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 315,
+      "key": "overheat",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 316,
+      "key": "odor-sleuth",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 317,
+      "key": "rock-tomb",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 318,
+      "key": "silver-wind",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 319,
+      "key": "metal-sound",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 320,
+      "key": "grass-whistle",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 321,
+      "key": "tickle",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 322,
+      "key": "cosmic-power",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 323,
+      "key": "water-spout",
+      "state": "verified",
+      "family": "user-hp-scale"
+    },
+    {
+      "id": 324,
+      "key": "signal-beam",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 325,
+      "key": "shadow-punch",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 326,
+      "key": "extrasensory",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 327,
+      "key": "sky-uppercut",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 328,
+      "key": "sand-tomb",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 329,
+      "key": "sheer-cold",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 330,
+      "key": "muddy-water",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 331,
+      "key": "bullet-seed",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 332,
+      "key": "aerial-ace",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 333,
+      "key": "icicle-spear",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 334,
+      "key": "iron-defense",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 335,
+      "key": "block",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 336,
+      "key": "howl",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 337,
+      "key": "dragon-claw",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 338,
+      "key": "frenzy-plant",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 339,
+      "key": "bulk-up",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 340,
+      "key": "bounce",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 341,
+      "key": "mud-shot",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 342,
+      "key": "poison-tail",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 343,
+      "key": "covet",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 344,
+      "key": "volt-tackle",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 345,
+      "key": "magical-leaf",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 346,
+      "key": "water-sport",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 347,
+      "key": "calm-mind",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 348,
+      "key": "leaf-blade",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 349,
+      "key": "dragon-dance",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 350,
+      "key": "rock-blast",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 351,
+      "key": "shock-wave",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 352,
+      "key": "water-pulse",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 353,
+      "key": "doom-desire",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 354,
+      "key": "psycho-boost",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 355,
+      "key": "roost",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 356,
+      "key": "gravity",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 357,
+      "key": "miracle-eye",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 358,
+      "key": "wake-up-slap",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 359,
+      "key": "hammer-arm",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 360,
+      "key": "gyro-ball",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 361,
+      "key": "healing-wish",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 362,
+      "key": "brine",
+      "state": "verified",
+      "family": "target-half-hp-double"
+    },
+    {
+      "id": 363,
+      "key": "natural-gift",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 364,
+      "key": "feint",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 365,
+      "key": "pluck",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 366,
+      "key": "tailwind",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 367,
+      "key": "acupressure",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 368,
+      "key": "metal-burst",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 369,
+      "key": "u-turn",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 370,
+      "key": "close-combat",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 371,
+      "key": "payback",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 372,
+      "key": "assurance",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 373,
+      "key": "embargo",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 374,
+      "key": "fling",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 375,
+      "key": "psycho-shift",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 376,
+      "key": "trump-card",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 377,
+      "key": "heal-block",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 378,
+      "key": "wring-out",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 379,
+      "key": "power-trick",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 380,
+      "key": "gastro-acid",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 381,
+      "key": "lucky-chant",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 382,
+      "key": "me-first",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 383,
+      "key": "copycat",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 384,
+      "key": "power-swap",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 385,
+      "key": "guard-swap",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 386,
+      "key": "punishment",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 387,
+      "key": "last-resort",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 388,
+      "key": "worry-seed",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 389,
+      "key": "sucker-punch",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 390,
+      "key": "toxic-spikes",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 391,
+      "key": "heart-swap",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 392,
+      "key": "aqua-ring",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 393,
+      "key": "magnet-rise",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 394,
+      "key": "flare-blitz",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 395,
+      "key": "force-palm",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 396,
+      "key": "aura-sphere",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 397,
+      "key": "rock-polish",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 398,
+      "key": "poison-jab",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 399,
+      "key": "dark-pulse",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 400,
+      "key": "night-slash",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 401,
+      "key": "aqua-tail",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 402,
+      "key": "seed-bomb",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 403,
+      "key": "air-slash",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 404,
+      "key": "x-scissor",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 405,
+      "key": "bug-buzz",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 406,
+      "key": "dragon-pulse",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 407,
+      "key": "dragon-rush",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 408,
+      "key": "power-gem",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 409,
+      "key": "drain-punch",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 410,
+      "key": "vacuum-wave",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 411,
+      "key": "focus-blast",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 412,
+      "key": "energy-ball",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 413,
+      "key": "brave-bird",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 414,
+      "key": "earth-power",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 415,
+      "key": "switcheroo",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 416,
+      "key": "giga-impact",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 417,
+      "key": "nasty-plot",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 418,
+      "key": "bullet-punch",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 419,
+      "key": "avalanche",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 420,
+      "key": "ice-shard",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 421,
+      "key": "shadow-claw",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 422,
+      "key": "thunder-fang",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 423,
+      "key": "ice-fang",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 424,
+      "key": "fire-fang",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 425,
+      "key": "shadow-sneak",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 426,
+      "key": "mud-bomb",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 427,
+      "key": "psycho-cut",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 428,
+      "key": "zen-headbutt",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 429,
+      "key": "mirror-shot",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 430,
+      "key": "flash-cannon",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 431,
+      "key": "rock-climb",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 432,
+      "key": "defog",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 433,
+      "key": "trick-room",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 434,
+      "key": "draco-meteor",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 435,
+      "key": "discharge",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 436,
+      "key": "lava-plume",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 437,
+      "key": "leaf-storm",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 438,
+      "key": "power-whip",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 439,
+      "key": "rock-wrecker",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 440,
+      "key": "cross-poison",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 441,
+      "key": "gunk-shot",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 442,
+      "key": "iron-head",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 443,
+      "key": "magnet-bomb",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 444,
+      "key": "stone-edge",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 445,
+      "key": "captivate",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 446,
+      "key": "stealth-rock",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 447,
+      "key": "grass-knot",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 448,
+      "key": "chatter",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 449,
+      "key": "judgment",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 450,
+      "key": "bug-bite",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 451,
+      "key": "charge-beam",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 452,
+      "key": "wood-hammer",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 453,
+      "key": "aqua-jet",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 454,
+      "key": "attack-order",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 455,
+      "key": "defend-order",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 456,
+      "key": "heal-order",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 457,
+      "key": "head-smash",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 458,
+      "key": "double-hit",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 459,
+      "key": "roar-of-time",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 460,
+      "key": "spacial-rend",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 461,
+      "key": "lunar-dance",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 462,
+      "key": "crush-grip",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 463,
+      "key": "magma-storm",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 464,
+      "key": "dark-void",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 465,
+      "key": "seed-flare",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 466,
+      "key": "ominous-wind",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 467,
+      "key": "shadow-force",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 468,
+      "key": "hone-claws",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 469,
+      "key": "wide-guard",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 470,
+      "key": "guard-split",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 471,
+      "key": "power-split",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 472,
+      "key": "wonder-room",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 473,
+      "key": "psyshock",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 474,
+      "key": "venoshock",
+      "state": "verified",
+      "family": "target-poison-double"
+    },
+    {
+      "id": 475,
+      "key": "autotomize",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 476,
+      "key": "rage-powder",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 477,
+      "key": "telekinesis",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 478,
+      "key": "magic-room",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 479,
+      "key": "smack-down",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 480,
+      "key": "storm-throw",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 481,
+      "key": "flame-burst",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 482,
+      "key": "sludge-wave",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 483,
+      "key": "quiver-dance",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 484,
+      "key": "heavy-slam",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 485,
+      "key": "synchronoise",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 486,
+      "key": "electro-ball",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 487,
+      "key": "soak",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 488,
+      "key": "flame-charge",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 489,
+      "key": "coil",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 490,
+      "key": "low-sweep",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 491,
+      "key": "acid-spray",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 492,
+      "key": "foul-play",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 493,
+      "key": "simple-beam",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 494,
+      "key": "entrainment",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 495,
+      "key": "after-you",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 496,
+      "key": "round",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 497,
+      "key": "echoed-voice",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 498,
+      "key": "chip-away",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 499,
+      "key": "clear-smog",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 500,
+      "key": "stored-power",
+      "state": "verified",
+      "family": "positive-ranks"
+    },
+    {
+      "id": 501,
+      "key": "quick-guard",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 502,
+      "key": "ally-switch",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 503,
+      "key": "scald",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 504,
+      "key": "shell-smash",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 505,
+      "key": "heal-pulse",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 506,
+      "key": "hex",
+      "state": "verified",
+      "family": "target-status-double"
+    },
+    {
+      "id": 507,
+      "key": "sky-drop",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 508,
+      "key": "shift-gear",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 509,
+      "key": "circle-throw",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 510,
+      "key": "incinerate",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 511,
+      "key": "quash",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 512,
+      "key": "acrobatics",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 513,
+      "key": "reflect-type",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 514,
+      "key": "retaliate",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 515,
+      "key": "final-gambit",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 516,
+      "key": "bestow",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 517,
+      "key": "inferno",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 518,
+      "key": "water-pledge",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 519,
+      "key": "fire-pledge",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 520,
+      "key": "grass-pledge",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 521,
+      "key": "volt-switch",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 522,
+      "key": "struggle-bug",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 523,
+      "key": "bulldoze",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 524,
+      "key": "frost-breath",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 525,
+      "key": "dragon-tail",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 526,
+      "key": "work-up",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 527,
+      "key": "electroweb",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 528,
+      "key": "wild-charge",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 529,
+      "key": "drill-run",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 530,
+      "key": "dual-chop",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 531,
+      "key": "heart-stamp",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 532,
+      "key": "horn-leech",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 533,
+      "key": "sacred-sword",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 534,
+      "key": "razor-shell",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 535,
+      "key": "heat-crash",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 536,
+      "key": "leaf-tornado",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 537,
+      "key": "steamroller",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 538,
+      "key": "cotton-guard",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 539,
+      "key": "night-daze",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 540,
+      "key": "psystrike",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 541,
+      "key": "tail-slap",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 542,
+      "key": "hurricane",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 543,
+      "key": "head-charge",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 544,
+      "key": "gear-grind",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 545,
+      "key": "searing-shot",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 546,
+      "key": "techno-blast",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 547,
+      "key": "relic-song",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 548,
+      "key": "secret-sword",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 549,
+      "key": "glaciate",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 550,
+      "key": "bolt-strike",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 551,
+      "key": "blue-flare",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 552,
+      "key": "fiery-dance",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 553,
+      "key": "freeze-shock",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 554,
+      "key": "ice-burn",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 555,
+      "key": "snarl",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 556,
+      "key": "icicle-crash",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 557,
+      "key": "v-create",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 558,
+      "key": "fusion-flare",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 559,
+      "key": "fusion-bolt",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 560,
+      "key": "flying-press",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 561,
+      "key": "mat-block",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 562,
+      "key": "belch",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 563,
+      "key": "rototiller",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 564,
+      "key": "sticky-web",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 565,
+      "key": "fell-stinger",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 566,
+      "key": "phantom-force",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 567,
+      "key": "trick-or-treat",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 568,
+      "key": "noble-roar",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 569,
+      "key": "ion-deluge",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 570,
+      "key": "parabolic-charge",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 571,
+      "key": "forests-curse",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 572,
+      "key": "petal-blizzard",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 573,
+      "key": "freeze-dry",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 574,
+      "key": "disarming-voice",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 575,
+      "key": "parting-shot",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 576,
+      "key": "topsy-turvy",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 577,
+      "key": "draining-kiss",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 578,
+      "key": "crafty-shield",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 579,
+      "key": "flower-shield",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 580,
+      "key": "grassy-terrain",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 581,
+      "key": "misty-terrain",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 582,
+      "key": "electrify",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 583,
+      "key": "play-rough",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 584,
+      "key": "fairy-wind",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 585,
+      "key": "moonblast",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 586,
+      "key": "boomburst",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 587,
+      "key": "fairy-lock",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 588,
+      "key": "kings-shield",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 589,
+      "key": "play-nice",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 590,
+      "key": "confide",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 591,
+      "key": "diamond-storm",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 592,
+      "key": "steam-eruption",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 593,
+      "key": "hyperspace-hole",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 594,
+      "key": "water-shuriken",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 595,
+      "key": "mystical-fire",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 596,
+      "key": "spiky-shield",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 597,
+      "key": "aromatic-mist",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 598,
+      "key": "eerie-impulse",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 599,
+      "key": "venom-drench",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 600,
+      "key": "powder",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 601,
+      "key": "geomancy",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 602,
+      "key": "magnetic-flux",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 603,
+      "key": "happy-hour",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 604,
+      "key": "electric-terrain",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 605,
+      "key": "dazzling-gleam",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 606,
+      "key": "celebrate",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 607,
+      "key": "hold-hands",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 608,
+      "key": "baby-doll-eyes",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 609,
+      "key": "nuzzle",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 610,
+      "key": "hold-back",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 611,
+      "key": "infestation",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 612,
+      "key": "power-up-punch",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 613,
+      "key": "oblivion-wing",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 614,
+      "key": "thousand-arrows",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 615,
+      "key": "thousand-waves",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 616,
+      "key": "lands-wrath",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 617,
+      "key": "light-of-ruin",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 618,
+      "key": "origin-pulse",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 619,
+      "key": "precipice-blades",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 620,
+      "key": "dragon-ascent",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 621,
+      "key": "hyperspace-fury",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 622,
+      "key": "breakneck-blitz--physical",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 623,
+      "key": "breakneck-blitz--special",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 624,
+      "key": "all-out-pummeling--physical",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 625,
+      "key": "all-out-pummeling--special",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 626,
+      "key": "supersonic-skystrike--physical",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 627,
+      "key": "supersonic-skystrike--special",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 628,
+      "key": "acid-downpour--physical",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 629,
+      "key": "acid-downpour--special",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 630,
+      "key": "tectonic-rage--physical",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 631,
+      "key": "tectonic-rage--special",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 632,
+      "key": "continental-crush--physical",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 633,
+      "key": "continental-crush--special",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 634,
+      "key": "savage-spin-out--physical",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 635,
+      "key": "savage-spin-out--special",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 636,
+      "key": "never-ending-nightmare--physical",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 637,
+      "key": "never-ending-nightmare--special",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 638,
+      "key": "corkscrew-crash--physical",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 639,
+      "key": "corkscrew-crash--special",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 640,
+      "key": "inferno-overdrive--physical",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 641,
+      "key": "inferno-overdrive--special",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 642,
+      "key": "hydro-vortex--physical",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 643,
+      "key": "hydro-vortex--special",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 644,
+      "key": "bloom-doom--physical",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 645,
+      "key": "bloom-doom--special",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 646,
+      "key": "gigavolt-havoc--physical",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 647,
+      "key": "gigavolt-havoc--special",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 648,
+      "key": "shattered-psyche--physical",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 649,
+      "key": "shattered-psyche--special",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 650,
+      "key": "subzero-slammer--physical",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 651,
+      "key": "subzero-slammer--special",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 652,
+      "key": "devastating-drake--physical",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 653,
+      "key": "devastating-drake--special",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 654,
+      "key": "black-hole-eclipse--physical",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 655,
+      "key": "black-hole-eclipse--special",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 656,
+      "key": "twinkle-tackle--physical",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 657,
+      "key": "twinkle-tackle--special",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 658,
+      "key": "catastropika",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 659,
+      "key": "shore-up",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 660,
+      "key": "first-impression",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 661,
+      "key": "baneful-bunker",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 662,
+      "key": "spirit-shackle",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 663,
+      "key": "darkest-lariat",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 664,
+      "key": "sparkling-aria",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 665,
+      "key": "ice-hammer",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 666,
+      "key": "floral-healing",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 667,
+      "key": "high-horsepower",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 668,
+      "key": "strength-sap",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 669,
+      "key": "solar-blade",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 670,
+      "key": "leafage",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 671,
+      "key": "spotlight",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 672,
+      "key": "toxic-thread",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 673,
+      "key": "laser-focus",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 674,
+      "key": "gear-up",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 675,
+      "key": "throat-chop",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 676,
+      "key": "pollen-puff",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 677,
+      "key": "anchor-shot",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 678,
+      "key": "psychic-terrain",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 679,
+      "key": "lunge",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 680,
+      "key": "fire-lash",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 681,
+      "key": "power-trip",
+      "state": "verified",
+      "family": "positive-ranks"
+    },
+    {
+      "id": 682,
+      "key": "burn-up",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 683,
+      "key": "speed-swap",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 684,
+      "key": "smart-strike",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 685,
+      "key": "purify",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 686,
+      "key": "revelation-dance",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 687,
+      "key": "core-enforcer",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 688,
+      "key": "trop-kick",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 689,
+      "key": "instruct",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 690,
+      "key": "beak-blast",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 691,
+      "key": "clanging-scales",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 692,
+      "key": "dragon-hammer",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 693,
+      "key": "brutal-swing",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 694,
+      "key": "aurora-veil",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 695,
+      "key": "sinister-arrow-raid",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 696,
+      "key": "malicious-moonsault",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 697,
+      "key": "oceanic-operetta",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 698,
+      "key": "guardian-of-alola",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 699,
+      "key": "soul-stealing-7-star-strike",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 700,
+      "key": "stoked-sparksurfer",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 701,
+      "key": "pulverizing-pancake",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 702,
+      "key": "extreme-evoboost",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 703,
+      "key": "genesis-supernova",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 704,
+      "key": "shell-trap",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 705,
+      "key": "fleur-cannon",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 706,
+      "key": "psychic-fangs",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 707,
+      "key": "stomping-tantrum",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 708,
+      "key": "shadow-bone",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 709,
+      "key": "accelerock",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 710,
+      "key": "liquidation",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 711,
+      "key": "prismatic-laser",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 712,
+      "key": "spectral-thief",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 713,
+      "key": "sunsteel-strike",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 714,
+      "key": "moongeist-beam",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 715,
+      "key": "tearful-look",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 716,
+      "key": "zing-zap",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 717,
+      "key": "natures-madness",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 718,
+      "key": "multi-attack",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 719,
+      "key": "10-000-000-volt-thunderbolt",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 720,
+      "key": "mind-blown",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 721,
+      "key": "plasma-fists",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 722,
+      "key": "photon-geyser",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 723,
+      "key": "light-that-burns-the-sky",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 724,
+      "key": "searing-sunraze-smash",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 725,
+      "key": "menacing-moonraze-maelstrom",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 726,
+      "key": "lets-snuggle-forever",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 727,
+      "key": "splintered-stormshards",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 728,
+      "key": "clangorous-soulblaze",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 729,
+      "key": "zippy-zap",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 730,
+      "key": "splishy-splash",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 731,
+      "key": "floaty-fall",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 732,
+      "key": "pika-papow",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 733,
+      "key": "bouncy-bubble",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 734,
+      "key": "buzzy-buzz",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 735,
+      "key": "sizzly-slide",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 736,
+      "key": "glitzy-glow",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 737,
+      "key": "baddy-bad",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 738,
+      "key": "sappy-seed",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 739,
+      "key": "freezy-frost",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 740,
+      "key": "sparkly-swirl",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 741,
+      "key": "veevee-volley",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 742,
+      "key": "double-iron-bash",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 743,
+      "key": "max-guard",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 744,
+      "key": "dynamax-cannon",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 745,
+      "key": "snipe-shot",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 746,
+      "key": "jaw-lock",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 747,
+      "key": "stuff-cheeks",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 748,
+      "key": "no-retreat",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 749,
+      "key": "tar-shot",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 750,
+      "key": "magic-powder",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 751,
+      "key": "dragon-darts",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 752,
+      "key": "teatime",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 753,
+      "key": "octolock",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 754,
+      "key": "bolt-beak",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 755,
+      "key": "fishious-rend",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 756,
+      "key": "court-change",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 757,
+      "key": "max-flare",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 758,
+      "key": "max-flutterby",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 759,
+      "key": "max-lightning",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 760,
+      "key": "max-strike",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 761,
+      "key": "max-knuckle",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 762,
+      "key": "max-phantasm",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 763,
+      "key": "max-hailstorm",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 764,
+      "key": "max-ooze",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 765,
+      "key": "max-geyser",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 766,
+      "key": "max-airstream",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 767,
+      "key": "max-starfall",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 768,
+      "key": "max-wyrmwind",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 769,
+      "key": "max-mindstorm",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 770,
+      "key": "max-rockfall",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 771,
+      "key": "max-quake",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 772,
+      "key": "max-darkness",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 773,
+      "key": "max-overgrowth",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 774,
+      "key": "max-steelspike",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 775,
+      "key": "clangorous-soul",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 776,
+      "key": "body-press",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 777,
+      "key": "decorate",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 778,
+      "key": "drum-beating",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 779,
+      "key": "snap-trap",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 780,
+      "key": "pyro-ball",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 781,
+      "key": "behemoth-blade",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 782,
+      "key": "behemoth-bash",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 783,
+      "key": "aura-wheel",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 784,
+      "key": "breaking-swipe",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 785,
+      "key": "branch-poke",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 786,
+      "key": "overdrive",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 787,
+      "key": "apple-acid",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 788,
+      "key": "grav-apple",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 789,
+      "key": "spirit-break",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 790,
+      "key": "strange-steam",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 791,
+      "key": "life-dew",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 792,
+      "key": "obstruct",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 793,
+      "key": "false-surrender",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 794,
+      "key": "meteor-assault",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 795,
+      "key": "eternabeam",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 796,
+      "key": "steel-beam",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 797,
+      "key": "expanding-force",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 798,
+      "key": "steel-roller",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 799,
+      "key": "scale-shot",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 800,
+      "key": "meteor-beam",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 801,
+      "key": "shell-side-arm",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 802,
+      "key": "misty-explosion",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 803,
+      "key": "grassy-glide",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 804,
+      "key": "rising-voltage",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 805,
+      "key": "terrain-pulse",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 806,
+      "key": "skitter-smack",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 807,
+      "key": "burning-jealousy",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 808,
+      "key": "lash-out",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 809,
+      "key": "poltergeist",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 810,
+      "key": "corrosive-gas",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 811,
+      "key": "coaching",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 812,
+      "key": "flip-turn",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 813,
+      "key": "triple-axel",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 814,
+      "key": "dual-wingbeat",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 815,
+      "key": "scorching-sands",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 816,
+      "key": "jungle-healing",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 817,
+      "key": "wicked-blow",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 818,
+      "key": "surging-strikes",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 819,
+      "key": "thunder-cage",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 820,
+      "key": "dragon-energy",
+      "state": "verified",
+      "family": "user-hp-scale"
+    },
+    {
+      "id": 821,
+      "key": "freezing-glare",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 822,
+      "key": "fiery-wrath",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 823,
+      "key": "thunderous-kick",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 824,
+      "key": "glacial-lance",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 825,
+      "key": "astral-barrage",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 826,
+      "key": "eerie-spell",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 827,
+      "key": "dire-claw",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 828,
+      "key": "psyshield-bash",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 829,
+      "key": "power-shift",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 830,
+      "key": "stone-axe",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 831,
+      "key": "springtide-storm",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 832,
+      "key": "mystical-power",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 833,
+      "key": "raging-fury",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 834,
+      "key": "wave-crash",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 835,
+      "key": "chloroblast",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 836,
+      "key": "mountain-gale",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 837,
+      "key": "victory-dance",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 838,
+      "key": "headlong-rush",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 839,
+      "key": "barb-barrage",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 840,
+      "key": "esper-wing",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 841,
+      "key": "bitter-malice",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 842,
+      "key": "shelter",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 843,
+      "key": "triple-arrows",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 844,
+      "key": "infernal-parade",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 845,
+      "key": "ceaseless-edge",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 846,
+      "key": "bleakwind-storm",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 847,
+      "key": "wildbolt-storm",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 848,
+      "key": "sandsear-storm",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 849,
+      "key": "lunar-blessing",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 850,
+      "key": "take-heart",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 851,
+      "key": "tera-blast",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 852,
+      "key": "silk-trap",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 853,
+      "key": "axe-kick",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 854,
+      "key": "last-respects",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 855,
+      "key": "lumina-crash",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 856,
+      "key": "order-up",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 857,
+      "key": "jet-punch",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 858,
+      "key": "spicy-extract",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 859,
+      "key": "spin-out",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 860,
+      "key": "population-bomb",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 861,
+      "key": "ice-spinner",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 862,
+      "key": "glaive-rush",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 863,
+      "key": "revival-blessing",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 864,
+      "key": "salt-cure",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 865,
+      "key": "triple-dive",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 866,
+      "key": "mortal-spin",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 867,
+      "key": "doodle",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 868,
+      "key": "fillet-away",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 869,
+      "key": "kowtow-cleave",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 870,
+      "key": "flower-trick",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 871,
+      "key": "torch-song",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 872,
+      "key": "aqua-step",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 873,
+      "key": "raging-bull",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 874,
+      "key": "make-it-rain",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 875,
+      "key": "psyblade",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 876,
+      "key": "hydro-steam",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 877,
+      "key": "ruination",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 878,
+      "key": "collision-course",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 879,
+      "key": "electro-drift",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 880,
+      "key": "shed-tail",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 881,
+      "key": "chilly-reception",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 882,
+      "key": "tidy-up",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 883,
+      "key": "snowscape",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 884,
+      "key": "pounce",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 885,
+      "key": "trailblaze",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 886,
+      "key": "chilling-water",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 887,
+      "key": "hyper-drill",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 888,
+      "key": "twin-beam",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 889,
+      "key": "rage-fist",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 890,
+      "key": "armor-cannon",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 891,
+      "key": "bitter-blade",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 892,
+      "key": "double-shock",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 893,
+      "key": "gigaton-hammer",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 894,
+      "key": "comeuppance",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 895,
+      "key": "aqua-cutter",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 896,
+      "key": "blazing-torque",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 897,
+      "key": "wicked-torque",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 898,
+      "key": "noxious-torque",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 899,
+      "key": "combat-torque",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 900,
+      "key": "magical-torque",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 901,
+      "key": "blood-moon",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 902,
+      "key": "matcha-gotcha",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 903,
+      "key": "syrup-bomb",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 904,
+      "key": "ivy-cudgel",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 905,
+      "key": "electro-shot",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 906,
+      "key": "tera-starstorm",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 907,
+      "key": "fickle-beam",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 908,
+      "key": "burning-bulwark",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 909,
+      "key": "thunderclap",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 910,
+      "key": "mighty-cleave",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 911,
+      "key": "tachyon-cutter",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 912,
+      "key": "hard-press",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 913,
+      "key": "dragon-cheer",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 914,
+      "key": "alluring-voice",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 915,
+      "key": "temper-flare",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 916,
+      "key": "supercell-slam",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 917,
+      "key": "psychic-noise",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 918,
+      "key": "upper-hand",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 919,
+      "key": "malignant-chain",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 10001,
+      "key": "shadow-rush",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 10002,
+      "key": "shadow-blast",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 10003,
+      "key": "shadow-blitz",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 10004,
+      "key": "shadow-bolt",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 10005,
+      "key": "shadow-break",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 10006,
+      "key": "shadow-chill",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 10007,
+      "key": "shadow-end",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 10008,
+      "key": "shadow-fire",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 10009,
+      "key": "shadow-rave",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 10010,
+      "key": "shadow-storm",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 10011,
+      "key": "shadow-wave",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 10012,
+      "key": "shadow-down",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 10013,
+      "key": "shadow-half",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 10014,
+      "key": "shadow-hold",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 10015,
+      "key": "shadow-mist",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 10016,
+      "key": "shadow-panic",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 10017,
+      "key": "shadow-shed",
+      "state": "outside-stage15-scope"
+    },
+    {
+      "id": 10018,
+      "key": "shadow-sky",
+      "state": "outside-stage15-scope"
+    }
+  ]
+}
