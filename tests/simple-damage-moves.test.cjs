@@ -4,7 +4,7 @@ const root=path.resolve(__dirname,"..");
 const read=p=>fs.readFileSync(path.join(root,p),"utf8");
 function load(){
  const context=vm.createContext({window:{addEventListener(){},localStorage:{getItem(){return null},setItem(){}}},performance:{now:()=>0},Date,console,Set,Map,Math});
- const scripts=["data/national-catalog.js","data/species.js","data/provenance.js","data/natures.js","data/type-chart.js","data.js","data/simple-damage-moves.js","data/rank-moves.js","data/status-moves.js","data/drain-moves.js","data/heal-moves.js","data/recoil-moves.js","data/drain-75-moves.js","data/bulk-moves.js","data/stage12-moves.js","data/stage13-moves.js","data/moves.js","data/imported-techniques.js","data/techniques.js","data/tools.js","engine/experience.js","engine/pokemon.js","engine/damage.js","engine/battle-status.js","engine/core.js","engine/techniques.js","engine/regions.js","engine/tools.js","engine/save.js","engine/battle-experience.js","engine/targeting.js","engine/move-effects.js","engine/combat.js","engine/exploration.js"];
+ const scripts=["data/national-catalog.js","data/species.js","data/provenance.js","data/natures.js","data/type-chart.js","data.js","data/simple-damage-moves.js","data/rank-moves.js","data/status-moves.js","data/drain-moves.js","data/heal-moves.js","data/recoil-moves.js","data/drain-75-moves.js","data/bulk-moves.js","data/stage12-moves.js","data/stage13-moves.js","data/stage14-moves.js","data/moves.js","data/imported-techniques.js","data/techniques.js","data/tools.js","engine/experience.js","engine/pokemon.js","engine/damage.js","engine/battle-status.js","engine/core.js","engine/techniques.js","engine/regions.js","engine/tools.js","engine/save.js","engine/battle-experience.js","engine/targeting.js","engine/move-effects.js","engine/combat.js","engine/exploration.js"];
  for(const name of scripts)vm.runInContext(read("game/"+name),context,{filename:name});
  return context.window;
 }
@@ -16,7 +16,7 @@ test("937 effect classifications and 31 pinned ordinary damage moves reproduce e
  assert.equal(report.selectedIds.length,31);
  const w=load();
  assert.equal(Object.keys(w.POKE_SIMPLE_DAMAGE_MOVES).length,31);
- assert.equal(Object.keys(w.POKE_MOVES).length,258);
+ assert.equal(Object.keys(w.POKE_MOVES).length,297);
  for(const [id,m] of Object.entries(w.POKE_SIMPLE_DAMAGE_MOVES)){
   assert.ok(w.POKE_IMPORTED_TECHNIQUES.moves[id]);
   assert.equal(m.effect,"damage");
