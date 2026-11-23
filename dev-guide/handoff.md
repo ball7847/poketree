@@ -1,5 +1,20 @@
 # 다음 대화 개발 인수인계 — 2026-11-23 최신
 
+## 2026-11-23 기술 시스템 13차 — 상태·랭크·날씨회복·재충전·속박 41개
+
+- **사용자 승인 범위:** 기존 217개 기술 유지, 수면·혼란 변화 기술, 능력치 랭크 기술, 날씨별 HP 회복, 공격 후 재충전, 속박/지속 피해 효과를 공통 처리기로 구현하고 원본 검증 기술 대량 등록. 기존 피해량 공식, PP 100, 타겟팅 포인트, 라운드→개인 턴, 경험치 지급, 저장 호환성 유지, 미검증 효과는 보류, 전체 테스트·Pages·인수인계.
+- **신규 기술 41개:** 고정 PokeAPI 원본 `data-import/manifest.json`의 전체 937개 중 13차 효과 ID별 분류 후 수면 상태이상 **5개**(노래하기/수면가루/악마의키스/버섯포자/풀피리), 혼란 **2개**(초음파/천사의키스), 랭크 변화 **14개**, 날씨별 자기 회복 **3개**(아침햇살/광합성/달빛), 재충전 공격 **8개**, 속박 공격 **9개**를 등록. **217+41=258개** 전투 기술, **679개 미등록**. `scripts/generate-stage13-moves.cjs`의 검증 조건, `game/data/stage13-moves.js`, `data-audit/move-stage13-verification.json`에 정확한 기술 ID·수치·제외 이유 기록. `--check`는 산출물과 생성 원본을 byte-for-byte 대조한다. 원본 PokeAPI revision `8a92bfa7dab2f12b84b5d151562f9857c133ff30` 사용. 원본 937개 행 및 전 단계 생성 데이터 변경 없음.
+- **미등록 보류:** `dark-void`는 전용 사용자·전체 대상 수면 예외, `meteor-assault`와 `eternabeam`은 저장 원본 effectChance=100과 효과 설명의 불일치로 별도 검증 필요; `shadow-panic`은 고정 원본 한국어 기술명/그림자 기술 관련 데이터 미비. 검증 없이 단순 공격이나 기본 상태 효과로 대체하지 않음.
+- **수면·혼란:** 기존 `game/engine/battle-status.js`의 수면·혼란 지속, 면역, 라운드 행동 불가 처리 재사용. 수면가루·버섯포자에 한하여 추가 `powder:true` 속성을 사용하고 `game/engine/move-effects.js`에서 풀 타입 대상에 효과가 없도록 처리. 다른 가루 기술/특성/도구/신규 면역을 일괄 구현하지 않음.
+- **랭크 변화:** 기존 `PokeBattleStatus.rank`의 ±6 상한 유지, 자기 자신·적 1마리·적 전체·자신과 아군 전체를 기존 대상으로 처리. `howl`(멀리짖기)은 원본 user-and-allies → 내부 allies(사용자 포함) 대상. 공격·방어·특수방어·스피드·명중률 등 효과 ID별 변화량을 검증하고 14개에 재사용; 단순 공통 처리만 활용.
+- **날씨 회복:** `game/engine/move-effects.js`에서 `weatherHeal:true`인 3개 기술만 날씨 분기 처리. 기본 상태 최대 HP의 1/2, 맑음(sun) 2/3, 비(rain)·모래바람(sandstorm)·눈(snow)·우박(hail) 1/4를 버림하여 회복, 회복량 최소 1 및 최대 HP 상한. 기존 Recover/게으름피우기 등 50% 회복 기술의 처리 방식 미변경. 외부 기준: Bulbapedia Weather/Move variations (`https://bulbapedia.bulbagarden.net/wiki/Weather`).
+- **재충전:** `game/engine/battle-status.js`에 일시적 `volatile.recharge` 추가, `game/engine/move-effects.js`에서 공격이 명중하고 실제 HP를 감소시켰을 때만 다음 개인 턴 재충전 예약. 재충전 때 행동 1회 취소한 뒤 즉시 상태 해제; 맞지 않았거나 타입 면역이면 예약 없음. `game/engine/combat.js`는 재충전 예정자의 새 기술 우선도 선택을 건너뛰도록 보완. 전투 종료/새 전투는 기존 `endBattle`의 volatile 초기화로 재충전 제거. 기존 개인 턴, 정상 공격 후 PP 처리와 저장 v1 형식 불변. 원작 근거 Bulbapedia Hyper Beam (`https://bulbapedia.bulbagarden.net/wiki/Hyper_Beam`).
+- **속박/지속피해:** 고정 PokeAPI 메타데이터의 대상·명중·효과 ID=43, 상태 메타 ailment=8, 효과확률=100%, 최소/최대 턴 필드를 검증하되, **현행 Gen IX/Champions 기준 지속 4~5턴**으로 정규화 (고정 PokeAPI 원본의 `min_turns/max_turns`에는 과거 세대 수치가 혼재). `bindDuration:[4,5]` 로 생성한 속박 9개는 명중/실제 피해 발생·대상 생존 시 개체별 `volatile.binding` 부여, 1라운드마다 최대 HP 1/8(버림, 최소 1) 피해, 만료·공격자 기절·전투 종료 시 해제. `game/engine/combat.js`가 독/화상 등 다른 종료 피해와 독립적으로 속박 피해를 계산하고 기절·경험치 핸들러를 활용. 현재 PokeTree에는 전투 중 교체 행동이 없으므로 '교체 불가' 상호작용은 실효 대상으로 구현되지 않음. 특성/Grip Claw/Binding Band 효과는 별도 미구현. Gen IX+ 근거: Bulbapedia Bound (`https://bulbapedia.bulbagarden.net/wiki/Bound`), Thunder Cage (`https://bulbapedia.bulbagarden.net/wiki/Thunder_Cage`).
+- **게임 연결:** `game/index.html`에서 `stage13-moves.js`를 기술 레지스트리 앞에 로드, `game/data/moves.js`에서 `...window.POKE_STAGE13_MOVES` 병합. 기존 16개 테스트 VM 로더 갱신 및 등록 수 217→258 검증값 변경. 신규 `tests/stage13-moves.test.cjs`로 전 41개 습득·장착·사용 및 PP 100, 고정 원본 대조, 생성기 산출물 검사, 수면/혼란/가루 풀 면역, 날씨 회복량, 재충전 1회 소비 및 빗나감 제외, 속박 지속 4~5라운드·피해·소멸, 아군 전체 랭크 처리, 기존 흡수·회복 기술 회귀 검증.
+- **검증 CI:** 최종 기능/테스트 커밋 `4d1c5ebad5`의 `PokeTree engine tests` run **`45096115781` 성공**(Node.js 전체, 원본 데이터 감사, Chromium 사용자 흐름). 최종 문서 커밋의 GitHub Pages 빌드/배포 결과는 별도로 확인해야 함.
+- **검증 한계:** `registered`는 명시적으로 확인한 PokeAPI 원본+효과군의 PokeTree 엔진 실행 가능 여부. Pokémon Champions에 현존하는 937개 전체 기술·특성·도구/상호작용을 독립적으로 전수 검증한 결과가 아님. 향후 확인된 추가 예외는 등록 상태 재검토 후 보완. 신규 엔진의 과거 정상 규칙·세이브 버전 자동 변경 금지.
+
+
 ## 2026-11-23 기술 시스템 12차 — 급소·풀죽음·연속 공격·전체 공격 59개
 
 - **사용자 승인:** 158개 전투 기술의 회귀 검증, 급소율 상승, 풀죽음, 2~5회/고정 2회 공격, 단순 전체 공격 공통 처리 개발 및 원본 후보 62개 중 검증된 기술만 일괄 등록. 기존 피해량 공식·PP 100·타겟팅 포인트·개인 턴·경험치·저장 호환성 유지. 검증되지 않은 효과는 구현/등록하지 않음.
