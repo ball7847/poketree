@@ -24,6 +24,7 @@ function eligible(m){
   &&m.ko!=null&&m.type!=="shadow";
 }
 function classify(m){
+ if(SPECIAL_EFFECT_EXCLUSIONS.has(m.id))return "damage-with-additional-or-unverified-effect";
  if(eligible(m))return "simple-damage-eligible";
  if(m.category==="status")return "status-or-support";
  if(m.effectId===1)return "simple-effect-special-metadata-or-target";
