@@ -14,7 +14,7 @@ function source(){
 }
 function setup(w){
  const G=w.PokeTree,user=G.Pokemon.create({id:"bulk-user",species:"eevee",level:30,side:"ally"});
- const foe=G.Pokemon.create({id:"bulk-foe",species:"rattata",level:80,side:"enemy"});
+ const foe=G.Pokemon.create({id:"bulk-foe",species:"psyduck",level:80,side:"enemy"});
  return {G,user,foe,exp:{id:"windy",party:[user],enemies:[foe],logs:[],weather:null,terrain:null}};
 }
 function use(w,c,key,callback=()=>{}){return w.PokeMoveEffects.execute(c.exp,c.user,{moveId:key,move:w.POKE_MOVES[key],targetId:w.POKE_MOVES[key].target==="self"?c.user.id:c.foe.id},callback);}
