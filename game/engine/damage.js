@@ -21,8 +21,8 @@
     if(!Number.isInteger(random)||random<85||random>100)throw Error("난수는 85~100 사이 정수");
     const category=move?.category||P.attackCategory(attacker);
     if(!["physical","special"].includes(category))throw Error("피해 기술 분류 오류");
-    const aKey=category==="physical"?"attack":"spAttack",dKey=category==="physical"?"defense":"spDefense";
-    const aRank=rankAttack??attacker.battleStatus?.ranks?.[aKey]??0,dRank=rankDefense??defender.battleStatus?.ranks?.[dKey]??0;
+    const aKey=category==="physical"?"attack":"spAttack",dKey=move?.defenseStat||(category==="physical"?"defense":"spDefense");
+    const aRank=rankAttack??attacker.battleStatus?.ranks?.[aKey]??0,dRank=move?.ignoreDefenseRank?0:(rankDefense??defender.battleStatus?.ranks?.[dKey]??0);
     const atkRank=critical&&aRank<0?0:aRank;
     const defRank=critical&&dRank>0?0:dRank;
     let attack=Math.max(1,Math.floor(attacker[aKey]*rankFactor(atkRank)));
@@ -37,10 +37,18 @@
     const stab=isBasicAttack?1:types.includes(type)?1.5:1;
     const eff=isBasicAttack?1:effectiveness(type,defender);
     const power=move?.power??10;
-    if(!Number.isSafeInteger(power)||power<=0)throw Error("위력 정보 오류");
+    if(!move?.fixedDamage&&(!Number.isSafeInteger(power)||power<=0))throw Error("위력 정보 오류");
     const levelTerm=Math.floor(2*attacker.level/5)+2;
     const base=Math.floor(Math.floor(levelTerm*power*attack/defense)/50)+2;
     if(eff===0)return {damage:0,category,type,stab,effectiveness:eff,critical,random};
+    // Fixed/HP-proportional attacks bypass ordinary damage modifiers but
+    // still honor type immunity. Existing moves never enter this path.
+    if(move?.fixedDamage){
+      const amount=move.fixedDamage==="user-level"?attacker.level:
+        move.fixedDamage==="target-half-hp"?Math.max(1,Math.floor(defender.hp/2)):null;
+      if(!Number.isInteger(amount))throw Error("지원되지 않는 고정 피해 효과");
+      return {damage:amount,category,type,stab,effectiveness:eff,critical:false,random};
+    }
     let damage=base;
     if(critical)damage=Math.floor(damage*1.5);
     damage=Math.floor(damage*random/100);
