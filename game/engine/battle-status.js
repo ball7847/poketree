@@ -43,8 +43,15 @@
     status.major={kind,counter:0};
     return true;
   }
+  function flinch(u){
+    if(u.hp<=0)return false;
+    ensure(u).volatile.flinch=true;
+    return true;
+  }
   function beforeAction(u,roll=Math.random){
     const s=ensure(u),m=s.major;
+    // Flinch cancels only the pending personal turn, then expires immediately.
+    if(s.volatile.flinch){s.volatile.flinch=false;return "풀죽음으로 행동하지 못했습니다."; }
     if(m?.kind==="sleep"){
       m.counter++;
       if(m.counter===1||(m.counter===2&&roll()>=1/3))return "잠들어 행동하지 못했습니다.";
@@ -107,5 +114,5 @@
     const factor=rank>=0?1+.2*rank:1/(1+.2*Math.abs(rank));
     return Math.floor(u.speed*factor*(s.major?.kind==="paralysis"?.5:1));
   }
-  window.PokeBattleStatus=Object.freeze({create,ensure,rank,accuracy,inflict,beforeAction,afterAction,advanceExploration,thawFromFire,endBattle,endExpedition,speed,grounded,fieldEndRound});
+  window.PokeBattleStatus=Object.freeze({create,ensure,rank,accuracy,inflict,flinch,beforeAction,afterAction,advanceExploration,thawFromFire,endBattle,endExpedition,speed,grounded,fieldEndRound});
 })();
