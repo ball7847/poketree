@@ -5,7 +5,7 @@ const ids={"draining-kiss":577,"oblivion-wing":613};
 function boot(roll=()=>0){
  const m=Object.create(Math);m.random=roll;
  const ctx=vm.createContext({window:{addEventListener(){},localStorage:{getItem(){return null},setItem(){}}},performance:{now:()=>0},Date,console,Set,Map,Math:m});
- const scripts=["data/national-catalog.js","data/species.js","data/provenance.js","data/natures.js","data/type-chart.js","data.js","data/simple-damage-moves.js","data/rank-moves.js","data/status-moves.js","data/drain-moves.js","data/heal-moves.js","data/recoil-moves.js","data/drain-75-moves.js","data/bulk-moves.js","data/stage12-moves.js","data/moves.js","data/imported-techniques.js","data/techniques.js","data/tools.js","engine/experience.js","engine/pokemon.js","engine/damage.js","engine/battle-status.js","engine/core.js","engine/techniques.js","engine/regions.js","engine/tools.js","engine/save.js","engine/battle-experience.js","engine/targeting.js","engine/move-effects.js","engine/combat.js","engine/exploration.js"];
+ const scripts=["data/national-catalog.js","data/species.js","data/provenance.js","data/natures.js","data/type-chart.js","data.js","data/simple-damage-moves.js","data/rank-moves.js","data/status-moves.js","data/drain-moves.js","data/heal-moves.js","data/recoil-moves.js","data/drain-75-moves.js","data/bulk-moves.js","data/stage12-moves.js","data/stage13-moves.js","data/moves.js","data/imported-techniques.js","data/techniques.js","data/tools.js","engine/experience.js","engine/pokemon.js","engine/damage.js","engine/battle-status.js","engine/core.js","engine/techniques.js","engine/regions.js","engine/tools.js","engine/save.js","engine/battle-experience.js","engine/targeting.js","engine/move-effects.js","engine/combat.js","engine/exploration.js"];
  for(const p of scripts)vm.runInContext(read("game/"+p),ctx,{filename:p});
  return {w:ctx.window,m};
 }
@@ -19,7 +19,7 @@ test("two 75%-drain attacks match pinned source metadata without changing 50%-dr
  const originals=new Map(manifest.files.moves.flatMap(p=>JSON.parse(read(p)).moves).map(m=>[m.key,m]));
  const {w}=boot();
  assert.equal(Object.keys(w.POKE_DRAIN_75_MOVES).length,2);
- assert.equal(Object.keys(w.POKE_MOVES).length,217);
+ assert.equal(Object.keys(w.POKE_MOVES).length,258);
  for(const [key,id] of Object.entries(ids)){
   const source=originals.get(key),move=w.POKE_DRAIN_75_MOVES[key];
   assert.ok(source&&move,key);
