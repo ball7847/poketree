@@ -48,8 +48,36 @@
     ensure(u).volatile.flinch=true;
     return true;
   }
+  function recharge(u){
+    if(u.hp<=0)return false;
+    ensure(u).volatile.recharge=true;
+    return true;
+  }
+  function bind(u,source,minTurns,maxTurns){
+    if(u.hp<=0||!Number.isInteger(minTurns)||!Number.isInteger(maxTurns)||
+       minTurns<1||maxTurns<minTurns)return false;
+    const s=ensure(u);
+    if(s.volatile.binding)return false;
+    const duration=minTurns+Math.floor(Math.random()*(maxTurns-minTurns+1));
+    s.volatile.binding={sourceId:source.id,remaining:duration};
+    return true;
+  }
+  function bindingAfterRound(u,exp){
+    const state=ensure(u),b=state.volatile.binding;
+    if(!b||u.hp<=0)return 0;
+    const source=[...exp.party,...exp.enemies].find(x=>x.id===b.sourceId&&x.hp>0);
+    if(!source){delete state.volatile.binding;return 0;}
+    const amount=Math.min(u.hp,Math.max(1,Math.floor(u.maxHp/8)));
+    b.remaining--;
+    if(b.remaining<=0)delete state.volatile.binding;
+    return amount;
+  }
   function beforeAction(u,roll=Math.random){
     const s=ensure(u),m=s.major;
+    if(s.volatile.recharge){
+      s.volatile.recharge=false;
+      return "재충전으로 행동하지 못했습니다.";
+    }
     // Flinch cancels only the pending personal turn, then expires immediately.
     if(s.volatile.flinch){s.volatile.flinch=false;return "풀죽음으로 행동하지 못했습니다."; }
     if(m?.kind==="sleep"){
@@ -114,5 +142,5 @@
     const factor=rank>=0?1+.2*rank:1/(1+.2*Math.abs(rank));
     return Math.floor(u.speed*factor*(s.major?.kind==="paralysis"?.5:1));
   }
-  window.PokeBattleStatus=Object.freeze({create,ensure,rank,accuracy,inflict,flinch,beforeAction,afterAction,advanceExploration,thawFromFire,endBattle,endExpedition,speed,grounded,fieldEndRound});
+  window.PokeBattleStatus=Object.freeze({create,ensure,rank,accuracy,inflict,flinch,recharge,bind,bindingAfterRound,beforeAction,afterAction,advanceExploration,thawFromFire,endBattle,endExpedition,speed,grounded,fieldEndRound});
 })();
