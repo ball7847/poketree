@@ -51,6 +51,13 @@
       const poisonUser=move.poisonTypeNeverMiss&&window.PokePokemon.template(user.species,user.form).form.types.includes("poison");
       const probability=poisonUser?1:S.accuracy(move,user,target);
       if(move.accuracyMode!=="per-hit"&&Math.random()>=probability){G.record(exp,move.name+" · "+target.name+"에게 빗나감");continue;}
+      if(move.effect==="clear-ranks"){
+        for(const member of [...exp.party,...exp.enemies].filter(u=>u.hp>0)){
+          const ranks=S.ensure(member).ranks;
+          for(const key of Object.keys(ranks))ranks[key]=0;
+        }
+        G.record(exp,"모든 생존 포켓몬 능력치 랭크 초기화");continue;
+      }
       if(move.effect==="heal"){
         const actual=Math.min(target.maxHp-target.hp,healAmount(user,target,move.target==="allies",move,exp.weather));
         target.hp+=actual;G.record(exp,target.name+" HP "+actual+" 회복");continue;
@@ -129,6 +136,12 @@
         if(move.effect==="bind"&&actual>0&&target.hp>0&&
            S.bind(target,user,...move.bindDuration))
           G.record(exp,target.name+" · 속박 시작");
+        if(actual>0&&user._battleRound){
+          const history=user._battleRound;
+          history.damaged.add(target.id);
+          if(!history.hitBy.has(target.id))history.hitBy.set(target.id,new Set());
+          history.hitBy.get(target.id).add(user.id);
+        }
         if(move.effect==="recoil")recoil+=actual;
       }
       if(target.hp===0)faintCandidates.add(target);
