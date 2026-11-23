@@ -19,7 +19,7 @@ test("two 75%-drain attacks match pinned source metadata without changing 50%-dr
  const originals=new Map(manifest.files.moves.flatMap(p=>JSON.parse(read(p)).moves).map(m=>[m.key,m]));
  const {w}=boot();
  assert.equal(Object.keys(w.POKE_DRAIN_75_MOVES).length,2);
- assert.equal(Object.keys(w.POKE_MOVES).length,63);
+ assert.equal(Object.keys(w.POKE_MOVES).length,74);
  for(const [key,id] of Object.entries(ids)){
   const source=originals.get(key),move=w.POKE_DRAIN_75_MOVES[key];
   assert.ok(source&&move,key);
