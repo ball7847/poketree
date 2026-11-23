@@ -15,11 +15,14 @@
     // The next faint must apply its own experience/loot penalty exactly once.
     for(const member of members)member._faintedHandled=false;
     exp.plans=new Map();
+    // Freeze this round's eligible move loadout; equipment changes take effect
+    // at the following round boundary, including PP-recovery reselection.
+    exp.roundMoves=new Map(members.map(u=>[u,[...(u.moves||[])]]));
     exp.tiebreak=new Map(members.map(u=>[u,Math.random()]));
     exp.speeds=new Map(members.map(u=>[u,speed(u)])); // fixed for this round
     for(const u of members){
       // Select the move by its current best TP; do not reserve a target.
-      exp.plans.set(u,u.pp>=100&&u.moves?.length?T.selectMove(exp,u):null);
+      exp.plans.set(u,u.pp>=100&&u.moves?.length?T.selectMove(exp,u,exp.roundMoves.get(u)):null);
     }
     exp.order=members;sortRemaining(exp);exp.turnIndex=0;exp.round++;
     record(exp,exp.round+"라운드 시작");
@@ -52,7 +55,7 @@
   }
   function clear(exp){
     for(const u of [...exp.party,...exp.enemies])S.endBattle(u);
-    exp.order=[];exp.plans=null;exp.tiebreak=null;exp.speeds=null;exp.turnIndex=0;exp.round=0;
+    exp.order=[];exp.plans=null;exp.roundMoves=null;exp.tiebreak=null;exp.speeds=null;exp.turnIndex=0;exp.round=0;
   }
   function finish(exp){
     exp.wins++;record(exp,"전투 승리");G.addLoot(exp,"시연용 전리품");
@@ -114,7 +117,7 @@
     else {
       let plan=exp.plans.get(unit);
       if(!plan&&unit.pp>=100&&unit.moves?.length)
-        plan=T.selectMove(exp,unit); // PP recovered; priority/order never retroactively changes.
+        plan=T.selectMove(exp,unit,exp.roundMoves.get(unit)); // PP recovered; original round loadout only.
       if(plan&&unit.pp>=100){
         // Select the target NOW using current HP, status and living members.
         const withTarget=T.selectTarget(exp,unit,plan);

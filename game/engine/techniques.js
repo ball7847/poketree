@@ -6,6 +6,10 @@
  const source=window.POKE_IMPORTED_TECHNIQUES;
  if(!source||source.schemaVersion!==1||source.stats?.moves!==937)throw Error("원본 기술 데이터 로딩 실패");
  const unique=ids=>[...new Set(ids)];
+ const custom=window.POKE_MOVE_CUSTOM_MAP||{};
+ // The source IDs are preserved for save compatibility; approved PokeTree IDs
+ // become available whenever the corresponding original move is learnable.
+ const withCustom=ids=>unique(ids.flatMap(id=>custom[id]?[id,custom[id]]:[id]));
  const knownMove=id=>!!(source.moves[id]||moves[id]);
  const executable=id=>!!moves[id];
  function sourceForm(species,form="normal"){
@@ -14,7 +18,7 @@
  }
  function levelMoves(species,level,form="normal"){
    const record=sourceForm(species,form);
-   return unique((record?.level||[]).filter(([id,at])=>at<=level).map(([id])=>id));
+   return withCustom((record?.level||[]).filter(([id,at])=>at<=level).map(([id])=>id));
  }
  function tmCompatibility(species,form="normal"){
    return sourceForm(species,form)?.machine||[];
@@ -56,7 +60,7 @@
    if(unit.side!=="ally")return "보유 포켓몬만 변경할 수 있습니다.";
    if(unit.expedition===null)return null;
    const exp=G.state.regions[unit.expedition];
-   return exp?.mode==="exploration"?null:"전투 또는 회복 중에는 기술을 변경할 수 없습니다.";
+   return exp?null:"탐험 상태를 확인할 수 없습니다.";
  }
  function equip(unit,id,slot){
    if(!Number.isInteger(slot)||slot<0||slot>1)return "기술 슬롯은 1~2만 가능합니다.";

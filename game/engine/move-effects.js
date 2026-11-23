@@ -8,6 +8,7 @@
     return area||user!==target?Math.floor(base*2/3):base;
   }
   function hitCount(move){
+    if(Number.isInteger(move.fixedHits)&&move.fixedHits>0)return move.fixedHits;
     if(!move.hits)return 1;
     const r=Math.random();
     return r<.35?2:r<.70?3:r<.85?4:5;

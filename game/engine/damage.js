@@ -66,7 +66,8 @@
   }
   function roll(attacker,defender,options={}){
     const rng=options.rng||Math.random;
-    const critical=rng()<.05;
+    const forced=options.move?.criticalAgainstTypes?.some(t=>P.template(defender.species,defender.form).form.types.includes(t))===true;
+    const critical=forced||rng()<.05;
     const random=85+Math.floor(rng()*16);
     return compute(attacker,defender,{...options,critical,random});
   }

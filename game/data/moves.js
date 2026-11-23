@@ -17,4 +17,19 @@ window.POKE_MOVES=Object.freeze({
   "electric-terrain":{name:"일렉트릭필드",type:"electric",category:"status",power:null,accuracy:null,priority:0,target:"field",effect:"terrain",terrain:"electric",duration:5,source:"champions"},
   "recover":{name:"HP회복",type:"normal",category:"status",power:null,accuracy:null,priority:0,target:"self",effect:"heal",source:"champions"},
   "bullet-seed":{name:"기관총",type:"grass",category:"physical",power:25,accuracy:100,priority:0,target:"enemy",effect:"multi",hits:[2,3,4,5],source:"champions"}
+  // Player-authored PokeTree move IDs; source learnset aliases are mapped below.
+  "M010101":{name:"몸통박치기",type:"normal",category:"physical",power:40,accuracy:100,priority:0,target:"enemy",effect:"damage",tags:["접촉"],source:"poketree"},
+  "M010102":{name:"막치기",type:"normal",category:"physical",power:40,accuracy:100,priority:0,target:"enemy",effect:"damage",tags:["접촉"],source:"poketree"},
+  "M010103":{name:"할퀴기",type:"normal",category:"physical",power:40,accuracy:100,priority:0,target:"enemy",effect:"damage",tags:["접촉","베기"],source:"poketree"},
+  "M010104":{name:"전광석화",type:"normal",category:"physical",power:40,accuracy:100,priority:1,target:"enemy",effect:"damage",tags:["접촉","선공기"],source:"poketree"},
+  "M010201":{name:"에코보이스",type:"normal",category:"special",power:30,accuracy:100,priority:0,target:"enemy",effect:"multi",fixedHits:2,tags:["비접촉","소리","연속"],source:"poketree"},
+  "M010105":{name:"더블어택",type:"normal",category:"physical",power:35,accuracy:90,priority:0,target:"enemy",effect:"multi",fixedHits:2,tags:["접촉","연속"],source:"poketree"},
+  "M010106":{name:"풀베기",type:"normal",category:"physical",power:50,accuracy:95,priority:0,target:"enemy",effect:"damage",criticalAgainstTypes:["grass"],tags:["접촉","베기","급소"],source:"poketree"}
+});
+// Pinned original move IDs are retained for old saves and raw learnsets.
+// New M IDs are additional canonical PokeTree learning/equipment options.
+window.POKE_MOVE_CUSTOM_MAP=Object.freeze({
+  "tackle":"M010101","pound":"M010102","scratch":"M010103",
+  "quick-attack":"M010104","echoed-voice":"M010201",
+  "double-hit":"M010105","cut":"M010106"
 });
