@@ -20,7 +20,7 @@ test("the three new heals and existing Recover share pinned original metadata an
  const originals=new Map(manifest.files.moves.flatMap(p=>JSON.parse(read(p)).moves).map(m=>[m.key,m]));
  const w=boot();
  assert.equal(Object.keys(w.POKE_HEAL_MOVES).length,3);
- assert.equal(Object.keys(w.POKE_MOVES).length,63);
+ assert.equal(Object.keys(w.POKE_MOVES).length,74);
  for(const [key,id] of Object.entries(specs)){
   const a=originals.get(key),m=w.POKE_MOVES[key];
   assert.ok(a&&m,key);
