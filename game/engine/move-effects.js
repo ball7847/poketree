@@ -76,6 +76,15 @@
         G.record(exp,move.name+" → "+target.name+" "+(i+1)+"타 · "+actual+" 피해"+(result.critical?" · 급소":""));
         if(result.damage>0&&move.secondary&&Math.random()*100<move.secondary.chance&&S.inflict(target,move.secondary.kind,exp))
           G.record(exp,target.name+" · "+move.secondary.kind+" 상태이상");
+        // Shared attack + stat-rank effect family. Non-damaging or immune hits
+        // cannot trigger it; this does not alter existing status effects.
+        if(result.damage>0&&move.secondaryRank&&Math.random()*100<move.secondaryRank.chance){
+          const recipient=move.secondaryRank.target==="self"?user:target;
+          if(recipient.hp>0){
+            S.rank(recipient,move.secondaryRank.stat,move.secondaryRank.stages);
+            G.record(exp,recipient.name+" · "+move.secondaryRank.stat+" "+move.secondaryRank.stages+"랭크");
+          }
+        }
         if(move.effect==="drain"&&actual>0){
           const amount=Math.max(1,Math.floor(actual*move.drain));
           const recovered=Math.min(user.maxHp-user.hp,amount);
