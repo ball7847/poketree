@@ -3,7 +3,9 @@
 (() => {
   "use strict";
   const S=window.PokeBattleStatus,D=window.PokeDamage;
-  function healAmount(user,target,area=false){
+  function healAmount(user,target,area=false,move=null){
+    // Explicit original 50%-max-HP self recovery; preserve other recovery effects.
+    if(move?.healFraction===0.5)return Math.max(1,Math.floor(target.maxHp/2));
     const base=Math.floor((target.maxHp+user.spAttack)/4);
     return area||user!==target?Math.floor(base*2/3):base;
   }
@@ -44,7 +46,7 @@
       const probability=poisonUser?1:S.accuracy(move,user,target);
       if(move.accuracyMode!=="per-hit"&&Math.random()>=probability){G.record(exp,move.name+" · "+target.name+"에게 빗나감");continue;}
       if(move.effect==="heal"){
-        const actual=Math.min(target.maxHp-target.hp,healAmount(user,target,move.target==="allies"));
+        const actual=Math.min(target.maxHp-target.hp,healAmount(user,target,move.target==="allies",move));
         target.hp+=actual;G.record(exp,target.name+" HP "+actual+" 회복");continue;
       }
       if(move.effect==="rank"){S.rank(target,move.rank.stat,move.rank.stages);G.record(exp,target.name+"의 "+move.rank.stat+" 랭크 변화");continue;}
