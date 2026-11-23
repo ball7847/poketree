@@ -66,7 +66,8 @@
   }
   function roll(attacker,defender,options={}){
     const rng=options.rng||Math.random;
-    const critical=rng()<.05;
+    // Stage +1 critical-rate moves use 1/8; ordinary PokeTree moves retain 5%.
+    const critical=rng()<(options.move?.critRate===1?.125:.05);
     const random=85+Math.floor(rng()*16);
     return compute(attacker,defender,{...options,critical,random});
   }
