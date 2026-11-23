@@ -88,8 +88,8 @@ for(const m of moves){
  if(result.move)chosen[m.key]=result.move;
 }
 const report={schemaVersion:1,sourceProvider:manifest.sourceProvider,sourceRevision:manifest.sourceRevision,
- sourceMoveCount:moves.length,effectIdGroups:Object.keys(grouped).length,registeredBefore:74,
- added:Object.keys(chosen).length,registeredAfter:74+Object.keys(chosen).length,
+ sourceMoveCount:moves.length,effectIdGroups:Object.keys(grouped).length,registeredBefore:existing.size,
+ added:Object.keys(chosen).length,registeredAfter:existing.size+Object.keys(chosen).length,
  scope:"pinned-source-backed explicit allowlist; unsupported originals not auto-executable",
  effectGroups:grouped,rows};
 const output="/* Generated stage 11: pinned PokeAPI effects, explicit verified families only. */\n"+
