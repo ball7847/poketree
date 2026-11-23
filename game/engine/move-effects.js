@@ -56,6 +56,16 @@
         target.hp+=actual;G.record(exp,target.name+" HP "+actual+" 회복");continue;
       }
       if(move.effect==="rank"){S.rank(target,move.rank.stat,move.rank.stages);G.record(exp,target.name+"의 "+move.rank.stat+" 랭크 변화");continue;}
+      if(move.effect==="multi-rank"){
+        for(const [stat,stages] of move.ranks)S.rank(target,stat,stages);
+        G.record(exp,target.name+" · 복합 랭크 변화");continue;
+      }
+      if(move.effect==="party-cure"){
+        // Exp. party is the battle's active allied group; major statuses only.
+        const status=S.ensure(target);
+        if(status.major){status.major=null;G.record(exp,target.name+" · 주요 상태이상 치료");}
+        continue;
+      }
       if(move.effect==="status"&&move.powder&&
          window.PokePokemon.template(target.species,target.form).form.types.includes("grass")){
         G.record(exp,target.name+" · 가루 기술 무효");continue;
@@ -79,9 +89,10 @@
         }
         // Confirmed PokeTree rule: run every hit, even after reaching 0 HP.
         const result=D.roll(user,target,{move,weather:exp.weather,terrain:exp.terrain});
-        const actual=Math.min(target.hp,result.damage);
+        const allowed=move.minTargetHp===1?Math.max(0,target.hp-1):target.hp;
+        const actual=Math.min(allowed,result.damage);
         if(move.effect==="recharge"&&actual>0)hitForRecharge=true;
-        target.hp=Math.max(0,target.hp-result.damage);
+        target.hp=Math.max(move.minTargetHp===1?1:0,target.hp-actual);
         if(move.type==="fire"&&result.effectiveness>0&&S.thawFromFire(target))
           G.record(exp,target.name+" 얼음 상태 해제 (불꽃 기술)");
         G.record(exp,move.name+" → "+target.name+" "+(i+1)+"타 · "+actual+" 피해"+(result.critical?" · 급소":""));
@@ -102,6 +113,13 @@
             S.rank(recipient,move.secondaryRank.stat,move.secondaryRank.stages);
             G.record(exp,recipient.name+" · "+move.secondaryRank.stat+" "+move.secondaryRank.stages+"랭크");
           }
+        }
+        if(actual>0&&move.secondaryRanks&&user.hp>0&&
+           Math.random()*100<move.secondaryRanks.chance){
+          const recipient=move.secondaryRanks.target==="self"?user:target;
+          for(const [stat,stages] of move.secondaryRanks.changes)
+            S.rank(recipient,stat,stages);
+          G.record(exp,recipient.name+" · 복합 랭크 변화");
         }
         if(move.effect==="drain"&&actual>0){
           const amount=Math.max(1,Math.floor(actual*move.drain));
