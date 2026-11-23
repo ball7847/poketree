@@ -74,7 +74,7 @@ test("ordinary attacks retain type immunity, accuracy misses and insufficient PP
  const start=noPP.target.hp;
  const fail=w.PokeMoveEffects.execute(noPP.exp,noPP.user,{moveId:"seed-bomb",move:w.POKE_MOVES["seed-bomb"],targetId:noPP.target.id},()=>{});
  assert.equal(fail.failed,true);assert.equal(fail.reason,"insufficient-pp");assert.equal(noPP.target.hp,start);
- const immune=setup(w);immune.target=immune.G.Pokemon.create({id:"immune",species:"gastly",level:50,side:"enemy"});
+ const immune=setup(w);immune.target=immune.G.Pokemon.create({id:"immune",species:"pidgey",level:50,side:"enemy"});
  immune.exp.enemies=[immune.target];immune.user.pp=100;math.random=()=>0;
  const before=immune.target.hp;
  const hit=w.PokeMoveEffects.execute(immune.exp,immune.user,{moveId:"high-horsepower",move:w.POKE_MOVES["high-horsepower"],targetId:immune.target.id},()=>{});
