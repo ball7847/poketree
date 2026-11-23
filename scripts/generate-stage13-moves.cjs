@@ -63,7 +63,9 @@ function select(m){
     m.meta.min_turns<1||m.meta.max_turns<m.meta.min_turns||
     !metadata(m,["min_turns","max_turns","ailment_chance"],4,8))
    return {state:"unsafe-binding"};
-  x.effect="bind";x.bindDuration=[m.meta.min_turns,m.meta.max_turns];
+  // Modern Gen IX / Champions binding duration is 4–5 turns; pinned PokeAPI
+  // min_turns/max_turns include legacy values and are kept only for audit.
+  x.effect="bind";x.bindDuration=[4,5];
   return {state:"registered",family:"binding",move:x};
  }
  return {state:"not-selected"};
