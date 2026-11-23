@@ -4,7 +4,7 @@ const root=path.resolve(__dirname,".."),read=p=>fs.readFileSync(path.join(root,p
 function boot(roll=()=>0){
  const math=Object.create(Math);math.random=roll;
  const ctx=vm.createContext({window:{addEventListener(){},localStorage:{getItem(){return null},setItem(){}}},performance:{now:()=>0},Date,console,Set,Map,Math:math});
- const files=["data/national-catalog.js","data/species.js","data/provenance.js","data/natures.js","data/type-chart.js","data.js","data/simple-damage-moves.js","data/rank-moves.js","data/status-moves.js","data/drain-moves.js","data/heal-moves.js","data/recoil-moves.js","data/drain-75-moves.js","data/bulk-moves.js","data/stage12-moves.js","data/stage13-moves.js","data/moves.js","data/imported-techniques.js","data/techniques.js","data/tools.js","engine/experience.js","engine/pokemon.js","engine/damage.js","engine/battle-status.js","engine/core.js","engine/techniques.js","engine/regions.js","engine/tools.js","engine/save.js","engine/battle-experience.js","engine/targeting.js","engine/move-effects.js","engine/combat.js","engine/exploration.js"];
+ const files=["data/national-catalog.js","data/species.js","data/provenance.js","data/natures.js","data/type-chart.js","data.js","data/simple-damage-moves.js","data/rank-moves.js","data/status-moves.js","data/drain-moves.js","data/heal-moves.js","data/recoil-moves.js","data/drain-75-moves.js","data/bulk-moves.js","data/stage12-moves.js","data/stage13-moves.js","data/stage14-moves.js","data/moves.js","data/imported-techniques.js","data/techniques.js","data/tools.js","engine/experience.js","engine/pokemon.js","engine/damage.js","engine/battle-status.js","engine/core.js","engine/techniques.js","engine/regions.js","engine/tools.js","engine/save.js","engine/battle-experience.js","engine/targeting.js","engine/move-effects.js","engine/combat.js","engine/exploration.js"];
  for(const file of files)vm.runInContext(read("game/"+file),ctx,{filename:file});
  return {w:ctx.window,math};
 }
@@ -29,7 +29,7 @@ test("rebuild 937 move effect families byte-for-byte; no dropped or invented reg
  assert.equal(report.added,84);
  assert.equal(new Set(report.rows.map(x=>x.id)).size,937);
  assert.equal(Object.keys(w.POKE_BULK_MOVES).length,84);
- assert.equal(Object.keys(w.POKE_MOVES).length,258);
+ assert.equal(Object.keys(w.POKE_MOVES).length,297);
  assert.equal(report.rows.filter(x=>x.registered).length,84);
  const origins=source();
  for(const [key,move] of Object.entries(w.POKE_BULK_MOVES)){
