@@ -6,7 +6,7 @@ const excluded=[722,736,737,739,740];
 function boot(){
  const math=Object.create(Math);math.random=()=>0;
  const ctx=vm.createContext({window:{addEventListener(){},localStorage:{getItem(){return null},setItem(){}}},performance:{now:()=>0},Date,console,Set,Map,Math:math});
- const scripts=["data/national-catalog.js","data/species.js","data/provenance.js","data/natures.js","data/type-chart.js","data.js","data/simple-damage-moves.js","data/rank-moves.js","data/status-moves.js","data/drain-moves.js","data/heal-moves.js","data/recoil-moves.js","data/drain-75-moves.js","data/bulk-moves.js","data/moves.js","data/imported-techniques.js","data/techniques.js","data/tools.js","engine/experience.js","engine/pokemon.js","engine/damage.js","engine/battle-status.js","engine/core.js","engine/techniques.js","engine/regions.js","engine/tools.js","engine/save.js","engine/battle-experience.js","engine/targeting.js","engine/move-effects.js","engine/combat.js","engine/exploration.js"];
+ const scripts=["data/national-catalog.js","data/species.js","data/provenance.js","data/natures.js","data/type-chart.js","data.js","data/simple-damage-moves.js","data/rank-moves.js","data/status-moves.js","data/drain-moves.js","data/heal-moves.js","data/recoil-moves.js","data/drain-75-moves.js","data/bulk-moves.js","data/stage12-moves.js","data/moves.js","data/imported-techniques.js","data/techniques.js","data/tools.js","engine/experience.js","engine/pokemon.js","engine/damage.js","engine/battle-status.js","engine/core.js","engine/techniques.js","engine/regions.js","engine/tools.js","engine/save.js","engine/battle-experience.js","engine/targeting.js","engine/move-effects.js","engine/combat.js","engine/exploration.js"];
  for(const p of scripts)vm.runInContext(read("game/"+p),ctx,{filename:p});
  return {w:ctx.window,math};
 }
@@ -27,7 +27,7 @@ test("stage 10 source verification and exact 31/74 registry counts",()=>{
  assert.equal(report.selectedIds.length,31);
  assert.equal(report.categories["simple-damage-eligible"],31);
  assert.equal(Object.keys(w.POKE_SIMPLE_DAMAGE_MOVES).length,31);
- assert.equal(Object.keys(w.POKE_MOVES).length,158);
+ assert.equal(Object.keys(w.POKE_MOVES).length,217);
  for(const id of approved){
   const m=source.get(id),actual=w.POKE_MOVES[m.key],entry=report.entries.find(x=>x.id===id);
   assert.ok(m&&actual&&entry,id);
