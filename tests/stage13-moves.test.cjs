@@ -4,7 +4,7 @@ const root=path.resolve(__dirname,".."),read=p=>fs.readFileSync(path.join(root,p
 function boot(){
  const math=Object.create(Math);math.random=()=>0;
  const ctx=vm.createContext({window:{addEventListener(){},localStorage:{getItem(){return null},setItem(){}}},performance:{now:()=>0},Date,console,Set,Map,Math:math});
- const scripts=["data/national-catalog.js","data/species.js","data/provenance.js","data/natures.js","data/type-chart.js","data.js","data/simple-damage-moves.js","data/rank-moves.js","data/status-moves.js","data/drain-moves.js","data/heal-moves.js","data/recoil-moves.js","data/drain-75-moves.js","data/bulk-moves.js","data/stage12-moves.js","data/stage13-moves.js","data/moves.js","data/imported-techniques.js","data/techniques.js","data/tools.js","engine/experience.js","engine/pokemon.js","engine/damage.js","engine/battle-status.js","engine/core.js","engine/techniques.js","engine/regions.js","engine/tools.js","engine/save.js","engine/battle-experience.js","engine/targeting.js","engine/move-effects.js","engine/combat.js","engine/exploration.js"];
+ const scripts=["data/national-catalog.js","data/species.js","data/provenance.js","data/natures.js","data/type-chart.js","data.js","data/simple-damage-moves.js","data/rank-moves.js","data/status-moves.js","data/drain-moves.js","data/heal-moves.js","data/recoil-moves.js","data/drain-75-moves.js","data/bulk-moves.js","data/stage12-moves.js","data/stage13-moves.js","data/stage14-moves.js","data/moves.js","data/imported-techniques.js","data/techniques.js","data/tools.js","engine/experience.js","engine/pokemon.js","engine/damage.js","engine/battle-status.js","engine/core.js","engine/techniques.js","engine/regions.js","engine/tools.js","engine/save.js","engine/battle-experience.js","engine/targeting.js","engine/move-effects.js","engine/combat.js","engine/exploration.js"];
  for(const p of scripts)vm.runInContext(read("game/"+p),ctx,{filename:p});
  return {w:ctx.window,math};
 }
@@ -20,7 +20,7 @@ test("13th family generator and pinned 937-row audit are stable, without duplica
  assert.equal(meta.added,41);assert.equal(meta.total,258);
  assert.equal(report.sourceCount,937);assert.equal(report.added,41);assert.equal(report.total,258);
  assert.equal(Object.keys(w.POKE_STAGE13_MOVES).length,41);
- assert.equal(Object.keys(w.POKE_MOVES).length,258);
+ assert.equal(Object.keys(w.POKE_MOVES).length,297);
  assert.equal(report.families["sleep-status"],5);assert.equal(report.families["confusion-status"],2);
  assert.equal(report.families["rank"],14);assert.equal(report.families["weather-heal"],3);
  assert.equal(report.families["recharge"],8);assert.equal(report.families["binding"],9);
