@@ -8,15 +8,15 @@ function load(){
  for(const name of scripts)vm.runInContext(read("game/"+name),context,{filename:name});
  return context.window;
 }
-test("937 effect classifications and 20 pinned ordinary damage moves reproduce exactly",()=>{
+test("937 effect classifications and 31 pinned ordinary damage moves reproduce exactly",()=>{
  cp.execFileSync(process.execPath,["scripts/classify-move-effects.cjs","--check"],{cwd:root,timeout:120000});
  const report=JSON.parse(read("data-audit/move-effects-classification.json"));
  assert.equal(report.entries.length,937);
  assert.equal(Object.values(report.categories).reduce((a,b)=>a+b,0),937);
- assert.equal(report.selectedIds.length,20);
+ assert.equal(report.selectedIds.length,31);
  const w=load();
- assert.equal(Object.keys(w.POKE_SIMPLE_DAMAGE_MOVES).length,20);
- assert.equal(Object.keys(w.POKE_MOVES).length,63);
+ assert.equal(Object.keys(w.POKE_SIMPLE_DAMAGE_MOVES).length,31);
+ assert.equal(Object.keys(w.POKE_MOVES).length,74);
  for(const [id,m] of Object.entries(w.POKE_SIMPLE_DAMAGE_MOVES)){
   assert.ok(w.POKE_IMPORTED_TECHNIQUES.moves[id]);
   assert.equal(m.effect,"damage");
