@@ -35,7 +35,7 @@ function select(m){
  }
  if(Object.hasOwn(RANKS,m.effectId)){
   const [stat,stages]=RANKS[m.effectId],positive=stages>0;
-  if(m.category!=="status"||m.power!==null||!metadata(m,[],2,0)||
+  if(m.category!=="status"||m.power!==null||!metadata(m,["stat_chance"],2,0)||
     (positive?!self&&!allies:!single&&!enemies)||
     (m.accuracy===null?!positive:!Number.isInteger(m.accuracy))||
     (m.effectChance!==null&&!(m.effectChance===100&&m.meta.stat_chance===100)))
