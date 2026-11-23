@@ -28,7 +28,7 @@ test("five status-only moves match pinned catalog and previous 43 unchanged",()=
  const source=new Map(manifest.files.moves.flatMap(p=>JSON.parse(fs.readFileSync(path.join(root,p),"utf8")).moves).map(m=>[m.key,m]));
  const {w}=boot();
  assert.equal(Object.keys(w.POKE_STATUS_MOVES).length,5);
- assert.equal(Object.keys(w.POKE_MOVES).length,63);
+ assert.equal(Object.keys(w.POKE_MOVES).length,74);
  for(const [key,s] of Object.entries(specs)){
   const original=source.get(key),move=w.POKE_MOVES[key];
   assert.equal(original.id,s.id,key);assert.equal(original.effectId,s.effectId,key);
