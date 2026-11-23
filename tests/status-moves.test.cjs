@@ -4,7 +4,7 @@ const root=path.resolve(__dirname,"..");
 function boot(random=()=>0){
  const m=Object.create(Math);m.random=random;
  const ctx=vm.createContext({window:{addEventListener(){},localStorage:{getItem(){return null},setItem(){}}},performance:{now:()=>0},Date,console,Set,Map,Math:m});
- const files=["data/national-catalog.js","data/species.js","data/provenance.js","data/natures.js","data/type-chart.js","data.js","data/simple-damage-moves.js","data/rank-moves.js","data/status-moves.js","data/drain-moves.js","data/heal-moves.js","data/recoil-moves.js","data/moves.js","data/imported-techniques.js","data/techniques.js","data/tools.js","engine/experience.js","engine/pokemon.js","engine/damage.js","engine/battle-status.js","engine/core.js","engine/techniques.js","engine/regions.js","engine/tools.js","engine/save.js","engine/battle-experience.js","engine/targeting.js","engine/move-effects.js","engine/combat.js","engine/exploration.js"];
+ const files=["data/national-catalog.js","data/species.js","data/provenance.js","data/natures.js","data/type-chart.js","data.js","data/simple-damage-moves.js","data/rank-moves.js","data/status-moves.js","data/drain-moves.js","data/heal-moves.js","data/recoil-moves.js","data/drain-75-moves.js","data/moves.js","data/imported-techniques.js","data/techniques.js","data/tools.js","engine/experience.js","engine/pokemon.js","engine/damage.js","engine/battle-status.js","engine/core.js","engine/techniques.js","engine/regions.js","engine/tools.js","engine/save.js","engine/battle-experience.js","engine/targeting.js","engine/move-effects.js","engine/combat.js","engine/exploration.js"];
  for(const f of files)vm.runInContext(fs.readFileSync(path.join(root,"game",f),"utf8"),ctx,{filename:f});
  return {w:ctx.window,m};
 }
@@ -28,7 +28,7 @@ test("five status-only moves match pinned catalog and previous 43 unchanged",()=
  const source=new Map(manifest.files.moves.flatMap(p=>JSON.parse(fs.readFileSync(path.join(root,p),"utf8")).moves).map(m=>[m.key,m]));
  const {w}=boot();
  assert.equal(Object.keys(w.POKE_STATUS_MOVES).length,5);
- assert.equal(Object.keys(w.POKE_MOVES).length,61);
+ assert.equal(Object.keys(w.POKE_MOVES).length,63);
  for(const [key,s] of Object.entries(specs)){
   const original=source.get(key),move=w.POKE_MOVES[key];
   assert.equal(original.id,s.id,key);assert.equal(original.effectId,s.effectId,key);
