@@ -1,0 +1,1022 @@
+{
+  "schemaVersion": 1,
+  "sourceRevision": "8a92bfa7dab2f12b84b5d151562f9857c133ff30",
+  "sourceCount": 937,
+  "previous": 158,
+  "added": 59,
+  "total": 217,
+  "families": {
+    "high-critical": 15,
+    "multi-2-to-5": 12,
+    "fixed-2-hits": 5,
+    "damage-flinch": 19,
+    "plain-spread": 8
+  },
+  "excluded": {
+    "742": "Double Iron Bash: flinch separately per hit, not plain two hits",
+    "814": "Dual Wingbeat: anomalous source effectChance=100 despite zero-effect metadata; version check required",
+    "10002": "shadow special unsupported; lacks Korean name"
+  },
+  "rows": [
+    {
+      "id": 2,
+      "key": "karate-chop",
+      "effectId": 44,
+      "state": "registered",
+      "family": "high-critical",
+      "reason": null
+    },
+    {
+      "id": 3,
+      "key": "double-slap",
+      "effectId": 30,
+      "state": "registered",
+      "family": "multi-2-to-5",
+      "reason": null
+    },
+    {
+      "id": 4,
+      "key": "comet-punch",
+      "effectId": 30,
+      "state": "registered",
+      "family": "multi-2-to-5",
+      "reason": null
+    },
+    {
+      "id": 24,
+      "key": "double-kick",
+      "effectId": 45,
+      "state": "registered",
+      "family": "fixed-2-hits",
+      "reason": null
+    },
+    {
+      "id": 27,
+      "key": "rolling-kick",
+      "effectId": 32,
+      "state": "registered",
+      "family": "damage-flinch",
+      "reason": null
+    },
+    {
+      "id": 29,
+      "key": "headbutt",
+      "effectId": 32,
+      "state": "registered",
+      "family": "damage-flinch",
+      "reason": null
+    },
+    {
+      "id": 31,
+      "key": "fury-attack",
+      "effectId": 30,
+      "state": "registered",
+      "family": "multi-2-to-5",
+      "reason": null
+    },
+    {
+      "id": 42,
+      "key": "pin-missile",
+      "effectId": 30,
+      "state": "registered",
+      "family": "multi-2-to-5",
+      "reason": null
+    },
+    {
+      "id": 44,
+      "key": "bite",
+      "effectId": 32,
+      "state": "registered",
+      "family": "damage-flinch",
+      "reason": null
+    },
+    {
+      "id": 75,
+      "key": "razor-leaf",
+      "effectId": 44,
+      "state": "registered",
+      "family": "high-critical",
+      "reason": null
+    },
+    {
+      "id": 125,
+      "key": "bone-club",
+      "effectId": 32,
+      "state": "registered",
+      "family": "damage-flinch",
+      "reason": null
+    },
+    {
+      "id": 127,
+      "key": "waterfall",
+      "effectId": 32,
+      "state": "registered",
+      "family": "damage-flinch",
+      "reason": null
+    },
+    {
+      "id": 131,
+      "key": "spike-cannon",
+      "effectId": 30,
+      "state": "registered",
+      "family": "multi-2-to-5",
+      "reason": null
+    },
+    {
+      "id": 140,
+      "key": "barrage",
+      "effectId": 30,
+      "state": "registered",
+      "family": "multi-2-to-5",
+      "reason": null
+    },
+    {
+      "id": 152,
+      "key": "crabhammer",
+      "effectId": 44,
+      "state": "registered",
+      "family": "high-critical",
+      "reason": null
+    },
+    {
+      "id": 154,
+      "key": "fury-swipes",
+      "effectId": 30,
+      "state": "registered",
+      "family": "multi-2-to-5",
+      "reason": null
+    },
+    {
+      "id": 155,
+      "key": "bonemerang",
+      "effectId": 45,
+      "state": "registered",
+      "family": "fixed-2-hits",
+      "reason": null
+    },
+    {
+      "id": 157,
+      "key": "rock-slide",
+      "effectId": 32,
+      "state": "registered",
+      "family": "damage-flinch",
+      "reason": null
+    },
+    {
+      "id": 158,
+      "key": "hyper-fang",
+      "effectId": 32,
+      "state": "registered",
+      "family": "damage-flinch",
+      "reason": null
+    },
+    {
+      "id": 163,
+      "key": "slash",
+      "effectId": 44,
+      "state": "registered",
+      "family": "high-critical",
+      "reason": null
+    },
+    {
+      "id": 177,
+      "key": "aeroblast",
+      "effectId": 44,
+      "state": "registered",
+      "family": "high-critical",
+      "reason": null
+    },
+    {
+      "id": 198,
+      "key": "bone-rush",
+      "effectId": 30,
+      "state": "registered",
+      "family": "multi-2-to-5",
+      "reason": null
+    },
+    {
+      "id": 238,
+      "key": "cross-chop",
+      "effectId": 44,
+      "state": "registered",
+      "family": "high-critical",
+      "reason": null
+    },
+    {
+      "id": 292,
+      "key": "arm-thrust",
+      "effectId": 30,
+      "state": "registered",
+      "family": "multi-2-to-5",
+      "reason": null
+    },
+    {
+      "id": 302,
+      "key": "needle-arm",
+      "effectId": 32,
+      "state": "registered",
+      "family": "damage-flinch",
+      "reason": null
+    },
+    {
+      "id": 304,
+      "key": "hyper-voice",
+      "effectId": 1,
+      "state": "registered",
+      "family": "plain-spread",
+      "reason": null
+    },
+    {
+      "id": 310,
+      "key": "astonish",
+      "effectId": 32,
+      "state": "registered",
+      "family": "damage-flinch",
+      "reason": null
+    },
+    {
+      "id": 314,
+      "key": "air-cutter",
+      "effectId": 44,
+      "state": "registered",
+      "family": "high-critical",
+      "reason": null
+    },
+    {
+      "id": 326,
+      "key": "extrasensory",
+      "effectId": 32,
+      "state": "registered",
+      "family": "damage-flinch",
+      "reason": null
+    },
+    {
+      "id": 333,
+      "key": "icicle-spear",
+      "effectId": 30,
+      "state": "registered",
+      "family": "multi-2-to-5",
+      "reason": null
+    },
+    {
+      "id": 348,
+      "key": "leaf-blade",
+      "effectId": 44,
+      "state": "registered",
+      "family": "high-critical",
+      "reason": null
+    },
+    {
+      "id": 350,
+      "key": "rock-blast",
+      "effectId": 30,
+      "state": "registered",
+      "family": "multi-2-to-5",
+      "reason": null
+    },
+    {
+      "id": 399,
+      "key": "dark-pulse",
+      "effectId": 32,
+      "state": "registered",
+      "family": "damage-flinch",
+      "reason": null
+    },
+    {
+      "id": 400,
+      "key": "night-slash",
+      "effectId": 44,
+      "state": "registered",
+      "family": "high-critical",
+      "reason": null
+    },
+    {
+      "id": 403,
+      "key": "air-slash",
+      "effectId": 32,
+      "state": "registered",
+      "family": "damage-flinch",
+      "reason": null
+    },
+    {
+      "id": 407,
+      "key": "dragon-rush",
+      "effectId": 32,
+      "state": "registered",
+      "family": "damage-flinch",
+      "reason": null
+    },
+    {
+      "id": 421,
+      "key": "shadow-claw",
+      "effectId": 44,
+      "state": "registered",
+      "family": "high-critical",
+      "reason": null
+    },
+    {
+      "id": 427,
+      "key": "psycho-cut",
+      "effectId": 44,
+      "state": "registered",
+      "family": "high-critical",
+      "reason": null
+    },
+    {
+      "id": 428,
+      "key": "zen-headbutt",
+      "effectId": 32,
+      "state": "registered",
+      "family": "damage-flinch",
+      "reason": null
+    },
+    {
+      "id": 442,
+      "key": "iron-head",
+      "effectId": 32,
+      "state": "registered",
+      "family": "damage-flinch",
+      "reason": null
+    },
+    {
+      "id": 444,
+      "key": "stone-edge",
+      "effectId": 44,
+      "state": "registered",
+      "family": "high-critical",
+      "reason": null
+    },
+    {
+      "id": 454,
+      "key": "attack-order",
+      "effectId": 44,
+      "state": "registered",
+      "family": "high-critical",
+      "reason": null
+    },
+    {
+      "id": 458,
+      "key": "double-hit",
+      "effectId": 45,
+      "state": "registered",
+      "family": "fixed-2-hits",
+      "reason": null
+    },
+    {
+      "id": 460,
+      "key": "spacial-rend",
+      "effectId": 44,
+      "state": "registered",
+      "family": "high-critical",
+      "reason": null
+    },
+    {
+      "id": 529,
+      "key": "drill-run",
+      "effectId": 44,
+      "state": "registered",
+      "family": "high-critical",
+      "reason": null
+    },
+    {
+      "id": 530,
+      "key": "dual-chop",
+      "effectId": 45,
+      "state": "registered",
+      "family": "fixed-2-hits",
+      "reason": null
+    },
+    {
+      "id": 531,
+      "key": "heart-stamp",
+      "effectId": 32,
+      "state": "registered",
+      "family": "damage-flinch",
+      "reason": null
+    },
+    {
+      "id": 541,
+      "key": "tail-slap",
+      "effectId": 30,
+      "state": "registered",
+      "family": "multi-2-to-5",
+      "reason": null
+    },
+    {
+      "id": 544,
+      "key": "gear-grind",
+      "effectId": 45,
+      "state": "registered",
+      "family": "fixed-2-hits",
+      "reason": null
+    },
+    {
+      "id": 556,
+      "key": "icicle-crash",
+      "effectId": 32,
+      "state": "registered",
+      "family": "damage-flinch",
+      "reason": null
+    },
+    {
+      "id": 605,
+      "key": "dazzling-gleam",
+      "effectId": 1,
+      "state": "registered",
+      "family": "plain-spread",
+      "reason": null
+    },
+    {
+      "id": 616,
+      "key": "lands-wrath",
+      "effectId": 1,
+      "state": "registered",
+      "family": "plain-spread",
+      "reason": null
+    },
+    {
+      "id": 618,
+      "key": "origin-pulse",
+      "effectId": 1,
+      "state": "registered",
+      "family": "plain-spread",
+      "reason": null
+    },
+    {
+      "id": 619,
+      "key": "precipice-blades",
+      "effectId": 1,
+      "state": "registered",
+      "family": "plain-spread",
+      "reason": null
+    },
+    {
+      "id": 622,
+      "key": "breakneck-blitz--physical",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 623,
+      "key": "breakneck-blitz--special",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 624,
+      "key": "all-out-pummeling--physical",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 625,
+      "key": "all-out-pummeling--special",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 626,
+      "key": "supersonic-skystrike--physical",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 627,
+      "key": "supersonic-skystrike--special",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 628,
+      "key": "acid-downpour--physical",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 629,
+      "key": "acid-downpour--special",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 630,
+      "key": "tectonic-rage--physical",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 631,
+      "key": "tectonic-rage--special",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 632,
+      "key": "continental-crush--physical",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 633,
+      "key": "continental-crush--special",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 634,
+      "key": "savage-spin-out--physical",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 635,
+      "key": "savage-spin-out--special",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 636,
+      "key": "never-ending-nightmare--physical",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 637,
+      "key": "never-ending-nightmare--special",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 638,
+      "key": "corkscrew-crash--physical",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 639,
+      "key": "corkscrew-crash--special",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 640,
+      "key": "inferno-overdrive--physical",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 641,
+      "key": "inferno-overdrive--special",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 642,
+      "key": "hydro-vortex--physical",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 643,
+      "key": "hydro-vortex--special",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 644,
+      "key": "bloom-doom--physical",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 645,
+      "key": "bloom-doom--special",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 646,
+      "key": "gigavolt-havoc--physical",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 647,
+      "key": "gigavolt-havoc--special",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 648,
+      "key": "shattered-psyche--physical",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 649,
+      "key": "shattered-psyche--special",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 650,
+      "key": "subzero-slammer--physical",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 651,
+      "key": "subzero-slammer--special",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 652,
+      "key": "devastating-drake--physical",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 653,
+      "key": "devastating-drake--special",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 654,
+      "key": "black-hole-eclipse--physical",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 655,
+      "key": "black-hole-eclipse--special",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 656,
+      "key": "twinkle-tackle--physical",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 657,
+      "key": "twinkle-tackle--special",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 658,
+      "key": "catastropika",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 695,
+      "key": "sinister-arrow-raid",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 696,
+      "key": "malicious-moonsault",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 697,
+      "key": "oceanic-operetta",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 699,
+      "key": "soul-stealing-7-star-strike",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 701,
+      "key": "pulverizing-pancake",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 716,
+      "key": "zing-zap",
+      "effectId": 32,
+      "state": "registered",
+      "family": "damage-flinch",
+      "reason": null
+    },
+    {
+      "id": 719,
+      "key": "10-000-000-volt-thunderbolt",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 722,
+      "key": "photon-geyser",
+      "effectId": 1,
+      "state": "not-safe-plain-spread",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 726,
+      "key": "lets-snuggle-forever",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 729,
+      "key": "zippy-zap",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 730,
+      "key": "splishy-splash",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 731,
+      "key": "floaty-fall",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 732,
+      "key": "pika-papow",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 733,
+      "key": "bouncy-bubble",
+      "effectId": 1,
+      "state": "not-safe-plain-spread",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 734,
+      "key": "buzzy-buzz",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 735,
+      "key": "sizzly-slide",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 736,
+      "key": "glitzy-glow",
+      "effectId": 1,
+      "state": "not-safe-plain-spread",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 737,
+      "key": "baddy-bad",
+      "effectId": 1,
+      "state": "not-safe-plain-spread",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 738,
+      "key": "sappy-seed",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 739,
+      "key": "freezy-frost",
+      "effectId": 1,
+      "state": "not-safe-plain-spread",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 740,
+      "key": "sparkly-swirl",
+      "effectId": 1,
+      "state": "not-safe-plain-spread",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 741,
+      "key": "veevee-volley",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 742,
+      "key": "double-iron-bash",
+      "effectId": 45,
+      "state": "excluded",
+      "family": null,
+      "reason": "Double Iron Bash: flinch separately per hit, not plain two hits"
+    },
+    {
+      "id": 786,
+      "key": "overdrive",
+      "effectId": 1,
+      "state": "registered",
+      "family": "plain-spread",
+      "reason": null
+    },
+    {
+      "id": 814,
+      "key": "dual-wingbeat",
+      "effectId": 45,
+      "state": "excluded",
+      "family": null,
+      "reason": "Dual Wingbeat: anomalous source effectChance=100 despite zero-effect metadata; version check required"
+    },
+    {
+      "id": 822,
+      "key": "fiery-wrath",
+      "effectId": 32,
+      "state": "registered",
+      "family": "damage-flinch",
+      "reason": null
+    },
+    {
+      "id": 824,
+      "key": "glacial-lance",
+      "effectId": 1,
+      "state": "registered",
+      "family": "plain-spread",
+      "reason": null
+    },
+    {
+      "id": 825,
+      "key": "astral-barrage",
+      "effectId": 1,
+      "state": "registered",
+      "family": "plain-spread",
+      "reason": null
+    },
+    {
+      "id": 10002,
+      "key": "shadow-blast",
+      "effectId": 44,
+      "state": "excluded",
+      "family": null,
+      "reason": "shadow special unsupported; lacks Korean name"
+    },
+    {
+      "id": 10003,
+      "key": "shadow-blitz",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 10005,
+      "key": "shadow-break",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 10009,
+      "key": "shadow-rave",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 10010,
+      "key": "shadow-storm",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    },
+    {
+      "id": 10011,
+      "key": "shadow-wave",
+      "effectId": 1,
+      "state": "incomplete-or-complex",
+      "family": null,
+      "reason": null
+    }
+  ]
+}
