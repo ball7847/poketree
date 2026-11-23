@@ -13,7 +13,8 @@
     const members=[...exp.party,...exp.enemies].filter(alive);
     // A previously fainted Pokémon may have been revived between rounds.
     // The next faint must apply its own experience/loot penalty exactly once.
-    for(const member of members)member._faintedHandled=false;
+    const history={acted:new Set(),damaged:new Set(),hitBy:new Map()};
+    for(const member of members){member._faintedHandled=false;member._battleRound=history;}
     exp.plans=new Map();
     exp.tiebreak=new Map(members.map(u=>[u,Math.random()]));
     exp.speeds=new Map(members.map(u=>[u,speed(u)])); // fixed for this round
@@ -51,7 +52,7 @@
     if(award&&u.side==="enemy")G.battleExperience.award(exp,u);
   }
   function clear(exp){
-    for(const u of [...exp.party,...exp.enemies])S.endBattle(u);
+    for(const u of [...exp.party,...exp.enemies]){S.endBattle(u);delete u._battleRound;}
     exp.order=[];exp.plans=null;exp.tiebreak=null;exp.speeds=null;exp.turnIndex=0;exp.round=0;
   }
   function finish(exp){
@@ -67,6 +68,11 @@
     Pokemon.usedNormalAttack(u);
     const actual=Math.min(victim.hp,result.damage);
     victim.hp=Math.max(0,victim.hp-result.damage);
+    if(actual>0&&u._battleRound){
+      const h=u._battleRound;h.damaged.add(victim.id);
+      if(!h.hitBy.has(victim.id))h.hitBy.set(victim.id,new Set());
+      h.hitBy.get(victim.id).add(u.id);
+    }
     if(u.moves?.length&&actual>0)u.pp+=Pokemon.ppGain(u);
     record(exp,u.name+" → "+victim.name+" · "+actual+" 피해"+(result.critical?" · 급소":"")+" ("+result.type+")");
     if(victim.hp===0)handleFaint(exp,victim,victim.side==="enemy");
@@ -104,6 +110,7 @@
     }
     const unit=exp.order[exp.turnIndex++];
     if(!unit||!alive(unit))return;
+    unit._battleRound?.acted.add(unit.id);
     const interruption=S.beforeAction(unit);
     if(interruption==="confusion"){
       const amount=Damage.confusionDamage(unit);
