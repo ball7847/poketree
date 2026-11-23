@@ -3,9 +3,14 @@
 (() => {
   "use strict";
   const S=window.PokeBattleStatus,D=window.PokeDamage;
-  function healAmount(user,target,area=false,move=null){
+  function healAmount(user,target,area=false,move=null,weather=null){
     // Explicit original 50%-max-HP self recovery; preserve other recovery effects.
     if(move?.healFraction===0.5)return Math.max(1,Math.floor(target.maxHp/2));
+    if(move?.weatherHeal){
+      const kind=weather?.kind||null;
+      const fraction=kind==="sun"?2/3:kind&&["rain","sandstorm","snow","hail"].includes(kind)?1/4:1/2;
+      return Math.max(1,Math.floor(target.maxHp*fraction));
+    }
     const base=Math.floor((target.maxHp+user.spAttack)/4);
     return area||user!==target?Math.floor(base*2/3):base;
   }
@@ -34,7 +39,7 @@
     user.pp-=100;
     G.record(exp,user.name+" · "+move.name+" 사용 (PP -100)");
     const faintCandidates=new Set();
-    let recoil=0;
+    let recoil=0,hitForRecharge=false;
     for(const target of chosen){
       // Psychic Terrain protects grounded foes from positive-priority attacks.
       if(exp.terrain?.kind==="psychic"&&move.priority>0&&
@@ -47,10 +52,14 @@
       const probability=poisonUser?1:S.accuracy(move,user,target);
       if(move.accuracyMode!=="per-hit"&&Math.random()>=probability){G.record(exp,move.name+" · "+target.name+"에게 빗나감");continue;}
       if(move.effect==="heal"){
-        const actual=Math.min(target.maxHp-target.hp,healAmount(user,target,move.target==="allies",move));
+        const actual=Math.min(target.maxHp-target.hp,healAmount(user,target,move.target==="allies",move,exp.weather));
         target.hp+=actual;G.record(exp,target.name+" HP "+actual+" 회복");continue;
       }
       if(move.effect==="rank"){S.rank(target,move.rank.stat,move.rank.stages);G.record(exp,target.name+"의 "+move.rank.stat+" 랭크 변화");continue;}
+      if(move.effect==="status"&&move.powder&&
+         window.PokePokemon.template(target.species,target.form).form.types.includes("grass")){
+        G.record(exp,target.name+" · 가루 기술 무효");continue;
+      }
       if(move.effect==="status"){
         // E.g. Thunder Wave cannot paralyze Ground targets (Electric immunity).
         if(move.type==="electric"&&D.effectiveness(move.type,target)===0){
@@ -71,6 +80,7 @@
         // Confirmed PokeTree rule: run every hit, even after reaching 0 HP.
         const result=D.roll(user,target,{move,weather:exp.weather,terrain:exp.terrain});
         const actual=Math.min(target.hp,result.damage);
+        if(move.effect==="recharge"&&actual>0)hitForRecharge=true;
         target.hp=Math.max(0,target.hp-result.damage);
         if(move.type==="fire"&&result.effectiveness>0&&S.thawFromFire(target))
           G.record(exp,target.name+" 얼음 상태 해제 (불꽃 기술)");
@@ -98,6 +108,9 @@
           const recovered=Math.min(user.maxHp-user.hp,amount);
           user.hp+=recovered;G.record(exp,user.name+" HP "+recovered+" 흡수");
         }
+        if(move.effect==="bind"&&actual>0&&target.hp>0&&
+           S.bind(target,user,...move.bindDuration))
+          G.record(exp,target.name+" · 속박 시작");
         if(move.effect==="recoil")recoil+=actual;
       }
       if(target.hp===0)faintCandidates.add(target);
@@ -106,6 +119,9 @@
       const damage=Math.max(1,Math.floor(recoil*move.recoil));
       user.hp=Math.max(0,user.hp-damage);
       G.record(exp,user.name+" 반동 "+damage+" 피해");
+    }
+    if(move.effect==="recharge"&&hitForRecharge&&user.hp>0){
+      S.recharge(user);G.record(exp,user.name+" · 다음 개인 턴 재충전");
     }
     if(move.effect==="selfdestruct"){
       user.hp=0;G.record(exp,user.name+" 자폭");
