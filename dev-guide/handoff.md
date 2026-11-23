@@ -1,5 +1,16 @@
 # 다음 대화 개발 인수인계 — 2026-11-23 최신
 
+## 2026-11-23 기술 시스템 7차 — 회복 기술 3개 및 HP회복 공식 통일
+
+- **사용자 승인:** 처음 승인 대기 계획의 신규 자기 HP 회복 기술 3개 구현과, 사용자 후속 지시에 따라 기존 `HP회복(recover)` 역시 원작 최대 HP 50% 회복으로 통일. 수정은 자기 직접 회복 기술 4개의 계산과 테스트·로드·문서에 한정. 다른 피해량, PP 100 소모, 타겟팅, 습득표/TM, 저장 구조, 흡수·반동·상태이상 효과 변경 없음.
+- 고정 출처 `data-import/manifest.json` (`PokeAPI/pokeapi` pinned revision `8a92bfa7dab2f12b84b5d151562f9857c133ff30`)와 `data-import/moves/` 원본: `recover` 105, `soft-boiled` 135, `milk-drink` 208, `slack-off` 303. 네 기술 모두 원본에서 효과 ID 33, 회복 메타데이터 50, 사용자 대상, 변화, 명중 null, 우선도 0. 챔피언스 최신 독립 전수 검증이 아니라 저장된 PokeAPI 원본 검증임.
+- 신규 `game/data/heal-moves.js`: 알낳기·우유마시기·게으름피우기 세 기술 `effect:"heal", healFraction:0.5, target:"self"` 등록. `game/data/moves.js`의 기존 `recover`에도 `healFraction:0.5, effectId:33` 적용, 다른 기존 기술은 그대로 유지. 전투 기술 수 **53+3=56개**. `game/index.html`과 전체 VM 테스트 로더에서 신규 파일을 `moves.js` 앞에 로딩.
+- `game/engine/move-effects.js`의 `healAmount(user,target,area=false,move=null)`에 **`move.healFraction===0.5` 경우에만 `Math.max(1,Math.floor(target.maxHp/2))`** 반환하도록 추가하고, 기술 실행에서 `move`를 전달. 실제 회복은 기존 `Math.min(target.maxHp-target.hp,...)` 상한 유지. 기존 기타 회복 대상이나 가상의 아군 회복 코드 경로의 PokeTree 전용 계산식은 그대로 보존. 최대 HP 1일 때도 최소 1 회복하도록 가드.
+- 신규 `tests/heal-moves.test.cjs`: 네 기술의 원본 속성, 신규 3+기존 53=56, 습득·장착·실행·PP 100 차감·적 HP 불변, 50% 회복, 최대 HP 150/151 홀수 버림, HP 제한, 만피, PP 부족 시 실패, 자신의 회복 타겟팅, 기존 다른 회복 helper 동작 불변 검증. 기존 누적 기술 수 검사 53→56 변경.
+- **GitHub Actions 기능 커밋 `7e24bb7cc`, PokeTree engine tests run `45088518852` 성공:** Node 전체 테스트, 소스 데이터 감사, Chromium 사용자 흐름 스모크 테스트 모두 통과. 배포 작업의 최종 결론은 별도 확인해야 함.
+- 보류: 날씨별 회복·타입 변화·타인 치료·잠자기·흡수 75%·반동 등은 미구현 상태. 저장된 PokeAPI와 현재 Pokémon Champions 라이브 데이터의 독립 일치 검증은 별도 작업임.
+
+
 ## 2026-11-23 기술 시스템 6차 — HP 흡수 공격 5개
 
 - 사용자 승인 범위: 흡수, 메가드레인, 흡혈, 드레인펀치, 우드혼 5개만 고정 PokeAPI 원본 검증 후 기존 HP 흡수 공격 엔진에 연결. 나머지 기술, 회복·반동 기술, 전투 공식, PP, 타겟팅, 기술 습득표 및 기존 저장 데이터 변경 금지.
