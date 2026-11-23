@@ -16,6 +16,7 @@ for(const m of raw){
  const priorityValid=["revenge","avalanche"].includes(m.key)?m.priority===-4:m.priority===0;
  const meta=Object.entries(m.meta||{}).every(([k,v])=>{
   if(k==="meta_category_id"||k==="crit_rate"||k==="stat_chance"||k==="ailment_chance")return true;
+  if(k==="meta_ailment_id"&&["poison-tail","cross-poison"].includes(m.key))return v===5;
   return v===0;
  });
  const valid=Boolean(m.ko)&&m.type!=="shadow"&&m.effectId===expected[m.key]&&priorityValid&&meta&&
