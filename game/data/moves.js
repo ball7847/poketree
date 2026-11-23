@@ -8,6 +8,7 @@ window.POKE_MOVES=Object.freeze({
   ...window.POKE_RANK_MOVES,
   ...window.POKE_STATUS_MOVES,
   ...window.POKE_DRAIN_MOVES,
+  ...window.POKE_HEAL_MOVES,
   "quick-attack":{name:"전광석화",type:"normal",category:"physical",power:40,accuracy:100,priority:1,target:"enemy",effect:"damage",source:"champions"},
   "thunderbolt":{name:"10만볼트",type:"electric",category:"special",power:90,accuracy:100,priority:0,target:"enemy",effect:"damage",secondary:{kind:"paralysis",chance:10},source:"champions"},
   "gust":{name:"바람일으키기",type:"flying",category:"special",power:40,accuracy:100,priority:0,target:"enemy",effect:"damage",source:"gen9"},
@@ -19,6 +20,6 @@ window.POKE_MOVES=Object.freeze({
   "agility":{name:"고속이동",type:"psychic",category:"status",power:null,accuracy:null,priority:0,target:"self",effect:"rank",rank:{stat:"speed",stages:2},source:"champions"},
   "rain-dance":{name:"비바라기",type:"water",category:"status",power:null,accuracy:null,priority:0,target:"field",effect:"weather",weather:"rain",duration:5,source:"champions"},
   "electric-terrain":{name:"일렉트릭필드",type:"electric",category:"status",power:null,accuracy:null,priority:0,target:"field",effect:"terrain",terrain:"electric",duration:5,source:"champions"},
-  "recover":{name:"HP회복",type:"normal",category:"status",power:null,accuracy:null,priority:0,target:"self",effect:"heal",source:"champions"},
+  "recover":{name:"HP회복",type:"normal",category:"status",power:null,accuracy:null,priority:0,target:"self",effect:"heal",healFraction:0.5,effectId:33,source:"pinned-PokeAPI"},
   "bullet-seed":{name:"기관총",type:"grass",category:"physical",power:25,accuracy:100,priority:0,target:"enemy",effect:"multi",hits:[2,3,4,5],source:"champions"}
 });
