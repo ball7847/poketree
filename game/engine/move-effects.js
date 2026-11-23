@@ -10,6 +10,7 @@
     return area||user!==target?Math.floor(base*2/3):base;
   }
   function hitCount(move){
+    if(Number.isInteger(move.hits))return move.hits;
     if(!move.hits)return 1;
     const r=Math.random();
     return r<.35?2:r<.70?3:r<.85?4:5;
@@ -76,6 +77,13 @@
         G.record(exp,move.name+" → "+target.name+" "+(i+1)+"타 · "+actual+" 피해"+(result.critical?" · 급소":""));
         if(result.damage>0&&move.secondary&&Math.random()*100<move.secondary.chance&&S.inflict(target,move.secondary.kind,exp))
           G.record(exp,target.name+" · "+move.secondary.kind+" 상태이상");
+        // Flinch only applies to a living defender whose personal turn is still
+        // pending in the current round. A defender that already acted cannot
+        // carry flinch into the next round.
+        if(result.damage>0&&target.hp>0&&move.secondaryFlinch&&
+           exp.order?.slice(exp.turnIndex).includes(target)&&
+           Math.random()*100<move.secondaryFlinch.chance&&S.flinch(target))
+          G.record(exp,target.name+" · 풀죽음");
         // Shared attack + stat-rank effect family. Non-damaging or immune hits
         // cannot trigger it; this does not alter existing status effects.
         if(result.damage>0&&move.secondaryRank&&Math.random()*100<move.secondaryRank.chance){
