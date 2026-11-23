@@ -29,14 +29,14 @@ test("levelup grants pinned source moves without demo learnset injection",()=>{
  for(const id of advanced)assert.ok(other.learnedMoves.includes(id),id);
  assert.equal(T.sourceInfo("bulbasaur").missing,false);
 });
-test("expedition equipment allowed only in exploration, not combat/recovery; item TM needs recall",()=>{
+test("move equipment allowed during exploration/combat/recovery; item TM still needs recall",()=>{
  const {G}=boot(),T=G.techniques,u=G.state.roster[0];
  T.unlock("thunderbolt");
  assert.equal(G.exploration.start("windy",[u.id]),null);
  assert.equal(T.equip(u,null,0),null);
  assert.match(T.useTM(u,"thunderbolt"),/귀환/);
- const exp=G.state.regions.windy;exp.mode="combat";assert.match(T.equip(u,"quick-attack",0),/전투/);
- exp.mode="recovery";assert.match(T.equip(u,"quick-attack",0),/회복/);
+ const exp=G.state.regions.windy;exp.mode="combat";assert.equal(T.equip(u,"quick-attack",0),null);
+ exp.mode="recovery";assert.equal(T.equip(u,"quick-attack",0),null);
  G.exploration.recall("windy");
  const compatible=T.tmCompatibility(u.species,u.form).includes("thunderbolt");
  assert.equal(T.useTM(u,"thunderbolt"),compatible?null:"이 포켓몬과 호환되지 않는 기술머신입니다.");
