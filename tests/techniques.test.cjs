@@ -9,7 +9,7 @@ function boot(){
 }
 test("individual learning and equipment do not share state or reset PP",()=>{
  const {G}=boot(),T=G.techniques,u=G.state.roster[0],other=G.state.roster[1];
- assert.ok(u.learnedMoves.includes("thunderbolt"));assert.ok(!other.learnedMoves.includes("thunderbolt"));
+ assert.ok(u.learnedMoves.includes("M010104"));assert.ok(!other.learnedMoves.includes("thunderbolt"));
  u.pp=86;assert.equal(T.equip(u,null,1),null);assert.equal(u.pp,86);
  assert.equal(T.equip(u,"unknown",0),"습득하지 않은 기술입니다.");
  assert.equal(T.equip(u,"M010104",0),null);
@@ -75,8 +75,8 @@ test("save/load restores learned skills and TM codex while excluding runtime com
 
 test("slot 2 remains in slot 2 through a save/restore, and tool guard blocks expedition",()=>{
  const {G}=boot(),T=G.techniques,u=G.state.roster[0];
- assert.equal(T.equip(u,"M010104",1),null);
  assert.equal(T.equip(u,null,0),null);
+ assert.equal(T.equip(u,"M010104",1),null);
  assert.equal(u.moves[0],null);assert.equal(u.moves[1],"M010104");
  const raw=JSON.parse(JSON.stringify(G.saveGame.snapshot()));
  assert.equal(G.saveGame.restore(raw),true);

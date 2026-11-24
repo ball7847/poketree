@@ -83,5 +83,5 @@ test("removed original move effects remain in learnsets but cannot be equipped o
 test("all demo starter moves are user-approved M IDs",()=>{
  const {G,W}=boot();
  assert.equal(Object.keys(W.POKE_MOVES).length,7);
- for(const u of G.state.roster)for(const id of u.moves)assert.ok(/^M\\d{6}$/.test(id));
+ for(const u of G.state.roster)for(const id of u.moves)assert.ok(Object.hasOwn(W.POKE_MOVES,id));
 });

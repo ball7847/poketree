@@ -24,7 +24,7 @@
    if(category==="all"||category==="tm")
      for(const id of Object.keys(window.POKE_TECH_DATA.recipes))
        if(G.state.technicalMachines.includes(id))
-         out.push({key:"tm:"+id,id,category:"tm",name:moveData[id]?.name||id,count:null});
+         out.push({key:"tm:"+id,id,category:"tm",name:moveData[id]?.name||G.techniques.imported.moves[id]?.name||id,count:null});
    return out;
  }
  function detail(category,id){
