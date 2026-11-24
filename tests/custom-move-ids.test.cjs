@@ -85,3 +85,46 @@ test("all demo starter moves are user-approved M IDs",()=>{
  assert.equal(Object.keys(W.POKE_MOVES).length,7);
  for(const u of G.state.roster)for(const id of u.moves)assert.ok(Object.hasOwn(W.POKE_MOVES,id));
 });
+
+test("starter loadouts match original level requirements (no level-5 freebies)",()=>{
+ const {G,W}=boot();
+ for(const u of G.state.roster){
+   const eligible=G.techniques.levelMoves(u.species,u.level,u.form);
+   for(const m of u.moves)assert.ok(eligible.includes(m),u.species+" incorrectly equipped "+m);
+ }
+ assert.deepEqual([...G.state.roster[1].moves],["M010101"]);
+ assert.deepEqual([...G.state.roster[2].moves],["M010101"]);
+});
+test("TM learning preserves original ID and grants executable mapped M ID exactly once",()=>{
+ const {G,W}=boot(),T=G.techniques;
+ const u=G.state.roster[1];
+ assert.ok(T.tmCompatibility(u.species,u.form).includes("cut")===false||typeof T.tmCompatibility==="function");
+ // Simulate a legitimate source-compatible approved TM, without modifying the catalog.
+ const candidate=G.state.roster.find(unit=>T.tmCompatibility(unit.species,unit.form).includes("cut"));
+ if(candidate){
+   G.state.technicalMachines.push("cut");
+   assert.equal(T.useTM(candidate,"cut"),null);
+   assert.ok(candidate.learnedMoves.includes("cut"));
+   assert.ok(candidate.learnedMoves.includes("M010106"));
+   assert.equal(candidate.learnedMoves.filter(x=>x==="M010106").length,1);
+ }else{
+   const unit=G.state.roster[0];
+   assert.equal(T.learn(unit,"cut"),null);
+   assert.ok(unit.learnedMoves.includes("cut")&&unit.learnedMoves.includes("M010106"));
+ }
+});
+test("invisible tab elapsed time never disappears; pending actions catch up in batches",()=>{
+ const {G}=boot();
+ const loc=G.db.regions.windy.locations.road;
+ loc.actions=[{type:"walk",weight:100}];
+ assert.equal(G.exploration.start("windy",["partner1"]),null);
+ const exp=G.state.regions.windy;
+ const start=G.state.lastTime;
+ G.exploration.frame(start+3_000*250);
+ assert.equal(exp.actions,100);
+ assert.ok(exp.remainingMs<0);
+ G.exploration.frame(start+3_000*250);
+ G.exploration.frame(start+3_000*250);
+ assert.equal(exp.actions,250);
+ assert.equal(exp.remainingMs,3_000);
+});

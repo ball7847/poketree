@@ -26,6 +26,7 @@
  function sourceInfo(species,form="normal"){
    const r=sourceForm(species,form);
    return r?{groupId:r.groupId,championsProvisional:r.championsProvisional,
+    championsSourceAvailable:!!r.championsSourceAvailable,championsFallback:!!r.championsFallback,
     missing:r.missing,available:r.groupId!==null}:{
     groupId:null,championsProvisional:false,missing:true,available:false};
  }
@@ -37,8 +38,12 @@
  function learn(unit,id){
    if(!knownMove(id))return "존재하지 않는 기술입니다.";
    initialize(unit);
-   if(unit.learnedMoves.includes(id))return null;
-   unit.learnedMoves.push(id);G.change("roster");return null;
+   // An original TM additionally teaches its executable PokeTree M counterpart.
+   // The original source ID is retained in the learning history.
+   const granted=withCustom([id]);
+   if(granted.every(move=>unit.learnedMoves.includes(move)))return null;
+   unit.learnedMoves=unique([...unit.learnedMoves,...granted]);
+   G.change("roster");return null;
  }
  function onLevel(unit){initialize(unit);G.change("roster");}
  function evolve(unit,newSpecies,newForm="normal"){

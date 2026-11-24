@@ -5,6 +5,9 @@
  let activePokemon=null;
  const el=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e;};
  const name=id=>moveData[id]?.name||T.imported.moves[id]?.name||id;
+ const tmNote=id=>window.POKE_MOVE_CUSTOM_MAP?.[id]&&T.executable(window.POKE_MOVE_CUSTOM_MAP[id])
+   ?" (사용 가능: "+name(window.POKE_MOVE_CUSTOM_MAP[id])+")"
+   :T.executable(id)?"":" (전투 효과 미구현)";
  function renderPokemon(unit){
    activePokemon=unit.id;T.initialize(unit);
    const root=$("pokemonMoveSlots"),list=$("pokemonLearnedMoves");
@@ -29,7 +32,7 @@
    for(const [id,recipe] of Object.entries(T.data.recipes)){
      const status=T.recipeStatus(id);if(filter!=="all"&&filter!==status)continue;
      const row=el("div","technique-card");
-     row.append(el("strong","",name(id)));
+     row.append(el("strong","",name(id)+tmNote(id)));
      const materials=el("small","",Object.entries(recipe).map(([mat,need])=>T.materialDisplay(mat)+" / 필요 "+need).join(" · "));
      row.append(materials);
      const btn=el("button","secondary",status==="available"?"제작":status==="locked"?"잠김":"제작 불가");
@@ -44,7 +47,7 @@
    const unit=G.state.roster.find(u=>u.id===target.value);
    const owned=$("tmOwned");owned.replaceChildren();
    for(const id of G.state.technicalMachines){
-     const row=el("div","technique-row");row.append(el("span","",name(id)));
+     const row=el("div","technique-row");row.append(el("span","",name(id)+tmNote(id)));
      const button=el("button","secondary",unit?.learnedMoves?.includes(id)?"습득 완료":"가르치기");
      button.disabled=!unit||!!T.canUseTM(unit,id)||unit.learnedMoves?.includes(id);
      button.addEventListener("click",()=>{const err=T.useTM(unit,id);G.text("tmMessage",err||unit.name+" · "+name(id)+" 습득");renderTM();});

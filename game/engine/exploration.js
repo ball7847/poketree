@@ -70,11 +70,11 @@
     else if(exp.mode==="combat")G.combat.step(exp);
     G.change("expedition",exp.id);
   }
-  function healIdle() {
+  function healIdle(cycles=1) {
     let updated=false;
     for(const u of state.roster) {
       if(u.expedition!==null||u.hp>=u.maxHp)continue;
-      u.hp=Math.min(u.maxHp,u.hp+DEMO.recovery);updated=true;
+      u.hp=Math.min(u.maxHp,u.hp+DEMO.recovery*cycles);updated=true;
     }
     if(updated)G.change("roster");
   }
@@ -82,28 +82,39 @@
   // globally upgraded interval. Exploration and battle share the counter
   // *within* that region; no region's clock can interrupt another.
   let idleHealMs=0,lastProgressSignal=0;
+  // Handle inactive-tab elapsed time without dropping it. Catch up in finite
+  // per-frame batches, preserving exact pending time rather than imposing a
+  // cap on the amount of progression an idle tab has earned.
+  const MAX_TICKS_PER_FRAME=100;
   function frame(now) {
-    const dt=Math.min(1000,Math.max(0,now-state.lastTime));state.lastTime=now;
+    if(!Number.isFinite(now))return;
+    const dt=Math.max(0,now-state.lastTime);state.lastTime=now;
     idleHealMs+=dt;
+    const healCycles=Math.floor(idleHealMs/state.speedMs);
+    if(healCycles>0){
+      idleHealMs-=healCycles*state.speedMs;
+      healIdle(healCycles);
+    }
     for(const exp of Object.values(state.regions)) {
       if(exp.mode==="idle"||exp.mode==="error")continue;
       exp.remainingMs-=dt;
-      if(exp.remainingMs<=0) {
-        exp.remainingMs+=state.speedMs;
-        if(exp.remainingMs<=0)exp.remainingMs=state.speedMs;
+      let processed=0;
+      while(exp.remainingMs<=0&&processed<MAX_TICKS_PER_FRAME){
+        // If combat or expedition ends, do not apply the remaining backlog
+        // to another expedition. A new dispatch starts with a fresh timer.
+        if(exp.mode==="idle"||exp.mode==="error")break;
+        exp.remainingMs+=state.speedMs;processed++;
         try{tick(exp);}catch(e){
-          // Preserve party HP, loot and location. Only this region is paused.
           exp.mode="error";
           exp.error=String(e?.message||e);
           record(exp,"탐험 일시 중지 · 오류: "+exp.error);
           G.change("expedition",exp.id);
+          break;
         }
       }
-      // Progress is visual only; engine ticks retain the 100 ms clock.
       if(now-lastProgressSignal>=200)G.change("progress",exp.id);
     }
     if(now-lastProgressSignal>=200)lastProgressSignal=now;
-    if(idleHealMs>=state.speedMs){idleHealMs=0;healIdle();}
   }
   function setIntervalMs(ms) {
     if(![3000,2000,1000].includes(ms))return;

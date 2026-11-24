@@ -26,6 +26,10 @@ test("all national default forms map to a pinned source form without inheritance
    if(form.sourcePokemonId!==undefined)assert.ok(t.forms[form.sourcePokemonId],s.identifier);
   }
  }
+ assert.ok(t.stats.championsFallbackForms>0,"Champions unknown method must not zero all learnsets");
+ assert.equal(t.forms[25].championsSourceAvailable,true);
+ assert.equal(t.forms[25].championsFallback,true);
+ assert.ok(t.forms[25].level.some(([id,at])=>id==="quick-attack"&&at===1));
  for(const f of forms){
   assert.ok(f.groupId===null||Number.isInteger(f.groupId));
   if(f.groupId===32)assert.equal(f.championsProvisional,true);

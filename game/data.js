@@ -76,7 +76,7 @@ window.POKE_DATA = Object.freeze({
   },
   demoParty: [
     { id: "partner1", species: "pikachu", name: "피카츄", moves: ["M010104"] },
-    { id: "partner2", species: "eevee", name: "이브이", moves: ["M010104"] },
-    { id: "partner3", species: "pidgey", name: "구구", moves: ["M010104"] }
+    { id: "partner2", species: "eevee", name: "이브이", moves: ["M010101"] },
+    { id: "partner3", species: "pidgey", name: "구구", moves: ["M010101"] }
   ]
 });
