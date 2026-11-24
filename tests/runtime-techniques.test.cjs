@@ -26,7 +26,8 @@ test("all national default forms map to a pinned source form without inheritance
    if(form.sourcePokemonId!==undefined)assert.ok(t.forms[form.sourcePokemonId],s.identifier);
   }
  }
- assert.ok(t.stats.championsFallbackForms>0,"Champions unknown method must not zero all learnsets");
+ assert.equal(t.stats.championsFallbackForms,284,"verified version fallback forms");
+ assert.equal(t.stats.unresolvedChampionsForms,35,"unknown method 12 retains unresolved forms");
  assert.equal(t.forms[25].championsSourceAvailable,true);
  assert.equal(t.forms[25].championsFallback,true);
  assert.ok(t.forms[25].level.some(([id,at])=>id==="quick-attack"&&at===1));

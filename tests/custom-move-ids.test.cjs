@@ -97,21 +97,17 @@ test("starter loadouts match original level requirements (no level-5 freebies)",
 });
 test("TM learning preserves original ID and grants executable mapped M ID exactly once",()=>{
  const {G,W}=boot(),T=G.techniques;
- const u=G.state.roster[1];
- assert.ok(T.tmCompatibility(u.species,u.form).includes("cut")===false||typeof T.tmCompatibility==="function");
- // Simulate a legitimate source-compatible approved TM, without modifying the catalog.
- const candidate=G.state.roster.find(unit=>T.tmCompatibility(unit.species,unit.form).includes("cut"));
- if(candidate){
-   G.state.technicalMachines.push("cut");
-   assert.equal(T.useTM(candidate,"cut"),null);
-   assert.ok(candidate.learnedMoves.includes("cut"));
-   assert.ok(candidate.learnedMoves.includes("M010106"));
-   assert.equal(candidate.learnedMoves.filter(x=>x==="M010106").length,1);
- }else{
-   const unit=G.state.roster[0];
-   assert.equal(T.learn(unit,"cut"),null);
-   assert.ok(unit.learnedMoves.includes("cut")&&unit.learnedMoves.includes("M010106"));
- }
+ // Rattata uses the pinned BDSP table, which permits the original Cut TM.
+ const unit=G.Pokemon.create({id:"tm-test",species:"rattata",level:5,side:"ally"});
+ T.initialize(unit);
+ assert.ok(T.tmCompatibility(unit.species,unit.form).includes("cut"));
+ G.state.technicalMachines.push("cut");
+ assert.equal(T.useTM(unit,"cut"),null);
+ assert.ok(unit.learnedMoves.includes("cut")&&unit.learnedMoves.includes("M010106"));
+ assert.equal(T.useTM(unit,"cut"),null);
+ assert.equal(unit.learnedMoves.filter(x=>x==="M010106").length,1);
+ assert.equal(T.equip(unit,"M010106",0),null);
+
 });
 test("invisible tab elapsed time never disappears; pending actions catch up in batches",()=>{
  const {G}=boot();
@@ -127,4 +123,14 @@ test("invisible tab elapsed time never disappears; pending actions catch up in b
  G.exploration.frame(start+3_000*250);
  assert.equal(exp.actions,250);
  assert.equal(exp.remainingMs,3_000);
+});
+
+test("evolution keeps learned history and learns eligible new form levels without custom interval",()=>{
+ const {G}=boot(),T=G.techniques;
+ const p=G.Pokemon.create({id:"evolve-test",species:"bulbasaur",level:16});
+ T.initialize(p);
+ const before=[...p.learnedMoves];
+ assert.equal(T.evolve(p,"ivysaur"),null);
+ for(const id of before)assert.ok(p.learnedMoves.includes(id));
+ for(const id of T.levelMoves("ivysaur",16))assert.ok(p.learnedMoves.includes(id));
 });

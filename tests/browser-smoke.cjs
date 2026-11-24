@@ -76,6 +76,13 @@ function server(){
   assert.equal(equipped,"training-band");
   await page.waitForFunction(()=>!document.getElementById("warehouseDialog").open);
   assert.equal(await page.locator("#pokemonDetailDialog").evaluate(x=>x.open),true);
+  // Real UI: the starter's approved Quick Attack can be unequipped and restored.
+  const slot=page.locator("#pokemonMoveSlots select").first();
+  assert.equal(await slot.inputValue(),"M010104");
+  await slot.selectOption("");
+  assert.equal(await page.evaluate(()=>window.PokeTree.state.roster[0].moves[0]),undefined);
+  await slot.selectOption("M010104");
+  assert.equal(await page.evaluate(()=>window.PokeTree.state.roster[0].moves[0]),"M010104");
   await page.locator("#pokemonDetailDialog [data-close-dialog]").first().click();
   // Workshop > queue > cancellation confirmation > full material refund.
   await page.locator("#nav-village").click();
@@ -90,8 +97,18 @@ function server(){
   await page.locator("#toolCancelYes").click();
   assert.equal(await page.evaluate(()=>window.PokeTree.state.toolQueue.length),0);
   assert.equal(await page.evaluate(()=>window.PokeTree.state.materials.ore),prev);
-  assert.deepEqual(errors,[],"No browser script exceptions in click flows");
-  console.log("Chromium smoke: village warehouse filters/modal, Pokémon item equip, workshop queue/cancel PASS");
+  // Real browser combat: one approved move, with no old 13-move registrations.
+  await page.evaluate(()=>{
+    const G=window.PokeTree;
+    G.exploration.start("windy",["partner1"]);
+    const exp=G.state.regions.windy;
+    G.combat.start(exp);
+    exp.party[0].pp=200;
+    G.combat.step(exp);
+  });
+  assert.equal(await page.evaluate(()=>Object.keys(window.POKE_MOVES).length),7);
+  assert.deepEqual(errors,[],"No browser script exceptions in clicks or combat");
+  console.log("Chromium smoke: inventory, Pokémon equipment, approved move slots and combat PASS");
  }finally{
    if(browser)await browser.close();
    await new Promise(resolve=>srv.close(resolve));
