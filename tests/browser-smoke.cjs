@@ -106,7 +106,7 @@ function server(){
     exp.party[0].pp=200;
     G.combat.step(exp);
   });
-  assert.equal(await page.evaluate(()=>Object.keys(window.POKE_MOVES).length),7);
+  assert.equal(await page.evaluate(()=>Object.keys(window.POKE_MOVES).length),10);
   assert.deepEqual(errors,[],"No browser script exceptions in clicks or combat");
   console.log("Chromium smoke: inventory, Pokémon equipment, approved move slots and combat PASS");
  }finally{

@@ -45,7 +45,13 @@
         const actual=Math.min(target.maxHp-target.hp,healAmount(user,target,move.target==="allies"));
         target.hp+=actual;G.record(exp,target.name+" HP "+actual+" 회복");continue;
       }
-      if(move.effect==="rank"){S.rank(target,move.rank.stat,move.rank.stages);G.record(exp,target.name+"의 "+move.rank.stat+" 랭크 변화");continue;}
+      if(move.effect==="rank"){
+        for(const change of move.ranks||[move.rank]){
+          const stages=exp.weather?.kind==="sun"&&Number.isInteger(move.sunStages)?move.sunStages:change.stages;
+          S.rank(target,change.stat,stages);G.record(exp,target.name+"의 "+change.stat+" 랭크 변화");
+        }
+        continue;
+      }
       if(move.effect==="status"){
         // E.g. Thunder Wave cannot paralyze Ground targets (Electric immunity).
         if(move.type==="electric"&&D.effectiveness(move.type,target)===0){

@@ -7,9 +7,9 @@ function boot(){
   }
   return {G:ctx.window.PokeTree,W:ctx.window};
 }
-test("seven custom moves are the ONLY executable IDs with approved stats/tags",()=>{
+test("ten custom moves are the ONLY executable IDs with approved stats/tags",()=>{
  const {W}=boot();
- assert.equal(Object.keys(W.POKE_MOVES).length,7);
+ assert.equal(Object.keys(W.POKE_MOVES).length,10);
  assert.equal(W.POKE_MOVES["giga-drain"],undefined);
  assert.equal(W.POKE_MOVES["bullet-seed"],undefined);
  assert.equal(W.POKE_MOVES["quick-attack"],undefined);
@@ -82,7 +82,7 @@ test("removed original move effects remain in learnsets but cannot be equipped o
 });
 test("all demo starter moves are user-approved M IDs",()=>{
  const {G,W}=boot();
- assert.equal(Object.keys(W.POKE_MOVES).length,7);
+ assert.equal(Object.keys(W.POKE_MOVES).length,10);
  for(const u of G.state.roster)for(const id of u.moves)assert.ok(Object.hasOwn(W.POKE_MOVES,id));
 });
 
@@ -135,8 +135,8 @@ test("evolution keeps learned history and learns eligible new form levels withou
  for(const id of T.levelMoves("ivysaur",16))assert.ok(p.learnedMoves.includes(id));
 });
 
-test("all seven approved moves execute in combat, cost 100 PP and deal damage",()=>{
- const {G,W}=boot(),M=W.PokeMoveEffects,approved=Object.keys(W.POKE_MOVES);
+test("all approved damaging moves execute in combat, cost 100 PP and deal damage",()=>{
+ const {G,W}=boot(),M=W.PokeMoveEffects,approved=Object.keys(W.POKE_MOVES).filter(id=>W.POKE_MOVES[id].category!=="status");
  const old=Math.random;
  try{
    Math.random=()=>0.01; // deterministic hit and damage rolls
@@ -167,4 +167,51 @@ test("mid-battle equipment switches become effective at the next round only",()=
  while(exp.round===1&&n++<20)G.combat.step(exp);
  assert.equal(exp.round,2);
  assert.deepEqual([...exp.roundMoves.get(u)],["M010101"]);
+});
+
+test("three new moves have the exact approved data and aliases",()=>{
+ const {W}=boot(),m=W.POKE_MOVES;
+ assert.deepEqual(Object.keys(m).sort(),["M010101","M010102","M010103","M010104","M010105","M010106","M010201","M010301","M120101","M120301"].sort());
+ for(const [id,type,category,power,accuracy,target,tags,key] of [
+ ["M010301","normal","status",null,100,"enemies",["랭크다운","광역-상대"],"growl"],
+ ["M120101","grass","physical",45,100,"enemy",["접촉"],"vine-whip"],
+ ["M120301","grass","status",null,null,"self",["랭크업","자신"],"growth"]]){
+ const x=m[id];assert.equal(x.type,type);assert.equal(x.category,category);assert.equal(x.power,power);assert.equal(x.accuracy,accuracy);assert.equal(x.target,target);assert.deepEqual([...x.tags],tags);assert.equal(W.POKE_MOVE_CUSTOM_MAP[key],id);
+ }
+});
+test("Growl lowers all living opponents only, no HP damage, one PP payment and capped ranks",()=>{
+ const {G,W}=boot(),S=W.PokeBattleStatus,M=W.PokeMoveEffects;
+ const make=(id,side)=>G.Pokemon.create({id,species:"bulbasaur",level:10,side});
+ const user=make("u","ally"),ally=make("a","ally"),e1=make("e1","enemy"),e2=make("e2","enemy"),dead=make("dead","enemy");
+ dead.hp=0;S.rank(e2,"attack",-6);const exp={id:"test",party:[user,ally],enemies:[e1,e2,dead],logs:[]};
+ const hp=e1.hp,old=Math.random;user.pp=100;
+ try{Math.random=()=>0;assert.equal(M.execute(exp,user,{move:W.POKE_MOVES.M010301,targetId:null},()=>{}).failed,false);}finally{Math.random=old;}
+ assert.equal(user.pp,0);assert.equal(e1.hp,hp);
+ assert.equal(S.ensure(e1).ranks.attack,-1);assert.equal(S.ensure(e2).ranks.attack,-6);
+ for(const u of [user,ally,dead])assert.equal(S.ensure(u).ranks.attack,0);
+});
+test("Growth boosts both offensive ranks on self only, doubles in sun and respects cap",()=>{
+ const {G,W}=boot(),S=W.PokeBattleStatus,M=W.PokeMoveEffects;
+ const user=G.Pokemon.create({id:"u",species:"bulbasaur",level:10,side:"ally"});
+ const foe=G.Pokemon.create({id:"e",species:"bulbasaur",level:10,side:"enemy"});
+ const exp={id:"test",party:[user],enemies:[foe],logs:[],weather:null};
+ for(const [weather,expected] of [[null,1],[{kind:"sun",remaining:3},3],[{kind:"rain",remaining:3},4],[{kind:"sun",remaining:3},6],[{kind:"sun",remaining:3},6]]){
+ exp.weather=weather;user.pp=100;
+ assert.equal(M.execute(exp,user,{move:W.POKE_MOVES.M120301,targetId:user.id},()=>{}).failed,false);
+ assert.equal(user.pp,0);assert.equal(S.ensure(user).ranks.attack,expected);assert.equal(S.ensure(user).ranks.spAttack,expected);
+ }
+ assert.equal(S.ensure(foe).ranks.attack,0);assert.equal(S.ensure(foe).ranks.spAttack,0);
+});
+test("Bulbasaur TM override removes only three overlaps and preserves source, levels and other forms",()=>{
+ const {G}=boot(),T=G.techniques,removed=["seed-bomb","take-down","solar-beam"];
+ const original=T.imported.forms[1].machine;
+ assert.equal(original.length,34);assert.equal(T.tmCompatibility("bulbasaur").length,31);
+ for(const [id,level] of [["seed-bomb",18],["take-down",21],["solar-beam",36]]){
+ assert.ok(original.includes(id));assert.ok(!T.tmCompatibility("bulbasaur").includes(id));assert.ok(T.levelMoves("bulbasaur",level).includes(id));assert.ok(!T.levelMoves("bulbasaur",level-1).includes(id));
+ }
+ for(const id of original.filter(x=>!removed.includes(x)))assert.ok(T.tmCompatibility("bulbasaur").includes(id));
+ const p=G.Pokemon.create({id:"bulba",species:"bulbasaur",level:1,side:"ally"});T.initialize(p);
+ for(const id of removed){G.state.technicalMachines.push(id);assert.match(T.useTM(p,id),/호환되지 않는/);}
+ for(const [id,level] of [["M010301",1],["M120101",3],["M120301",6]]){assert.ok(T.levelMoves("bulbasaur",level).includes(id));if(level>1)assert.ok(!T.levelMoves("bulbasaur",level-1).includes(id));}
+ for(const [species,s] of Object.entries(G.db.species))for(const [form,f] of Object.entries(s.forms)){if(species==="bulbasaur"&&form==="normal")continue;assert.deepEqual([...T.tmCompatibility(species,form)],[...(T.imported.forms[f.sourcePokemonId]?.machine||[])],species+"/"+form);}
 });

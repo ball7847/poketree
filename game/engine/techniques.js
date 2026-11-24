@@ -20,8 +20,12 @@
    const record=sourceForm(species,form);
    return withCustom((record?.level||[]).filter(([id,at])=>at<=level).map(([id])=>id));
  }
+ // Player-approved overrides are separate from the immutable original source.
+ const tmOverrides=Object.freeze({bulbasaur:Object.freeze({normal:Object.freeze({remove:Object.freeze(["seed-bomb","take-down","solar-beam"])})})});
  function tmCompatibility(species,form="normal"){
-   return sourceForm(species,form)?.machine||[];
+   const original=sourceForm(species,form)?.machine||[];
+   const override=tmOverrides[species]?.[form];
+   return override?unique([...original.filter(id=>!override.remove.includes(id)),...(override.add||[])]):original;
  }
  function sourceInfo(species,form="normal"){
    const r=sourceForm(species,form);
