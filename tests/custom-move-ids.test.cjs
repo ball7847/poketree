@@ -7,8 +7,12 @@ function boot(){
   }
   return {G:ctx.window.PokeTree,W:ctx.window};
 }
-test("seven custom moves have approved IDs, stats, tags and separate per-class numbering",()=>{
+test("seven custom moves are the ONLY executable IDs with approved stats/tags",()=>{
  const {W}=boot();
+ assert.equal(Object.keys(W.POKE_MOVES).length,7);
+ assert.equal(W.POKE_MOVES["giga-drain"],undefined);
+ assert.equal(W.POKE_MOVES["bullet-seed"],undefined);
+ assert.equal(W.POKE_MOVES["quick-attack"],undefined);
  const expected=[
  ["M010101","몸통박치기","physical",40,100,0,["접촉"]],
  ["M010102","막치기","physical",40,100,0,["접촉"]],
@@ -59,4 +63,25 @@ test("combat loadout changes immediately but current round keeps its original sk
  assert.deepEqual([...exp.roundMoves.get(u)],original);
  assert.equal(T.canEdit(u),null);
  assert.equal(T.canEditTools(u)===null,false);
+});
+
+test("removed original move effects remain in learnsets but cannot be equipped or reloaded",()=>{
+ const {G,W}=boot(),T=G.techniques,unit=G.state.roster[0];
+ assert.ok(T.imported.moves["giga-drain"]&&T.imported.moves["bullet-seed"]);
+ assert.equal(T.executable("giga-drain"),false);
+ assert.equal(T.learn(unit,"giga-drain"),null);
+ assert.match(T.equip(unit,"giga-drain",0),/구현되지 않은/);
+ const saved=JSON.parse(JSON.stringify(G.saveGame.snapshot()));
+ saved.roster[0].learnedMoves.push("giga-drain","bullet-seed");
+ saved.roster[0].moves=["giga-drain","M010104"];
+ assert.equal(G.saveGame.restore(saved),true);
+ const after=G.state.roster[0];
+ assert.ok(after.learnedMoves.includes("giga-drain")&&after.learnedMoves.includes("bullet-seed"));
+ assert.deepEqual([...after.moves],[null,"M010104"]);
+ assert.equal(after.level,unit.level);
+});
+test("all demo starter moves are user-approved M IDs",()=>{
+ const {G,W}=boot();
+ assert.equal(Object.keys(W.POKE_MOVES).length,7);
+ for(const u of G.state.roster)for(const id of u.moves)assert.ok(/^M\\d{6}$/.test(id));
 });

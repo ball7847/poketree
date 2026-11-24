@@ -4,12 +4,31 @@ const assert=require("node:assert/strict");
 const vm=require("node:vm");
 const fs=require("node:fs");
 const path=require("node:path");
+
+// Legacy move samples are strictly test-local fixtures for generic engine
+// regressions; they are NOT exposed by the shipped game move registry.
+const legacyFixtures=Object.freeze({
+"quick-attack":{name:"전광석화",type:"normal",category:"physical",power:40,accuracy:100,priority:1,target:"enemy",effect:"damage",source:"champions"},
+  "thunderbolt":{name:"10만볼트",type:"electric",category:"special",power:90,accuracy:100,priority:0,target:"enemy",effect:"damage",secondary:{kind:"paralysis",chance:10},source:"champions"},
+  "gust":{name:"바람일으키기",type:"flying",category:"special",power:40,accuracy:100,priority:0,target:"enemy",effect:"damage",source:"gen9"},
+  "swift":{name:"스피드스타",type:"normal",category:"special",power:60,accuracy:null,priority:0,target:"enemies",effect:"damage",source:"champions"},
+  "giga-drain":{name:"기가드레인",type:"grass",category:"special",power:75,accuracy:100,priority:0,target:"enemy",effect:"drain",drain:0.5,source:"champions"},
+  "flare-blitz":{name:"플레어드라이브",type:"fire",category:"physical",power:120,accuracy:100,priority:0,target:"enemy",effect:"recoil",recoil:1/3,secondary:{kind:"burn",chance:10},source:"champions"},
+  "self-destruct":{name:"자폭",type:"normal",category:"physical",power:200,accuracy:100,priority:0,target:"enemies",effect:"selfdestruct",source:"gen9"},
+  "thunder-wave":{name:"전기자석파",type:"electric",category:"status",power:null,accuracy:90,priority:0,target:"enemy",effect:"status",status:"paralysis",source:"champions"},
+  "agility":{name:"고속이동",type:"psychic",category:"status",power:null,accuracy:null,priority:0,target:"self",effect:"rank",rank:{stat:"speed",stages:2},source:"champions"},
+  "rain-dance":{name:"비바라기",type:"water",category:"status",power:null,accuracy:null,priority:0,target:"field",effect:"weather",weather:"rain",duration:5,source:"champions"},
+  "electric-terrain":{name:"일렉트릭필드",type:"electric",category:"status",power:null,accuracy:null,priority:0,target:"field",effect:"terrain",terrain:"electric",duration:5,source:"champions"},
+  "recover":{name:"HP회복",type:"normal",category:"status",power:null,accuracy:null,priority:0,target:"self",effect:"heal",source:"champions"},
+  "bullet-seed":{name:"기관총",type:"grass",category:"physical",power:25,accuracy:100,priority:0,target:"enemy",effect:"multi",hits:[2,3,4,5],source:"champions"}
+});
 function boot(){
   const ctx={window:{},performance:{now:()=>0},Date,console,Set,Map,Math};
   ctx.window.POKE_DATA=undefined;
   const context=vm.createContext(ctx);
   for(const name of ["data/national-catalog.js","data/species.js","data/provenance.js","data/natures.js","data/type-chart.js","data.js","data/moves.js","data/imported-techniques.js","data/techniques.js","data/tools.js","engine/experience.js","engine/pokemon.js","engine/damage.js","engine/battle-status.js","engine/core.js","engine/techniques.js","engine/regions.js","engine/tools.js","engine/save.js","engine/battle-experience.js","engine/targeting.js","engine/move-effects.js","engine/combat.js","engine/exploration.js"]){
     vm.runInContext(fs.readFileSync(path.join(__dirname,"../game",name),"utf8"),context,{filename:name});
+    if(name==="data/moves.js")ctx.window.POKE_MOVES=Object.freeze({...ctx.window.POKE_MOVES,...legacyFixtures});
   }
   return {G:ctx.window.PokeTree,ctx};
 }
@@ -298,7 +317,7 @@ test("pokemon data source policy ranks Champions and then newest generation",()=
 
 test("move equipment and TP formula use confirmed selection rules",()=>{
  const {G}=boot(),T=G.battleTargeting||G.Targeting||G.targeting;
- assert.deepEqual(Array.from(G.state.roster[0].moves),["quick-attack","thunderbolt"]);
+ assert.deepEqual(Array.from(G.state.roster[0].moves),["M010104"]);
  assert.throws(()=>G.Pokemon.create({id:"x",species:"eevee",moves:["unknown"]}),/기술/);
  const E=G.state.regions.windy;G.exploration.start("windy",["partner1"]);G.combat.start(E);
  const target=E.enemies[0],move=G.moves?.["quick-attack"]||G.db.moves?.["quick-attack"];

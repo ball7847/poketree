@@ -75,8 +75,8 @@ window.POKE_DATA = Object.freeze({
     deep:{name:"깊은굴",levelRange:[12,26],mainTypes:["땅","바위","강철"],unlock:{type:"boss",region:"spark"},start:null,locations:{},demoContent:false}
   },
   demoParty: [
-    { id: "partner1", species: "pikachu", name: "피카츄", moves: ["quick-attack","thunderbolt"] },
-    { id: "partner2", species: "eevee", name: "이브이", moves: ["quick-attack","swift"] },
-    { id: "partner3", species: "pidgey", name: "구구", moves: ["quick-attack","gust"] }
+    { id: "partner1", species: "pikachu", name: "피카츄", moves: ["M010104"] },
+    { id: "partner2", species: "eevee", name: "이브이", moves: ["M010104"] },
+    { id: "partner3", species: "pidgey", name: "구구", moves: ["M010104"] }
   ]
 });

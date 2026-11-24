@@ -12,8 +12,8 @@ test("individual learning and equipment do not share state or reset PP",()=>{
  assert.ok(u.learnedMoves.includes("thunderbolt"));assert.ok(!other.learnedMoves.includes("thunderbolt"));
  u.pp=86;assert.equal(T.equip(u,null,1),null);assert.equal(u.pp,86);
  assert.equal(T.equip(u,"unknown",0),"습득하지 않은 기술입니다.");
- assert.equal(T.equip(u,"quick-attack",0),null);
- assert.match(T.equip(u,"quick-attack",1),/같은 기술/);
+ assert.equal(T.equip(u,"M010104",0),null);
+ assert.match(T.equip(u,"M010104",1),/같은 기술/);
 });
 test("levelup grants pinned source moves without demo learnset injection",()=>{
  const {G}=boot(),T=G.techniques;
@@ -35,8 +35,8 @@ test("move equipment allowed during exploration/combat/recovery; item TM still n
  assert.equal(G.exploration.start("windy",[u.id]),null);
  assert.equal(T.equip(u,null,0),null);
  assert.match(T.useTM(u,"thunderbolt"),/귀환/);
- const exp=G.state.regions.windy;exp.mode="combat";assert.equal(T.equip(u,"quick-attack",0),null);
- exp.mode="recovery";assert.equal(T.equip(u,"quick-attack",0),null);
+ const exp=G.state.regions.windy;exp.mode="combat";assert.equal(T.equip(u,"M010104",0),null);
+ exp.mode="recovery";assert.equal(T.equip(u,"M010104",0),null);
  G.exploration.recall("windy");
  const compatible=T.tmCompatibility(u.species,u.form).includes("thunderbolt");
  assert.equal(T.useTM(u,"thunderbolt"),compatible?null:"이 포켓몬과 호환되지 않는 기술머신입니다.");
@@ -75,12 +75,13 @@ test("save/load restores learned skills and TM codex while excluding runtime com
 
 test("slot 2 remains in slot 2 through a save/restore, and tool guard blocks expedition",()=>{
  const {G}=boot(),T=G.techniques,u=G.state.roster[0];
+ assert.equal(T.equip(u,"M010104",1),null);
  assert.equal(T.equip(u,null,0),null);
- assert.equal(u.moves[0],null);assert.equal(u.moves[1],"thunderbolt");
+ assert.equal(u.moves[0],null);assert.equal(u.moves[1],"M010104");
  const raw=JSON.parse(JSON.stringify(G.saveGame.snapshot()));
  assert.equal(G.saveGame.restore(raw),true);
  assert.equal(G.state.roster[0].moves[0],null);
- assert.equal(G.state.roster[0].moves[1],"thunderbolt");
+ assert.equal(G.state.roster[0].moves[1],"M010104");
  assert.equal(G.exploration.start("windy",["partner1"]),null);
  assert.match(T.canEditTools(G.state.roster[0]),/귀환/);
  G.exploration.recall("windy");assert.equal(T.canEditTools(G.state.roster[0]),null);
