@@ -134,3 +134,37 @@ test("evolution keeps learned history and learns eligible new form levels withou
  for(const id of before)assert.ok(p.learnedMoves.includes(id));
  for(const id of T.levelMoves("ivysaur",16))assert.ok(p.learnedMoves.includes(id));
 });
+
+test("all seven approved moves execute in combat, cost 100 PP and deal damage",()=>{
+ const {G,W}=boot(),M=W.PokeMoveEffects,approved=Object.keys(W.POKE_MOVES);
+ const old=Math.random;
+ try{
+   Math.random=()=>0.01; // deterministic hit and damage rolls
+   for(const id of approved){
+     const user=G.Pokemon.create({id:"actor-"+id,species:"eevee",level:50,side:"ally"});
+     const foe=G.Pokemon.create({id:"target-"+id,species:"snorlax",level:50,side:"enemy"});
+     const exp={id:"test",party:[user],enemies:[foe],logs:[],terrain:null,weather:null};
+     user.pp=100;const previous=foe.hp;
+     const outcome=M.execute(exp,user,{moveId:id,move:W.POKE_MOVES[id],targetId:foe.id},()=>{});
+     assert.equal(outcome.failed,false,id);
+     assert.equal(user.pp,0,id);
+     assert.ok(foe.hp<previous,id+" must inflict damage");
+     const hits=exp.logs.filter(v=>v.message.includes(" → ")).length;
+     assert.equal(hits,W.POKE_MOVES[id].fixedHits||1,id+" hit count");
+   }
+ }finally{Math.random=old;}
+});
+test("mid-battle equipment switches become effective at the next round only",()=>{
+ const {G}=boot(),T=G.techniques,u=G.state.roster[0];
+ assert.equal(T.learn(u,"M010101"),null);
+ assert.equal(G.exploration.start("windy",[u.id]),null);
+ const exp=G.state.regions.windy;G.combat.start(exp);
+ for(const foe of exp.enemies){foe.maxHp=10000;foe.hp=10000;foe.attack=1;}
+ assert.deepEqual([...exp.roundMoves.get(u)],["M010104"]);
+ assert.equal(T.equip(u,"M010101",0),null);
+ assert.deepEqual([...exp.roundMoves.get(u)],["M010104"]);
+ let n=0;
+ while(exp.round===1&&n++<20)G.combat.step(exp);
+ assert.equal(exp.round,2);
+ assert.deepEqual([...exp.roundMoves.get(u)],["M010101"]);
+});
