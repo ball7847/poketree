@@ -20,11 +20,12 @@
     exp.roundMoves=new Map(members.map(u=>[u,[...(u.moves||[])]]));
     exp.tiebreak=new Map(members.map(u=>[u,Math.random()]));
     exp.speeds=new Map(members.map(u=>[u,speed(u)])); // fixed for this round
+    exp.round++; // TP must see the new battle round before move selection.
     for(const u of members){
       // Select the move by its current best TP; do not reserve a target.
       exp.plans.set(u,u.pp>=100&&u.moves?.length?T.selectMove(exp,u,exp.roundMoves.get(u)):null);
     }
-    exp.order=members;sortRemaining(exp);exp.turnIndex=0;exp.round++;
+    exp.order=members;sortRemaining(exp);exp.turnIndex=0;
     record(exp,exp.round+"라운드 시작");
   }
   function startCombat(exp){

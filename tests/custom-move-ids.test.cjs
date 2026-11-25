@@ -253,13 +253,13 @@ test("all seven target tags select correct living sides, including enemy users",
  }
  b.hp=0;const move=T.compile({...W.POKE_MOVE_DEFINITIONS.M010101,tags:["단일-아군1체"]});assert.equal(Q.selectTarget(exp,a,{move}),null);
 });
-test("two-enemy target chooses distinct top TP, lone enemy receives one strike only",()=>{
+test("two-enemy target draws distinct weighted TP, lone enemy receives one strike only",()=>{
  const {G,W}=boot(),Q=W.PokeTargeting,M=W.PokeMoveEffects;
  const make=(id,species,side)=>G.Pokemon.create({id,species,level:30,side});
  const a=make("a","bulbasaur","ally"),x=make("x","geodude","enemy"),y=make("y","squirtle","enemy"),z=make("z","charmander","enemy");
  const exp={id:"test",party:[a],enemies:[x,y,z],logs:[]};
  const move=W.PokeMoveTags.compile({...W.POKE_MOVE_DEFINITIONS.M120101,tags:["접촉","단일-적2체"]});
- let plan=Q.selectTarget(exp,a,{move});assert.deepEqual([...plan.targetIds],["x","y"]);
+ let plan=Q.selectTarget(exp,a,{move},()=>0);assert.deepEqual([...plan.targetIds],["x","y"]);
  const old=Math.random;
  try{Math.random=()=>0;a.pp=100;M.execute(exp,a,plan,()=>{});assert.equal(a.pp,0);assert.equal(exp.logs.filter(l=>l.message.includes(" → ")).length,2);
  x.hp=0;y.hp=0;exp.logs=[];a.pp=100;plan=Q.selectTarget(exp,a,{move});assert.deepEqual([...plan.targetIds],["z"]);

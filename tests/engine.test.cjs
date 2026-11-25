@@ -777,7 +777,7 @@ test("all non-positive move TPs fall back to highest ORIGINAL score, ties are ra
  assert.equal(T.chooseMove([{moveId:"a",score:0},{moveId:"b",score:0}],()=>0.75).moveId,"b");
  assert.equal(T.chooseMove([],()=>0),null);
 });
-test("round-start move selection uses weighted TP; personal-turn target still highest TP",()=>{
+test("round-start move selection uses weighted TP; personal-turn target uses squared TP",()=>{
  const {G,ctx}=boot(),T=ctx.window.PokeTargeting;
  G.exploration.start("windy",["partner1"]);
  const exp=G.state.regions.windy;G.combat.start(exp);
@@ -792,11 +792,67 @@ test("round-start move selection uses weighted TP; personal-turn target still hi
  assert.equal(Object.hasOwn(chosen,"targetId"),false);
  const plan=T.selectTarget(exp,u,chosen);
  assert.equal(plan.targetId,u.id);
- // Target selection is unchanged: the highest scoring eligible ally is selected.
+ // Positive TP excludes non-positive eligible allies.
  const healing={...ctx.window.POKE_MOVES.recover,target:"ally"};
  const ally=G.Pokemon.create({id:"friend",species:"eevee",level:5,side:"ally"});
  ally.hp=1;u.hp=u.maxHp;
  exp.party.push(ally);
  const aimed=T.selectTarget(exp,u,{moveId:"test-heal",move:healing,score:0});
  assert.equal(aimed.targetId,ally.id);
+});
+
+test("TP HP boundaries, all seven signed ranks, round and field/status modifiers",()=>{
+ const {G,ctx}=boot(),T=ctx.window.PokeTargeting,W=ctx.window;
+ const a=G.Pokemon.create({id:"a",species:"bulbasaur",level:20,side:"ally"}),b=G.Pokemon.create({id:"b",species:"squirtle",level:20,side:"enemy"});
+ a.maxHp=b.maxHp=100;a.hp=b.hp=100;
+ for(const [hp,expected] of [[100,1],[51,1],[50,2],[26,2],[25,3],[1,3]]){
+ b.hp=hp;assert.equal(T.points(a,W.POKE_MOVES.M120101,b),expected);}
+ const ranks=W.PokeBattleStatus.ensure(a).ranks;
+ for(const k of Object.keys(ranks))ranks[k]=1;
+ assert.equal(T.rankSum(a),7);
+ ranks.evasion=-1;assert.equal(T.rankSum(a),5);
+ for(const [sum,n] of [[-42,2],[0,2],[1,0],[6,0],[7,-2],[12,-2],[13,-4],[24,-4],[25,-6],[42,-6]])assert.equal(T.rankUpPoints(sum),n);
+ for(const [sum,n] of [[-42,-3],[0,-3],[1,1],[6,1],[7,2],[42,2]])assert.equal(T.rankDownPoints(sum),n);
+ for(const k of Object.keys(ranks))ranks[k]=0;
+ for(const [round,bonus] of [[1,4],[2,2],[3,0],[99,0]]){
+ const exp={round};
+ assert.equal(T.points(a,W.POKE_MOVES.M120301,a,exp),bonus+2);
+ assert.equal(T.points(a,W.POKE_MOVES.M010301,b,exp),bonus-3);
+ for(const [key,id,desired] of [["weather","rain-dance","rain"],["terrain","electric-terrain","electric"]]){
+ const m=W.POKE_MOVES[id];
+ assert.equal(T.points(a,m,a,exp),bonus+2);
+ assert.equal(T.points(a,m,a,{...exp,[key]:{kind:"different"}}),bonus+2);
+ assert.equal(T.points(a,m,a,{...exp,[key]:{kind:desired}}),bonus-4);
+ }
+ }
+ const s=W.PokeBattleStatus.ensure(b),move=W.POKE_MOVES["thunder-wave"];
+ assert.equal(T.points(a,move,b),1);s.major={kind:"burn"};assert.equal(T.points(a,move,b),-1);
+ s.major=null;s.confusion=1;assert.equal(T.points(a,move,b),-1);
+});
+test("target weights square positives, retain highest original fallback and draw without replacement",()=>{
+ const {G,ctx}=boot(),T=ctx.window.PokeTargeting,W=ctx.window;
+ const c=[{id:"a",score:4},{id:"b",score:2},{id:"c",score:1},{id:"d",score:-4},{id:"e",score:0}];
+ for(const [r,id] of [[0,"a"],[.76,"a"],[16/21,"b"],[.95,"b"],[20/21,"c"],[.999,"c"]])assert.equal(T.chooseTarget(c,()=>r).id,id);
+ assert.equal(T.chooseTarget([{id:"a",score:-4},{id:"b",score:-1}],()=>0).id,"b");
+ assert.equal(T.chooseTarget([{id:"a",score:0},{id:"b",score:0}],()=>.99).id,"b");
+ const a=G.Pokemon.create({id:"a",species:"bulbasaur",side:"ally"}),b=G.Pokemon.create({id:"b",species:"geodude",side:"enemy"}),e=G.Pokemon.create({id:"e",species:"squirtle",side:"enemy"}),f=G.Pokemon.create({id:"f",species:"charmander",side:"enemy"});
+ const exp={round:1,party:[a],enemies:[b,e,f]};
+ for(const u of [b,e,f]){u.maxHp=100;u.hp=100;}
+ const move=W.POKE_MOVES.M120101;
+ assert.equal(T.selectMove(exp,a,["M120101"],()=>0).score,2);
+ e.hp=25;
+ assert.equal(T.selectMove(exp,a,["M120101"],()=>0).score,3);
+ assert.equal(T.selectTarget(exp,a,{move},()=>.99).targetId,e.id);
+ const double={...move,target:"twoEnemies"};
+ const plan=T.selectTarget(exp,a,{move:double},()=>.99);
+ assert.deepEqual([...plan.targetIds],[e.id,b.id]);
+ b.hp=0;e.hp=0;assert.deepEqual([...T.selectTarget(exp,a,{move:double},()=>.99).targetIds],[f.id]);
+});
+test("round-start TP uses actual round number, not previous round",()=>{
+ const {G,ctx}=boot(),T=ctx.window.PokeTargeting;
+ G.exploration.start("windy",["partner1"]);const exp=G.state.regions.windy,u=exp.party[0];
+ u.moves=["M120301"];u.pp=100;
+ G.combat.start(exp);
+ assert.equal(exp.round,1);assert.equal(exp.plans.get(u).score,T.points(u,ctx.window.POKE_MOVES.M120301,u,{round:1}));
+ assert.equal(exp.plans.get(u).score,6);
 });
