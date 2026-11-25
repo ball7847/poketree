@@ -46,9 +46,8 @@
         target.hp+=actual;G.record(exp,target.name+" HP "+actual+" 회복");continue;
       }
       if(move.effect==="rank"){
-        for(const change of move.ranks||[move.rank]){
-          const stages=exp.weather?.kind==="sun"&&Number.isInteger(move.sunStages)?move.sunStages:change.stages;
-          S.rank(target,change.stat,stages);G.record(exp,target.name+"의 "+change.stat+" 랭크 변화");
+        for(const change of (exp.weather?.kind==="sun"&&move.sunRanks?move.sunRanks:move.ranks||[move.rank])){
+          S.rank(target,change.stat,change.stages);G.record(exp,target.name+"의 "+change.stat+" 랭크 변화");
         }
         continue;
       }

@@ -2,7 +2,7 @@ const test=require("node:test"),assert=require("node:assert/strict"),fs=require(
 function boot(){
   const ctx={window:{},performance:{now:()=>0},Date,console,Set,Map,Math};
   const cx=vm.createContext(ctx);
-  for(const p of ["data/national-catalog.js","data/species.js","data/provenance.js","data/natures.js","data/type-chart.js","data.js","data/moves.js","data/imported-techniques.js","data/techniques.js","data/tools.js","engine/experience.js","engine/pokemon.js","engine/damage.js","engine/battle-status.js","engine/core.js","engine/techniques.js","engine/regions.js","engine/tools.js","engine/save.js","engine/battle-experience.js","engine/targeting.js","engine/move-effects.js","engine/combat.js","engine/exploration.js"]){
+  for(const p of ["data/national-catalog.js","data/species.js","data/provenance.js","data/natures.js","data/type-chart.js","data.js","engine/move-tags.js","data/moves.js","data/imported-techniques.js","data/techniques.js","data/tools.js","engine/experience.js","engine/pokemon.js","engine/damage.js","engine/battle-status.js","engine/core.js","engine/techniques.js","engine/regions.js","engine/tools.js","engine/save.js","engine/battle-experience.js","engine/targeting.js","engine/move-effects.js","engine/combat.js","engine/exploration.js"]){
     vm.runInContext(fs.readFileSync(path.join(__dirname,"../game",p),"utf8"),cx,{filename:p});
   }
   return {G:ctx.window.PokeTree,W:ctx.window};
@@ -214,4 +214,27 @@ test("Bulbasaur TM override removes only three overlaps and preserves source, le
  for(const id of removed){G.state.technicalMachines.push(id);assert.match(T.useTM(p,id),/호환되지 않는/);}
  for(const [id,level] of [["M010301",1],["M120101",3],["M120301",6]]){assert.ok(T.levelMoves("bulbasaur",level).includes(id));if(level>1)assert.ok(!T.levelMoves("bulbasaur",level-1).includes(id));}
  for(const [species,s] of Object.entries(G.db.species))for(const [form,f] of Object.entries(s.forms)){if(species==="bulbasaur"&&form==="normal")continue;assert.deepEqual([...T.tmCompatibility(species,form)],[...(T.imported.forms[f.sourcePokemonId]?.machine||[])],species+"/"+form);}
+});
+
+test("tag compiler drives target, priority, hits, critical and rank without duplicated effect fields",()=>{
+ const {W}=boot(),T=W.PokeMoveTags,R=W.POKE_MOVE_DEFINITIONS,M=W.POKE_MOVES;
+ for(const [id,raw] of Object.entries(R)){
+  assert.ok(!Object.hasOwn(raw,"target")&&!Object.hasOwn(raw,"effect"));
+  assert.ok(Object.isFrozen(M[id])&&Object.isFrozen(M[id].tags));
+  for(const tag of raw.tags)assert.equal(T.has(M[id],tag),true);
+ }
+ assert.equal(T.has(M.M010101,"접촉"),true);assert.equal(T.has(M.M010201,"비접촉"),true);
+ assert.equal(T.has(M.M010103,"베기"),true);assert.equal(T.has(M.M010201,"소리"),true);
+ assert.equal(T.compile({...R.M010301,tags:["랭크다운"]}).target,"enemy");
+ const {priority,...normal}=R.M010104;assert.equal(T.compile({...normal,tags:["접촉"]}).priority,0);
+});
+test("tag compiler rejects conflicts, unknown/duplicate tags, missing details, and redundant overrides",()=>{
+ const {W}=boot(),T=W.PokeMoveTags,R=W.POKE_MOVE_DEFINITIONS;
+ for(const raw of [
+ {...R.M010101,tags:["접촉","비접촉"]},{...R.M010101,tags:["접촉","접촉"]},
+ {...R.M010101,tags:["unknown"]},{...R.M010301,tags:["랭크다운","자신","광역-상대"]},
+ {...R.M010101,tags:["연속"]},{...R.M010101,tags:["급소"]},
+ {...R.M010101,tags:["선공기"]},{...R.M010301,rank:undefined},
+ {...R.M010101,target:"self"},{...R.M120301,conditions:{sun:{rank:{speed:2}}}}
+ ])assert.throws(()=>T.compile(raw),/기술 태그 오류/);
 });
