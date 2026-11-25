@@ -64,10 +64,11 @@
     damage=Math.max(1,damage);
     return {damage,category,type,stab,effectiveness:eff,critical,random};
   }
+  function criticalChance(rank=0){return [.05,.125,.5,1][Math.min(3,Math.max(0,rank))];}
   function roll(attacker,defender,options={}){
     const rng=options.rng||Math.random;
-    const forced=options.move?.criticalAgainstTypes?.some(t=>P.template(defender.species,defender.form).form.types.includes(t))===true;
-    const critical=forced||rng()<.05;
+    const forced=options.move?.criticalAlways===true||options.move?.criticalAgainstTypes?.some(t=>P.template(defender.species,defender.form).form.types.includes(t))===true;
+    const critical=forced||rng()<criticalChance(options.move?.criticalRankBonus??0);
     const random=85+Math.floor(rng()*16);
     return compute(attacker,defender,{...options,critical,random});
   }
@@ -79,5 +80,5 @@
     const base=Math.floor(Math.floor(lvl*40*atk/def)/50)+2;
     return Math.max(1,Math.floor(base*(85+Math.floor(rng()*16))/100));
   }
-  window.PokeDamage=Object.freeze({compute,roll,effectiveness,confusionDamage,weatherDefenseMultiplier});
+  window.PokeDamage=Object.freeze({compute,roll,criticalChance,effectiveness,confusionDamage,weatherDefenseMultiplier});
 })();

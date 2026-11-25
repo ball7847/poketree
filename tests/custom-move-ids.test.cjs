@@ -14,13 +14,13 @@ test("ten custom moves are the ONLY executable IDs with approved stats/tags",()=
  assert.equal(W.POKE_MOVES["bullet-seed"],undefined);
  assert.equal(W.POKE_MOVES["quick-attack"],undefined);
  const expected=[
- ["M010101","몸통박치기","physical",40,100,0,["접촉"]],
- ["M010102","막치기","physical",40,100,0,["접촉"]],
- ["M010103","할퀴기","physical",40,100,0,["접촉","베기"]],
- ["M010104","전광석화","physical",40,100,1,["접촉","선공기"]],
- ["M010201","에코보이스","special",30,100,0,["비접촉","소리","연속"]],
- ["M010105","더블어택","physical",35,90,0,["접촉","연속"]],
- ["M010106","풀베기","physical",50,95,0,["접촉","베기","급소"]]
+ ["M010101","몸통박치기","physical",40,100,0,["접촉","단일-적1체"]],
+ ["M010102","막치기","physical",40,100,0,["접촉","단일-적1체"]],
+ ["M010103","할퀴기","physical",40,100,0,["접촉","베기","단일-적1체"]],
+ ["M010104","전광석화","physical",40,100,1,["접촉","선공기","단일-적1체"]],
+ ["M010201","에코보이스","special",30,100,0,["비접촉","소리","연속","단일-적1체"]],
+ ["M010105","더블어택","physical",35,90,0,["접촉","연속","단일-적1체"]],
+ ["M010106","풀베기","physical",50,95,0,["접촉","베기","급소","단일-적1체"]]
  ];
  for(const [id,name,category,power,accuracy,priority,tags] of expected){
    const m=W.POKE_MOVES[id];assert.ok(m,id);assert.equal(m.name,name);
@@ -174,7 +174,7 @@ test("three new moves have the exact approved data and aliases",()=>{
  assert.deepEqual(Object.keys(m).sort(),["M010101","M010102","M010103","M010104","M010105","M010106","M010201","M010301","M120101","M120301"].sort());
  for(const [id,type,category,power,accuracy,target,tags,key] of [
  ["M010301","normal","status",null,100,"enemies",["랭크다운","광역-상대"],"growl"],
- ["M120101","grass","physical",45,100,"enemy",["접촉"],"vine-whip"],
+ ["M120101","grass","physical",45,100,"enemy",["접촉","단일-적1체"],"vine-whip"],
  ["M120301","grass","status",null,null,"self",["랭크업","자신"],"growth"]]){
  const x=m[id];assert.equal(x.type,type);assert.equal(x.category,category);assert.equal(x.power,power);assert.equal(x.accuracy,accuracy);assert.equal(x.target,target);assert.deepEqual([...x.tags],tags);assert.equal(W.POKE_MOVE_CUSTOM_MAP[key],id);
  }
@@ -225,8 +225,8 @@ test("tag compiler drives target, priority, hits, critical and rank without dupl
  }
  assert.equal(T.has(M.M010101,"접촉"),true);assert.equal(T.has(M.M010201,"비접촉"),true);
  assert.equal(T.has(M.M010103,"베기"),true);assert.equal(T.has(M.M010201,"소리"),true);
- assert.equal(T.compile({...R.M010301,tags:["랭크다운"]}).target,"enemy");
- const {priority,...normal}=R.M010104;assert.equal(T.compile({...normal,tags:["접촉"]}).priority,0);
+ assert.equal(T.compile({...R.M010301,tags:["랭크다운","단일-적1체"]}).target,"enemy");
+ const {priority,...normal}=R.M010104;assert.equal(T.compile({...normal,tags:["접촉","단일-적1체"]}).priority,0);
 });
 test("tag compiler rejects conflicts, unknown/duplicate tags, missing details, and redundant overrides",()=>{
  const {W}=boot(),T=W.PokeMoveTags,R=W.POKE_MOVE_DEFINITIONS;
@@ -237,4 +237,64 @@ test("tag compiler rejects conflicts, unknown/duplicate tags, missing details, a
  {...R.M010101,tags:["선공기"]},{...R.M010301,rank:undefined},
  {...R.M010101,target:"self"},{...R.M120301,conditions:{sun:{rank:{speed:2}}}}
  ])assert.throws(()=>T.compile(raw),/기술 태그 오류/);
+});
+
+test("all seven target tags select correct living sides, including enemy users",()=>{
+ const {G,W}=boot(),T=W.PokeMoveTags,Q=W.PokeTargeting;
+ const make=(id,side)=>G.Pokemon.create({id,species:"eevee",level:10,side});
+ const a=make("a","ally"),b=make("b","ally"),c=make("c","ally"),x=make("x","enemy"),y=make("y","enemy"),z=make("z","enemy");
+ z.hp=0;c.hp=0;const exp={party:[a,b,c],enemies:[x,y,z]};
+ const expected={"광역-전체":["b","x","y"],"광역-아군":["a","b"],"광역-상대":["x","y"],"단일-아군1체":["b"],"단일-적1체":["x","y"],"단일-적2체":["x","y"],"자신":["a"]};
+ const reverse={"광역-전체":["a","b","y"],"광역-아군":["x","y"],"광역-상대":["a","b"],"단일-아군1체":["y"],"단일-적1체":["a","b"],"단일-적2체":["a","b"],"자신":["x"]};
+ for(const tag of Object.keys(expected)){
+ const move=T.compile({...W.POKE_MOVE_DEFINITIONS.M010101,tags:["접촉",tag]});
+ assert.deepEqual([...Q.candidates(exp,a,move)].map(u=>u.id).sort(),expected[tag].sort());
+ assert.deepEqual([...Q.candidates(exp,x,move)].map(u=>u.id).sort(),reverse[tag].sort());
+ }
+ b.hp=0;const move=T.compile({...W.POKE_MOVE_DEFINITIONS.M010101,tags:["단일-아군1체"]});assert.equal(Q.selectTarget(exp,a,{move}),null);
+});
+test("two-enemy target chooses distinct top TP, lone enemy receives one strike only",()=>{
+ const {G,W}=boot(),Q=W.PokeTargeting,M=W.PokeMoveEffects;
+ const make=(id,species,side)=>G.Pokemon.create({id,species,level:30,side});
+ const a=make("a","bulbasaur","ally"),x=make("x","geodude","enemy"),y=make("y","squirtle","enemy"),z=make("z","charmander","enemy");
+ const exp={id:"test",party:[a],enemies:[x,y,z],logs:[]};
+ const move=W.PokeMoveTags.compile({...W.POKE_MOVE_DEFINITIONS.M120101,tags:["접촉","단일-적2체"]});
+ let plan=Q.selectTarget(exp,a,{move});assert.deepEqual([...plan.targetIds],["x","y"]);
+ const old=Math.random;
+ try{Math.random=()=>0;a.pp=100;M.execute(exp,a,plan,()=>{});assert.equal(a.pp,0);assert.equal(exp.logs.filter(l=>l.message.includes(" → ")).length,2);
+ x.hp=0;y.hp=0;exp.logs=[];a.pp=100;plan=Q.selectTarget(exp,a,{move});assert.deepEqual([...plan.targetIds],["z"]);
+ M.execute(exp,a,plan,()=>{});assert.equal(exp.logs.filter(l=>l.message.includes(" → ")).length,1);assert.equal(a.pp,0);
+ }finally{Math.random=old;}
+});
+test("all-other spread damages allies and enemies, awards enemy faint only, excludes user",()=>{
+ const {G,W}=boot(),M=W.PokeMoveEffects,Q=W.PokeTargeting;
+ const make=(id,side)=>G.Pokemon.create({id,species:"eevee",level:30,side});
+ const a=make("a","ally"),b=make("b","ally"),x=make("x","enemy");b.hp=1;x.hp=1;
+ const exp={id:"test",party:[a,b],enemies:[x],logs:[]},hp=a.hp,faints=[];
+ const move=W.PokeMoveTags.compile({...W.POKE_MOVE_DEFINITIONS.M010101,tags:["광역-전체"]});
+ const old=Math.random;try{Math.random=()=>0;a.pp=100;M.execute(exp,a,Q.selectTarget(exp,a,{move}),(u,award)=>faints.push([u.id,award]));}finally{Math.random=old;}
+ assert.equal(a.hp,hp);assert.equal(b.hp,0);assert.equal(x.hp,0);assert.deepEqual(faints,[["b",false],["x",true]]);assert.equal(a.pp,0);
+});
+test("fixed and random multi-hit tags and exact probability boundaries",()=>{
+ const {W}=boot(),T=W.PokeMoveTags,M=W.PokeMoveEffects;
+ const raw={...W.POKE_MOVE_DEFINITIONS.M010101,tags:["연속","단일-적1체"]};
+ const fixed=T.compile({...raw,hits:{mode:"fixed",count:3}}),random=T.compile({...raw,hits:{mode:"random",min:2,max:5}});
+ assert.equal(M.hitCount(fixed,()=>.99),3);
+ for(const [r,n] of [[0,2],[.349,2],[.35,3],[.699,3],[.70,4],[.849,4],[.85,5],[.999,5]])assert.equal(M.hitCount(random,()=>r),n);
+});
+test("critical tag modes, probability boundaries, and move-only bonus",()=>{
+ const {G,W}=boot(),D=W.PokeDamage,T=W.PokeMoveTags;
+ const a=G.Pokemon.create({id:"a",species:"eevee",level:30}),b=G.Pokemon.create({id:"b",species:"eevee",level:30});
+ const raw={...W.POKE_MOVE_DEFINITIONS.M010101,tags:["급소","단일-적1체"]};
+ const always=T.compile({...raw,critical:{mode:"always"}}),bonus=T.compile({...raw,critical:{mode:"rank",bonus:1}});
+ assert.equal(D.roll(a,b,{move:always,rng:()=>.99}).critical,true);
+ assert.equal(D.roll(a,b,{move:bonus,rng:()=>.124}).critical,true);
+ assert.equal(D.roll(a,b,{move:bonus,rng:()=>.125}).critical,false);
+ assert.equal(D.roll(a,b,{move:W.POKE_MOVES.M010101,rng:()=>.1}).critical,false);
+ assert.equal(D.roll(a,b,{rng:()=>.1}).critical,false);
+ assert.deepEqual([0,1,2,3,4].map(D.criticalChance),[.05,.125,.5,1,1]);
+});
+test("expanded tags reject missing or multiple target tags and malformed hit/critical details",()=>{
+ const {W}=boot(),T=W.PokeMoveTags,r=W.POKE_MOVE_DEFINITIONS.M010101;
+ for(const bad of [{...r,tags:["접촉"]},{...r,tags:["자신","단일-적1체"]},{...r,tags:["연속","단일-적1체"],hits:{mode:"random",min:1,max:5}},{...r,tags:["급소","단일-적1체"],critical:{mode:"rank",bonus:2}}])assert.throws(()=>T.compile(bad),/기술 태그 오류/);
 });

@@ -7,10 +7,10 @@
     const base=Math.floor((target.maxHp+user.spAttack)/4);
     return area||user!==target?Math.floor(base*2/3):base;
   }
-  function hitCount(move){
+  function hitCount(move,rng=Math.random){
     if(Number.isInteger(move.fixedHits)&&move.fixedHits>0)return move.fixedHits;
     if(!move.hits)return 1;
-    const r=Math.random();
+    const r=rng();
     return r<.35?2:r<.70?3:r<.85?4:5;
   }
   function execute(exp,user,plan,applyFaint){
@@ -23,7 +23,10 @@
       return {failed:true,reason:"insufficient-pp"};
     const targets=window.PokeTargeting.candidates(exp,user,move);
     let chosen=targets;
-    if(!["enemies","allies","field"].includes(move.target)){
+    if(move.target==="twoEnemies"){
+      if(!Array.isArray(plan.targetIds)||plan.targetIds.length>2)return {failed:true,reason:"invalid-targets"};
+      chosen=[...new Set(plan.targetIds)].map(id=>targets.find(u=>u.id===id)).filter(Boolean);
+    }else if(!["enemies","allies","others","field"].includes(move.target)){
       const t=targets.find(u=>u.id===plan.targetId);
       if(!t)return {failed:true};
       chosen=[t];
@@ -36,7 +39,7 @@
     for(const target of chosen){
       // Psychic Terrain protects grounded foes from positive-priority attacks.
       if(exp.terrain?.kind==="psychic"&&move.priority>0&&
-         (move.target==="enemy")&&S.grounded(target)){
+         (["enemy","twoEnemies"].includes(move.target))&&S.grounded(target)){
         G.record(exp,target.name+" · 사이코필드로 우선도 기술 차단");continue;
       }
       const probability=S.accuracy(move,user,target);
@@ -61,7 +64,8 @@
       }
       if(move.effect==="weather"){exp.weather={kind:move.weather,remaining:move.duration};G.record(exp,"날씨: "+move.weather);continue;}
       if(move.effect==="terrain"){exp.terrain={kind:move.terrain,remaining:move.duration};G.record(exp,"필드: "+move.terrain);continue;}
-      const count=hitCount(move);
+      // Two distinct target slots are not two strikes on a lone opponent.
+      const count=move.target==="twoEnemies"?1:hitCount(move);
       for(let i=0;i<count;i++){
         // Certain original multi-hit moves check accuracy on every hit and
         // terminate on their first miss. Others check only once above.
@@ -96,7 +100,7 @@
     }
     // All self-inflicted fainting resolves before enemy experience distribution.
     if(user.hp===0)applyFaint(user,false);
-    for(const enemy of faintCandidates)if(enemy.hp===0)applyFaint(enemy,true);
+    for(const target of faintCandidates)if(target!==user&&target.hp===0)applyFaint(target,target.side==="enemy");
     return {failed:false};
   }
   window.PokeMoveEffects=Object.freeze({execute,healAmount,hitCount});

@@ -8,15 +8,15 @@
  */
 window.POKE_MOVE_DEFINITIONS=Object.freeze({
   // Player-authored PokeTree move IDs; source learnset aliases are mapped below.
-  "M010101":{name:"몸통박치기",type:"normal",category:"physical",power:40,accuracy:100,tags:["접촉"],source:"poketree"},
-  "M010102":{name:"막치기",type:"normal",category:"physical",power:40,accuracy:100,tags:["접촉"],source:"poketree"},
-  "M010103":{name:"할퀴기",type:"normal",category:"physical",power:40,accuracy:100,tags:["접촉","베기"],source:"poketree"},
-  "M010104":{name:"전광석화",type:"normal",category:"physical",power:40,accuracy:100,priority:1,tags:["접촉","선공기"],source:"poketree"},
-  "M010201":{name:"에코보이스",type:"normal",category:"special",power:30,accuracy:100,hitCount:2,tags:["비접촉","소리","연속"],source:"poketree"},
-  "M010105":{name:"더블어택",type:"normal",category:"physical",power:35,accuracy:90,hitCount:2,tags:["접촉","연속"],source:"poketree"},
-  "M010106":{name:"풀베기",type:"normal",category:"physical",power:50,accuracy:95,criticalTypes:["grass"],tags:["접촉","베기","급소"],source:"poketree"},
+  "M010101":{name:"몸통박치기",type:"normal",category:"physical",power:40,accuracy:100,tags:["접촉","단일-적1체"],source:"poketree"},
+  "M010102":{name:"막치기",type:"normal",category:"physical",power:40,accuracy:100,tags:["접촉","단일-적1체"],source:"poketree"},
+  "M010103":{name:"할퀴기",type:"normal",category:"physical",power:40,accuracy:100,tags:["접촉","베기","단일-적1체"],source:"poketree"},
+  "M010104":{name:"전광석화",type:"normal",category:"physical",power:40,accuracy:100,priority:1,tags:["접촉","선공기","단일-적1체"],source:"poketree"},
+  "M010201":{name:"에코보이스",type:"normal",category:"special",power:30,accuracy:100,hits:{mode:"fixed",count:2},tags:["비접촉","소리","연속","단일-적1체"],source:"poketree"},
+  "M010105":{name:"더블어택",type:"normal",category:"physical",power:35,accuracy:90,hits:{mode:"fixed",count:2},tags:["접촉","연속","단일-적1체"],source:"poketree"},
+  "M010106":{name:"풀베기",type:"normal",category:"physical",power:50,accuracy:95,critical:{mode:"conditional",targetTypes:["grass"]},tags:["접촉","베기","급소","단일-적1체"],source:"poketree"},
   "M010301":{name:"울음소리",type:"normal",category:"status",power:null,accuracy:100,rank:{attack:1},tags:["랭크다운","광역-상대"],source:"poketree"},
-  "M120101":{name:"덩굴채찍",type:"grass",category:"physical",power:45,accuracy:100,tags:["접촉"],source:"poketree"},
+  "M120101":{name:"덩굴채찍",type:"grass",category:"physical",power:45,accuracy:100,tags:["접촉","단일-적1체"],source:"poketree"},
   "M120301":{name:"성장",type:"grass",category:"status",power:null,accuracy:null,rank:{attack:1,spAttack:1},conditions:{sun:{rank:{attack:2,spAttack:2}}},tags:["랭크업","자신"],source:"poketree"}
 });
 window.POKE_MOVES=window.PokeMoveTags.registry(window.POKE_MOVE_DEFINITIONS);

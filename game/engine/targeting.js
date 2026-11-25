@@ -6,11 +6,13 @@
     return ratio<=.25?5:ratio<=.5?3:ratio<=.75?1:-1;
   }
   function candidates(exp,unit,move){
-    if(move.target==="field"||move.target==="self")return [unit];
-    if(move.target==="ally"||move.target==="allies")
-      return (unit.side==="ally"?exp.party:exp.enemies).filter(u=>u.hp>0);
-    if(move.target==="enemy"||move.target==="enemies")
-      return (unit.side==="ally"?exp.enemies:exp.party).filter(u=>u.hp>0);
+    if(move.target==="field"||move.target==="self")return unit.hp>0?[unit]:[];
+    const allies=(unit.side==="ally"?exp.party:exp.enemies).filter(u=>u.hp>0);
+    const enemies=(unit.side==="ally"?exp.enemies:exp.party).filter(u=>u.hp>0);
+    if(move.target==="others")return [...allies.filter(u=>u!==unit),...enemies];
+    if(move.target==="otherAlly")return allies.filter(u=>u!==unit);
+    if(move.target==="ally"||move.target==="allies")return allies;
+    if(["enemy","enemies","twoEnemies"].includes(move.target))return enemies;
     return [];
   }
   function points(unit,move,target){
@@ -61,9 +63,14 @@
     if(!plan?.move)return null;
     const targets=candidates(exp,unit,plan.move);
     if(!targets.length)return null;
-    if(["enemies","allies","field"].includes(plan.move.target))
+    if(["enemies","allies","others","field"].includes(plan.move.target))
       return {...plan,targetId:null};
-    const target=best(targets.map(t=>({targetId:t.id,score:points(unit,plan.move,t)})));
+    const choices=targets.map(t=>({targetId:t.id,score:points(unit,plan.move,t)}));
+    if(plan.move.target==="twoEnemies"){
+      const first=best(choices),second=best(choices.filter(t=>t.targetId!==first.targetId));
+      return {...plan,targetId:null,targetIds:second?[first.targetId,second.targetId]:[first.targetId]};
+    }
+    const target=best(choices);
     return {...plan,targetId:target.targetId};
   }
   // Historical API remains as a compatibility alias for older tests/callers.
